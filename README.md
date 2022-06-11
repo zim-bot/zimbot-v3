@@ -6,7 +6,7 @@
  </a>
 </p>
 <p align="center">
-<img src="https://i.imgur.com/LbmTdhf.gif" alt="animated" width="540" height="280" />
+<img src="https://i.imgur.com/LbmTdhf.gif" alt="animated"  />
 </p>
 
 ## [![WhatsApp Group](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/EFsb8RCXV4jLEFk4eAcA1A) [![NodeJs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
@@ -15,7 +15,7 @@
 > 
 ## DONT FORGET TO GIVE A STAR🌟 AND FORK
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/zim-bot/zimbot-v2)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/zim-bot/zimbot-v3)
 
 ## BUILD PACKS
 
@@ -44,9 +44,9 @@ apt install git
 
 apt update && apt upgrade
 
-git clone https://github.com/zim-bot/zimbot-v2
+git clone https://github.com/zim-bot/zimbot-v3
  
-cd zimbot-v2
+cd zimbot-v3
 
 npm install
 
