@@ -15,19 +15,20 @@
 > 
 ## DONT FORGET TO GIVE A STAR🌟 AND FORK
 
+
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/zim-bot/zimbot-v3)
 
 ## BUILD PACKS
 
 ```
 https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest
-
-https://github.com/DuckyTeam/heroku-buildpack-imagemagick
-
-
 https://github.com/clhuang/heroku-buildpack-webp-binaries.git
 
+https://github.com/DuckyTeam/heroku-buildpack-imagemagick
 ```
+[![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@ReinhardTuna/Zimbot-v3-QR?v=1)
+<img src="https://fontmeme.com/permalink/220116/0c42dc0b64931810388ba399da55e927.png" alt="backwoods-logo-font" border="0"></a>  
 
  ##  > THIS BOT CODED BY DRIPS MEMES ZIM BOT INC 
 
