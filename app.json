@@ -1,7 +1,27 @@
 {
-	"name": "ZIM BOT",
-	"description": "WhatsApp Bot Using Lib Baileys",
-	"repository": "https://github.com/DikaArdnt/Hisoka-Morou",
-	"logo": "https://node-js-sample.herokuapp.com/node.png",
-	"keywords": ["multi-device"]
+  "name": "Zim Bot Inc",
+  "description": "whatsapp md bot build with nodejs",
+  "repository": "https://github.com/zim-bot/tuna-bot",
+  "logo": "https://i.imgur.com/rANDwCP.jpeg",
+  "keywords": ["nodejs", "bot", "whatsapp bot", "whatsapp automation", "multi device"],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick"
+    },
+    {
+      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
+    }
+  ],
+   "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
 }
