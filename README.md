@@ -5,9 +5,8 @@
  WhatsApp with so Many features using multi device  [BAILEYS](https://github.com/adiwajshing/baileys)
  </a>
 </p>
-<div align="center">
-  <p align="center">
-<img src=https://i.imgur.com/LbmTdhf.gif>
+<p align="center">
+<img src="https://i.imgur.com/LbmTdhf.gif" alt="animated" width="540" height="280" />
 </p>
 
 ## [![WhatsApp Group](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/EFsb8RCXV4jLEFk4eAcA1A) [![NodeJs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
