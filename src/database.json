@@ -1,6 +1,6 @@
 {
   "users": {
-    "27653087370@s.whatsapp.net": {
+    "263713483496@s.whatsapp.net": {
       "afkTime": -1,
       "afkReason": ""
     },
@@ -10,13 +10,19 @@
     }
   },
   "chats": {
-    "27653087370@s.whatsapp.net": {
+    "263713483496@s.whatsapp.net": {
       "mute": false,
       "wame": false,
       "antilink": false,
       "antilinkyt": false
     },
-    "120363041608037018@g.us": {
+    "27634090203@s.whatsapp.net": {
+      "mute": false,
+      "wame": false,
+      "antilink": false,
+      "antilinkyt": false
+    },
+    "120363024635976446@g.us": {
       "mute": false,
       "wame": false,
       "antilink": false,
@@ -37,8 +43,8 @@
     "tebakan": []
   },
   "settings": {
-    "27653087370@s.whatsapp.net": {
-      "status": 1655197880531,
+    "263713483496@s.whatsapp.net": {
+      "status": 1655225450104,
       "autobio": true,
       "templateImage": false,
       "templateLocation": false,
