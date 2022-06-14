@@ -21,8 +21,8 @@
 //┃THANKS TO DIKA ARDNT
 //┗━━━━━━━━━━━━━━━━━━━━━━━━━
 //
-const fs = require('fs')
-const chalk = require('chalk')
+ import * as fs  from'fs'
+import chalk from'chalk'
 
 // Website Api
 global.APIs = {
