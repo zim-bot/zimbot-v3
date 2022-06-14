@@ -1,0 +1,32 @@
+{
+  "name": "kitsune-api",
+  "version": "0.0.0",
+  "description": "Scrape Module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IqbalzzX/scraper.git"
+  },
+  "keywords": [
+    "YNTKTS"
+  ],
+  "author": "IqbalzzX",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IqbalzzX/scraper/issues"
+  },
+  "homepage": "https://github.com/IqbalzzX/scraper#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cheerio": "^1.0.0-rc.10",
+    "request": "^2.88.2",
+    "node-fetch": "^3.2.3",
+    "qs": "^6.10.3"
+  },
+  "directories": {
+    "lib": "lib"
+  }
+}
