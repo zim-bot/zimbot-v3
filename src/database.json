@@ -1,76 +1,24 @@
 {
   "users": {
-    "27683276659@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": ""
-    },
-    "212648480061@s.whatsapp.net": {
+    "27653087370@s.whatsapp.net": {
       "afkTime": -1,
       "afkReason": ""
     },
     "27634090203@s.whatsapp.net": {
       "afkTime": -1,
       "afkReason": ""
-    },
-    "447441437150@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": ""
-    },
-    "212700585397@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": ""
-    },
-    "212693524780@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": ""
-    },
-    "212698478686@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": ""
-    },
-    "212773073651@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": ""
     }
   },
   "chats": {
-    "27683276659@s.whatsapp.net": {
+    "27653087370@s.whatsapp.net": {
       "mute": false,
+      "wame": false,
       "antilink": false,
       "antilinkyt": false
     },
-    "212648480061@s.whatsapp.net": {
+    "120363041608037018@g.us": {
       "mute": false,
-      "antilink": false,
-      "antilinkyt": false
-    },
-    "120363041933152186@g.us": {
-      "mute": false,
-      "antilink": false,
-      "antilinkyt": false
-    },
-    "120363045262056237@g.us": {
-      "mute": false,
-      "antilink": false,
-      "antilinkyt": false
-    },
-    "212700585397@s.whatsapp.net": {
-      "mute": false,
-      "antilink": false,
-      "antilinkyt": false
-    },
-    "212693524780@s.whatsapp.net": {
-      "mute": false,
-      "antilink": false,
-      "antilinkyt": false
-    },
-    "212698478686@s.whatsapp.net": {
-      "mute": false,
-      "antilink": false,
-      "antilinkyt": false
-    },
-    "212773073651@s.whatsapp.net": {
-      "mute": false,
+      "wame": false,
       "antilink": false,
       "antilinkyt": false
     }
@@ -89,15 +37,15 @@
     "tebakan": []
   },
   "settings": {
-    "27683276659@s.whatsapp.net": {
-      "status": 0,
-      "autobio": false,
+    "27653087370@s.whatsapp.net": {
+      "status": 1655197880531,
+      "autobio": true,
       "templateImage": false,
       "templateLocation": false,
-      "templateGif": true,
+      "templateGif": false,
       "templateMsg": false,
       "templateList": false,
-      "templateDoc": false
+      "templateDoc": true
     }
   },
   "others": {

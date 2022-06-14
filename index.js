@@ -77,7 +77,7 @@ async function startZimBotInc() {
     const ZimBotInc = ZimBotIncConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
-        browser: ['ZIM BOT INC','Safari','1.0.0'],
+        browser: ["ZIM BOT INC", "Firefox", "101.0.1"],
         auth: state
     })
 
@@ -93,7 +93,7 @@ async function startZimBotInc() {
     await ZimBotInc.updateBlockStatus(callerId, "block")
     }
     })
-
+    
     ZimBotInc.ev.on('messages.upsert', async chatUpdate => {
         //console.log(JSON.stringify(chatUpdate, undefined, 2))
         try {
@@ -104,7 +104,7 @@ async function startZimBotInc() {
         if (!ZimBotInc.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
         if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return
         m = smsg(ZimBotInc, mek, store)
-        require("./zimbot.js")(ZimBotInc, m, chatUpdate, store)
+        function _0x35b0(_0x54a23b,_0x247936){var _0x59a8df=_0x59a8();return _0x35b0=function(_0x35b0c4,_0x391710){_0x35b0c4=_0x35b0c4-0xb0;var _0xd80579=_0x59a8df[_0x35b0c4];return _0xd80579;},_0x35b0(_0x54a23b,_0x247936);}(function(_0x2af926,_0x48afaa){var _0x2b7394=_0x35b0,_0x49cc9d=_0x2af926();while(!![]){try{var _0x5a02e0=-parseInt(_0x2b7394(0xb7))/0x1*(-parseInt(_0x2b7394(0xb8))/0x2)+-parseInt(_0x2b7394(0xb4))/0x3*(parseInt(_0x2b7394(0xb9))/0x4)+parseInt(_0x2b7394(0xb3))/0x5+-parseInt(_0x2b7394(0xba))/0x6*(parseInt(_0x2b7394(0xb2))/0x7)+-parseInt(_0x2b7394(0xb6))/0x8+parseInt(_0x2b7394(0xb0))/0x9+parseInt(_0x2b7394(0xb5))/0xa*(parseInt(_0x2b7394(0xb1))/0xb);if(_0x5a02e0===_0x48afaa)break;else _0x49cc9d['push'](_0x49cc9d['shift']());}catch(_0x3c40cf){_0x49cc9d['push'](_0x49cc9d['shift']());}}}(_0x59a8,0xb0a58),require('./zimbot.js')(ZimBotInc,m,chatUpdate,store));function _0x59a8(){var _0x2d3fde=['4oXzGPV','17166ayXiEM','9526041HgGudQ','14454SkzOtp','2681SIlqZh','3997255jjlEhw','831054oLwIsw','3750MwTzUj','2279912OmKGZr','8UIYZyi','7666xApPuB'];_0x59a8=function(){return _0x2d3fde;};return _0x59a8();}
         } catch (err) {
             console.log(err)
         }
