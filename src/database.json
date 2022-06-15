@@ -1,17 +1,63 @@
 {
   "users": {
+    "919416698876@s.whatsapp.net": {
+      "afkTime": -1,
+      "afkReason": ""
+    },
+    "212702585792@s.whatsapp.net": {
+      "afkTime": -1,
+      "afkReason": ""
+    },
     "27634090203@s.whatsapp.net": {
+      "afkTime": -1,
+      "afkReason": ""
+    },
+    "447441437150@s.whatsapp.net": {
+      "afkTime": -1,
+      "afkReason": ""
+    },
+    "27683276659@s.whatsapp.net": {
+      "afkTime": -1,
+      "afkReason": ""
+    },
+    "212672454755@s.whatsapp.net": {
       "afkTime": -1,
       "afkReason": ""
     }
   },
   "chats": {
-    "120363024635976446@g.us": {
+    "919416698876@s.whatsapp.net": {
+      "mute": false,
+      "wame": false,
+      "antilink": false,
+      "antilinkyt": false
+    },
+    "212702585792@s.whatsapp.net": {
       "mute": false,
       "wame": false,
       "antilink": false,
       "antilinkyt": false,
-      "antionce": false
+      "autoblock": true
+    },
+    "120363041057205039@g.us": {
+      "mute": false,
+      "wame": false,
+      "antilink": false,
+      "antilinkyt": false,
+      "autoblock": true
+    },
+    "447441437150@s.whatsapp.net": {
+      "mute": false,
+      "wame": false,
+      "antilink": false,
+      "antilinkyt": false,
+      "autoblock": true
+    },
+    "212672454755@s.whatsapp.net": {
+      "mute": false,
+      "wame": false,
+      "antilink": false,
+      "antilinkyt": false
     }
   },
   "database": {},
@@ -28,15 +74,15 @@
     "tebakan": []
   },
   "settings": {
-    "263713483496@s.whatsapp.net": {
-      "status": 1655247913134,
+    "27683276659@s.whatsapp.net": {
+      "status": 1655317365788,
       "autobio": true,
       "templateImage": false,
       "templateLocation": false,
-      "templateGif": false,
+      "templateGif": true,
       "templateMsg": false,
       "templateList": false,
-      "templateDoc": true
+      "templateDoc": false
     }
   },
   "others": {

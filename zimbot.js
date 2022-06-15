@@ -18,7 +18,10 @@
 //┃SOME ENCRYPTED FILES
 //┃
 //┃THANKS FOR CHOOSING ZIMBOT
-//┃THANKS TO DIKA ARDNT
+//┃THANKS TO DikaArdnt
+//┃BEHOLD THE NEW
+//┃
+//┃LET LOVE LEAD
 //┗━━━━━━━━━━━━━━━━━━━━━━━━━
 //
 
@@ -38,6 +41,7 @@ const axios = require('axios')
 const path = require('path')
 const fetch = require('node-fetch')
 const google = require('google-it')
+let { msgFilter } = require('./lib/antispam')
 const os = require('os')
 const hx = require('hxz-api')
 const mel = require('kitsune-api')
@@ -55,6 +59,7 @@ const level = require('./lib/level')
 const { mediafireDl } = require('./lib/mediafire.js')
 const _antivirtex = JSON.parse(fs.readFileSync('./database/antivirtex.json'))
 const zimbot = JSON.parse(fs.readFileSync('./database/zimbot.json'))
+
 
 //apikeys zvibhorani izvi
 const setting = JSON.parse(fs.readFileSync('./apikey.json'))
@@ -96,6 +101,7 @@ const  dripsantivid  = JSON.parse(fs.readFileSync('./database/antitelegram.json'
 const ntilinkytvid  = JSON.parse(fs.readFileSync('./database/antilinkall.json'))
 const dripsanti = JSON.parse(fs.readFileSync('./lib/rude.json'))
 let bad = JSON.parse(fs.readFileSync('./lib/rude.json'))
+const  autoblock = JSON.parse(fs.readFileSync('./database/autoblock.json'))
 
 
 //////created by zim-bot-inc
@@ -119,9 +125,9 @@ module.exports = ZimBotInc = async (ZimBotInc, m, chatUpdate, store) => {
         const isBan = banned.includes(m.sender)
         const mime = (quoted.msg || quoted).mimetype || ''
 	    const isMedia = /image|video|sticker|audio/.test(mime)
-        
+        const isAutoblock =  autoblock.includes('@s.whatsapp.net') 
 	
-        //────────────────────[ GROUP ]────────────────────
+        //GROUP METADATA
         const groupMetadata = m.isGroup ? await ZimBotInc.groupMetadata(m.chat).catch(e => {}) : ''
         const groupName = m.isGroup ? groupMetadata.subject : ''
         const participants = m.isGroup ? await groupMetadata.participants : ''
@@ -134,7 +140,7 @@ module.exports = ZimBotInc = async (ZimBotInc, m, chatUpdate, store) => {
         const isAntilinkyt = m.isGroup ? antilinkyt.includes(m.chat) : false
         const isAntibule = m.isGroup ? antibule.includes(m.chat) : false
         const antiToxic = m.isGroup ? dripsanti.includes(from) : false
-        const messagesD = body.slice(0).trim().split(/ +/).shift().toLowerCase()
+        const zimbotincv3 = body.slice(0).trim().split(/ +/).shift().toLowerCase()
         const isAntiLinkYoutubeChannel = m.isGroup ? dripsantiyt.includes(m.chat) : false
         const isAntiLinkInstagram = m.isGroup ? dripsantiig.includes(m.chat) : false
         const isAntiLinkFacebook = m.isGroup ? dripsantifb.includes(m.chat) : false
@@ -142,6 +148,7 @@ module.exports = ZimBotInc = async (ZimBotInc, m, chatUpdate, store) => {
         const isAntiLinkTelegram = m.isGroup ? dripsantitele.includes(m.chat) : false
         const isAntiLinkTwitter = m.isGroup ? dripsantitwt.includes(m.chat) : false
         const isAntiLinkAll = m.isGroup ? antilinkall.includes(m.chat) : false
+        
         
 
         
@@ -151,7 +158,7 @@ module.exports = ZimBotInc = async (ZimBotInc, m, chatUpdate, store) => {
         
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
          
-//tanggalan e alya
+//zim bot inc
 
 const timuu = moment.tz('Africa/Harare').format('HH:mm:ss')
 const hariRaya = new Date('Apr 02, 2022 01:45:00')
@@ -254,8 +261,10 @@ switch(hari) {
     var yy = tgl.getYear()
     var year = (yy < 1000) ? yy + 1900 : yy;
     const ini_tanggal = `${day} - ${myMonths[bulan]} - ${year}`
+    //message filter
+    if (isCmd) msgFilter.addFilter(from)
     
-// UCAPAN LEMBUT
+// TIME 
 const time2 = moment().tz('Africa/Harare').format('HH:mm:ss')
 if(time2 < "23:59:00"){
 var ucapannya2 = `Good Night 🌒`
@@ -371,10 +380,10 @@ var _0x10f373=_0x3e30;function _0x3e30(_0x20a962,_0xfdc4e2){var _0x59aa1f=_0x59a
 
 // random 
 
-let mealya = fs.readFileSync('./lib/namaku.js')
-jsonLiya = JSON.parse(mealya)
-randIndex = Math.floor(Math.random() * jsonLiya.length)
-randek = jsonLiya[randIndex];
+let medrips = fs.readFileSync('./lib/namaku.js')
+jsonDrips = JSON.parse(medrips)
+randIndex = Math.floor(Math.random() * jsonDrips.length)
+randek = jsonDrips[randIndex];
 
 // Random Image Simple Menu
 
@@ -404,6 +413,7 @@ randek = jsonLiya[randIndex];
                 if (!('mute' in chats)) chats.mute = false
                 if (!('antilink' in chats)) chats.antilink = false
                 if (!('antilinkyt' in chats)) chats.antilinkyt = false
+                if (!('autoblock' in chats)) chats.autoblock = true
                 
                 if (!('wame' in chats)) chats.wame = false
             } else global.db.data.chats[m.chat] = {
@@ -445,7 +455,7 @@ randek = jsonLiya[randIndex];
             console.error(err)
         }
 	    
-        //────────────────────[ PUBLIC & SELF ]────────────────────
+        //public or self
         if (!ZimBotInc.public) {
             if (!m.key.fromMe) return
         }
@@ -461,7 +471,7 @@ randek = jsonLiya[randIndex];
         // Push Message To Console && Auto Read
         if (m.message) {
             ZimBotInc.sendReadReceipt(m.chat, m.sender, [m.key.id])
-            console.log(chalk.blue(chalk.bgWhite('ZIMBOT')), chalk.whiteBright(chalk.bgRed(new Date)), chalk.black(chalk.bgRed(budy || m.mtype)) + '\n' + chalk.magenta('=> Dari'), chalk.bgYellowBright(pushname), chalk.bgGray(m.sender) + '\n' + chalk.bgCyanBright('RECIEVED'), chalk.yellowBright(m.isGroup ? pushname : 'DM', m.chat))
+            console.log(chalk.blue(chalk.bgWhite('ZIMBOT')), chalk.whiteBright(chalk.bgRed(new Date)), chalk.black(chalk.bgRed(budy || m.mtype)) + '\n' + chalk.magenta('⦿ FROM'), chalk.bgYellowBright(pushname), chalk.bgGray(m.sender) + '\n' + chalk.bgCyanBright('RECIEVED'), chalk.yellowBright(m.isGroup ? pushname : 'DM', m.chat))
         }
 	
 	//Auto reset
@@ -522,7 +532,7 @@ return '```' + abantyulidab+ '```'
 
 
 
-//────────────────────[ lvlig ]────────────────────
+//LEVEL
   
 const levelRole = level.getLevelingLevel(m.sender, _level)
         var role = 'Warrior III'
@@ -571,8 +581,7 @@ const levelRole = level.getLevelingLevel(m.sender, _level)
         } 
 
 
-        const _0xcd719e=_0x515e;(function(_0x3226f0,_0x48c245){const _0x47923a=_0x515e,_0xf755c8=_0x3226f0();while(!![]){try{const _0x4cd394=-parseInt(_0x47923a(0x133))/0x1*(parseInt(_0x47923a(0x106))/0x2)+-parseInt(_0x47923a(0x116))/0x3+-parseInt(_0x47923a(0x129))/0x4*(parseInt(_0x47923a(0x11a))/0x5)+parseInt(_0x47923a(0xfc))/0x6+parseInt(_0x47923a(0x11b))/0x7+parseInt(_0x47923a(0x139))/0x8+parseInt(_0x47923a(0x13a))/0x9;if(_0x4cd394===_0x48c245)break;else _0xf755c8['push'](_0xf755c8['shift']());}catch(_0x44e216){_0xf755c8['push'](_0xf755c8['shift']());}}}(_0x160e,0x65cc1));if(isAntiLinkInstagram){if(budy['includes'](_0xcd719e(0x115))){if(!isBotAdmins)return;zimbotv3=_0xcd719e(0x12b);if(isAdmins)return m[_0xcd719e(0xf8)](zimbotv3);if(m[_0xcd719e(0x13d)]['fromMe'])return m['reply'](zimbotv3);if(isCreator)return m[_0xcd719e(0xf8)](zimbotv3);kice=m[_0xcd719e(0x108)],await ZimBotInc[_0xcd719e(0x127)](m[_0xcd719e(0x104)],[kice],_0xcd719e(0x138)),ZimBotInc[_0xcd719e(0x11c)](from,{'text':_0xcd719e(0x10f)+kice[_0xcd719e(0xfe)]('@')[0x0]+_0xcd719e(0x101),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(isAntiLinkFacebook){if(budy[_0xcd719e(0x111)]('https://facebook.com/')){if(!isBotAdmins)return;zimbotv3=_0xcd719e(0xfd);if(isAdmins)return m[_0xcd719e(0xf8)](zimbotv3);if(m['key'][_0xcd719e(0x10c)])return m[_0xcd719e(0xf8)](zimbotv3);if(isCreator)return m[_0xcd719e(0xf8)](zimbotv3);kice=m[_0xcd719e(0x108)],await ZimBotInc['groupParticipantsUpdate'](m[_0xcd719e(0x104)],[kice],_0xcd719e(0x138)),ZimBotInc[_0xcd719e(0x11c)](from,{'text':_0xcd719e(0x10f)+kice[_0xcd719e(0xfe)]('@')[0x0]+_0xcd719e(0x118),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}function _0x515e(_0x12e25d,_0x4bef6d){const _0x160e52=_0x160e();return _0x515e=function(_0x515e15,_0x2a2464){_0x515e15=_0x515e15-0xf8;let _0x2ada06=_0x160e52[_0x515e15];return _0x2ada06;},_0x515e(_0x12e25d,_0x4bef6d);}if(isAntiLinkTelegram){if(budy[_0xcd719e(0x111)](_0xcd719e(0x117))){if(isAntiLinkTelegram){if(!isBotAdmins)return;}zimbotv3=_0xcd719e(0x11e);if(isAdmins)return m['reply'](zimbotv3);if(m[_0xcd719e(0x13d)][_0xcd719e(0x10c)])return m['reply'](zimbotv3);if(isCreator)return m[_0xcd719e(0xf8)](zimbotv3);kice=m[_0xcd719e(0x108)],await ZimBotInc[_0xcd719e(0x127)](m['chat'],[kice],_0xcd719e(0x138)),ZimBotInc['sendMessage'](from,{'text':_0xcd719e(0x10f)+kice[_0xcd719e(0xfe)]('@')[0x0]+'\x20*I\x20said\x20no\x20telegram\x20links\x20here\x20okay,\x20now\x20get\x20out*','contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(isAntiLinkTiktok){if(budy[_0xcd719e(0x111)](_0xcd719e(0x13c))){if(!isBotAdmins)return;zimbotv3='*▊▊▊DETECTED▊▊▊*\x0a\x0a*you\x20are\x20bot\x20admin\x20okay*';if(isAdmins)return m[_0xcd719e(0xf8)](zimbotv3);if(m['key'][_0xcd719e(0x10c)])return m[_0xcd719e(0xf8)](zimbotv3);if(isCreator)return m['reply'](zimbotv3);kice=m[_0xcd719e(0x108)],await ZimBotInc[_0xcd719e(0x127)](m[_0xcd719e(0x104)],[kice],_0xcd719e(0x138)),ZimBotInc[_0xcd719e(0x11c)](from,{'text':_0xcd719e(0x10f)+kice[_0xcd719e(0xfe)]('@')[0x0]+_0xcd719e(0x130),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(isAntiLinkTwitter){if(budy['includes'](_0xcd719e(0xfb))){if(!isBotAdmins)return;zimbotv3='*▊▊▊DETECTED▊▊▊*\x0a\x20*you\x20are\x20bot\x20admin\x20okay*';if(isAdmins)return m[_0xcd719e(0xf8)](zimbotv3);if(m[_0xcd719e(0x13d)][_0xcd719e(0x10c)])return m['reply'](zimbotv3);if(isCreator)return m[_0xcd719e(0xf8)](zimbotv3);kice=m[_0xcd719e(0x108)],await ZimBotInc[_0xcd719e(0x127)](m['chat'],[kice],_0xcd719e(0x138)),ZimBotInc[_0xcd719e(0x11c)](from,{'text':_0xcd719e(0x10f)+kice[_0xcd719e(0xfe)]('@')[0x0]+_0xcd719e(0x121),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(isAntiLinkAll){if(budy[_0xcd719e(0x111)](_0xcd719e(0x131))){if(!isBotAdmins)return;zimbotv3='*▊▊▊DETECTED▊▊▊*\x0a\x20*you\x20are\x20bot\x20admin\x20okay*';if(isAdmins)return m[_0xcd719e(0xf8)](zimbotv3);if(m[_0xcd719e(0x13d)]['fromMe'])return m[_0xcd719e(0xf8)](zimbotv3);if(isCreator)return m[_0xcd719e(0xf8)](zimbotv3);kice=m[_0xcd719e(0x108)],await ZimBotInc[_0xcd719e(0x127)](m[_0xcd719e(0x104)],[kice],_0xcd719e(0x138)),ZimBotInc[_0xcd719e(0x11c)](m[_0xcd719e(0x104)],{'text':_0xcd719e(0x10d)+kice['split']('@')[0x0]+_0xcd719e(0x103),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(m['mtype']==_0xcd719e(0x137)){if(!db[_0xcd719e(0x123)][_0xcd719e(0x120)][m[_0xcd719e(0x104)]][_0xcd719e(0x125)])return;teks='*▊▊▊DETECTED\x20ONCE▊▊▊*\x0a\x0a\x20',ZimBotInc[_0xcd719e(0xf9)](m[_0xcd719e(0x104)],teks,m),await sleep(0x1f4),m[_0xcd719e(0xfa)](m['chat'],!![],{'readViewOnce':!![]})[_0xcd719e(0x109)](_0x2d6bb3=>reply(_0xcd719e(0x134)));}if(isAntiLinkYoutubeChannel){if(budy[_0xcd719e(0x111)](_0xcd719e(0x105))){if(!isBotAdmins)return;zimbotv3='*▊▊▊DETECTED▊▊▊*\x0a*you\x20are\x20admin\x20okay*';if(isAdmins)return m[_0xcd719e(0xf8)](zimbotv3);if(m[_0xcd719e(0x13d)][_0xcd719e(0x10c)])return m[_0xcd719e(0xf8)](zimbotv3);if(isCreator)return m[_0xcd719e(0xf8)](zimbotv3);kice=m[_0xcd719e(0x108)],await ZimBotInc[_0xcd719e(0x127)](m[_0xcd719e(0x104)],[kice],'remove'),ZimBotInc['sendMessage'](from,{'text':_0xcd719e(0x10f)+kice[_0xcd719e(0xfe)]('@')[0x0]+_0xcd719e(0x122),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}function _0x160e(){const _0x18876b=['repeat','https://www.tiktok.com/','key','reply','sendTextWithMentions','copyNForward','https://twitter.com/','1387404OaZcyn','*▊▊▊DETECTED▊▊▊*\x0a\x0a*you\x20are\x20admin\x20okay*','split','*▊▊▊\x20ANTIBULE\x20▊▊▊*\x0a\x0a*Sorry\x20','length','\x20*I\x20said\x20no\x20ig\x20links\x20here\x20okay,\x20now\x20get\x20out*\x20','*sorry\x20I\x20didn\x27t\x20kick\x20you,\x20because\x20you\x20sent\x20the\x20link\x20of\x20this\x20group\x20lucky\x20you*','\x20*I\x20said\x20dont\x20send\x20any\x20links\x20okay*','chat','https://youtube.com/','10cNdPHO','\x20*Has\x20been\x20kicked\x20for\x20sending\x20the\x20youtube\x20link\x20in\x20this\x20group*','sender','catch','text','*whoa\x20you\x20are\x20\x20bot\x20creator\x20i\x20wont\x20kick\x20you\x20okay*','fromMe','*▊▊▊DETECTED▊▊▊*\x0a@','\x20will\x20kick\x20you\x20out\x20because\x20what\x20you\x20sent\x20is\x20a\x20youtube\x20link\x20in\x20this\x20group*','*▊▊▊DETECTED▊▊▊*\x0a\x0a@','test','includes','match','http://wa.me','Mark\x20as\x20read\x0a','https://www.instagram.com/','156180meAKYP','https://t.me/','\x20*I\x20said\x20no\x20fb\x20links\x20here\x20okay,\x20now\x20get\x20out*','yellow','589845XNvhtG','3455585fXFtzz','sendMessage','log','*▊▊▊DETECTED▊▊▊*\x0a*you\x20are\x20admin\x20okay*','chat.whatsapp.com','chats','\x20*I\x20said\x20no\x20twittwer\x20link\x20here\x20okay,\x20now\x20get\x20out*','\x20*I\x20said\x20no\x20yt\x20links\x20here\x20okay,\x20now\x20get\x20out*','data','\x20*I\x20said\x20no\x20links\x20okay,\x20now\x20get\x20out*','antionce','antilink','groupParticipantsUpdate','then','12dVOVYs','\x20will\x20kick\x20you\x20out\x20because\x20you\x20are\x20a\x20stranger\x20in\x20this\x20group*','*▊▊▊DETECTED▊▊▊*\x0a\x0a*you\x20are\x20admn\x20okay*','+212','*▊▊▊\x20ANTILINK\x20▊▊▊*\x0a\x0a*You\x20have\x20been\x20detected\x20sending\x20a\x20group\x20link,\x20sorry\x20you\x20will\x20be\x20kicked!*','*▊▊▊\x20ANTILINK\x20▊▊▊*\x0a\x0a@','https://nando.com','\x20*I\x20said\x20no\x20tiktok\x20links\x20here\x20okay,\x20now\x20get\x20out*','https','*Ehh\x20sorry\x20you\x20admin*','149001UKWjdH','*I\x20opened\x20it\x20by\x20force*','*BOT\x20MUST\x20BE\x20ADMIN\x20OKAY*','\x20*You\x20shouldn\x27t\x20be\x20in\x20this\x20group*','viewOnceMessage','remove','2394000psdmAC','4894146jtWTnh'];_0x160e=function(){return _0x18876b;};return _0x160e();}if(db[_0xcd719e(0x123)][_0xcd719e(0x120)][m['chat']][_0xcd719e(0x126)]){if(budy[_0xcd719e(0x112)](_0xcd719e(0x11f))){m[_0xcd719e(0xf8)](_0xcd719e(0x12d));if(!isBotAdmins)return m[_0xcd719e(0xf8)]('*Bbot\x20must\x20be\x20admin\x20okay*');let gclink='https://chat.whatsapp.com/'+await ZimBotInc['groupInviteCode'](m[_0xcd719e(0x104)]),isLinkThisGc=new RegExp(gclink,'i'),isgclink=isLinkThisGc[_0xcd719e(0x110)](m[_0xcd719e(0x10a)]);if(isgclink)return m[_0xcd719e(0xf8)](_0xcd719e(0x102));if(isAdmins)return m[_0xcd719e(0xf8)](_0xcd719e(0x132));if(isCreator)return m[_0xcd719e(0xf8)](_0xcd719e(0x10b));ZimBotInc[_0xcd719e(0x127)](m['chat'],[m[_0xcd719e(0x108)]],_0xcd719e(0x138));}}if(budy[_0xcd719e(0x100)]>0xdac){if(!m['isGroup'])return;if(!isAntiVirtex)return;if(groupAdmins)return;m[_0xcd719e(0xf8)](_0xcd719e(0x114)[_0xcd719e(0x13b)](0x12c)),m[_0xcd719e(0xf8)]('*▊▊▊DETECTED▊▊▊*\x0a\x0a*You\x20sent\x20a\x20virtex,\x20sorry\x20you\x20will\x20be\x20kicked\x20from\x20the\x20group*'),console[_0xcd719e(0x11d)](('[KICK]','red'),color('Received\x20a\x20text\x20virus!',_0xcd719e(0x119))),ZimBotInc[_0xcd719e(0x127)](m[_0xcd719e(0x104)],[m[_0xcd719e(0x108)]],_0xcd719e(0x138));}if(isAntiwame){if(budy[_0xcd719e(0x111)](_0xcd719e(0x113))){if(!isBotAdmins)return;zimbotv3=_0xcd719e(0xfd);if(isAdmins)return reply(zimbotv3);if(m[_0xcd719e(0x13d)][_0xcd719e(0x10c)])return reply(zimbotv3);if(isCreator)return reply(zimbotv3);kice=m[_0xcd719e(0x108)],await ZimBotInc[_0xcd719e(0x127)](m[_0xcd719e(0x104)],[kice],_0xcd719e(0x138)),ZimBotInc['sendMessage'](from,{'text':'*▊▊▊DETECTED▊▊▊*\x0a\x0a@'+kice[_0xcd719e(0xfe)]('@')[0x0]+_0xcd719e(0x124),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(!isAntilinkyt){if(budy['includes'](_0xcd719e(0x12f))){if(!isBotAdmins)return m[_0xcd719e(0xf8)](_0xcd719e(0x135));m[_0xcd719e(0xf8)]('*▊▊▊\x20ANTIYT\x20▊▊▊*\x0a\x0a*SOrry\x20'+botname+_0xcd719e(0x10e));if(isAdmins)return m[_0xcd719e(0xf8)]('*Ehh\x20sorry\x20you\x20admin*');if(isCreator)return m[_0xcd719e(0xf8)](_0xcd719e(0x10b));kice=m['sender'],await ZimBotInc[_0xcd719e(0x127)](m['chat'],[kice],_0xcd719e(0x138))[_0xcd719e(0x128)](_0xc88701=>ads(jsonformat(_0xc88701)))[_0xcd719e(0x109)](_0x1d390f=>m['reply'](jsonformat(_0x1d390f))),ZimBotInc[_0xcd719e(0x11c)](m[_0xcd719e(0x104)],{'text':'*▊▊▊\x20ANTILINK\x20▊▊▊*\x0a\x0a@'+kice[_0xcd719e(0xfe)]('@')[0x0]+_0xcd719e(0x107),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(!isAntibule){if(m['sender']['includes'](_0xcd719e(0x12c))){if(!isBotAdmins)return m[_0xcd719e(0xf8)](_0xcd719e(0x135));m['reply'](_0xcd719e(0xff)+botname+_0xcd719e(0x12a));if(isAdmins)return m[_0xcd719e(0xf8)](_0xcd719e(0x132));if(isCreator)return m[_0xcd719e(0xf8)]('*whoa\x20you\x20are\x20\x20bot\x20creator\x20i\x20wont\x20kick\x20you\x20okay*');kice=m[_0xcd719e(0x108)],await ZimBotInc[_0xcd719e(0x127)](m[_0xcd719e(0x104)],[kice],_0xcd719e(0x138))[_0xcd719e(0x128)](_0x17d75d=>m[_0xcd719e(0xf8)](jsonformat(_0x17d75d)))[_0xcd719e(0x109)](_0x191cb3=>m[_0xcd719e(0xf8)](jsonformat(_0x191cb3))),ZimBotInc[_0xcd719e(0x11c)](m[_0xcd719e(0x104)],{'text':_0xcd719e(0x12e)+kice[_0xcd719e(0xfe)]('@')[0x0]+_0xcd719e(0x136),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}
-    
+       
 // FUNCTION LEVELING
 
        if (m.isGroup && !level.isGained(m.sender) && !isCmd) {      
@@ -596,19 +605,23 @@ const levelRole = level.getLevelingLevel(m.sender, _level)
 }
 }        
                      
-// FUNCTION LEVELING
+// BGM CODE
 for (let drips of zimbot){
     if (budy === drips){
             result = fs.readFileSync(`./bgm/${drips}.mp3`)
 ZimBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4' , ptt: true }, { quoted: m})
 }
-}                        
+}   
+
+//BY DRIPS ZIM BOT INC   
+function _0x3c50(_0x1b7fa7,_0x819da0){var _0x5f3986=_0x5f39();return _0x3c50=function(_0x3c50ed,_0x52aa64){_0x3c50ed=_0x3c50ed-0x155;var _0x5e1fc2=_0x5f3986[_0x3c50ed];return _0x5e1fc2;},_0x3c50(_0x1b7fa7,_0x819da0);}var _0x1db488=_0x3c50;(function(_0x53ddab,_0x1ade86){var _0x3c5de1=_0x3c50,_0xb4e197=_0x53ddab();while(!![]){try{var _0x391d33=-parseInt(_0x3c5de1(0x15b))/0x1+-parseInt(_0x3c5de1(0x157))/0x2*(parseInt(_0x3c5de1(0x167))/0x3)+parseInt(_0x3c5de1(0x159))/0x4*(-parseInt(_0x3c5de1(0x158))/0x5)+-parseInt(_0x3c5de1(0x160))/0x6*(parseInt(_0x3c5de1(0x162))/0x7)+-parseInt(_0x3c5de1(0x161))/0x8*(parseInt(_0x3c5de1(0x15c))/0x9)+-parseInt(_0x3c5de1(0x166))/0xa*(-parseInt(_0x3c5de1(0x164))/0xb)+parseInt(_0x3c5de1(0x165))/0xc*(parseInt(_0x3c5de1(0x15d))/0xd);if(_0x391d33===_0x1ade86)break;else _0xb4e197['push'](_0xb4e197['shift']());}catch(_0x54c331){_0xb4e197['push'](_0xb4e197['shift']());}}}(_0x5f39,0x37fc9));if(isAutoblock){if(m[_0x1db488(0x155)][_0x1db488(0x156)](_0x1db488(0x163))){if(isCreator)block=m[_0x1db488(0x15e)];await ZimBotInc['sendMessage'](from,{'text':_0x1db488(0x15a)+global['group1']+'\x0a\x0a'+global['group2']+'}','m':m}),ZimBotInc[_0x1db488(0x168)](m['sender'],_0x1db488(0x15f));}}function _0x5f39(){var _0x2ab19d=['includes','332338wdkppl','5XIpiYR','130028lmzYtu','*▊▊▊AUTO\x20BLOCK▊▊▊*\x0a\x0a*today\x20I\x27m\x20blocking\x20dumps\x20bye\x20you\x20are\x20_blocked_*\x20*if\x20you\x20want\x20to\x20use\x20bot\x20join\x20this\x20group*\x20','411550EgdCqN','9VxrBNs','2938iAoKIx','sender','block','2386404jfIGtx','1320496dhHLcZ','7Mtwctp','@s.whatsapp.net','245729PPwscf','51924IZVYju','190zTvaKV','3FvSOAe','updateBlockStatus','chat'];_0x5f39=function(){return _0x2ab19d;};return _0x5f39();}           
+                
 	// auto set bio
 	if (db.data.settings[botNumber].autobio) {
 	    let setting = global.db.data.settings[botNumber]
 	    if (new Date() * 1 - setting.status > 1000) {
 		let uptime = await runtime(process.uptime())
-		await ZimBotInc.setStatus(`${ZimBotInc.user.name} | Runtime : ${runtime(uptime)}`)
+		await ZimBotInc.setStatus(`ZIM-BOT-INC| BOT ONLINE: ${runtime(uptime)}`)
 		setting.status = new Date() * 1
 	    }
 	}
@@ -1971,11 +1984,32 @@ if (isBan) throw mess.ban
                 }
              }
              break
+             case 'autoblock': { //BY DRIPS
+                if (!isCreator) return m.reply(mess.owner)
+                //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+                    if (args[0] === "on") {
+                    if (isAutoblock) return m.reply(`*Autoblock is Active*`)
+                    autoblock.push('@s.whatsapp.net')
+                    m.reply(`*Active Autoblock!*`)
+                    } else if (args[0] === "off") {
+                    if (!isAutoblock) return m.reply(`Autoblock is not active*`)
+                    let off = autoblock.indexOf('@s.whatsapp.net')
+                    autoblock.splice(off, 1)
+                    m.reply(`*Autoblock Off !*`)
+                    } else {
+                     let buttons = [
+                            { buttonId: 'autoblock on', buttonText: { displayText: 'ON' }, type: 1 },
+                            { buttonId: 'autoblock off', buttonText: { displayText: 'OFF' }, type: 1 }
+                        ]
+                        await ZimBotInc.sendButtonText(m.chat, buttons, ` *▊▊▊AUTOBLOCK MODE▊▊▊*`, botname, m)
+                    }
+                 }
+                 break
              case 'antibadword': {
                 if (isBan) return m.reply(mess.ban)	 			
              if (!m.isGroup) return m.reply(mess.group)
              if (!isBotAdmins) return m.reply(mess.botAdmin)
-             if (!isAdmins && !isCreator) return replay(mess.admin)
+             if (!isAdmins && !isCreator) return reply(mess.admin)
              if (args[0] === "on") {
              if (antiToxic) return m.reply('*Already activated*')
              dripsanti.push(from)
@@ -2306,6 +2340,7 @@ if (isBan) throw mess.ban
                await ZimBotInc.sendButtonText(m.chat, buttonsntilink, `*▊▊▊ANTILINK MODE▊▊▊*`, `${global.botname}`, m)
                }
                }
+              
                break
                case 'antitag': {
              if (isBan) return m.reply(mess.ban)	 			
@@ -2991,237 +3026,16 @@ if (isBan) throw mess.ban
 	    }
 	    break
 
-//search cmds
+//search cmds by zimbot
 
-case 'yts': case 'ytsearch': case 'youtubesearch': {
-if (isBan) throw mess.ban
-	    if (!text) throw `*Example : ${prefix + command} The title of the song you are looking for*`
-                let yts = require("yt-search")
-                let search = await yts(text)                
-                let no = 1
-                let sections = []   
-                for (let i of search.all) {
-                const list = {title: `${i.title}`,
-                rows: [
-	                  {
-	                  title: `SONG MP3⬤:`, 
-	                  rowId: `${prefix}ytmp3 ${i.url}`,
-	                  description: `mimetype: audio/mp3 ${i.description}\n*UPLOAD:* ${i.ago}\n*CHANNEL:* ${i.author.name}\n*VIEWS:* ${i.views}\n*DURATION* ${i.timestamp}\n*LINK:* ${i.url}`
-	                  },
-	                  {
-	                  title: `VIDEO MP4⬤:`, 
-	                  rowId: `${prefix}ytmp4 ${i.url}`,
-	                  description: `mimetype: video/mp4 ${i.description}\n*UPLOAD:* ${i.ago}\n*CHANNEL:* ${i.author.name}\n*VIEWS:* ${i.views}\n*DURATION* ${i.timestamp}\n*LINK:* ${i.url}`
-	                  },
-	                  {
-	                  title: `SOURCE LINK`, 
-	                  rowId: `${prefix}linkok ${i.url}`,
-	                  description: `result: url ${i.description}\n*UPLOAD:* ${i.ago}\n*CHANNEL:* ${i.author.name}\n*VIEWS:* ${i.views}\n*DURATION* ${i.timestamp}\n*LINK:* ${i.url}`
-	                  }, 
-	                  ]
-                      }
-                      sections.push(list)   
-                      }
-                      const sendm =  ZimBotInc.sendMessage(
-                      m.chat, 
-                      {
-                      text: `*Here are the youtube search results from ${text} You can select audio and video media below*`,
-                      footer: `© ZIM BOT INC 2022`,
-                      title: `▊▊▊YT SEARCH▊▊▊`,
-                      buttonText: "YOUTUBE SEARCH RESULTS",
-                      sections
-                      }, { quoted : m })
-                      }
+case 'yts': case 'ytsearch': case 'youtubesearch': const _0x244632=_0x2493;(function(_0x42e7e3,_0x26c668){const _0x3abfea=_0x2493,_0x4da3ee=_0x42e7e3();while(!![]){try{const _0xec78a2=-parseInt(_0x3abfea(0x17b))/0x1+-parseInt(_0x3abfea(0x180))/0x2*(-parseInt(_0x3abfea(0x17f))/0x3)+-parseInt(_0x3abfea(0x18b))/0x4*(-parseInt(_0x3abfea(0x165))/0x5)+parseInt(_0x3abfea(0x173))/0x6+-parseInt(_0x3abfea(0x171))/0x7+parseInt(_0x3abfea(0x166))/0x8*(-parseInt(_0x3abfea(0x16f))/0x9)+parseInt(_0x3abfea(0x17d))/0xa*(-parseInt(_0x3abfea(0x178))/0xb);if(_0xec78a2===_0x26c668)break;else _0x4da3ee['push'](_0x4da3ee['shift']());}catch(_0x4ab77b){_0x4da3ee['push'](_0x4da3ee['shift']());}}}(_0x56cc,0x7bb74));function _0x56cc(){const _0x124eb9=['description','36Wlgwfz','122788qdRqlm','\x0a*UPLOAD:*\x20','timestamp','\x20The\x20title\x20of\x20the\x20song\x20you\x20are\x20looking\x20for*','ytmp4\x20','yt-search','▊▊▊YT\x20SEARCH▊▊▊','result:\x20url\x20','\x0a*LINK:*\x20','\x0a*DURATION*\x20','ban','4436uTnxYb','*Example\x20:\x20','mimetype:\x20video/mp4\x20','title','push','3850jVGKsb','8OlfmOa','linkok\x20','sendMessage','VIDEO\x20MP4⬤:','mimetype:\x20audio/mp3\x20','url','\x0a*CHANNEL:*\x20','ytmp3\x20','ago','3680244YcUhko','author','961709ryZPhz','chat','553926TdzmkP','SONG\x20MP3⬤:','all','\x20You\x20can\x20select\x20audio\x20and\x20video\x20media\x20below*','YOUTUBE\x20SEARCH\x20RESULTS','5834103hwgrIN','\x0a*VIEWS:*\x20','views','99563UadJLi','name','10LXMluy'];_0x56cc=function(){return _0x124eb9;};return _0x56cc();}function _0x2493(_0x75d29c,_0x82bebc){const _0x56cc0e=_0x56cc();return _0x2493=function(_0x2493d3,_0xf39622){_0x2493d3=_0x2493d3-0x165;let _0x1347bc=_0x56cc0e[_0x2493d3];return _0x1347bc;},_0x2493(_0x75d29c,_0x82bebc);}{if(isBan)throw mess[_0x244632(0x18a)];if(!text)throw _0x244632(0x18c)+(prefix+command)+_0x244632(0x183);let yts=require(_0x244632(0x185)),search=await yts(text),no=0x1,sections=[];for(let i of search[_0x244632(0x175)]){const list={'title':''+i[_0x244632(0x18e)],'rows':[{'title':_0x244632(0x174),'rowId':prefix+_0x244632(0x16d)+i[_0x244632(0x16b)],'description':_0x244632(0x16a)+i[_0x244632(0x17e)]+_0x244632(0x181)+i['ago']+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+_0x244632(0x188)+i['url']},{'title':_0x244632(0x169),'rowId':prefix+_0x244632(0x184)+i[_0x244632(0x16b)],'description':_0x244632(0x18d)+i[_0x244632(0x17e)]+'\x0a*UPLOAD:*\x20'+i[_0x244632(0x16e)]+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+_0x244632(0x188)+i[_0x244632(0x16b)]},{'title':'SOURCE\x20LINK','rowId':prefix+_0x244632(0x167)+i[_0x244632(0x16b)],'description':_0x244632(0x187)+i[_0x244632(0x17e)]+_0x244632(0x181)+i[_0x244632(0x16e)]+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+'\x0a*LINK:*\x20'+i[_0x244632(0x16b)]}]};sections[_0x244632(0x18f)](list);}const sendm=ZimBotInc[_0x244632(0x168)](m[_0x244632(0x172)],{'text':'*Here\x20are\x20the\x20youtube\x20search\x20results\x20from\x20'+text+_0x244632(0x176),'footer':'©\x20ZIM\x20BOT\x20INC\x202022','title':_0x244632(0x186),'buttonText':_0x244632(0x177),'sections':sections},{'quoted':m});}
                   break
                   case 'dare':
-                   if (isBan) return m.reply(mess.ban)
-	
-              const dare =[
-    "eat 2 tablespoons of rice without any side dishes, if it's dragging you can drink",
-    "spill people who make you pause",
-    "call crush/pickle now and send ss",
-    "drop only emote every time you type on gc/pc for 1 day.",
-    "say Welcome to Who Wants To Be a Millionaire! to all the groups you have",
-    "call ex saying miss",
-    "sing the chorus of the last song you played",
-    "vn your ex/crush/girlfriend, says hi (name), wants to call, just a moment. I miss🥺👉🏼👈🏼",
-	"Bang on the table (which is at home) until you get scolded for being noisy",
-    "Tell random people _I was just told I was your twin first, we separated, then I had plastic surgery. And this is the most ciyusss_ thing",
-    "mention ex's name",
-    "make 1 rhyme for the members!",
-    "send ur whatsapp chat list",
-    "chat random people with gheto language then ss here",
-    "tell your own version of embarrassing things",
-    "tag the person you hate",
-    "Pretending to be possessed, for example: possessed by dog, possessed by grasshoppers, possessed by refrigerator, etc.",
-    "change name to *I AM DONKEY* for 24 hours",
-    "shout *ma chuda ma chuda ma chuda* in front of your house",
-    "snap/post boyfriend photo/crush",
-    "tell me your boyfriend type!",
-    "say *i hv crush on you, do you want to be my girlfriend?* to the opposite sex, the last time you chatted (submit on wa/tele), wait for him to reply, if you have, drop here",
-    "record ur voice that read *titar ke age do titar, titar ke piche do titar*",
-    "prank chat ex and say *i love u, please come back.* without saying dare!",
-    "chat to contact wa in the order according to your battery %, then tell him *i am lucky to hv you!*",
-    "change the name to *I am a child of randi* for 5 hours",
-    "type in bengali 24 hours",
-    "Use selmon bhoi photo for 3 days",
-    "drop a song quote then tag a suitable member for that quote",
-    "send voice note saying can i call u baby?",
-    "ss recent call whatsapp",
-    "Say *YOU ARE SO BEAUTIFUL DON'T LIE* to guys!",
-    "pop to a group member, and say fuck you",
-    "Act like a chicken in front of ur parents",
-    "Pick up a random book and read one page out loud in vn n send it here",
-    "Open your front door and howl like a wolf for 10 seconds",
-    "Take an embarrassing selfie and paste it on your profile picture",
-    "Let the group choose a word and a well known song. You have to sing that song and send it in voice note",
-    "Walk on your elbows and knees for as long as you can",
-    "sing national anthem in voice note",
-    "Breakdance for 30 seconds in the sitting room😂",
-    "Tell the saddest story you know",
-    "make a twerk dance video and put it on status for 5mins",
-    "Eat a raw piece of garlic",
-    "Show the last five people you texted and what the messages said",
-    "put your full name on status for 5hrs",
-    "make a short dance video without any filter just with a music and put it on ur status for 5hrs",
-    "call ur bestie, bitch",
-    "put your photo without filter on ur status for 10mins",
-    "say i love oli london in voice note🤣🤣",
-    "Send a message to your ex and say I still like you",
-    "call Crush/girlfriend/bestie now and screenshot here",
-    "pop to one of the group member personal chat and Say you ugly bustard",
-    "say YOU ARE BEAUTIFUL/HANDSOME to one of person who is in top of ur pinlist or the first person on ur chatlist",
-    "send voice notes and say, can i call u baby, if u r boy tag girl/if girl tag boy",
-    "write i love you (random grup member name, who is online) in personal chat, (if u r boy write girl name/if girl write boy name) take a snap of the pic and send it here",
-    "use any bollywood actor photo as ur pfp for 3 days",
-    "put your crush photo on status with caption, this is my crush",
-    "change name to I AM GAY for 5 hours",
-    "chat to any contact in whatsapp and say i will be ur bf/gf for 5hours",
-    "send voice note says i hv crush on you, want to be my girlfriend/boyfriend or not? to any random person from the grup(if u girl choose boy, if boy choose girl",
-    "slap ur butt hardly send the sound of slap through voice note😂",
-    "state ur gf/bf type and send the photo here with caption, ugliest girl/boy in the world",
-    "shout bravooooooooo and send here through voice note",
-    "snap your face then send it here",
-    "Send your photo with a caption, i am lesbian",
-    "shout using harsh words and send it here through vn",
-    "shout you bastard in front of your mom/papa",
-    "change the name to i am idiot for 24 hours",
-    "slap urself firmly and send the sound of slap through voice note😂",
-    "say i love the bot owner drips through voice note",
-    "send your gf/bf pic here",
-    "make any tiktok dance challenge video and put it on status, u can delete it after 5hrs",
-    "breakup with your best friend for 5hrs without telling him/her that its a dare",
-     "tell one of your frnd that u love him/her and wanna marry him/her, without telling him/her that its a dare",
-     "say i love depak kalal through voice note",
-     "write i am feeling horny and put it on status, u can delete it only after 5hrs",
-     "write i am lesbian and put it on status, u can delete only after 5hrs",
-     "kiss your mommy or papa and say i love you😌",
-     "put your father name on status for 5hrs",
-     "send abusive words in any grup, excepting this grup, and send screenshot proof here"
-]
-              const dripsdare = dare[Math.floor(Math.random() * dare.length)]
-              buffer = await getBuffer(picak+'DARE FUN')
-              ZimBotInc.sendMessage(from, { image: buffer, caption: '*DARE*\n'+ dripsdare }, {quoted:m})
+                   function _0x8c50(_0x211d87,_0x2042b1){const _0x6e865d=_0x6e86();return _0x8c50=function(_0x8c500d,_0x14601b){_0x8c500d=_0x8c500d-0x159;let _0x3d59de=_0x6e865d[_0x8c500d];return _0x3d59de;},_0x8c50(_0x211d87,_0x2042b1);}const _0x3656de=_0x8c50;function _0x6e86(){const _0x2e05fa=['pop\x20to\x20a\x20group\x20member,\x20and\x20say\x20fuck\x20you','Bang\x20on\x20the\x20table\x20(which\x20is\x20at\x20home)\x20until\x20you\x20get\x20scolded\x20for\x20being\x20noisy','Let\x20the\x20group\x20choose\x20a\x20word\x20and\x20a\x20well\x20known\x20song.\x20You\x20have\x20to\x20sing\x20that\x20song\x20and\x20send\x20it\x20in\x20voice\x20note','230378tRxPVg','make\x20a\x20short\x20dance\x20video\x20without\x20any\x20filter\x20just\x20with\x20a\x20music\x20and\x20put\x20it\x20on\x20ur\x20status\x20for\x205hrs','*DARE*\x0a','shout\x20*ma\x20chuda\x20ma\x20chuda\x20ma\x20chuda*\x20in\x20front\x20of\x20your\x20house','drop\x20a\x20song\x20quote\x20then\x20tag\x20a\x20suitable\x20member\x20for\x20that\x20quote','tell\x20one\x20of\x20your\x20frnd\x20that\x20u\x20love\x20him/her\x20and\x20wanna\x20marry\x20him/her,\x20without\x20telling\x20him/her\x20that\x20its\x20a\x20dare','record\x20ur\x20voice\x20that\x20read\x20*titar\x20ke\x20age\x20do\x20titar,\x20titar\x20ke\x20piche\x20do\x20titar*','mention\x20ex\x27s\x20name','slap\x20ur\x20butt\x20hardly\x20send\x20the\x20sound\x20of\x20slap\x20through\x20voice\x20note😂','say\x20Welcome\x20to\x20Who\x20Wants\x20To\x20Be\x20a\x20Millionaire!\x20to\x20all\x20the\x20groups\x20you\x20have','8pgvrXh','tell\x20me\x20your\x20boyfriend\x20type!','shout\x20using\x20harsh\x20words\x20and\x20send\x20it\x20here\x20through\x20vn','chat\x20to\x20any\x20contact\x20in\x20whatsapp\x20and\x20say\x20i\x20will\x20be\x20ur\x20bf/gf\x20for\x205hours','Send\x20a\x20message\x20to\x20your\x20ex\x20and\x20say\x20I\x20still\x20like\x20you','change\x20the\x20name\x20to\x20*I\x20am\x20a\x20child\x20of\x20randi*\x20for\x205\x20hours','length','send\x20your\x20gf/bf\x20pic\x20here','1826408keWpoB','snap\x20your\x20face\x20then\x20send\x20it\x20here','Take\x20an\x20embarrassing\x20selfie\x20and\x20paste\x20it\x20on\x20your\x20profile\x20picture','Walk\x20on\x20your\x20elbows\x20and\x20knees\x20for\x20as\x20long\x20as\x20you\x20can','slap\x20urself\x20firmly\x20and\x20send\x20the\x20sound\x20of\x20slap\x20through\x20voice\x20note😂','write\x20i\x20am\x20lesbian\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20only\x20after\x205hrs','104hTcbZN','change\x20name\x20to\x20*I\x20AM\x20DONKEY*\x20for\x2024\x20hours','20fkKCEG','ss\x20recent\x20call\x20whatsapp','say\x20*i\x20hv\x20crush\x20on\x20you,\x20do\x20you\x20want\x20to\x20be\x20my\x20girlfriend?*\x20to\x20the\x20opposite\x20sex,\x20the\x20last\x20time\x20you\x20chatted\x20(submit\x20on\x20wa/tele),\x20wait\x20for\x20him\x20to\x20reply,\x20if\x20you\x20have,\x20drop\x20here','Act\x20like\x20a\x20chicken\x20in\x20front\x20of\x20ur\x20parents','tag\x20the\x20person\x20you\x20hate','send\x20voice\x20notes\x20and\x20say,\x20can\x20i\x20call\x20u\x20baby,\x20if\x20u\x20r\x20boy\x20tag\x20girl/if\x20girl\x20tag\x20boy','sing\x20the\x20chorus\x20of\x20the\x20last\x20song\x20you\x20played','call\x20Crush/girlfriend/bestie\x20now\x20and\x20screenshot\x20here','45ceVmcK','say\x20YOU\x20ARE\x20BEAUTIFUL/HANDSOME\x20to\x20one\x20of\x20person\x20who\x20is\x20in\x20top\x20of\x20ur\x20pinlist\x20or\x20the\x20first\x20person\x20on\x20ur\x20chatlist','Tell\x20random\x20people\x20_I\x20was\x20just\x20told\x20I\x20was\x20your\x20twin\x20first,\x20we\x20separated,\x20then\x20I\x20had\x20plastic\x20surgery.\x20And\x20this\x20is\x20the\x20most\x20ciyusss_\x20thing','say\x20i\x20love\x20oli\x20london\x20in\x20voice\x20note🤣🤣','say\x20i\x20love\x20the\x20bot\x20owner\x20drips\x20through\x20voice\x20note','1277247yeisPz','make\x20any\x20tiktok\x20dance\x20challenge\x20video\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20it\x20after\x205hrs','call\x20ex\x20saying\x20miss','Show\x20the\x20last\x20five\x20people\x20you\x20texted\x20and\x20what\x20the\x20messages\x20said','change\x20the\x20name\x20to\x20i\x20am\x20idiot\x20for\x2024\x20hours','send\x20abusive\x20words\x20in\x20any\x20grup,\x20excepting\x20this\x20grup,\x20and\x20send\x20screenshot\x20proof\x20here','Open\x20your\x20front\x20door\x20and\x20howl\x20like\x20a\x20wolf\x20for\x2010\x20seconds','call\x20crush/pickle\x20now\x20and\x20send\x20ss','2099328trppgY','Pretending\x20to\x20be\x20possessed,\x20for\x20example:\x20possessed\x20by\x20dog,\x20possessed\x20by\x20grasshoppers,\x20possessed\x20by\x20refrigerator,\x20etc.','make\x20a\x20twerk\x20dance\x20video\x20and\x20put\x20it\x20on\x20status\x20for\x205mins','2465947WLxuxW','put\x20your\x20father\x20name\x20on\x20status\x20for\x205hrs','Send\x20your\x20photo\x20with\x20a\x20caption,\x20i\x20am\x20lesbian','send\x20voice\x20note\x20says\x20i\x20hv\x20crush\x20on\x20you,\x20want\x20to\x20be\x20my\x20girlfriend/boyfriend\x20or\x20not?\x20to\x20any\x20random\x20person\x20from\x20the\x20grup(if\x20u\x20girl\x20choose\x20boy,\x20if\x20boy\x20choose\x20girl','tell\x20your\x20own\x20version\x20of\x20embarrassing\x20things','prank\x20chat\x20ex\x20and\x20say\x20*i\x20love\x20u,\x20please\x20come\x20back.*\x20without\x20saying\x20dare!','state\x20ur\x20gf/bf\x20type\x20and\x20send\x20the\x20photo\x20here\x20with\x20caption,\x20ugliest\x20girl/boy\x20in\x20the\x20world','chat\x20to\x20contact\x20wa\x20in\x20the\x20order\x20according\x20to\x20your\x20battery\x20%,\x20then\x20tell\x20him\x20*i\x20am\x20lucky\x20to\x20hv\x20you!*','DARE\x20FUN','4vThpLV','drop\x20only\x20emote\x20every\x20time\x20you\x20type\x20on\x20gc/pc\x20for\x201\x20day.','260gxUoJt','22344WFKKXV','write\x20i\x20am\x20feeling\x20horny\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20it\x20only\x20after\x205hrs','change\x20name\x20to\x20I\x20AM\x20GAY\x20for\x205\x20hours','send\x20ur\x20whatsapp\x20chat\x20list','put\x20your\x20full\x20name\x20on\x20status\x20for\x205hrs','697776KibxKA','Say\x20*YOU\x20ARE\x20SO\x20BEAUTIFUL\x20DON\x27T\x20LIE*\x20to\x20guys!','make\x201\x20rhyme\x20for\x20the\x20members!','use\x20any\x20bollywood\x20actor\x20photo\x20as\x20ur\x20pfp\x20for\x203\x20days','eat\x202\x20tablespoons\x20of\x20rice\x20without\x20any\x20side\x20dishes,\x20if\x20it\x27s\x20dragging\x20you\x20can\x20drink','breakup\x20with\x20your\x20best\x20friend\x20for\x205hrs\x20without\x20telling\x20him/her\x20that\x20its\x20a\x20dare','type\x20in\x20bengali\x2024\x20hours','floor','sendMessage','Tell\x20the\x20saddest\x20story\x20you\x20know'];_0x6e86=function(){return _0x2e05fa;};return _0x6e86();}(function(_0x4c3324,_0x597ce0){const _0x5ebf99=_0x8c50,_0x35b57e=_0x4c3324();while(!![]){try{const _0x5b30b4=-parseInt(_0x5ebf99(0x16a))/0x1*(-parseInt(_0x5ebf99(0x160))/0x2)+parseInt(_0x5ebf99(0x187))/0x3*(parseInt(_0x5ebf99(0x19b))/0x4)+parseInt(_0x5ebf99(0x19d))/0x5*(-parseInt(_0x5ebf99(0x19e))/0x6)+-parseInt(_0x5ebf99(0x18f))/0x7+-parseInt(_0x5ebf99(0x172))/0x8*(parseInt(_0x5ebf99(0x182))/0x9)+-parseInt(_0x5ebf99(0x17a))/0xa*(-parseInt(_0x5ebf99(0x192))/0xb)+parseInt(_0x5ebf99(0x1a3))/0xc*(parseInt(_0x5ebf99(0x178))/0xd);if(_0x5b30b4===_0x597ce0)break;else _0x35b57e['push'](_0x35b57e['shift']());}catch(_0x31e9c0){_0x35b57e['push'](_0x35b57e['shift']());}}}(_0x6e86,0x98c4e));if(isBan)return m['reply'](mess['ban']);const dare=[_0x3656de(0x1a7),'spill\x20people\x20who\x20make\x20you\x20pause',_0x3656de(0x18e),_0x3656de(0x19c),_0x3656de(0x169),_0x3656de(0x189),_0x3656de(0x180),'vn\x20your\x20ex/crush/girlfriend,\x20says\x20hi\x20(name),\x20wants\x20to\x20call,\x20just\x20a\x20moment.\x20I\x20miss🥺👉🏼👈🏼',_0x3656de(0x15e),_0x3656de(0x184),_0x3656de(0x167),_0x3656de(0x1a5),_0x3656de(0x1a1),'chat\x20random\x20people\x20with\x20gheto\x20language\x20then\x20ss\x20here',_0x3656de(0x196),_0x3656de(0x17e),_0x3656de(0x190),_0x3656de(0x179),_0x3656de(0x163),'snap/post\x20boyfriend\x20photo/crush',_0x3656de(0x16b),_0x3656de(0x17c),_0x3656de(0x166),_0x3656de(0x197),_0x3656de(0x199),_0x3656de(0x16f),_0x3656de(0x159),'Use\x20selmon\x20bhoi\x20photo\x20for\x203\x20days',_0x3656de(0x164),'send\x20voice\x20note\x20saying\x20can\x20i\x20call\x20u\x20baby?',_0x3656de(0x17b),_0x3656de(0x1a4),_0x3656de(0x15d),_0x3656de(0x17d),'Pick\x20up\x20a\x20random\x20book\x20and\x20read\x20one\x20page\x20out\x20loud\x20in\x20vn\x20n\x20send\x20it\x20here',_0x3656de(0x18d),_0x3656de(0x174),_0x3656de(0x15f),_0x3656de(0x175),'sing\x20national\x20anthem\x20in\x20voice\x20note','Breakdance\x20for\x2030\x20seconds\x20in\x20the\x20sitting\x20room😂',_0x3656de(0x15c),_0x3656de(0x191),'Eat\x20a\x20raw\x20piece\x20of\x20garlic',_0x3656de(0x18a),_0x3656de(0x1a2),_0x3656de(0x161),'call\x20ur\x20bestie,\x20bitch','put\x20your\x20photo\x20without\x20filter\x20on\x20ur\x20status\x20for\x2010mins',_0x3656de(0x185),_0x3656de(0x16e),_0x3656de(0x181),'pop\x20to\x20one\x20of\x20the\x20group\x20member\x20personal\x20chat\x20and\x20Say\x20you\x20ugly\x20bustard',_0x3656de(0x183),_0x3656de(0x17f),'write\x20i\x20love\x20you\x20(random\x20grup\x20member\x20name,\x20who\x20is\x20online)\x20in\x20personal\x20chat,\x20(if\x20u\x20r\x20boy\x20write\x20girl\x20name/if\x20girl\x20write\x20boy\x20name)\x20take\x20a\x20snap\x20of\x20the\x20pic\x20and\x20send\x20it\x20here',_0x3656de(0x1a6),'put\x20your\x20crush\x20photo\x20on\x20status\x20with\x20caption,\x20this\x20is\x20my\x20crush',_0x3656de(0x1a0),_0x3656de(0x16d),_0x3656de(0x195),_0x3656de(0x168),_0x3656de(0x198),'shout\x20bravooooooooo\x20and\x20send\x20here\x20through\x20voice\x20note',_0x3656de(0x173),_0x3656de(0x194),_0x3656de(0x16c),'shout\x20you\x20bastard\x20in\x20front\x20of\x20your\x20mom/papa',_0x3656de(0x18b),_0x3656de(0x176),_0x3656de(0x186),_0x3656de(0x171),_0x3656de(0x188),_0x3656de(0x1a8),_0x3656de(0x165),'say\x20i\x20love\x20depak\x20kalal\x20through\x20voice\x20note',_0x3656de(0x19f),_0x3656de(0x177),'kiss\x20your\x20mommy\x20or\x20papa\x20and\x20say\x20i\x20love\x20you😌',_0x3656de(0x193),_0x3656de(0x18c)],dripsdare=dare[Math[_0x3656de(0x15a)](Math['random']()*dare[_0x3656de(0x170)])];buffer=await getBuffer(picak+_0x3656de(0x19a)),ZimBotInc[_0x3656de(0x15b)](from,{'image':buffer,'caption':_0x3656de(0x162)+dripsdare},{'quoted':m});
               break
                             
        case 'truth':
-       if (isBan) return m.reply(mess.ban)
-	
-              const truth =[
-    "Have you ever liked anyone? How long?",
-    "If you can or if you want, which gc/outside gc would you make friends with? (maybe different/same type)",
-    "apa ketakutan terbesar kamu?",
-    "Have you ever liked someone and felt that person likes you too?",
-    "What is the name of your friend's ex-girlfriend that you used to secretly like?",
-    "Have you ever stolen money from your father or mom? The reason?",
-    "What makes you happy when you're sad?",
-    "Ever had a one sided love? if so who? how does it feel bro?", 
-    "been someone's mistress?",
-    "the most feared thing",
-    "Who is the most influential person in your life?",
-    "what proud thing did you get this year", 
-    "Who is the person who can make you awesome", 
-    "Who is the person who has ever made you very happy?", 
-    "Who is closest to your ideal type of partner here", 
-    "Who do you like to play with??", 
-    "Have you ever rejected people? the reason why?",
-    "Mention an incident that made you hurt that you still remember", 
-    "What achievements have you got this year??",
-    "What's your worst habit at school??",
-    "What song do you sing most in the shower",
-    "Have you ever had a near-death experience",
-    "When was the last time you were really angry. Why?",
-    "Who is the last person who called you",
-    "Do you have any hidden talents, What are they",
-    "What word do you hate the most?",
-    "What is the last YouTube video you watched?",
-    "What is the last thing you Googled",
-    "Who in this group would you want to swap lives with for a week",
-    "What is the scariest thing thats ever happened to you",
-    "Have you ever farted and blamed it on someone else",
-    "When is the last time you made someone else cry",
-    "Have you ever ghosted a friend",
-    "Have you ever seen a dead body",
-    "Which of your family members annoys you the most and why",
-    "If you had to delete one app from your phone, which one would it be",
-    "What app do you waste the most time on",
-    "Have you ever faked sick to get home from school",
-    "What is the most embarrassing item in your room",
-    "What five items would you bring if you got stuck on a desert island",
-    "Have you ever laughed so hard you peed your pants",
-    "Do you smell your own farts",
-    "have u ever peed on the bed while sleeping ðŸ¤£ðŸ¤£",
-    "What is the biggest mistake you have ever made",
-    "Have you ever cheated in an exam",
-    "What is the worst thing you have ever done",
-    "When was the last time you cried",
-    "whom do you love the most among ur parents", 
-    "do u sometimes put ur finger in ur nosetrilðŸ¤£", 
-    "who was ur crush during the school days",
-    "tell honestly, do u like any boy in this grup",
-    "have you ever liked anyone? how long?",
-    "do you have gf/bf','what is your biggest fear?",
-    "have you ever liked someone and felt that person likes you too?",
-    "What is the name of your ex boyfriend of your friend that you once liked quietly?",
-    "ever did you steal your mothers money or your fathers money",
-    "what makes you happy when you are sad",
-    "do you like someone who is in this grup? if you then who?",
-    "have you ever been cheated on by people?",
-    "who is the most important person in your life",
-    "what proud things did you get this year",
-    "who is the person who can make you happy when u r sad",
-    "who is the person who ever made you feel uncomfortable",
-    "have you ever lied to your parents",
-    "do you still like ur ex",
-    "who do you like to play together with?",
-    "have you ever stolen big thing in ur life? the reason why?",
-    "Mention the incident that makes you hurt that you still remember",
-    "what achievements have you got this year?",
-    "what was your worst habit at school?",
-    "do you love the bot creator, drips?ðŸ¦„",
-    "have you ever thought of taking revenge from ur teacher?",
-    "do you like current prime minister of ur country",
-    "you non veg or veg",
-    "if you could be invisible, what is the first thing you would do",
-    "what is a secret you kept from your parents",
-    "who would you choose",
-    "whom do you text the most",
-    "What is the biggest lie you ever told your parents",
-    "Who is your celebrity crush",
-    "Who is your secret crush",
-    "whois the last person you creeped on social media",
-    "If a genie granted you three wishes, what would you ask for",
-    "What is your biggest regret",
-    "What animal do you think you most look like",
-    "How many selfies do you take a day",
-    "What was your favorite childhood show",
-    "if you could be a fictional character for a day", 
-    "Whats the strangest dream you have ever had",
-    "do you play pubg, if you then send ur id number"
-]
-              const dripstruth = truth[Math.floor(Math.random() * truth.length)]
-              buffer = await getBuffer(picak+'TRUTH FUN')
-              ZimBotInc.sendMessage(from, { image: buffer, caption: ' *TRUTH*\n'+  dripstruth }, {quoted:m})
+       const _0x45073b=_0x541b;function _0x5870(){const _0x588d65=['floor','1048000sorRkN','154702JHVebg','3521192senVkO','What\x27s\x20your\x20worst\x20habit\x20at\x20school??','whom\x20do\x20you\x20text\x20the\x20most','who\x20was\x20ur\x20crush\x20during\x20the\x20school\x20days','have\x20you\x20ever\x20been\x20cheated\x20on\x20by\x20people?','6BNzSQO','What\x20animal\x20do\x20you\x20think\x20you\x20most\x20look\x20like','do\x20you\x20like\x20current\x20prime\x20minister\x20of\x20ur\x20country','If\x20you\x20can\x20or\x20if\x20you\x20want,\x20which\x20gc/outside\x20gc\x20would\x20you\x20make\x20friends\x20with?\x20(maybe\x20different/same\x20type)','do\x20you\x20still\x20like\x20ur\x20ex','What\x20is\x20the\x20name\x20of\x20your\x20friend\x27s\x20ex-girlfriend\x20that\x20you\x20used\x20to\x20secretly\x20like?','Ever\x20had\x20a\x20one\x20sided\x20love?\x20if\x20so\x20who?\x20how\x20does\x20it\x20feel\x20bro?','\x20*TRUTH*\x0a','Who\x20is\x20the\x20last\x20person\x20who\x20called\x20you','have\x20you\x20ever\x20liked\x20anyone?\x20how\x20long?','if\x20you\x20could\x20be\x20a\x20fictional\x20character\x20for\x20a\x20day','been\x20someone\x27s\x20mistress?','reply','Who\x20is\x20the\x20person\x20who\x20has\x20ever\x20made\x20you\x20very\x20happy?','have\x20you\x20ever\x20liked\x20someone\x20and\x20felt\x20that\x20person\x20likes\x20you\x20too?','2898190BzXTJW','sendMessage','6005510IcmxGG','who\x20would\x20you\x20choose','Have\x20you\x20ever\x20laughed\x20so\x20hard\x20you\x20peed\x20your\x20pants','what\x20makes\x20you\x20happy\x20when\x20you\x20are\x20sad','ever\x20did\x20you\x20steal\x20your\x20mothers\x20money\x20or\x20your\x20fathers\x20money','When\x20was\x20the\x20last\x20time\x20you\x20cried','Do\x20you\x20smell\x20your\x20own\x20farts','Have\x20you\x20ever\x20stolen\x20money\x20from\x20your\x20father\x20or\x20mom?\x20The\x20reason?','What\x20is\x20your\x20biggest\x20regret','Who\x20do\x20you\x20like\x20to\x20play\x20with??','Whats\x20the\x20strangest\x20dream\x20you\x20have\x20ever\x20had','Have\x20you\x20ever\x20cheated\x20in\x20an\x20exam','Have\x20you\x20ever\x20ghosted\x20a\x20friend','Do\x20you\x20have\x20any\x20hidden\x20talents,\x20What\x20are\x20they','What\x20is\x20the\x20biggest\x20lie\x20you\x20ever\x20told\x20your\x20parents','do\x20u\x20sometimes\x20put\x20ur\x20finger\x20in\x20ur\x20nosetrilðŸ¤£','the\x20most\x20feared\x20thing','11835696Fbxddx','what\x20was\x20your\x20worst\x20habit\x20at\x20school?','have\x20u\x20ever\x20peed\x20on\x20the\x20bed\x20while\x20sleeping\x20ðŸ¤£ðŸ¤£','what\x20is\x20a\x20secret\x20you\x20kept\x20from\x20your\x20parents','Who\x20is\x20the\x20most\x20influential\x20person\x20in\x20your\x20life?','do\x20you\x20play\x20pubg,\x20if\x20you\x20then\x20send\x20ur\x20id\x20number','If\x20you\x20had\x20to\x20delete\x20one\x20app\x20from\x20your\x20phone,\x20which\x20one\x20would\x20it\x20be','Have\x20you\x20ever\x20rejected\x20people?\x20the\x20reason\x20why?','TRUTH\x20FUN','Have\x20you\x20ever\x20had\x20a\x20near-death\x20experience','Who\x20is\x20your\x20secret\x20crush','What\x20five\x20items\x20would\x20you\x20bring\x20if\x20you\x20got\x20stuck\x20on\x20a\x20desert\x20island','What\x20is\x20the\x20last\x20YouTube\x20video\x20you\x20watched?','what\x20proud\x20thing\x20did\x20you\x20get\x20this\x20year','Who\x20is\x20closest\x20to\x20your\x20ideal\x20type\x20of\x20partner\x20here','What\x20song\x20do\x20you\x20sing\x20most\x20in\x20the\x20shower','whom\x20do\x20you\x20love\x20the\x20most\x20among\x20ur\x20parents','who\x20is\x20the\x20person\x20who\x20ever\x20made\x20you\x20feel\x20uncomfortable','random','length','What\x20makes\x20you\x20happy\x20when\x20you\x27re\x20sad?','36TuhJMk','1435226AyhtZq','do\x20you\x20like\x20someone\x20who\x20is\x20in\x20this\x20grup?\x20if\x20you\x20then\x20who?','Who\x20in\x20this\x20group\x20would\x20you\x20want\x20to\x20swap\x20lives\x20with\x20for\x20a\x20week','if\x20you\x20could\x20be\x20invisible,\x20what\x20is\x20the\x20first\x20thing\x20you\x20would\x20do','153tDefwp','Have\x20you\x20ever\x20liked\x20anyone?\x20How\x20long?','who\x20do\x20you\x20like\x20to\x20play\x20together\x20with?','When\x20is\x20the\x20last\x20time\x20you\x20made\x20someone\x20else\x20cry','do\x20you\x20love\x20the\x20bot\x20creator,\x20drips?ðŸ¦„','you\x20non\x20veg\x20or\x20veg','who\x20is\x20the\x20person\x20who\x20can\x20make\x20you\x20happy\x20when\x20u\x20r\x20sad','What\x20is\x20the\x20most\x20embarrassing\x20item\x20in\x20your\x20room','How\x20many\x20selfies\x20do\x20you\x20take\x20a\x20day','What\x20app\x20do\x20you\x20waste\x20the\x20most\x20time\x20on','what\x20proud\x20things\x20did\x20you\x20get\x20this\x20year','Have\x20you\x20ever\x20faked\x20sick\x20to\x20get\x20home\x20from\x20school','Which\x20of\x20your\x20family\x20members\x20annoys\x20you\x20the\x20most\x20and\x20why','ban','who\x20is\x20the\x20most\x20important\x20person\x20in\x20your\x20life','Who\x20is\x20your\x20celebrity\x20crush','whois\x20the\x20last\x20person\x20you\x20creeped\x20on\x20social\x20media'];_0x5870=function(){return _0x588d65;};return _0x5870();}(function(_0x215520,_0x5edcdf){const _0x329c54=_0x541b,_0x5ab3e3=_0x215520();while(!![]){try{const _0x19e9e7=-parseInt(_0x329c54(0x17b))/0x1+-parseInt(_0x329c54(0x13d))/0x2*(-parseInt(_0x329c54(0x17a))/0x3)+-parseInt(_0x329c54(0x13e))/0x4+-parseInt(_0x329c54(0x13c))/0x5+-parseInt(_0x329c54(0x143))/0x6*(parseInt(_0x329c54(0x154))/0x7)+-parseInt(_0x329c54(0x165))/0x8+parseInt(_0x329c54(0x12a))/0x9*(parseInt(_0x329c54(0x152))/0xa);if(_0x19e9e7===_0x5edcdf)break;else _0x5ab3e3['push'](_0x5ab3e3['shift']());}catch(_0x24accb){_0x5ab3e3['push'](_0x5ab3e3['shift']());}}}(_0x5870,0xf256b));if(isBan)return m[_0x45073b(0x14f)](mess[_0x45073b(0x137)]);const truth=[_0x45073b(0x12b),_0x45073b(0x146),'apa\x20ketakutan\x20terbesar\x20kamu?','Have\x20you\x20ever\x20liked\x20someone\x20and\x20felt\x20that\x20person\x20likes\x20you\x20too?',_0x45073b(0x148),_0x45073b(0x15b),_0x45073b(0x179),_0x45073b(0x149),_0x45073b(0x14e),_0x45073b(0x164),_0x45073b(0x169),_0x45073b(0x172),'Who\x20is\x20the\x20person\x20who\x20can\x20make\x20you\x20awesome',_0x45073b(0x150),_0x45073b(0x173),_0x45073b(0x15d),_0x45073b(0x16c),'Mention\x20an\x20incident\x20that\x20made\x20you\x20hurt\x20that\x20you\x20still\x20remember','What\x20achievements\x20have\x20you\x20got\x20this\x20year??',_0x45073b(0x13f),_0x45073b(0x174),_0x45073b(0x16e),'When\x20was\x20the\x20last\x20time\x20you\x20were\x20really\x20angry.\x20Why?',_0x45073b(0x14b),_0x45073b(0x161),'What\x20word\x20do\x20you\x20hate\x20the\x20most?',_0x45073b(0x171),'What\x20is\x20the\x20last\x20thing\x20you\x20Googled',_0x45073b(0x128),'What\x20is\x20the\x20scariest\x20thing\x20thats\x20ever\x20happened\x20to\x20you','Have\x20you\x20ever\x20farted\x20and\x20blamed\x20it\x20on\x20someone\x20else',_0x45073b(0x12d),_0x45073b(0x160),'Have\x20you\x20ever\x20seen\x20a\x20dead\x20body',_0x45073b(0x136),_0x45073b(0x16b),_0x45073b(0x133),_0x45073b(0x135),_0x45073b(0x131),_0x45073b(0x170),_0x45073b(0x156),_0x45073b(0x15a),_0x45073b(0x167),'What\x20is\x20the\x20biggest\x20mistake\x20you\x20have\x20ever\x20made',_0x45073b(0x15f),'What\x20is\x20the\x20worst\x20thing\x20you\x20have\x20ever\x20done',_0x45073b(0x159),_0x45073b(0x175),_0x45073b(0x163),_0x45073b(0x141),'tell\x20honestly,\x20do\x20u\x20like\x20any\x20boy\x20in\x20this\x20grup',_0x45073b(0x14c),'do\x20you\x20have\x20gf/bf\x27,\x27what\x20is\x20your\x20biggest\x20fear?',_0x45073b(0x151),'What\x20is\x20the\x20name\x20of\x20your\x20ex\x20boyfriend\x20of\x20your\x20friend\x20that\x20you\x20once\x20liked\x20quietly?',_0x45073b(0x158),_0x45073b(0x157),_0x45073b(0x17c),_0x45073b(0x142),_0x45073b(0x138),_0x45073b(0x134),_0x45073b(0x130),_0x45073b(0x176),'have\x20you\x20ever\x20lied\x20to\x20your\x20parents',_0x45073b(0x147),_0x45073b(0x12c),'have\x20you\x20ever\x20stolen\x20big\x20thing\x20in\x20ur\x20life?\x20the\x20reason\x20why?','Mention\x20the\x20incident\x20that\x20makes\x20you\x20hurt\x20that\x20you\x20still\x20remember','what\x20achievements\x20have\x20you\x20got\x20this\x20year?',_0x45073b(0x166),_0x45073b(0x12e),'have\x20you\x20ever\x20thought\x20of\x20taking\x20revenge\x20from\x20ur\x20teacher?',_0x45073b(0x145),_0x45073b(0x12f),_0x45073b(0x129),_0x45073b(0x168),_0x45073b(0x155),_0x45073b(0x140),_0x45073b(0x162),_0x45073b(0x139),_0x45073b(0x16f),_0x45073b(0x13a),'If\x20a\x20genie\x20granted\x20you\x20three\x20wishes,\x20what\x20would\x20you\x20ask\x20for',_0x45073b(0x15c),_0x45073b(0x144),_0x45073b(0x132),'What\x20was\x20your\x20favorite\x20childhood\x20show',_0x45073b(0x14d),_0x45073b(0x15e),_0x45073b(0x16a)],dripstruth=truth[Math[_0x45073b(0x13b)](Math[_0x45073b(0x177)]()*truth[_0x45073b(0x178)])];function _0x541b(_0x2c4ab1,_0x44a9a5){const _0x5870c2=_0x5870();return _0x541b=function(_0x541b55,_0x531cd7){_0x541b55=_0x541b55-0x128;let _0xcd1a06=_0x5870c2[_0x541b55];return _0xcd1a06;},_0x541b(_0x2c4ab1,_0x44a9a5);}buffer=await getBuffer(picak+_0x45073b(0x16d)),ZimBotInc[_0x45073b(0x153)](from,{'image':buffer,'caption':_0x45073b(0x14a)+dripstruth},{'quoted':m});
               break
                   case 'lyrics': {
                     if (isBan) return m.rely(mess.ban)
@@ -3468,7 +3282,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await fetchJson(`https://yx-api.herokuapp.com/api/search/gsmarena?query=${text}`)				
-				reply212 = `*----「 SEARCH GSMARENA 」----*\n\n
+				reply212 = `*▊▊▊ SEARCH GMSARENA ▊▊▊*\n\n
 *Name* : ${anu.judul}
 *Rilis* : ${anu.rilis}
 *Ukuran* : ${anu.ukuran}
@@ -3484,7 +3298,7 @@ if (isBan) throw mess.ban
 *Merek Batrai* : ${anu.merek_batre}
 *Detail* : ${anu.detail}`			
 //var kontoll = await getBuffer(anu.result.owner.profile_pic)	
-				//sendButLocation(from, `${reply22}`,`© alyabot`, {jpegThumbnail:kontoll}, [{buttonId:`${prefix}menu`,buttonText:{displayText:'OKE'},type:1}], {contextInfo: { mentionedJid: [sender, owner]}})
+				//sendButLocation(from, `${reply22}`,`© drips`, {jpegThumbnail:kontoll}, [{buttonId:`${prefix}menu`,buttonText:{displayText:'OKE'},type:1}], {contextInfo: { mentionedJid: [sender, owner]}})
 anu = await getBuffer(anu.thumb)
 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${reply212}` }, { quoted: m}).catch((err) => m.reply('*No search results found*'))
 	            }
@@ -3647,130 +3461,13 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 }
 break
-case 'song': {
-                if (!text) throw `Example : ${prefix + command} story wa anime`
-                let yts = require("yt-search")
-                let search = await yts(text)                   
-let sections = []   
-let listmenu = [`ytmp4 ${search.all[0].url}`,`ytmp3 ${search.all[1].url}`,`ytmp4 ${search.all[2].url}`,`ytmp3 ${search.all[3].url}`,`ytmp4 ${search.all[4].url}`,`ytmp3 ${search.all[5].url}`,`ytmp4 ${search.all[6].url}`,`ytmp3 ${search.all[7].url}`,`ytmp4 ${search.all[8].url}`,`ytmp3 ${search.all[9].url}`,`ytmp4 ${search.all[10].url}`,`ytmp3 ${search.all[11].url}`,`ytmp4 ${search.all[12].url}`,`ytmp3 ${search.all[13].url}`,`ytmp4 ${search.all[14].url}`,`ytmp3 ${search.all[15].url}`,`ytmp4 ${search.all[16].url}`,`ytmp3 ${search.all[17].url}`,`ytmp4 ${search.all[18].url}`,`ytmp3 ${search.all[19].url}`]
-                    let listmenuu = [`VIDEO MP4⬤: ${search.all[0].title}`,`SONG MP3⬤: ${search.all[1].title}`,`VIDEO MP4⬤: ${search.all[2].title}`,`SONG MP3⬤: ${search.all[3].title}`,`VIDEO MP4⬤: ${search.all[4].title}`,`SONG MP3⬤: ${search.all[5].title}`,`VIDEO MP4⬤: ${search.all[6].title}`,`SONG MP3⬤: ${search.all[7].title}`,`VIDEO MP4⬤: ${search.all[8].title}`,`SONG MP3⬤: ${search.all[9].title}`,`VIDEO MP4⬤: ${search.all[10].title}`,`SONG MP3⬤: ${search.all[11].title}`,`VIDEO MP4⬤: ${search.all[12].title}`,`SONG MP3⬤: ${search.all[13].title}`,`VIDEO MP4⬤: ${search.all[14].title}`,`SONG MP3⬤: ${search.all[15].title}`,`VIDEO MP4⬤: ${search.all[16].title}`,`SONG MP3⬤: ${search.all[17].title}`,`VIDEO MP4⬤: ${search.all[18].title}`,`SONG MP3⬤: ${search.all[19].title}`]
-                    let listmenuuu = [`\n${search.all[0].description}`,`\n${search.all[1].description}`,`\n${search.all[2].description}`,`\n${search.all[3].description}`,`\n${search.all[4].description}`,`\n${search.all[5].description}`,`\n${search.all[6].description}`,`\n${search.all[7].description}`,`\n${search.all[8].description}`,`\n${search.all[9].description}`,`\n${search.all[10].description}`,`\n${search.all[11].description}`,`\n${search.all[12].description}`,`\n${search.all[13].description}`,`\n${search.all[14].description}`,`\n${search.all[15].description}`,`\n${search.all[16].description}`,`\n${search.all[17].description}`,`\n${search.all[18].description}`,`\n${search.all[19].description}`]
-                    let nombor = 1
-                    let startnum = 0
-                    let startnumm = 0
-                    for (let x of listmenu) {
-                    const list = {title: 'RESULT NUMBER ' + nombor++,
-                    rows: [
-                       {
-                        title: `${listmenuu[startnum++]}`,
-                        description: `${listmenuuu[startnumm++]}`,
-                        rowId: `${prefix}${x}`
-	    }, 
-	    ]
-     }
-     sections.push(list)   
-     }
-  const sendm =  ZimBotInc.sendMessage(
-      m.chat, 
-      {
-       text: "\n\n*CHEERS TO THAT*",
-       footer: botname,
-       title: `HERE IS YOUR RESULTS CHOMIE FROM *${text}* _select song or video below_`,
-       buttonText: "CLICK HERE",
-       sections
-      }, { quoted : m })
-      }
+case 'song': function _0x2619(_0xa712bd,_0x3cc493){const _0x2f0691=_0x2f06();return _0x2619=function(_0x261933,_0x59f241){_0x261933=_0x261933-0x1a2;let _0x917ca7=_0x2f0691[_0x261933];return _0x917ca7;},_0x2619(_0xa712bd,_0x3cc493);}function _0x2f06(){const _0x55f35b=['5882437fKRgcs','CLICK\x20HERE','SONG\x20MP3⬤:\x20','4hJSzkU','12pZvqNm','814707ccVmTU','\x20story\x20wa\x20anime','all','ytmp3\x20','4372FqRNJf','10410rOdoIb','9jVLgZE','221753YSKLus','description','228MgPUWT','1606370nMGtMJ','yt-search','ytmp4\x20','push','chat','title','875MAamOM','VIDEO\x20MP4⬤:\x20','3693992HrmsNO','url','sendMessage','HERE\x20IS\x20YOUR\x20RESULTS\x20CHOMIE\x20FROM\x20*','Example\x20:\x20'];_0x2f06=function(){return _0x55f35b;};return _0x2f06();}const _0x494681=_0x2619;(function(_0x2f990d,_0x3dab42){const _0x5d3d5d=_0x2619,_0x91ff83=_0x2f990d();while(!![]){try{const _0x5d2979=-parseInt(_0x5d3d5d(0x1bc))/0x1*(parseInt(_0x5d3d5d(0x1a5))/0x2)+-parseInt(_0x5d3d5d(0x1b8))/0x3*(parseInt(_0x5d3d5d(0x1b6))/0x4)+parseInt(_0x5d3d5d(0x1ac))/0x5*(parseInt(_0x5d3d5d(0x1bd))/0x6)+-parseInt(_0x5d3d5d(0x1a3))/0x7+parseInt(_0x5d3d5d(0x1ae))/0x8*(parseInt(_0x5d3d5d(0x1a2))/0x9)+-parseInt(_0x5d3d5d(0x1a6))/0xa+parseInt(_0x5d3d5d(0x1b3))/0xb*(parseInt(_0x5d3d5d(0x1b7))/0xc);if(_0x5d2979===_0x3dab42)break;else _0x91ff83['push'](_0x91ff83['shift']());}catch(_0xd3cf2c){_0x91ff83['push'](_0x91ff83['shift']());}}}(_0x2f06,0x527b8));{if(!text)throw _0x494681(0x1b2)+(prefix+command)+_0x494681(0x1b9);let yts=require(_0x494681(0x1a7)),search=await yts(text),sections=[],listmenu=[_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x0][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x2]['url'],'ytmp3\x20'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1af)],'ytmp4\x20'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x7][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x8]['url'],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x9][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xa][_0x494681(0x1af)],'ytmp3\x20'+search[_0x494681(0x1ba)][0xb]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xc]['url'],_0x494681(0x1bb)+search['all'][0xd][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1af)],'ytmp3\x20'+search['all'][0xf]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x11]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x13][_0x494681(0x1af)]],listmenuu=[_0x494681(0x1ad)+search['all'][0x0][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x2][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x3][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1ab)],_0x494681(0x1ad)+search['all'][0x6][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x7]['title'],'VIDEO\x20MP4⬤:\x20'+search[_0x494681(0x1ba)][0x8][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xa]['title'],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0xb][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xc][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search['all'][0xd][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0xf][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x11]['title'],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1ab)]],listmenuuu=['\x0a'+search[_0x494681(0x1ba)][0x0][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x1]['description'],'\x0a'+search[_0x494681(0x1ba)][0x2][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1a4)],'\x0a'+search['all'][0x4]['description'],'\x0a'+search['all'][0x5][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x7]['description'],'\x0a'+search[_0x494681(0x1ba)][0x8]['description'],'\x0a'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1a4)],'\x0a'+search['all'][0xa][_0x494681(0x1a4)],'\x0a'+search['all'][0xb][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xc][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xd][_0x494681(0x1a4)],'\x0a'+search['all'][0xe][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xf]['description'],'\x0a'+search[_0x494681(0x1ba)][0x10]['description'],'\x0a'+search['all'][0x11]['description'],'\x0a'+search[_0x494681(0x1ba)][0x12][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1a4)]],nombor=0x1,startnum=0x0,startnumm=0x0;for(let x of listmenu){const list={'title':'RESULT\x20NUMBER\x20'+nombor++,'rows':[{'title':''+listmenuu[startnum++],'description':''+listmenuuu[startnumm++],'rowId':''+prefix+x}]};sections[_0x494681(0x1a9)](list);}const sendm=ZimBotInc[_0x494681(0x1b0)](m[_0x494681(0x1aa)],{'text':'\x0a\x0a*CHEERS\x20TO\x20THAT*','footer':botname,'title':_0x494681(0x1b1)+text+'*\x20_select\x20song\x20or\x20video\x20below_','buttonText':_0x494681(0x1b4),'sections':sections},{'quoted':m});}
      break
-case 'ytsaudio': case 'ytsmusic': case 'ytsearchmusic': {
-if (isBan) throw mess.ban
-//if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} guspy warior ita seunononga`
-                let yts = require("yt-search")
-                let search = await yts(text)                
-                let no = 1
-                let sections = []   
-                for (let i of search.all) {
-                const list = {title: `${i.title}`,
-                rows: [
-	                  {
-	                  title: `${i.title}\n`, 
-	                  rowId: `${prefix}ytmp3 ${i.url}`,
-	                  description: `${i.description}\n*UPLOAD:* ${i.ago}\n*CHANNEL:* ${i.author.name}\n*VIEWS:* ${i.views}\n*DURATION:* ${i.timestamp}\n*LINK:* ${i.url}`
-	                  }, 
-	                  ]
-                      }
-                      sections.push(list)   
-                      }
-                      const sendm =  ZimBotInc.sendMessage(
-                      m.chat, 
-                      {
-                      text: ` ${text}`,
-                      footer: botname,
-                      title: `${ucapannya2} ${pushname} Here are the search results from ytsaudio`,
-                      buttonText: "LIST OF AUDIOS",
-                      sections
-                      }, { quoted : m })
-                      }
+case 'ytsaudio': case 'ytsmusic': case 'ytsearchmusic': function _0x46a1(){const _0x3cb4a8=['44fHOPfg','chat','ago','ban','4252496icAfHA','yt-search','description','\x20guspy\x20warior\x20ita\x20seunononga','34092pFHiyl','\x0a*LINK:*\x20','12epfryU','views','74qcPxDS','title','LIST\x20OF\x20AUDIOS','133001HPuagx','url','2461554eExvyT','push','677018pTstMj','42513SkDmLN','\x0a*VIEWS:*\x20','name','author','ytmp3\x20','546sLAwAk','\x0a*DURATION:*\x20','\x0a*UPLOAD:*\x20','timestamp','38900mFwmYh','20kEdwTq'];_0x46a1=function(){return _0x3cb4a8;};return _0x46a1();}function _0x35ef(_0x1538a1,_0x2458a4){const _0x46a1f5=_0x46a1();return _0x35ef=function(_0x35ef79,_0x36917d){_0x35ef79=_0x35ef79-0xf2;let _0x553e0e=_0x46a1f5[_0x35ef79];return _0x553e0e;},_0x35ef(_0x1538a1,_0x2458a4);}const _0x49fc3c=_0x35ef;(function(_0x180268,_0x1db291){const _0x90f637=_0x35ef,_0x1f645e=_0x180268();while(!![]){try{const _0xfa5e79=parseInt(_0x90f637(0x103))/0x1+-parseInt(_0x90f637(0xfc))/0x2*(parseInt(_0x90f637(0x104))/0x3)+parseInt(_0x90f637(0x10f))/0x4*(-parseInt(_0x90f637(0x10d))/0x5)+parseInt(_0x90f637(0xf8))/0x6*(parseInt(_0x90f637(0x109))/0x7)+-parseInt(_0x90f637(0xf4))/0x8+-parseInt(_0x90f637(0x101))/0x9*(-parseInt(_0x90f637(0x10e))/0xa)+parseInt(_0x90f637(0xff))/0xb*(-parseInt(_0x90f637(0xfa))/0xc);if(_0xfa5e79===_0x1db291)break;else _0x1f645e['push'](_0x1f645e['shift']());}catch(_0x54be1f){_0x1f645e['push'](_0x1f645e['shift']());}}}(_0x46a1,0x7d682));{if(isBan)throw mess[_0x49fc3c(0xf3)];if(!text)throw'Example\x20:\x20'+(prefix+command)+_0x49fc3c(0xf7);let yts=require(_0x49fc3c(0xf5)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i['title'],'rows':[{'title':i[_0x49fc3c(0xfd)]+'\x0a','rowId':prefix+_0x49fc3c(0x108)+i[_0x49fc3c(0x100)],'description':i[_0x49fc3c(0xf6)]+_0x49fc3c(0x10b)+i[_0x49fc3c(0xf2)]+'\x0a*CHANNEL:*\x20'+i[_0x49fc3c(0x107)][_0x49fc3c(0x106)]+_0x49fc3c(0x105)+i[_0x49fc3c(0xfb)]+_0x49fc3c(0x10a)+i[_0x49fc3c(0x10c)]+_0x49fc3c(0xf9)+i[_0x49fc3c(0x100)]}]};sections[_0x49fc3c(0x102)](list);}const sendm=ZimBotInc['sendMessage'](m[_0x49fc3c(0x110)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20Here\x20are\x20the\x20search\x20results\x20from\x20ytsaudio','buttonText':_0x49fc3c(0xfe),'sections':sections},{'quoted':m});}
                   break
-case 'ytsvideo': case 'ytsearchvideo': {
-if (isBan) throw mess.ban
-                if (!text) throw `Example : ${prefix + command} seh calaz takambo tamba munyika`
-                let yts = require("yt-search")
-                let search = await yts(text)                
-                let no = 1
-                let sections = []   
-                for (let i of search.all) {
-                const list = {title: `${i.title}`,
-                rows: [
-	                  {
-	                  title: `${i.title}\n`, 
-	                  rowId: `${prefix}ytmp4 ${i.url}`,
-	                  description: `${i.description}\n*UPLOAD:* ${i.ago}\n*CHANNEL:* ${i.author.name}\n*VIEWS:* ${i.views}\n*DURATION* ${i.timestamp}\n*LINK:* ${i.url}`
-	                  }, 
-	                  ]
-                      }
-                      sections.push(list)   
-                      }
-                      const sendm =  ZimBotInc.sendMessage(
-                      m.chat, 
-                      {
-                      text: ` ${text}`,
-                      footer: botname,
-                      title: `${ucapannya2} ${pushname} *Here are the search results from ytsvideo*`,
-                      buttonText: "LIST OF VIDEOS",
-                      sections
-                      }, { quoted : m })
-                      }
+case 'ytsvideo': case 'ytsearchvideo': function _0x4c3b(_0x54ae6d,_0x1bd257){const _0x3b9c98=_0x3b9c();return _0x4c3b=function(_0x4c3b5c,_0x283661){_0x4c3b5c=_0x4c3b5c-0xde;let _0x293112=_0x3b9c98[_0x4c3b5c];return _0x293112;},_0x4c3b(_0x54ae6d,_0x1bd257);}const _0x309941=_0x4c3b;(function(_0x39a082,_0x29c94e){const _0x31d9ff=_0x4c3b,_0x475bdc=_0x39a082();while(!![]){try{const _0x413430=parseInt(_0x31d9ff(0xde))/0x1+-parseInt(_0x31d9ff(0xf6))/0x2+-parseInt(_0x31d9ff(0xef))/0x3*(-parseInt(_0x31d9ff(0xe7))/0x4)+-parseInt(_0x31d9ff(0xf5))/0x5+parseInt(_0x31d9ff(0xec))/0x6+parseInt(_0x31d9ff(0xf2))/0x7*(-parseInt(_0x31d9ff(0xe2))/0x8)+-parseInt(_0x31d9ff(0xf3))/0x9;if(_0x413430===_0x29c94e)break;else _0x475bdc['push'](_0x475bdc['shift']());}catch(_0x42b36d){_0x475bdc['push'](_0x475bdc['shift']());}}}(_0x3b9c,0x95b3f));function _0x3b9c(){const _0x638643=['3DDoYge','description','views','21pCPFvn','6141285sksXBX','\x0a*DURATION*\x20','1562925wRUdVF','624600RRcHIn','yt-search','url','1208674kLzYwF','sendMessage','chat','name','2313448kMulLs','ago','\x0a*LINK:*\x20','ytmp4\x20','title','1890928GCYvLv','Example\x20:\x20','LIST\x20OF\x20VIDEOS','\x20seh\x20calaz\x20takambo\x20tamba\x20munyika','\x0a*UPLOAD:*\x20','6639420uOEBHC','timestamp','\x0a*VIEWS:*\x20'];_0x3b9c=function(){return _0x638643;};return _0x3b9c();}{if(isBan)throw mess['ban'];if(!text)throw _0x309941(0xe8)+(prefix+command)+_0x309941(0xea);let yts=require(_0x309941(0xf7)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i[_0x309941(0xe6)],'rows':[{'title':i['title']+'\x0a','rowId':prefix+_0x309941(0xe5)+i['url'],'description':i[_0x309941(0xf0)]+_0x309941(0xeb)+i[_0x309941(0xe3)]+'\x0a*CHANNEL:*\x20'+i['author'][_0x309941(0xe1)]+_0x309941(0xee)+i[_0x309941(0xf1)]+_0x309941(0xf4)+i[_0x309941(0xed)]+_0x309941(0xe4)+i[_0x309941(0xf8)]}]};sections['push'](list);}const sendm=ZimBotInc[_0x309941(0xdf)](m[_0x309941(0xe0)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20*Here\x20are\x20the\x20search\x20results\x20from\x20ytsvideo*','buttonText':_0x309941(0xe9),'sections':sections},{'quoted':m});}
                   break
-case 'yts2': case 'youtubesearch2': case 'ytsearch2': {
-//if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} story wa anime`
-                let yts = require("yt-search")
-                let search = await yts(text)                
-                let no = 1
-                let sections = []   
-                for (let i of search.all) {
-                const list = {title: `${i.title}`,
-                rows: [
-	                  {
-	                  title: `${i.title}\n\n`, 
-	                  rowId: `${prefix}ytmp3 ${i.url}`,
-	                  description: `${i.description}`
-	                  }, 
-	                  ]
-                      }
-                      sections.push(list)   
-                      }
-                      const sendm =  ZimBotInc.sendMessage(
-                      m.chat, 
-                      {
-                      text: ` ${text}`,
-                      footer: botname,
-                      title: `*Here are the search results from yts2*`,
-                      buttonText: "CLICK HERE",
-                      sections
-                      }, { quoted : m })
-                      }
+case 'yts2': case 'youtubesearch2': case 'ytsearch2': const _0x367230=_0x7a1b;(function(_0x26fbd0,_0x29b735){const _0x3fbe28=_0x7a1b,_0x275c0e=_0x26fbd0();while(!![]){try{const _0x2ee184=-parseInt(_0x3fbe28(0x70))/0x1+parseInt(_0x3fbe28(0x68))/0x2*(parseInt(_0x3fbe28(0x6c))/0x3)+parseInt(_0x3fbe28(0x73))/0x4+parseInt(_0x3fbe28(0x74))/0x5+parseInt(_0x3fbe28(0x77))/0x6+-parseInt(_0x3fbe28(0x6e))/0x7+-parseInt(_0x3fbe28(0x6a))/0x8;if(_0x2ee184===_0x29b735)break;else _0x275c0e['push'](_0x275c0e['shift']());}catch(_0x4987dd){_0x275c0e['push'](_0x275c0e['shift']());}}}(_0x3a3e,0x7e8f6));function _0x7a1b(_0x2bbe12,_0x2db74a){const _0x3a3eb8=_0x3a3e();return _0x7a1b=function(_0x7a1b5f,_0xb700fa){_0x7a1b5f=_0x7a1b5f-0x68;let _0x4e426f=_0x3a3eb8[_0x7a1b5f];return _0x4e426f;},_0x7a1b(_0x2bbe12,_0x2db74a);}function _0x3a3e(){const _0xe7d720=['3SOVAdT','\x20story\x20wa\x20anime','2848391hZOnOV','yt-search','523865hTPSLj','CLICK\x20HERE','all','2700252wdBUpq','4085610EqrFLz','description','chat','4241982zoUaHp','title','ytmp3\x20','1855474dcfikL','sendMessage','13422008SKxjtp','push'];_0x3a3e=function(){return _0xe7d720;};return _0x3a3e();}{if(!text)throw'Example\x20:\x20'+(prefix+command)+_0x367230(0x6d);let yts=require(_0x367230(0x6f)),search=await yts(text),no=0x1,sections=[];for(let i of search[_0x367230(0x72)]){const list={'title':''+i[_0x367230(0x78)],'rows':[{'title':i['title']+'\x0a\x0a','rowId':prefix+_0x367230(0x79)+i['url'],'description':''+i[_0x367230(0x75)]}]};sections[_0x367230(0x6b)](list);}const sendm=ZimBotInc[_0x367230(0x69)](m[_0x367230(0x76)],{'text':'\x20'+text,'footer':botname,'title':'*Here\x20are\x20the\x20search\x20results\x20from\x20yts2*','buttonText':_0x367230(0x71),'sections':sections},{'quoted':m});}
                   break
 case 'play':  {  
 if (isBan) throw mess.ban            
@@ -4132,13 +3829,7 @@ if (isBan) throw mess.ban
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/chiho?apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
-            break
-            case 'slots':
-            const somtoy = sotoy[Math.floor(Math.random() * sotoy.length)]
-            ZimBotInc.sendMessage(m.chat, somtoy,`[  🎰 | SLOTS ]\n-----------------\n🍋 : 🍌 : 🍍\n${somtoy}<=====\n🍋 : 🍌 : 🍍\n[  🎰 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3Buah Sama Berarti Anda Menang\n\nContoh : 🍌 : 🍌 : 🍌<=====`, ZimBotInc, { quoted: m })
-        
-            
-           break                   
+            break                   
            case 'waifu': {
            if (isBan) throw mess.ban
            ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
@@ -4299,44 +3990,40 @@ m.reply(`\`\`\`*Success , Activating the antivirtex feature in the group*\`\`\` 
                 }
                 ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
-            break
-            case 'slot':
+            break                                                                       //by drips if you copy give credits
+            case 'slot': { 
                 const sotoy = [
-                    '🍊 : 🍒 : 🍐',
-                    '🍒 : 🔔 : 🍊',
-                    '🍇 : 🍇 : 🍐',
-                    '🍊 : 🍋 : 🔔', //ANKER
-                    '🔔 : 🍒 : 🍐',
-                    '🔔 : 🍒 : 🍊',
-                    '🍊 : 🍋 : 🔔',        
-                    '🍐 : 🍒 : 🍋',
-                    '🍐 : 🍒 : 🍐',
-                    '🍊 : 🍒 : 🍒',
-                    '🔔 : 🔔 : 🍇',
-                    '🍌 : 🍌 : 🔔',
-                    '🍐 : 🔔 : 🔔',
-                    '🍊 : 🍋 : 🍒',
-                    '🍋 : 🍋 : 🍋 Win👑',
-                    '🔔 : 🔔 : 🍇',
-                    '🔔 : 🍇 : 🍇', 
+                    '🍊 : 🍒 : 🍐 *YOU LOSE BRO*',
+                    '🍒 : 🔔 : 🍊 *YOU LOSE BRO*',
+                    '🍇 : 🍇 : 🍐 *YOU LOSE BRO*',
+                    '🍊 : 🍋 : 🔔 *YOU LOSE BRO*', //ANKER
+                    '🔔 : 🍒 : 🍐 *YOU LOSE BRO*',
+                    '🔔 : 🍒 : 🍊 *YOU LOSE BRO*',
+                    '🍊 : 🍋 : 🔔 *YOU LOSE BRO*',        
+                    '🍒 : 🍒 : 🍒 *You Win👑*',
+                    '🍐 : 🍒 : 🍐 *YOU LOSE BRO*',
+                    '🍊 : 🍒 : 🍒 *YOU LOSE BRO*',
+                    '🔔 : 🔔 : 🍇 *YOU LOSE BRO*',
+                    '🍌 : 🍌 : 🔔 *YOU LOSE BRO*',
+                    '🍐 : 🔔 : 🔔 *YOU LOSE BRO*',
+                    '🍊 : 🍋 : 🍒 *YOU LOSE BRO*',
+                    '🍋 : 🍋 : 🍋 *You Win👑*',
+                    '🔔 : 🔔 : 🍇 *YOU LOSE BRO*',
+                    '🔔 : 🍇 : 🍇 *YOU LOSE BRO*', 
                     '🔔 : 🍐 : 🔔',
-                    '🍌 : 🍌 : 🍌 Win👑'
-                    ];
-                   	
-                    if (somtoyy  == '🍌 : 🍌 : 🍌') {
-                    m.reply(`[  🎰 | *SLOT* ]\n---------------------\n${somtoy}\n${somtoyy} <======\n${somtoyyy}\n---------------------\n[  *YOU WIN*  ]`)
-                    } else if (somtoyy == '🍒 : 🍒 : 🍒') {
-                    m.reply(`[  🎰 | *SLOT* ]\n---------------------\n${somtoy}\n${somtoyy} <======\n${somtoyyy}\n---------------------\n[  *YOU WIN*  ]`)
-                    } else if (somtoyy == '🔔 : 🔔 : 🔔') {
-                    m.reply(`[  🎰 | *SLOT* ]\n---------------------\n${somtoy}\n${somtoyy} <======\n${somtoyyy}\n---------------------\n[  *YOU WIN*  ]`)
-                    } else if (somtoyy == '🍐 : 🍐 : 🍐') {
-                    m.reply(`[  🎰 | *SLOT* ]\n---------------------\n${somtoy}\n${somtoyy} <======\n${somtoyyy}\n---------------------\n[  *YOU WIN*  ]`)
-                    } else if (somtoyy == '🍇 : 🍇 : 🍇') {
-                    m.reply(`[  🎰 | *SLOT* ]\n---------------------\n${somtoy}\n${somtoyy} <======\n${somtoyyy}\n---------------------\n[  *YOU WIN*  ]`)
-                    } else {
-                    m.reply(`[  🎰 | *SLOT* ]\n---------------------\n${somtoy}\n${somtoyy} <======\n${somtoyyy}\n---------------------\n[  *YOU LOSE*  ]`)
-                    }
-                     
+                    '🍌 : 🍌 : 🍌 *You Win👑*'
+                    ]
+                    const dripslot = sotoy[Math.floor(Math.random() * sotoy.length)]
+                    let datane = fs.readFileSync('./lib/nothing.js')
+                    jsonData = JSON.parse(datane)
+                    randIndex = Math.floor(Math.random() * jsonData.length)
+                    randKey = jsonData[randIndex];
+                    buffer = await getBuffer(randKey.result)
+                    ZimBotInc.sendMessage(from, { image: buffer, caption: '*SLOT MACHINE*\n'+ dripslot }, {quoted:m})
+                }
+                    
+                
+            
               break
 
              
@@ -4437,13 +4124,13 @@ if (!text) throw 'Masukkan query'
 
 			break
 
-//━━━━━━━━━━━━━━━━━━━━[ TEXT MAKER, PHOTOOXY, IMAGE EFFECT,  ]━━━━━━━━━━━━━━━━━━━━
+//BY ZIM BOT INC
      
      case 'tahta': case 'hartatahta': {
      if (isBan) throw mess.ban
      if (!isPremium && !isCreator) throw 'only premium'
 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-if (!text) throw 'Masukkan Textnya Contoh : .hartatahta alyabot'
+if (!text) throw 'Masukkan Textnya Contoh : .hartatahta drips'
 //if (!isUrl(args[0]) && !args[0].includes('vimeo.com')) throw '*The link you provided is not valid*'
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
@@ -4607,7 +4294,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
-//━━━━━━━━━━━━━━━━━━━━[ FUN PRIMBON ]━━━━━━━━━━━━━━━━━━━━
+//ZIM BOT INC
 
 	    case 'nomerhoki': case 'nomorhoki': {
 	    ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
@@ -4671,6 +4358,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 if (anu.status == false) return m.reply(anu.message)
                 ZimBotInc.sendText(m.chat, `> *NAME :* ${anu.message.suami.nama}\n> *Husband Born :* ${anu.message.suami.tgl_lahir}\n> *Wife's name:* ${anu.message.istri.nama}\n> *Born Wife :* ${anu.message.istri.tgl_lahir}\n> *RESULTS :* ${anu.message.result}\n> *Notes :* ${anu.message.catatan}`, m)
             }
+            //GIVE CREDITS
             break
             case 'ramalancinta': case 'ramalcinta': {
             ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
@@ -5097,7 +4785,7 @@ if (isBan) throw mess.ban
                 })
             }
             break
-case 'tiktok5': case 'tt5': {
+case 'tiktokk': case 'ttk': {
                // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 if (!text) throw '*Enter a Link Query!*'            
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
@@ -5965,7 +5653,7 @@ break
 	    }
 	    break
 
-//━━━━━━━━━━━━━━━━━━━
+//BY ZIIM BOT INC
 
         case 'resepmasakan2': {
                 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
@@ -6367,7 +6055,7 @@ break
                 }
 
                 break
-//━━━━━━━━━━━━━━━━━━━━[ DATABASE ]━━━━━━━━━━━━━━━━━━━━
+//BY ZIM BOT INC
 
             case 'setcmd': {
            // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
@@ -6467,7 +6155,7 @@ Access with ${prefix}getmsg ${text}
 		m.reply(`Successfully deleted'${text}' from the message list`)
             }
 	    break
-//━━━━━━━━━━━━━━━━━━━━[ SHORTLINK ]━━━━━━━━━━━━━━━━━━━━
+//BY ZIM BOT INC
            
             case 'bitly': {
                 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
@@ -6480,26 +6168,26 @@ Access with ${prefix}getmsg ${text}
             case 'gg': {
                 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 if (!text) throw `Example : ${prefix + command} https://github.com`
-                anu = await fetchJson(`https://xteam.xyz/shorturl/gg?url=${text}&nama=alyabot&APIKEY=${setting.riy}`)
+                anu = await fetchJson(`https://xteam.xyz/shorturl/gg?url=${text}&nama=drips&APIKEY=${setting.riy}`)
                 m.reply(`${anu.result}`)
             }
             break
             case 'sid': {
                 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 if (!text) throw `Example : ${prefix + command} https://github.com`
-                anu = await fetchJson(`https://xteam.xyz/shorturl/sid?url=${text}&nama=alyabot&APIKEY=${setting.riy}`)
+                anu = await fetchJson(`https://xteam.xyz/shorturl/sid?url=${text}&nama=drips&APIKEY=${setting.riy}`)
                 m.reply(`${anu.result}`)
             }
             break
             case 'cuttly': {
                 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 if (!text) throw `Example : ${prefix + command} https://github.com`
-                anu = await fetchJson(`https://xteam.xyz/shorturl/cuttly?url=${text}&nama=alyabot&APIKEY=${setting.riy}`)
+                anu = await fetchJson(`https://xteam.xyz/shorturl/cuttly?url=${text}&nama=drips&APIKEY=${setting.riy}`)
                 m.reply(`${anu.result}`)
             }
             break
 
-//━━━━━━━━━━━━━━━━━━━━[ ANONYMOUS CHAT ]━━━━━━━━━━━━━━━━━━━━
+//BY ZIM BOT NC
 
 	    case 'anonymous': {
 	    if (!isPremium && !isCreator) throw 'only premium'
@@ -6951,7 +6639,7 @@ ZimBotInc.sendMessage(m.chat, { image : { url : res.data.images.jpg.image_url}, 
 }
 break
 
-//━━━━━━━━━━━━━━━━━━━━[ MENUUUUU ]━━━━━━━━━━━━━━━━━━━━
+//by zim bot inc
 
 case 'listmenu': case 'list': {
     
@@ -7063,6 +6751,8 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}listgc
 ┃⬤${prefix}owner
 ┃⬤${prefix}botdev
+┃⬤${prefix}setmenu
+┃⬤${prefix}autoblock
 ┃⬤${prefix}bothelp
 ┃⬤${prefix}delete
 ┃⬤${prefix}infochat
@@ -7091,7 +6781,8 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 
 ┏━❰ *FUN FAITURE* ❱
 ┃⬤${prefix}family100
-┃⬤${prefix}hilih 
+┃⬤${prefix}hilih
+┃⬤${prefix}slot 
 ┃⬤${prefix}simi
 ┃⬤ ${prefix}holoh
 ┃⬤${prefix}delttt
@@ -7148,6 +6839,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}bctext
 ┃⬤${prefix}setexif
 ┃⬤${prefix}chat
+┃⬤${prefix}autoblock
 ┃⬤${prefix}bcvideo
 ┃⬤${prefix}bcgroup
 ┃⬤ ${prefix}bcimage
@@ -7299,6 +6991,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}antionce
 ┃⬤${prefix}dare
 ┃⬤${prefix}truth
+┃⬤${prefix}slot
 ┃⬤${prefix}toonce / once
 ┃⬤${prefix}antilinkyt
 ┃⬤${prefix}antiwame
@@ -8067,6 +7760,7 @@ let hao = randomNomor(200)
 ┃⬤${prefix}antionce
 ┃⬤${prefix}dare
 ┃⬤${prefix}truth
+┃⬤${prefix}slot
 ┃⬤${prefix}toonce / once
 ┃⬤${prefix}antilinkyt
 ┃⬤${prefix}antiwame
@@ -8633,7 +8327,9 @@ let hao = randomNomor(200)
      
 ┏━❰ *FUN FEATURE* ❱
 ┃⬤${prefix}family100
+┃⬤${prefix}slot
 ┃⬤${prefix}hilih 
+┃⬤${prefix}slot
 ┃⬤${prefix}simi
 ┃⬤ ${prefix}holoh
 ┃⬤${prefix}delttt
@@ -9234,8 +8930,9 @@ let hao = randomNomor(200)
      
 ┏━❰ *OWNER MENU* ❱
 ┃⬤${prefix}leave
+┃⬤${prefix}autoblock
 ┃⬤${prefix}tfxp
-┃⬤ ${prefix}join
+┃⬤${prefix}join
 ┃⬤${prefix}bctext
 ┃⬤${prefix}bcall
 ┃⬤${prefix}bcloc
@@ -9287,12 +8984,12 @@ case 'sond': {
                     }
                 }
                 if (antiToxic)
-                if (bad.includes(messagesD)) {
+                if (bad.includes(zimbotincv3)) {
                 if (m.text) {
-                bvl = `*▊▊▊ANTIBAD WORDS▊▊▊*\n\n*Lucky you, you are admin*`
-                if (isAdmins) return m.reply(bvl)
-                if (m.key.fromMe) return m.reply(bvl)
-                if (isCreator) return m.reply(bvl)
+                zimbotv3 = `*▊▊▊ANTIBAD WORDS▊▊▊*\n\n*Lucky you, you are admin*`
+                if (isAdmins) return m.reply(zimbotv3)
+                if (m.key.fromMe) return m.reply(zimbotv3)
+                if (isCreator) return m.reply(zimbotv3)
                 kice = m.sender
                 await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
                 ZimBotInc.sendMessage(from, {text:`*▊▊▊ANTIBAD WORDS▊▊▊*\n\n@${kice.split("@")[0]} *was kicked because of being rude to others in this group*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})}
@@ -9344,7 +9041,7 @@ case 'sond': {
 		    ZimBotInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
 		}
         }
-        
+        // SCRIPT BY ZIM-BOT ORIGINAL BASE DIKARNDT 
 
     } catch (err) {
         m.reply(util.format(err))
