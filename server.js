@@ -1,9 +1,9 @@
-import express from 'express'
-import { createServer } from 'http'
-import path from 'path'
-import { Socket } from 'socket.io'
-import { toBuffer } from 'qrcode'
-import fetch from 'node-fetch'
+const express = require('express')
+const { createServer } = require('http')
+const path = require('path')
+const { Socket } = require('socket.io')
+const { toBuffer } = require('qrcode')
+const fetch = require('node-fetch')
 
 function connect(conn, PORT) {
     let app = global.app = express()
