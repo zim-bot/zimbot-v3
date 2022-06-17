@@ -37,7 +37,7 @@ global.APIKeys = {
 }
 
 // Other
-global.owner = ['27634090203','918188019676']
+global.owner = ['27634090203','447441437150']
 global.premium = ['27634090203','918188019676']
 global.botname = 'ZIM BOT INC'
 global.ownername = 'DRIPS'
