@@ -31,7 +31,7 @@
 process.on('uncaughtException', console.error) //Safe Log Error
 
 require('./config')
-const { BufferJSON, WA_DEFAULT_EPHEMERAL, PresenceUpdate, Presence, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = require('@adiwajshing/baileys')
+const { WAConnection, MessageType , BufferJSON, WA_DEFAULT_EPHEMERAL, PresenceUpdate, Presence, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = require('@adiwajshing/baileys')
 const fs = require('fs')
 const util = require('util')
 const chalk = require('chalk')
@@ -146,14 +146,6 @@ module.exports = ZimBotInc = async (ZimBotInc, m, chatUpdate, store) => {
         const isAntiLinkTelegram = m.isGroup ? dripsantitele.includes(m.chat) : false
         const isAntiLinkTwitter = m.isGroup ? dripsantitwt.includes(m.chat) : false
         const isAntiLinkAll = m.isGroup ? antilinkall.includes(m.chat) : false
-        
-        
-
-        
-        
-        
-        
-        
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
          
 //zim bot inc
@@ -458,20 +450,23 @@ randek = jsonDrips[randIndex];
             if (!m.key.fromMe) return
         }
     
-        if (global.autoreadpmngc) {
-            if (command) {
-            await ZimBotInc.sendPresenceUpdate('composing', m.chat)
-            ZimBotInc.sendReadReceipt(from, m.sender, [m.key.id])}
-        }
-
-            if (global.autoRecord) { if (m.chat) { ZimBotInc.sendPresenceUpdate('recording', m.chat) }
-        }
         // Push Message To Console && Auto Read
         if (m.message) {
-            ZimBotInc.sendReadReceipt(m.chat, m.sender, [m.key.id])
             console.log(chalk.blue(chalk.bgWhite('ZIMBOT')), chalk.whiteBright(chalk.bgRed(new Date)), chalk.black(chalk.bgRed(budy || m.mtype)) + '\n' + chalk.magenta('⦿ FROM'), chalk.bgYellowBright(pushname), chalk.bgGray(m.sender) + '\n' + chalk.bgCyanBright('RECIEVED'), chalk.yellowBright(m.isGroup ? pushname : 'DM', m.chat))
         }
 	
+              if (global.dripsreadgroup) {
+              if (m.isGroup) { ZimBotInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
+              }
+              if (global.dripsreadall) { if (m.message) { ZimBotInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
+              }
+                if (global.dripsrecord) { if (m.chat) { ZimBotInc.sendPresenceUpdate('recording', m.chat) }
+            }
+            
+              if (global.dripstyping) { if (m.chat) { ZimBotInc.sendPresenceUpdate('composing', m.chat) }
+            }
+              if (global.available) { if (m.chat) { ZimBotInc.sendPresenceUpdate('available', m.chat) }
+              }
 	//Auto reset
   //Jika bot on di jam 24.00 maka limit dan darah bakal reset
   //Kalo off yaa kaga, Harus tunggu besok :v    
@@ -529,6 +524,10 @@ return '```' + abantyulidab+ '```'
 } 
 
 
+if (m.chat.startsWith("212")) {
+ZimBotInc.updateBlockStatus(m.sender,'block')
+            
+            }
 
 //LEVEL
   
@@ -3542,7 +3541,13 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 *⬤▶━━━━━━━━━2:30*\n\n*⬤TITLE :* ${media.title}\n*⬤FILESIZE :* ${media.filesizeF}\n*⬤URL :* ${isUrl(text)}\n*⬤EXT :* MP3\n*⬤RESOLUTION :* ${args[1] || '128kbps'}\n\n*ZIM BOT INC*`
                 buf = await getBuffer(media.thumb)
                 ZimBotInc.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m }).catch((err) => m.reply('*Sorry, the link you provided is not valid*'))                
-                ZimBotInc.sendMessage(m.chat, {document:{url:media.dl_link}, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{title:media.title,body:"YOUTUBE MP3",mediaType:"2",thumbnail:buf,mediaUrl:`${text}`}}}).catch((err) => m.reply('Sorry, the link you provided is not valid*'))
+                ZimBotInc.sendMessage(m.chat, {document:{url:media.dl_link}, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                title:media.title,
+                body:"YOUTUBE MP3",
+                mediaType:2,
+                thumbnail:buf,
+                mediaUrl:`${text}`, 
+                sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
                 }
             break
            case 'ytmp4': case 'ytvideo': {
@@ -3564,7 +3569,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 *⬤▶━━━━━━━━━2:30*\n\n*⬤Title* : ${media.title}\n*⬤FILESIZE* : ${media.filesizeF}\n*⬤URL* : ${isUrl(text)}\n*⬤EXT* : MP3\n*⬤RESOLUTION* : ${args[1] || '360p'}\n\n*ZIM BOT INC*`
                 var buf = await getBuffer(media.thumb)
                 ZimBotInc.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${capti}` }, { quoted: m })
-                ZimBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `*Downloading From ${text}*` }, { quoted: m }).catch((err) => m.reply('Gagal dalam mengirim video'))
+                ZimBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `*Downloading From ${text}*` }, { quoted: m }).catch((err) => m.reply('*error while sending the video*'))
             }
             break
 case 'ytshorts': case 'shorts': {
@@ -3679,7 +3684,7 @@ if (isBan) throw mess.ban
            case 'quotemaker': {
 if (isBan) throw mess.ban
                 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)        
-                if (!text) throw 'harus menggunakan text contoh: .quotemaker aku hanya sayang padamu'        
+                if (!text) throw 'should use text example: .quotemaker I just love you'        
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
@@ -3877,7 +3882,7 @@ if (isBan) throw mess.ban
                     case 'cum': function _0x2fd1(_0x106d8d,_0x45d326){const _0x2a5c3b=_0x2a5c();return _0x2fd1=function(_0x2fd13b,_0x2b8ec8){_0x2fd13b=_0x2fd13b-0x12f;let _0xd4b958=_0x2a5c3b[_0x2fd13b];return _0xd4b958;},_0x2fd1(_0x106d8d,_0x45d326);}const _0x5b0145=_0x2fd1;(function(_0x2db56b,_0x1f7180){const _0x48d9fc=_0x2fd1,_0x261391=_0x2db56b();while(!![]){try{const _0x29d007=-parseInt(_0x48d9fc(0x12f))/0x1*(-parseInt(_0x48d9fc(0x141))/0x2)+-parseInt(_0x48d9fc(0x13a))/0x3+parseInt(_0x48d9fc(0x13e))/0x4+parseInt(_0x48d9fc(0x13f))/0x5*(parseInt(_0x48d9fc(0x138))/0x6)+-parseInt(_0x48d9fc(0x13b))/0x7*(-parseInt(_0x48d9fc(0x133))/0x8)+-parseInt(_0x48d9fc(0x137))/0x9*(parseInt(_0x48d9fc(0x136))/0xa)+-parseInt(_0x48d9fc(0x130))/0xb;if(_0x29d007===_0x1f7180)break;else _0x261391['push'](_0x261391['shift']());}catch(_0x7c9d71){_0x261391['push'](_0x261391['shift']());}}}(_0x2a5c,0x71b37));function _0x2a5c(){const _0x5ba11f=['1376190gEpYpy','1084874sHQkaN','botnma','result','1781928KQpQKH','1780bJDHYH','wait','9406PqcViI','55npkkxW','3841717wZBENy','NEXT','chat','16iDpTmK','ZIM\x20BOT\x20INC','https://wallebotapi.mitomods.com/docs/nsfw/cum?apikey=Donitas','1670ZMiEMM','28449HPUWWS','13272bJyHnX','cum'];_0x2a5c=function(){return _0x5ba11f;};return _0x2a5c();}{m.reply(mess[_0x5b0145(0x140)]);let buttons=[{'buttonId':_0x5b0145(0x139),'buttonText':{'displayText':_0x5b0145(0x131)},'type':0x1}],anu=await fetchJson(_0x5b0145(0x135)),buttonMessage={'image':{'url':''+anu[_0x5b0145(0x13d)]},'caption':_0x5b0145(0x134),'footer':global[_0x5b0145(0x13c)],'buttons':buttons,'headerType':0x4};ZimBotInc['sendMessage'](m[_0x5b0145(0x132)],buttonMessage,{'quoted':m});}
                     break
                     
-                    case 'ero': function _0x21a0(){const _0x3dca6f=['20vrjKRJ','2201766DtwSYl','578611rriDPt','wait','141640USsKBY','sendMessage','20fqIqJV','157366qDvUOU','botnma','1452324BaaDAw','759984Qjfrqu','5136939OcZkla','7JsAces','result','1XzHIbi','NEXT','ero','chat'];_0x21a0=function(){return _0x3dca6f;};return _0x21a0();}const _0x133d5d=_0x5bbc;function _0x5bbc(_0xb503f,_0x113222){const _0x21a057=_0x21a0();return _0x5bbc=function(_0x5bbcf2,_0x3ccf2d){_0x5bbcf2=_0x5bbcf2-0x1bd;let _0x1bf75b=_0x21a057[_0x5bbcf2];return _0x1bf75b;},_0x5bbc(_0xb503f,_0x113222);}(function(_0x1f9372,_0x42eb6d){const _0x41bf4a=_0x5bbc,_0x4cf031=_0x1f9372();while(!![]){try{const _0x56b378=-parseInt(_0x41bf4a(0x1bf))/0x1*(-parseInt(_0x41bf4a(0x1ca))/0x2)+parseInt(_0x41bf4a(0x1cc))/0x3+-parseInt(_0x41bf4a(0x1c3))/0x4*(parseInt(_0x41bf4a(0x1c7))/0x5)+parseInt(_0x41bf4a(0x1c4))/0x6*(parseInt(_0x41bf4a(0x1bd))/0x7)+parseInt(_0x41bf4a(0x1cd))/0x8+-parseInt(_0x41bf4a(0x1ce))/0x9+-parseInt(_0x41bf4a(0x1c9))/0xa*(-parseInt(_0x41bf4a(0x1c5))/0xb);if(_0x56b378===_0x42eb6d)break;else _0x4cf031['push'](_0x4cf031['shift']());}catch(_0x315e59){_0x4cf031['push'](_0x4cf031['shift']());}}}(_0x21a0,0x65f05));{m.dripsantividreply(mess[_0x133d5d(0x1c6)]);let buttons=[{'buttonId':_0x133d5d(0x1c1),'buttonText':{'displayText':_0x133d5d(0x1c0)},'type':0x1}],anu=await fetchJson('https://wallebotapi.mitomods.com/docs/nsfw/ero?apikey=Donitas'),buttonMessage={'image':{'url':''+anu[_0x133d5d(0x1be)]},'caption':'ZIM\x20BOT\x20INC','footer':global[_0x133d5d(0x1cb)],'buttons':buttons,'headerType':0x4};ZimBotInc[_0x133d5d(0x1c8)](m[_0x133d5d(0x1c2)],buttonMessage,{'quoted':m});}
+                    case 'ero': function _0x21a0(){const _0x3dca6f=['20vrjKRJ','2201766DtwSYl','578611rriDPt','wait','141640USsKBY','sendMessage','20fqIqJV','157366qDvUOU','botnma','1452324BaaDAw','759984Qjfrqu','5136939OcZkla','7JsAces','result','1XzHIbi','NEXT','ero','chat'];_0x21a0=function(){return _0x3dca6f;};return _0x21a0();}const _0x133d5d=_0x5bbc;function _0x5bbc(_0xb503f,_0x113222){const _0x21a057=_0x21a0();return _0x5bbc=function(_0x5bbcf2,_0x3ccf2d){_0x5bbcf2=_0x5bbcf2-0x1bd;let _0x1bf75b=_0x21a057[_0x5bbcf2];return _0x1bf75b;},_0x5bbc(_0xb503f,_0x113222);}(function(_0x1f9372,_0x42eb6d){const _0x41bf4a=_0x5bbc,_0x4cf031=_0x1f9372();while(!![]){try{const _0x56b378=-parseInt(_0x41bf4a(0x1bf))/0x1*(-parseInt(_0x41bf4a(0x1ca))/0x2)+parseInt(_0x41bf4a(0x1cc))/0x3+-parseInt(_0x41bf4a(0x1c3))/0x4*(parseInt(_0x41bf4a(0x1c7))/0x5)+parseInt(_0x41bf4a(0x1c4))/0x6*(parseInt(_0x41bf4a(0x1bd))/0x7)+parseInt(_0x41bf4a(0x1cd))/0x8+-parseInt(_0x41bf4a(0x1ce))/0x9+-parseInt(_0x41bf4a(0x1c9))/0xa*(-parseInt(_0x41bf4a(0x1c5))/0xb);if(_0x56b378===_0x42eb6d)break;else _0x4cf031['push'](_0x4cf031['shift']());}catch(_0x315e59){_0x4cf031['push'](_0x4cf031['shift']());}}}(_0x21a0,0x65f05));{m.reply(mess[_0x133d5d(0x1c6)]);let buttons=[{'buttonId':_0x133d5d(0x1c1),'buttonText':{'displayText':_0x133d5d(0x1c0)},'type':0x1}],anu=await fetchJson('https://wallebotapi.mitomods.com/docs/nsfw/ero?apikey=Donitas'),buttonMessage={'image':{'url':''+anu[_0x133d5d(0x1be)]},'caption':'ZIM\x20BOT\x20INC','footer':global[_0x133d5d(0x1cb)],'buttons':buttons,'headerType':0x4};ZimBotInc[_0x133d5d(0x1c8)](m[_0x133d5d(0x1c2)],buttonMessage,{'quoted':m});}
                     break
                     
                     case 'fendom': function _0xc027(){const _0x304d7e=['104QZoQpu','wait','https://wallebotapi.mitomods.com/docs/nsfw/femdom?apikey=Donitas','6185352oGpJVq','fendom','8027240tkPYjB','428526ztnxyM','chat','result','2kJhlgC','15333320ScQLOG','botnma','NEXT','6430alqXaj','sendMessage','ZIM\x20BOT\x20INC','9rdjaMl','4959178YqfBJz','70008nLzHcI'];_0xc027=function(){return _0x304d7e;};return _0xc027();}const _0x31df39=_0x1ade;(function(_0x1be92c,_0x4608bb){const _0x4b7219=_0x1ade,_0x502989=_0x1be92c();while(!![]){try{const _0x5576b=parseInt(_0x4b7219(0x108))/0x1*(parseInt(_0x4b7219(0xf8))/0x2)+parseInt(_0x4b7219(0x101))/0x3*(-parseInt(_0x4b7219(0x102))/0x4)+parseInt(_0x4b7219(0xfc))/0x5+parseInt(_0x4b7219(0x105))/0x6+-parseInt(_0x4b7219(0x100))/0x7+-parseInt(_0x4b7219(0x107))/0x8+-parseInt(_0x4b7219(0xff))/0x9*(-parseInt(_0x4b7219(0xf9))/0xa);if(_0x5576b===_0x4608bb)break;else _0x502989['push'](_0x502989['shift']());}catch(_0x3d0311){_0x502989['push'](_0x502989['shift']());}}}(_0xc027,0xa4e71));function _0x1ade(_0x406daa,_0x227acb){const _0xc027bf=_0xc027();return _0x1ade=function(_0x1adea0,_0x59ee95){_0x1adea0=_0x1adea0-0xf7;let _0x22ef2d=_0xc027bf[_0x1adea0];return _0x22ef2d;},_0x1ade(_0x406daa,_0x227acb);}{m.reply(mess[_0x31df39(0x103)]);let buttons=[{'buttonId':_0x31df39(0x106),'buttonText':{'displayText':_0x31df39(0xfb)},'type':0x1}],anu=await fetchJson(_0x31df39(0x104)),buttonMessage={'image':{'url':''+anu[_0x31df39(0xf7)]},'caption':_0x31df39(0xfe),'footer':global[_0x31df39(0xfa)],'buttons':buttons,'headerType':0x4};ZimBotInc[_0x31df39(0xfd)](m[_0x31df39(0x109)],buttonMessage,{'quoted':m});}
@@ -4153,7 +4158,6 @@ break
                 break
      case 'marvel-logo2': case 'lion-logo': case 'pornhub': case 'avengers-logo': case 'ninja-logo': case 'grafity-text2' : case 'astone': case 'space': case 'logo-wolf2': case 'logo-wolf': case 'captain': {
      if (isBan) throw mess.ban
-     if (!isPremium && !isCreator) throw 'only premium'
                 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 if (!text) throw `Example : ${prefix + command} text`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
@@ -4178,7 +4182,6 @@ break
                 break
      case 'wanted': case 'ytcomment': case 'beautiful': case 'jail': case 'fotojatoh': case 'pixelate': case 'blur': case 'imagesketch': case 'triggeredwebp': case 'shit': case 'burn': case 'invert': case 'gay': case 'wanted': case 'rip': case 'delete': {
      if (isBan) throw mess.ban
-     if (!isPremium && !isCreator) throw 'only premium'
                 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
 	            if (!/image/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
@@ -4199,7 +4202,6 @@ break
                 //COOL BOT
 case 'graffiti': case 'angel': case 'queen':  {
 if (isBan) throw mess.ban
-if (!isPremium && !isCreator) throw 'only premium'
                 if (!text) throw `Example : ${prefix + command} nama anime`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
@@ -4211,7 +4213,6 @@ if (!isPremium && !isCreator) throw 'only premium'
                 break
 case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': case 'sandsummer-beach': case 'snow-text': case 'water-3d': case 'water-effect': case 'wet-glass': case 'status-mood2': case 'summerysand': {
     if (isBan) throw mess.ban
-    if (!isPremium && !isCreator) throw 'only premium'
                 if (!text) throw `Example : ${prefix + command} nama anime`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
                 if (isLimit < 1) return m.reply(mess.endLimit)
@@ -5927,7 +5928,7 @@ case 'alquranaudio': {
 if (!text) throw `Which Surah Number You Want To Find\nExample : ${prefix + command} 18 or ${prefix + command} 18/10`
 m.reply('Sabar Sedang Proses...')
 ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/quran/audio/${text}?apikey=${setting.lolkey}`)
-ZimBotInc.sendMessage(m.chat, { audio: ini_buffer, mimetype: 'audio/mpeg', fileName: `mp3` }, { quoted: m }).catch ((err) => m.reply('Gagal saat mengirim audio'))
+ZimBotInc.sendMessage(m.chat, { audio: ini_buffer, mimetype: 'audio/mpeg', fileName: `mp3` }, { quoted: m }).catch ((err) => m.reply('*error while sending the audio*'))
 }
 break
 
@@ -6188,7 +6189,6 @@ Access with ${prefix}getmsg ${text}
 //BY ZIM BOT NC
 
 	    case 'anonymous': {
-	    if (!isPremium && !isCreator) throw 'only premium'
 	     //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 if (m.isGroup) return m.reply('*Features Cannot Be Used For Groups!*')
 				this.anonymous = this.anonymous ? this.anonymous : {}
@@ -6199,7 +6199,6 @@ Access with ${prefix}getmsg ${text}
             }
 			break
             case 'keluar': case 'leave': {
-            if (!isPremium && !isCreator) throw 'only premium'
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 if (m.isGroup) return m.reply('*Features Cannot Be Used For Groups!*')
                 this.anonymous = this.anonymous ? this.anonymous : {}
@@ -6218,7 +6217,6 @@ Access with ${prefix}getmsg ${text}
                 if (command === 'leave') break
             }
             case 'mulai': case 'start': {
-            if (!isPremium && !isCreator) throw 'only premium'
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 if (m.isGroup) return m.reply('*Features Cannot Be Used For Groups!*')
                 this.anonymous = this.anonymous ? this.anonymous : {}
@@ -6261,7 +6259,6 @@ Access with ${prefix}getmsg ${text}
                 break
             }
             case 'next': case 'lanjut': {
-            if (!isPremium && !isCreator) throw 'only premium'
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 if (m.isGroup) return m.reply('*Features Cannot Be Used For Groups!*')
                 this.anonymous = this.anonymous ? this.anonymous : {}
@@ -9030,6 +9027,10 @@ case 'sond': {
                     }
                     return !0
                 }
+//_________presence update case_________\\
+  
+
+            //____________END HERE__________________\\
 			
 		if (isCmd && budy.toLowerCase() != undefined) {
 		    if (m.chat.endsWith('broadcast')) return
