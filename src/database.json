@@ -3,22 +3,10 @@
     "27683276659@s.whatsapp.net": {
       "afkTime": -1,
       "afkReason": ""
-    },
-    "212610704505@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": ""
     }
   },
   "chats": {
     "27683276659@s.whatsapp.net": {
-      "mute": false,
-      "wame": false,
-      "antilink": false,
-      "antilinkyt": false,
-      "isWelcome": true,
-      "autoblock": true
-    },
-    "212610704505@s.whatsapp.net": {
       "mute": false,
       "wame": false,
       "antilink": false,
