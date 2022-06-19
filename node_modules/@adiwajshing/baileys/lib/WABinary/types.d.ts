@@ -1,3 +1,4 @@
+import * as constants from './constants';
 /**
  * the binary node WA uses internally for communication
  *
@@ -14,3 +15,4 @@ export declare type BinaryNode = {
 };
 export declare type BinaryNodeAttributes = BinaryNode['attrs'];
 export declare type BinaryNodeData = BinaryNode['content'];
+export declare type BinaryNodeCodingOptions = typeof constants;

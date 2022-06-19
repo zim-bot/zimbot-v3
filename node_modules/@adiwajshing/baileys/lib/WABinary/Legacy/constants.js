@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SingleByteTokens = exports.DoubleByteTokens = exports.Tags = void 0;
-exports.Tags = {
+exports.TOKEN_MAP = exports.SINGLE_BYTE_TOKENS = exports.DOUBLE_BYTE_TOKENS = exports.TAGS = void 0;
+exports.TAGS = {
     LIST_EMPTY: 0,
     STREAM_END: 2,
     DICTIONARY_0: 236,
@@ -18,9 +18,10 @@ exports.Tags = {
     NIBBLE_8: 255,
     SINGLE_BYTE_MAX: 256,
     PACKED_MAX: 254,
+    AD_JID: 247,
 };
-exports.DoubleByteTokens = [];
-exports.SingleByteTokens = [
+exports.DOUBLE_BYTE_TOKENS = [];
+exports.SINGLE_BYTE_TOKENS = [
     null,
     null,
     null,
@@ -198,3 +199,7 @@ exports.SingleByteTokens = [
     'video',
     'recent',
 ];
+exports.TOKEN_MAP = {};
+for (let i = 0; i < exports.SINGLE_BYTE_TOKENS.length; i++) {
+    exports.TOKEN_MAP[exports.SINGLE_BYTE_TOKENS[i]] = { index: i };
+}

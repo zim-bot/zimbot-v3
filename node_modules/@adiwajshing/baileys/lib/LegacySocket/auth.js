@@ -11,14 +11,14 @@ const socket_1 = require("./socket");
 const makeAuthSocket = (config) => {
     const { logger, version, browser, connectTimeoutMs, printQRInTerminal, auth: initialAuthInfo } = config;
     const ev = new events_1.default();
-    const authInfo = initialAuthInfo || Utils_1.newLegacyAuthCreds();
+    const authInfo = initialAuthInfo || (0, Utils_1.newLegacyAuthCreds)();
     const state = {
         legacy: {
             phoneConnected: false,
         },
         connection: 'connecting',
     };
-    const socket = socket_1.makeSocket(config);
+    const socket = (0, socket_1.makeSocket)(config);
     const { ws } = socket;
     let curveKeys;
     let initTimeout;
@@ -156,7 +156,7 @@ const makeAuthSocket = (config) => {
         }
         // if its a challenge request (we get it when logging in)
         if ((_a = response[1]) === null || _a === void 0 ? void 0 : _a.challenge) {
-            const json = Utils_1.computeChallengeResponse(response[1].challenge, authInfo);
+            const json = (0, Utils_1.computeChallengeResponse)(response[1].challenge, authInfo);
             logger.info('resolving login challenge');
             await socket.query({ json, expect200: true, timeoutMs: connectTimeoutMs });
             response = await socket.waitForMessage('s2', true).promise;
@@ -168,7 +168,7 @@ const makeAuthSocket = (config) => {
             throw new boom_1.Boom('Require multi-device edition', { statusCode: Types_1.DisconnectReason.multideviceMismatch });
         }
         // validate the new connection
-        const { user, auth } = Utils_1.validateNewConnection(response[1], authInfo, curveKeys); // validate the connection
+        const { user, auth } = (0, Utils_1.validateNewConnection)(response[1], authInfo, curveKeys); // validate the connection
         const isNewLogin = user.id !== ((_b = state.legacy.user) === null || _b === void 0 ? void 0 : _b.id);
         Object.assign(authInfo, auth);
         updateEncKeys();
@@ -193,7 +193,7 @@ const makeAuthSocket = (config) => {
         }
     });
     if (printQRInTerminal) {
-        Utils_1.printQRIfNecessaryListener(ev, logger);
+        (0, Utils_1.printQRIfNecessaryListener)(ev, logger);
     }
     process.nextTick(() => {
         ev.emit('connection.update', {
@@ -208,7 +208,7 @@ const makeAuthSocket = (config) => {
         canLogin,
         logout,
         /** Waits for the connection to WA to reach a state */
-        waitForConnectionUpdate: Utils_1.bindWaitForConnectionUpdate(ev)
+        waitForConnectionUpdate: (0, Utils_1.bindWaitForConnectionUpdate)(ev)
     };
 };
 exports.default = makeAuthSocket;

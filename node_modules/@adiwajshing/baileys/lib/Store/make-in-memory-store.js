@@ -16,10 +16,10 @@ const waChatKey = (pin) => ({
 exports.waChatKey = waChatKey;
 const waMessageID = (m) => m.key.id;
 exports.waMessageID = waMessageID;
-const makeMessagesDictionary = () => make_ordered_dictionary_1.default(exports.waMessageID);
+const makeMessagesDictionary = () => (0, make_ordered_dictionary_1.default)(exports.waMessageID);
 exports.default = ({ logger, chatKey }) => {
     logger = logger || Defaults_1.DEFAULT_CONNECTION_CONFIG.logger.child({ stream: 'in-mem-store' });
-    chatKey = chatKey || exports.waChatKey(true);
+    chatKey = chatKey || (0, exports.waChatKey)(true);
     const KeyedDB = require('@adiwajshing/keyed-db').default;
     const chats = new KeyedDB(chatKey, c => c.id);
     const messages = {};
@@ -119,7 +119,7 @@ exports.default = ({ logger, chatKey }) => {
                 case 'append':
                 case 'notify':
                     for (const msg of newMessages) {
-                        const jid = WABinary_1.jidNormalizedUser(msg.key.remoteJid);
+                        const jid = (0, WABinary_1.jidNormalizedUser)(msg.key.remoteJid);
                         const list = assertMessageList(jid);
                         list.upsert(msg, 'append');
                         if (type === 'notify') {
@@ -127,7 +127,7 @@ exports.default = ({ logger, chatKey }) => {
                                 ev.emit('chats.upsert', [
                                     {
                                         id: jid,
-                                        conversationTimestamp: Utils_1.toNumber(msg.messageTimestamp),
+                                        conversationTimestamp: (0, Utils_1.toNumber)(msg.messageTimestamp),
                                         unreadCount: 1
                                     }
                                 ]);
@@ -196,7 +196,7 @@ exports.default = ({ logger, chatKey }) => {
                 const obj = messages[key.remoteJid];
                 const msg = obj === null || obj === void 0 ? void 0 : obj.get(key.id);
                 if (msg) {
-                    Utils_1.updateMessageWithReceipt(msg, receipt);
+                    (0, Utils_1.updateMessageWithReceipt)(msg, receipt);
                 }
             }
         });

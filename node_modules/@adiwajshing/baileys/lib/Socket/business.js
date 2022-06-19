@@ -6,11 +6,11 @@ const WABinary_1 = require("../WABinary");
 const generic_utils_1 = require("../WABinary/generic-utils");
 const messages_recv_1 = require("./messages-recv");
 const makeBusinessSocket = (config) => {
-    const sock = messages_recv_1.makeMessagesRecvSocket(config);
+    const sock = (0, messages_recv_1.makeMessagesRecvSocket)(config);
     const { authState, query, waUploadToServer } = sock;
     const getCatalog = async (jid, limit = 10) => {
         var _a;
-        jid = WABinary_1.jidNormalizedUser(jid || ((_a = authState.creds.me) === null || _a === void 0 ? void 0 : _a.id));
+        jid = (0, WABinary_1.jidNormalizedUser)(jid || ((_a = authState.creds.me) === null || _a === void 0 ? void 0 : _a.id));
         const result = await query({
             tag: 'iq',
             attrs: {
@@ -45,11 +45,11 @@ const makeBusinessSocket = (config) => {
                 }
             ]
         });
-        return business_1.parseCatalogNode(result);
+        return (0, business_1.parseCatalogNode)(result);
     };
     const getCollections = async (jid, limit = 51) => {
         var _a;
-        jid = WABinary_1.jidNormalizedUser(jid || ((_a = authState.creds.me) === null || _a === void 0 ? void 0 : _a.id));
+        jid = (0, WABinary_1.jidNormalizedUser)(jid || ((_a = authState.creds.me) === null || _a === void 0 ? void 0 : _a.id));
         const result = await query({
             tag: 'iq',
             attrs: {
@@ -89,7 +89,7 @@ const makeBusinessSocket = (config) => {
                 }
             ]
         });
-        return business_1.parseCollectionsNode(result);
+        return (0, business_1.parseCollectionsNode)(result);
     };
     const getOrderDetails = async (orderId, tokenBase64) => {
         const result = await query({
@@ -133,11 +133,11 @@ const makeBusinessSocket = (config) => {
                 }
             ]
         });
-        return business_1.parseOrderDetailsNode(result);
+        return (0, business_1.parseOrderDetailsNode)(result);
     };
     const productUpdate = async (productId, update) => {
-        update = await business_1.uploadingNecessaryImagesOfProduct(update, waUploadToServer);
-        const editNode = business_1.toProductNode(productId, update);
+        update = await (0, business_1.uploadingNecessaryImagesOfProduct)(update, waUploadToServer);
+        const editNode = (0, business_1.toProductNode)(productId, update);
         const result = await query({
             tag: 'iq',
             attrs: {
@@ -153,13 +153,13 @@ const makeBusinessSocket = (config) => {
                 }
             ]
         });
-        const productCatalogEditNode = generic_utils_1.getBinaryNodeChild(result, 'product_catalog_edit');
-        const productNode = generic_utils_1.getBinaryNodeChild(productCatalogEditNode, 'product');
-        return business_1.parseProductNode(productNode);
+        const productCatalogEditNode = (0, generic_utils_1.getBinaryNodeChild)(result, 'product_catalog_edit');
+        const productNode = (0, generic_utils_1.getBinaryNodeChild)(productCatalogEditNode, 'product');
+        return (0, business_1.parseProductNode)(productNode);
     };
     const productCreate = async (create) => {
-        create = await business_1.uploadingNecessaryImagesOfProduct(create, waUploadToServer);
-        const createNode = business_1.toProductNode(undefined, create);
+        create = await (0, business_1.uploadingNecessaryImagesOfProduct)(create, waUploadToServer);
+        const createNode = (0, business_1.toProductNode)(undefined, create);
         const result = await query({
             tag: 'iq',
             attrs: {
@@ -175,9 +175,9 @@ const makeBusinessSocket = (config) => {
                 }
             ]
         });
-        const productCatalogAddNode = generic_utils_1.getBinaryNodeChild(result, 'product_catalog_add');
-        const productNode = generic_utils_1.getBinaryNodeChild(productCatalogAddNode, 'product');
-        return business_1.parseProductNode(productNode);
+        const productCatalogAddNode = (0, generic_utils_1.getBinaryNodeChild)(result, 'product_catalog_add');
+        const productNode = (0, generic_utils_1.getBinaryNodeChild)(productCatalogAddNode, 'product');
+        return (0, business_1.parseProductNode)(productNode);
     };
     const productDelete = async (productIds) => {
         const result = await query({
@@ -205,7 +205,7 @@ const makeBusinessSocket = (config) => {
                 }
             ]
         });
-        const productCatalogDelNode = generic_utils_1.getBinaryNodeChild(result, 'product_catalog_delete');
+        const productCatalogDelNode = (0, generic_utils_1.getBinaryNodeChild)(result, 'product_catalog_delete');
         return {
             deleted: +productCatalogDelNode.attrs.deleted_count
         };

@@ -1,3 +1,5 @@
+'use strict';
+
 var acquit = require('acquit');
 
 require('acquit-ignore')();

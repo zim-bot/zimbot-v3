@@ -27,7 +27,7 @@ const makeKeyedMutex = () => {
     return {
         mutex(key, task) {
             if (!map[key]) {
-                map[key] = exports.makeMutex();
+                map[key] = (0, exports.makeMutex)();
             }
             return map[key].mutex(task);
         }

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const business_1 = require("../Utils/business");
 const groups_1 = __importDefault(require("./groups"));
 const makeBusinessSocket = (config) => {
-    const sock = groups_1.default(config);
+    const sock = (0, groups_1.default)(config);
     const { query, generateMessageTag, waUploadToServer, state } = sock;
     const getCatalog = async (jid, limit = 10) => {
         var _a, _b;
@@ -112,7 +112,7 @@ const makeBusinessSocket = (config) => {
     };
     // maps product create to send to WA
     const mapProductCreate = async (product, mapCompliance = true) => {
-        const imgs = (await business_1.uploadingNecessaryImages(product.images, waUploadToServer)).map(img => img.url);
+        const imgs = (await (0, business_1.uploadingNecessaryImages)(product.images, waUploadToServer)).map(img => img.url);
         const result = {
             name: product.name,
             description: product.description,

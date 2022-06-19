@@ -1,8 +1,7 @@
 /// <reference types="node" />
 import { proto } from '../../WAProto';
-import { AuthenticationCreds, KeyPair, SignalAuthState, SignalIdentity, SignalKeyStore, SignedKeyPair } from '../Types/Auth';
+import { AuthenticationCreds, AuthenticationState, KeyPair, SignalAuthState, SignalIdentity, SignalKeyStore, SignedKeyPair } from '../Types/Auth';
 import { BinaryNode, JidWithDevice } from '../WABinary';
-export declare const generateSignalPubKey: (pubKey: Uint8Array | Buffer) => Buffer;
 export declare const jidToSignalProtocolAddress: (jid: string) => any;
 export declare const jidToSignalSenderKeyName: (group: string, user: string) => string;
 export declare const createSignalIdentity: (wid: string, accountSignatureKey: Uint8Array) => SignalIdentity;
@@ -36,7 +35,7 @@ export declare const signalStorage: ({ creds, keys }: SignalAuthState) => {
     getOurRegistrationId: () => number;
     getOurIdentity: () => {
         privKey: Buffer;
-        pubKey: Buffer;
+        pubKey: Uint8Array | Buffer;
     };
 };
 export declare const decryptGroupSignalProto: (group: string, user: string, msg: Buffer | Uint8Array, auth: SignalAuthState) => any;
@@ -52,3 +51,17 @@ export declare const encryptSenderKeyMsgSignalProto: (group: string, data: Uint8
 }>;
 export declare const parseAndInjectE2ESessions: (node: BinaryNode, auth: SignalAuthState) => Promise<void>;
 export declare const extractDeviceJids: (result: BinaryNode, myJid: string, excludeZeroDevices: boolean) => JidWithDevice[];
+/**
+ * get the next N keys for upload or processing
+ * @param count number of pre-keys to get or generate
+ */
+export declare const getNextPreKeys: ({ creds, keys }: AuthenticationState, count: number) => Promise<{
+    update: Partial<AuthenticationCreds>;
+    preKeys: {
+        [id: string]: KeyPair;
+    };
+}>;
+export declare const getNextPreKeysNode: (state: AuthenticationState, count: number) => Promise<{
+    update: Partial<AuthenticationCreds>;
+    node: BinaryNode;
+}>;

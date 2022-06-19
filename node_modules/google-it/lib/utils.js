@@ -64,8 +64,8 @@ var getDefaultRequestOptions = function getDefaultRequestOptions(_ref) {
   };
 };
 
-var titleSelector = 'div.ZINbbc > div:nth-child(1) > a > h3';
-var linkSelector = 'div.ZINbbc > div:nth-child(1) > a';
+var titleSelector = 'div.fP1Qef > div:nth-child(1) > a > h3';
+var linkSelector = 'div.fP1Qef > div:nth-child(1) > a';
 var snippetSelector = '#main > div > div > div > div:not(.v9i61e) > div.AP7Wnd';
 var resultStatsSelector = '#resultStats';
 var cursorSelector = '#nav > tbody > tr > td.cur';

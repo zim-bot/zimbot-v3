@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -21,6 +25,7 @@ __exportStar(require("./Legacy"), exports);
 __exportStar(require("./Socket"), exports);
 __exportStar(require("./Events"), exports);
 __exportStar(require("./Product"), exports);
+__exportStar(require("./Call"), exports);
 var DisconnectReason;
 (function (DisconnectReason) {
     DisconnectReason[DisconnectReason["connectionClosed"] = 428] = "connectionClosed";
@@ -29,6 +34,6 @@ var DisconnectReason;
     DisconnectReason[DisconnectReason["timedOut"] = 408] = "timedOut";
     DisconnectReason[DisconnectReason["loggedOut"] = 401] = "loggedOut";
     DisconnectReason[DisconnectReason["badSession"] = 500] = "badSession";
-    DisconnectReason[DisconnectReason["restartRequired"] = 410] = "restartRequired";
+    DisconnectReason[DisconnectReason["restartRequired"] = 515] = "restartRequired";
     DisconnectReason[DisconnectReason["multideviceMismatch"] = 411] = "multideviceMismatch";
 })(DisconnectReason = exports.DisconnectReason || (exports.DisconnectReason = {}));

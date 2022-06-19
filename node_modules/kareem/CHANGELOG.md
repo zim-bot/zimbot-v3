@@ -1,5 +1,10 @@
 # Changelog
 
+<a name="2.4.0"></a>
+## 2.4.0 (2022-06-13)
+
+* feat: add `overwriteResult()` and `skipWrappedFunction()` for more advanced control flow
+
 <a name="2.3.4"></a>
 ## 2.3.4 (2022-02-10)
 

@@ -8,7 +8,7 @@ const WABinary_1 = require("../WABinary");
 const crypto_2 = require("./crypto");
 const generics_1 = require("./generics");
 const newLegacyAuthCreds = () => ({
-    clientID: crypto_1.randomBytes(16).toString('base64')
+    clientID: (0, crypto_1.randomBytes)(16).toString('base64')
 });
 exports.newLegacyAuthCreds = newLegacyAuthCreds;
 const decodeWAMessage = (message, auth, fromMe = false) => {
@@ -49,11 +49,11 @@ const decodeWAMessage = (message, auth, fromMe = false) => {
                 }
                 const checksum = data.slice(0, 32); // the first 32 bytes of the buffer are the HMAC sign of the message
                 data = data.slice(32, data.length); // the actual message
-                const computedChecksum = crypto_2.hmacSign(data, macKey); // compute the sign of the message we recieved using our macKey
+                const computedChecksum = (0, crypto_2.hmacSign)(data, macKey); // compute the sign of the message we recieved using our macKey
                 if (checksum.equals(computedChecksum)) {
                     // the checksum the server sent, must match the one we computed for the message to be valid
-                    const decrypted = crypto_2.aesDecrypt(data, encKey); // decrypt using AES
-                    json = WABinary_1.decodeBinaryNodeLegacy(decrypted, { index: 0 }); // decode the binary message into a JSON array
+                    const decrypted = (0, crypto_2.aesDecrypt)(data, encKey); // decrypt using AES
+                    json = (0, WABinary_1.decodeBinaryNodeLegacy)(decrypted, { index: 0 }); // decode the binary message into a JSON array
                 }
                 else {
                     throw new boom_1.Boom('Bad checksum', {
@@ -82,7 +82,7 @@ const validateNewConnection = (json, auth, curveKeys) => {
     // set metadata: one's WhatsApp ID [cc][number]@s.whatsapp.net, name on WhatsApp, info about the phone
     const onValidationSuccess = () => {
         const user = {
-            id: WABinary_1.jidNormalizedUser(json.wid),
+            id: (0, WABinary_1.jidNormalizedUser)(json.wid),
             name: json.pushname
         };
         return { user, auth, phone: json.phone };
@@ -104,11 +104,11 @@ const validateNewConnection = (json, auth, curveKeys) => {
     // generate shared key from our private key & the secret shared by the server
     const sharedKey = crypto_2.Curve.sharedKey(curveKeys.private, secret.slice(0, 32));
     // expand the key to 80 bytes using HKDF
-    const expandedKey = crypto_2.hkdf(sharedKey, 80, {});
+    const expandedKey = (0, crypto_2.hkdf)(sharedKey, 80, {});
     // perform HMAC validation.
     const hmacValidationKey = expandedKey.slice(32, 64);
     const hmacValidationMessage = Buffer.concat([secret.slice(0, 32), secret.slice(64, secret.length)]);
-    const hmac = crypto_2.hmacSign(hmacValidationMessage, hmacValidationKey);
+    const hmac = (0, crypto_2.hmacSign)(hmacValidationMessage, hmacValidationKey);
     if (!hmac.equals(secret.slice(32, 64))) {
         // if the checksums didn't match
         throw new boom_1.Boom('HMAC validation failed', { statusCode: 400 });
@@ -120,7 +120,7 @@ const validateNewConnection = (json, auth, curveKeys) => {
         expandedKey.slice(64, expandedKey.length),
         secret.slice(64, secret.length),
     ]);
-    const decryptedKeys = crypto_2.aesDecrypt(encryptedAESKeys, expandedKey.slice(0, 32));
+    const decryptedKeys = (0, crypto_2.aesDecrypt)(encryptedAESKeys, expandedKey.slice(0, 32));
     // set the credentials
     auth = {
         encKey: decryptedKeys.slice(0, 32),
@@ -134,7 +134,7 @@ const validateNewConnection = (json, auth, curveKeys) => {
 exports.validateNewConnection = validateNewConnection;
 const computeChallengeResponse = (challenge, auth) => {
     const bytes = Buffer.from(challenge, 'base64'); // decode the base64 encoded challenge string
-    const signed = crypto_2.hmacSign(bytes, auth.macKey).toString('base64'); // sign the challenge string with our macKey
+    const signed = (0, crypto_2.hmacSign)(bytes, auth.macKey).toString('base64'); // sign the challenge string with our macKey
     return ['admin', 'challenge', signed, auth.serverToken, auth.clientID]; // prepare to send this signed string with the serverToken & clientID
 };
 exports.computeChallengeResponse = computeChallengeResponse;
@@ -152,7 +152,7 @@ const useSingleFileLegacyAuthState = (file) => {
         }
     }
     else {
-        state = exports.newLegacyAuthCreds();
+        state = (0, exports.newLegacyAuthCreds)();
     }
     return {
         state,

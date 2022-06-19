@@ -2,6 +2,7 @@
 
 const assert = require('assert');
 const Kareem = require('../');
+const { describe, it } = require('mocha');
 
 describe('hasHooks', function() {
   it('returns false for toString (Automattic/mongoose#6538)', function() {
@@ -14,7 +15,6 @@ describe('merge', function() {
   it('handles async pres if source doesnt have them', function() {
     const k1 = new Kareem();
     k1.pre('cook', true, function(next, done) {
-      execed.first = true;
       setTimeout(
         function() {
           done('error!');

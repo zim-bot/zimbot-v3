@@ -9,7 +9,7 @@ const WABinary_1 = require("../WABinary");
 const messages_1 = __importDefault(require("./messages"));
 const makeGroupsSocket = (config) => {
     const { logger } = config;
-    const sock = messages_1.default(config);
+    const sock = (0, messages_1.default)(config);
     const { ev, ws: socketEvents, query, generateMessageTag, currentEpoch, setQuery, state } = sock;
     /** Generic function for group queries */
     const groupQuery = async (type, jid, subject, participants, additionalNodes) => {
@@ -42,11 +42,11 @@ const makeGroupsSocket = (config) => {
             id: metadata.id,
             subject: metadata.subject,
             creation: +metadata.creation,
-            owner: metadata.owner ? WABinary_1.jidNormalizedUser(metadata.owner) : undefined,
+            owner: metadata.owner ? (0, WABinary_1.jidNormalizedUser)(metadata.owner) : undefined,
             desc: metadata.desc,
             descOwner: metadata.descOwner,
             participants: metadata.participants.map(p => ({
-                id: WABinary_1.jidNormalizedUser(p.id),
+                id: (0, WABinary_1.jidNormalizedUser)(p.id),
                 admin: p.isSuperAdmin ? 'super-admin' : p.isAdmin ? 'admin' : undefined
             })),
             ephemeralDuration: metadata.ephemeralDuration
@@ -149,7 +149,7 @@ const makeGroupsSocket = (config) => {
                 {
                     id: response.gid,
                     name: title,
-                    conversationTimestamp: generics_1.unixTimestampSeconds(),
+                    conversationTimestamp: (0, generics_1.unixTimestampSeconds)(),
                     unreadCount: 0
                 }
             ]);
@@ -183,7 +183,7 @@ const makeGroupsSocket = (config) => {
             const metadata = await groupMetadataFull(jid);
             const node = {
                 tag: 'description',
-                attrs: { id: generics_1.generateMessageID(), prev: metadata === null || metadata === void 0 ? void 0 : metadata.descId },
+                attrs: { id: (0, generics_1.generateMessageID)(), prev: metadata === null || metadata === void 0 ? void 0 : metadata.descId },
                 content: Buffer.from(description, 'utf-8')
             };
             const response = await groupQuery('description', jid, null, null, [node]);
@@ -199,7 +199,7 @@ const makeGroupsSocket = (config) => {
             const result = await groupQuery(action, id, null, participants);
             const jids = Object.keys(result.participants || {});
             ev.emit('group-participants.update', { id, participants: jids, action });
-            return jids;
+            return Object.keys(result.participants || {}).map(jid => { var _a; return ({ jid, status: (_a = result.participants) === null || _a === void 0 ? void 0 : _a[jid] }); });
         },
         /** Query broadcast list info */
         getBroadcastListInfo: async (jid) => {
@@ -214,7 +214,7 @@ const makeGroupsSocket = (config) => {
                 id: jid,
                 creation: undefined,
                 owner: (_b = (_a = state.legacy) === null || _a === void 0 ? void 0 : _a.user) === null || _b === void 0 ? void 0 : _b.id,
-                participants: result.recipients.map(({ id }) => ({ id: WABinary_1.jidNormalizedUser(id), isAdmin: false, isSuperAdmin: false }))
+                participants: result.recipients.map(({ id }) => ({ id: (0, WABinary_1.jidNormalizedUser)(id), isAdmin: false, isSuperAdmin: false }))
             };
             return metadata;
         },

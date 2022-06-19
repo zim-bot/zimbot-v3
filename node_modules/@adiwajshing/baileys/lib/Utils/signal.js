@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -19,32 +23,26 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.extractDeviceJids = exports.parseAndInjectE2ESessions = exports.encryptSenderKeyMsgSignalProto = exports.encryptSignalProto = exports.decryptSignalProto = exports.processSenderKeyMessage = exports.decryptGroupSignalProto = exports.signalStorage = exports.xmppPreKey = exports.xmppSignedPreKey = exports.generateOrGetPreKeys = exports.getPreKeys = exports.createSignalIdentity = exports.jidToSignalSenderKeyName = exports.jidToSignalProtocolAddress = exports.generateSignalPubKey = void 0;
+exports.getNextPreKeysNode = exports.getNextPreKeys = exports.extractDeviceJids = exports.parseAndInjectE2ESessions = exports.encryptSenderKeyMsgSignalProto = exports.encryptSignalProto = exports.decryptSignalProto = exports.processSenderKeyMessage = exports.decryptGroupSignalProto = exports.signalStorage = exports.xmppPreKey = exports.xmppSignedPreKey = exports.generateOrGetPreKeys = exports.getPreKeys = exports.createSignalIdentity = exports.jidToSignalSenderKeyName = exports.jidToSignalProtocolAddress = void 0;
 const libsignal = __importStar(require("libsignal"));
 const WASignalGroup_1 = require("../../WASignalGroup");
+const Defaults_1 = require("../Defaults");
 const WABinary_1 = require("../WABinary");
 const crypto_1 = require("./crypto");
 const generics_1 = require("./generics");
-const generateSignalPubKey = (pubKey) => {
-    const newPub = Buffer.alloc(33);
-    newPub.set([5], 0);
-    newPub.set(pubKey, 1);
-    return newPub;
-};
-exports.generateSignalPubKey = generateSignalPubKey;
 const jidToSignalAddress = (jid) => jid.split('@')[0];
 const jidToSignalProtocolAddress = (jid) => {
     return new libsignal.ProtocolAddress(jidToSignalAddress(jid), 0);
 };
 exports.jidToSignalProtocolAddress = jidToSignalProtocolAddress;
 const jidToSignalSenderKeyName = (group, user) => {
-    return new WASignalGroup_1.SenderKeyName(group, exports.jidToSignalProtocolAddress(user)).toString();
+    return new WASignalGroup_1.SenderKeyName(group, (0, exports.jidToSignalProtocolAddress)(user)).toString();
 };
 exports.jidToSignalSenderKeyName = jidToSignalSenderKeyName;
 const createSignalIdentity = (wid, accountSignatureKey) => {
     return {
         identifier: { name: wid, deviceId: 0 },
-        identifierKey: exports.generateSignalPubKey(accountSignatureKey)
+        identifierKey: (0, crypto_1.generateSignalPubKey)(accountSignatureKey)
     };
 };
 exports.createSignalIdentity = createSignalIdentity;
@@ -77,7 +75,7 @@ const xmppSignedPreKey = (key) => ({
     tag: 'skey',
     attrs: {},
     content: [
-        { tag: 'id', attrs: {}, content: generics_1.encodeBigEndian(key.keyId, 3) },
+        { tag: 'id', attrs: {}, content: (0, generics_1.encodeBigEndian)(key.keyId, 3) },
         { tag: 'value', attrs: {}, content: key.keyPair.public },
         { tag: 'signature', attrs: {}, content: key.signature }
     ]
@@ -87,7 +85,7 @@ const xmppPreKey = (pair, id) => ({
     tag: 'key',
     attrs: {},
     content: [
-        { tag: 'id', attrs: {}, content: generics_1.encodeBigEndian(id, 3) },
+        { tag: 'id', attrs: {}, content: (0, generics_1.encodeBigEndian)(id, 3) },
         { tag: 'value', attrs: {}, content: pair.public }
     ]
 });
@@ -137,20 +135,20 @@ const signalStorage = ({ creds, keys }) => ({
         const { signedIdentityKey } = creds;
         return {
             privKey: Buffer.from(signedIdentityKey.private),
-            pubKey: exports.generateSignalPubKey(signedIdentityKey.public),
+            pubKey: (0, crypto_1.generateSignalPubKey)(signedIdentityKey.public),
         };
     }
 });
 exports.signalStorage = signalStorage;
 const decryptGroupSignalProto = (group, user, msg, auth) => {
-    const senderName = exports.jidToSignalSenderKeyName(group, user);
-    const cipher = new WASignalGroup_1.GroupCipher(exports.signalStorage(auth), senderName);
+    const senderName = (0, exports.jidToSignalSenderKeyName)(group, user);
+    const cipher = new WASignalGroup_1.GroupCipher((0, exports.signalStorage)(auth), senderName);
     return cipher.decrypt(Buffer.from(msg));
 };
 exports.decryptGroupSignalProto = decryptGroupSignalProto;
 const processSenderKeyMessage = async (authorJid, item, auth) => {
-    const builder = new WASignalGroup_1.GroupSessionBuilder(exports.signalStorage(auth));
-    const senderName = exports.jidToSignalSenderKeyName(item.groupId, authorJid);
+    const builder = new WASignalGroup_1.GroupSessionBuilder((0, exports.signalStorage)(auth));
+    const senderName = (0, exports.jidToSignalSenderKeyName)(item.groupId, authorJid);
     const senderMsg = new WASignalGroup_1.SenderKeyDistributionMessage(null, null, null, null, item.axolotlSenderKeyDistributionMessage);
     const { [senderName]: senderKey } = await auth.keys.get('sender-key', [senderName]);
     if (!senderKey) {
@@ -161,8 +159,8 @@ const processSenderKeyMessage = async (authorJid, item, auth) => {
 };
 exports.processSenderKeyMessage = processSenderKeyMessage;
 const decryptSignalProto = async (user, type, msg, auth) => {
-    const addr = exports.jidToSignalProtocolAddress(user);
-    const session = new libsignal.SessionCipher(exports.signalStorage(auth), addr);
+    const addr = (0, exports.jidToSignalProtocolAddress)(user);
+    const session = new libsignal.SessionCipher((0, exports.signalStorage)(auth), addr);
     let result;
     switch (type) {
         case 'pkmsg':
@@ -176,8 +174,8 @@ const decryptSignalProto = async (user, type, msg, auth) => {
 };
 exports.decryptSignalProto = decryptSignalProto;
 const encryptSignalProto = async (user, buffer, auth) => {
-    const addr = exports.jidToSignalProtocolAddress(user);
-    const cipher = new libsignal.SessionCipher(exports.signalStorage(auth), addr);
+    const addr = (0, exports.jidToSignalProtocolAddress)(user);
+    const cipher = new libsignal.SessionCipher((0, exports.signalStorage)(auth), addr);
     const { type, body } = await cipher.encrypt(buffer);
     return {
         type: type === 3 ? 'pkmsg' : 'msg',
@@ -186,8 +184,8 @@ const encryptSignalProto = async (user, buffer, auth) => {
 };
 exports.encryptSignalProto = encryptSignalProto;
 const encryptSenderKeyMsgSignalProto = async (group, data, meId, auth) => {
-    const storage = exports.signalStorage(auth);
-    const senderName = exports.jidToSignalSenderKeyName(group, meId);
+    const storage = (0, exports.signalStorage)(auth);
+    const senderName = (0, exports.jidToSignalSenderKeyName)(group, meId);
     const builder = new WASignalGroup_1.GroupSessionBuilder(storage);
     const { [senderName]: senderKey } = await auth.keys.get('sender-key', [senderName]);
     if (!senderKey) {
@@ -204,42 +202,42 @@ const encryptSenderKeyMsgSignalProto = async (group, data, meId, auth) => {
 exports.encryptSenderKeyMsgSignalProto = encryptSenderKeyMsgSignalProto;
 const parseAndInjectE2ESessions = async (node, auth) => {
     const extractKey = (key) => (key ? ({
-        keyId: WABinary_1.getBinaryNodeChildUInt(key, 'id', 3),
-        publicKey: exports.generateSignalPubKey(WABinary_1.getBinaryNodeChildBuffer(key, 'value')),
-        signature: WABinary_1.getBinaryNodeChildBuffer(key, 'signature'),
+        keyId: (0, WABinary_1.getBinaryNodeChildUInt)(key, 'id', 3),
+        publicKey: (0, crypto_1.generateSignalPubKey)((0, WABinary_1.getBinaryNodeChildBuffer)(key, 'value')),
+        signature: (0, WABinary_1.getBinaryNodeChildBuffer)(key, 'signature'),
     }) : undefined);
-    const nodes = WABinary_1.getBinaryNodeChildren(WABinary_1.getBinaryNodeChild(node, 'list'), 'user');
+    const nodes = (0, WABinary_1.getBinaryNodeChildren)((0, WABinary_1.getBinaryNodeChild)(node, 'list'), 'user');
     for (const node of nodes) {
-        WABinary_1.assertNodeErrorFree(node);
+        (0, WABinary_1.assertNodeErrorFree)(node);
     }
     await Promise.all(nodes.map(async (node) => {
-        const signedKey = WABinary_1.getBinaryNodeChild(node, 'skey');
-        const key = WABinary_1.getBinaryNodeChild(node, 'key');
-        const identity = WABinary_1.getBinaryNodeChildBuffer(node, 'identity');
+        const signedKey = (0, WABinary_1.getBinaryNodeChild)(node, 'skey');
+        const key = (0, WABinary_1.getBinaryNodeChild)(node, 'key');
+        const identity = (0, WABinary_1.getBinaryNodeChildBuffer)(node, 'identity');
         const jid = node.attrs.jid;
-        const registrationId = WABinary_1.getBinaryNodeChildUInt(node, 'registration', 4);
+        const registrationId = (0, WABinary_1.getBinaryNodeChildUInt)(node, 'registration', 4);
         const device = {
             registrationId,
-            identityKey: exports.generateSignalPubKey(identity),
+            identityKey: (0, crypto_1.generateSignalPubKey)(identity),
             signedPreKey: extractKey(signedKey),
             preKey: extractKey(key)
         };
-        const cipher = new libsignal.SessionBuilder(exports.signalStorage(auth), exports.jidToSignalProtocolAddress(jid));
+        const cipher = new libsignal.SessionBuilder((0, exports.signalStorage)(auth), (0, exports.jidToSignalProtocolAddress)(jid));
         await cipher.initOutgoing(device);
     }));
 };
 exports.parseAndInjectE2ESessions = parseAndInjectE2ESessions;
 const extractDeviceJids = (result, myJid, excludeZeroDevices) => {
     var _a;
-    const { user: myUser, device: myDevice } = WABinary_1.jidDecode(myJid);
+    const { user: myUser, device: myDevice } = (0, WABinary_1.jidDecode)(myJid);
     const extracted = [];
     for (const node of result.content) {
-        const list = (_a = WABinary_1.getBinaryNodeChild(node, 'list')) === null || _a === void 0 ? void 0 : _a.content;
+        const list = (_a = (0, WABinary_1.getBinaryNodeChild)(node, 'list')) === null || _a === void 0 ? void 0 : _a.content;
         if (list && Array.isArray(list)) {
             for (const item of list) {
-                const { user } = WABinary_1.jidDecode(item.attrs.jid);
-                const devicesNode = WABinary_1.getBinaryNodeChild(item, 'devices');
-                const deviceListNode = WABinary_1.getBinaryNodeChild(devicesNode, 'device-list');
+                const { user } = (0, WABinary_1.jidDecode)(item.attrs.jid);
+                const devicesNode = (0, WABinary_1.getBinaryNodeChild)(item, 'devices');
+                const deviceListNode = (0, WABinary_1.getBinaryNodeChild)(devicesNode, 'device-list');
                 if (Array.isArray(deviceListNode === null || deviceListNode === void 0 ? void 0 : deviceListNode.content)) {
                     for (const { tag, attrs } of deviceListNode.content) {
                         const device = +attrs.id;
@@ -258,3 +256,39 @@ const extractDeviceJids = (result, myJid, excludeZeroDevices) => {
     return extracted;
 };
 exports.extractDeviceJids = extractDeviceJids;
+/**
+ * get the next N keys for upload or processing
+ * @param count number of pre-keys to get or generate
+ */
+const getNextPreKeys = async ({ creds, keys }, count) => {
+    const { newPreKeys, lastPreKeyId, preKeysRange } = (0, exports.generateOrGetPreKeys)(creds, count);
+    const update = {
+        nextPreKeyId: Math.max(lastPreKeyId + 1, creds.nextPreKeyId),
+        firstUnuploadedPreKeyId: Math.max(creds.firstUnuploadedPreKeyId, lastPreKeyId + 1)
+    };
+    await keys.set({ 'pre-key': newPreKeys });
+    const preKeys = await (0, exports.getPreKeys)(keys, preKeysRange[0], preKeysRange[0] + preKeysRange[1]);
+    return { update, preKeys };
+};
+exports.getNextPreKeys = getNextPreKeys;
+const getNextPreKeysNode = async (state, count) => {
+    const { creds } = state;
+    const { update, preKeys } = await (0, exports.getNextPreKeys)(state, count);
+    const node = {
+        tag: 'iq',
+        attrs: {
+            xmlns: 'encrypt',
+            type: 'set',
+            to: WABinary_1.S_WHATSAPP_NET,
+        },
+        content: [
+            { tag: 'registration', attrs: {}, content: (0, generics_1.encodeBigEndian)(creds.registrationId) },
+            { tag: 'type', attrs: {}, content: Defaults_1.KEY_BUNDLE_TYPE },
+            { tag: 'identity', attrs: {}, content: creds.signedIdentityKey.public },
+            { tag: 'list', attrs: {}, content: Object.keys(preKeys).map(k => (0, exports.xmppPreKey)(preKeys[+k], +k)) },
+            (0, exports.xmppSignedPreKey)(creds.signedPreKey)
+        ]
+    };
+    return { update, node };
+};
+exports.getNextPreKeysNode = getNextPreKeysNode;

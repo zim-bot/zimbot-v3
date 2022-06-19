@@ -26,7 +26,7 @@ const getBinaryNodeChild = ({ content }, childTag) => {
 exports.getBinaryNodeChild = getBinaryNodeChild;
 const getBinaryNodeChildBuffer = (node, childTag) => {
     var _a;
-    const child = (_a = exports.getBinaryNodeChild(node, childTag)) === null || _a === void 0 ? void 0 : _a.content;
+    const child = (_a = (0, exports.getBinaryNodeChild)(node, childTag)) === null || _a === void 0 ? void 0 : _a.content;
     if (Buffer.isBuffer(child) || child instanceof Uint8Array) {
         return child;
     }
@@ -34,7 +34,7 @@ const getBinaryNodeChildBuffer = (node, childTag) => {
 exports.getBinaryNodeChildBuffer = getBinaryNodeChildBuffer;
 const getBinaryNodeChildString = (node, childTag) => {
     var _a;
-    const child = (_a = exports.getBinaryNodeChild(node, childTag)) === null || _a === void 0 ? void 0 : _a.content;
+    const child = (_a = (0, exports.getBinaryNodeChild)(node, childTag)) === null || _a === void 0 ? void 0 : _a.content;
     if (Buffer.isBuffer(child) || child instanceof Uint8Array) {
         return Buffer.from(child).toString('utf-8');
     }
@@ -44,21 +44,21 @@ const getBinaryNodeChildString = (node, childTag) => {
 };
 exports.getBinaryNodeChildString = getBinaryNodeChildString;
 const getBinaryNodeChildUInt = (node, childTag, length) => {
-    const buff = exports.getBinaryNodeChildBuffer(node, childTag);
+    const buff = (0, exports.getBinaryNodeChildBuffer)(node, childTag);
     if (buff) {
         return bufferToUInt(buff, length);
     }
 };
 exports.getBinaryNodeChildUInt = getBinaryNodeChildUInt;
 const assertNodeErrorFree = (node) => {
-    const errNode = exports.getBinaryNodeChild(node, 'error');
+    const errNode = (0, exports.getBinaryNodeChild)(node, 'error');
     if (errNode) {
         throw new boom_1.Boom(errNode.attrs.text || 'Unknown error', { data: +errNode.attrs.code });
     }
 };
 exports.assertNodeErrorFree = assertNodeErrorFree;
 const reduceBinaryNodeToDictionary = (node, tag) => {
-    const nodes = exports.getBinaryNodeChildren(node, tag);
+    const nodes = (0, exports.getBinaryNodeChildren)(node, tag);
     const dict = nodes.reduce((dict, { attrs }) => {
         dict[attrs.name || attrs.config_code] = attrs.value || attrs.config_value;
         return dict;

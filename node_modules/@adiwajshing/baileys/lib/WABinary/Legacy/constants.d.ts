@@ -1,4 +1,4 @@
-export declare const Tags: {
+export declare const TAGS: {
     LIST_EMPTY: number;
     STREAM_END: number;
     DICTIONARY_0: number;
@@ -15,6 +15,13 @@ export declare const Tags: {
     NIBBLE_8: number;
     SINGLE_BYTE_MAX: number;
     PACKED_MAX: number;
+    AD_JID: number;
 };
-export declare const DoubleByteTokens: any[];
-export declare const SingleByteTokens: string[];
+export declare const DOUBLE_BYTE_TOKENS: any[];
+export declare const SINGLE_BYTE_TOKENS: string[];
+export declare const TOKEN_MAP: {
+    [token: string]: {
+        dict?: number;
+        index: number;
+    };
+};

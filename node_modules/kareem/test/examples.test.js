@@ -1,4 +1,7 @@
+'use strict';
+
 var assert = require('assert');
+const { beforeEach, describe, it } = require('mocha');
 var Kareem = require('../');
 
 /* Much like [hooks](https://npmjs.org/package/hooks), kareem lets you define

@@ -18,13 +18,13 @@ const make_mutex_1 = require("./make-mutex");
 const captureEventStream = (ev, filename) => {
     const oldEmit = ev.emit;
     // write mutex so data is appended in order
-    const writeMutex = make_mutex_1.makeMutex();
+    const writeMutex = (0, make_mutex_1.makeMutex)();
     // monkey patch eventemitter to capture all events
     ev.emit = function (...args) {
         const content = JSON.stringify({ timestamp: Date.now(), event: args[0], data: args[1] }) + '\n';
         const result = oldEmit.apply(ev, args);
         writeMutex.mutex(async () => {
-            await promises_1.writeFile(filename, content, { flag: 'a' });
+            await (0, promises_1.writeFile)(filename, content, { flag: 'a' });
         });
         return result;
     };
@@ -39,8 +39,8 @@ const readAndEmitEventStream = (filename, delayIntervalMs = 0) => {
     const ev = new events_1.default();
     const fireEvents = async () => {
         // from: https://stackoverflow.com/questions/6156501/read-a-file-one-line-at-a-time-in-node-js
-        const fileStream = fs_1.createReadStream(filename);
-        const rl = readline_1.createInterface({
+        const fileStream = (0, fs_1.createReadStream)(filename);
+        const rl = (0, readline_1.createInterface)({
             input: fileStream,
             crlfDelay: Infinity
         });
@@ -50,7 +50,7 @@ const readAndEmitEventStream = (filename, delayIntervalMs = 0) => {
             if (line) {
                 const { event, data } = JSON.parse(line);
                 ev.emit(event, data);
-                delayIntervalMs && await generics_1.delay(delayIntervalMs);
+                delayIntervalMs && await (0, generics_1.delay)(delayIntervalMs);
             }
         }
         fileStream.close();

@@ -20,7 +20,7 @@ const WABinary_1 = require("../WABinary");
  */
 const makeSocket = ({ waWebSocketUrl, connectTimeoutMs, phoneResponseTimeMs, logger, agent, keepAliveIntervalMs, expectResponseTimeout, }) => {
     // for generating tags
-    const referenceDateSeconds = Utils_1.unixTimestampSeconds(new Date());
+    const referenceDateSeconds = (0, Utils_1.unixTimestampSeconds)(new Date());
     const ws = new ws_1.default(waWebSocketUrl, undefined, {
         origin: Defaults_1.DEFAULT_ORIGIN,
         timeout: connectTimeoutMs,
@@ -44,7 +44,7 @@ const makeSocket = ({ waWebSocketUrl, connectTimeoutMs, phoneResponseTimeMs, log
     const phoneConnectionChanged = (value) => {
         ws.emit('phone-connection', { value });
     };
-    const sendPromise = util_1.promisify(ws.send);
+    const sendPromise = (0, util_1.promisify)(ws.send);
     /** generate message tag and increment epoch */
     const generateMessageTag = (longTag = false) => {
         const tag = `${longTag ? referenceDateSeconds : (referenceDateSeconds % 1000)}.--${epoch}`;
@@ -74,9 +74,9 @@ const makeSocket = ({ waWebSocketUrl, connectTimeoutMs, phoneResponseTimeMs, log
             if (!authInfo) {
                 throw new boom_1.Boom('No encryption/mac keys to encrypt node with', { statusCode: 400 });
             }
-            const binary = WABinary_1.encodeBinaryNodeLegacy(json); // encode the JSON to the WhatsApp binary format
-            const buff = Utils_1.aesEncrypt(binary, authInfo.encKey); // encrypt it using AES and our encKey
-            const sign = Utils_1.hmacSign(buff, authInfo.macKey); // sign the message using HMAC and our macKey
+            const binary = (0, WABinary_1.encodeBinaryNodeLegacy)(json); // encode the JSON to the WhatsApp binary format
+            const buff = (0, Utils_1.aesEncrypt)(binary, authInfo.encKey); // encrypt it using AES and our encKey
+            const sign = (0, Utils_1.hmacSign)(buff, authInfo.macKey); // sign the message using HMAC and our macKey
             data = Buffer.concat([
                 Buffer.from(tag + ','),
                 Buffer.from(binaryTag),
@@ -120,7 +120,7 @@ const makeSocket = ({ waWebSocketUrl, connectTimeoutMs, phoneResponseTimeMs, log
             let messageTag;
             let json;
             try {
-                const dec = Utils_1.decodeWAMessage(message, authInfo);
+                const dec = (0, Utils_1.decodeWAMessage)(message, authInfo);
                 messageTag = dec[0];
                 json = dec[1];
                 if (!json) {
@@ -215,7 +215,7 @@ const makeSocket = ({ waWebSocketUrl, connectTimeoutMs, phoneResponseTimeMs, log
                 let onErr;
                 let cancelPhoneChecker;
                 try {
-                    const result = await Utils_1.promiseTimeout(timeoutMs, (resolve, reject) => {
+                    const result = await (0, Utils_1.promiseTimeout)(timeoutMs, (resolve, reject) => {
                         onRecv = resolve;
                         onErr = err => {
                             reject(err || new boom_1.Boom('Intentional Close', { statusCode: Types_1.DisconnectReason.connectionClosed }));
