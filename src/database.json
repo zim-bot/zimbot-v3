@@ -1,36 +1,16 @@
 {
   "users": {
-    "5493644178536@s.whatsapp.net": {
+    "27683276659@s.whatsapp.net": {
       "afkTime": -1,
       "afkReason": ""
     },
-    "212677204226@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": ""
-    },
-    "212702429880@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": ""
-    },
-    "212656440837@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": ""
-    },
-    "212682219596@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": ""
-    },
-    "212770228289@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": ""
-    },
-    "212655787803@s.whatsapp.net": {
+    "212610704505@s.whatsapp.net": {
       "afkTime": -1,
       "afkReason": ""
     }
   },
   "chats": {
-    "120363040667868119@g.us": {
+    "27683276659@s.whatsapp.net": {
       "mute": false,
       "wame": false,
       "antilink": false,
@@ -38,12 +18,13 @@
       "isWelcome": true,
       "autoblock": true
     },
-    "212656440837@s.whatsapp.net": {
+    "212610704505@s.whatsapp.net": {
       "mute": false,
       "wame": false,
       "antilink": false,
       "antilinkyt": false,
-      "isWelcome": true
+      "isWelcome": true,
+      "autoblock": true
     }
   },
   "database": {},
