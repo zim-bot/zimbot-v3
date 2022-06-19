@@ -37,14 +37,11 @@ global.APIKeys = {
 }
 
 // Other
-global.owner = ['27634090203','447441437150']
-global.premium = ['27634090203','918188019676']
-global.botname = 'ZIM BOT INC'
-global.ownername = 'DRIPS'
-global.group1 = 'https://chat.whatsapp.com/EFsb8RCXV4jLEFk4eAcA1A'
-global.group2 = 'https://chat.whatsapp.com/HSfcYU13g5C8GxINWwSWoA'
-global.packname = 'ZIM BOT INC'
-global.ytchannel = 'https://youtu.be/ww4z2m3uORU'
+global.owner = ['51931263982','51931263982']
+global.premium = ['51931263982','51931263982']
+global.botname = 'ROCKET'
+global.ownername = 'ROCKET 1'
+global.packname = 'ROCKET2'
 global.monayawal = '100000'
 global.darahawal = '100'
 global.besiAwal = '15'
@@ -65,24 +62,24 @@ global.f4 = 'application/zip'
 global.f5 = 'application/pdf'
 global.f6 = 'application/vnd.android.package-archive'
 global.author = 'ZIM BOT INC'
-global.flaming = 'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=amped-logo&doScale=true&scaleWidth=800&scaleHeight=500&text='
+global.flaming = 
 global.sessionName = 'session'
 global.prefa = ['','!','.','🐦','🐤','🗿']
 global.sp = '⭔'
 global.mess = {
     success: '*success whoa*',
-        ban: '*Sorry, looks like u got banned😔😔 type .owner To request unban okay*',
-    admin: '*this cmd is for bot owner only , l can feel you but sorry okay*',
-    botAdmin: '*with due respect can you please give bot adminship*',
-    owner: '*this cmd is for bot owner only , l can feel you but sorry okay*',
-    group: '*this feature is only for groups okay*',
-    private: '*this feature can only used in dm okay*',
-    bot: '*Special Features for User Bot Number okay*',
-    wait: '*whoa wait zim bot processing okay*',
-    endLimit: '*Brothers Daily Limit Has Expired, Type .buy limit amount limit to buy limit, Note: Limit will be reset every 12 hours*',
+        ban: '*Lo siento, parece que te banearon😔😔 escribe .propietario para solicitar que no te baneen, ¿de acuerdo?*',
+    admin: '*Este comando es solo para el propietario del barco, puedo sentirte, pero lo siento, está bien*',
+    botAdmin: '* carajos mi administracion, ¿puede dar la administración del bot?*',
+    owner: '*Este comando es solo para el propietario del barco, puedo sentirte, pero lo siento, está bien*',
+    group: '*esta función es solo para grupos, está bien*',
+    private: '*esta característica solo se puede usar en dm okay*',
+    bot: '*Características especiales para el número de bot de usuario está bien*',
+    wait: '*Espera, ROCKET-BOT está procesando bien*',
+    endLimit: '*El límite diario de Brothers ha expirado, escriba .compra límite de cantidad límite para comprar límite, Nota: El límite se restablecerá cada 12 horas*',
 }
 global.limitawal = {
-    premium: "Infinity",
+    premium: "ILIMITADO",
     free: 25
 }
    global.rpg = {
