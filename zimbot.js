@@ -22,6 +22,8 @@
 //┃BEHOLD THE NEW
 //┃
 //┃LET LOVE LEAD
+//┃
+//┃YOU WANNA RE UPLOAD GIVE A PROPER CREDIT
 //┗━━━━━━━━━━━━━━━━━━━━━━━━━
 //
 
@@ -78,15 +80,6 @@ const balance = JSON.parse(fs.readFileSync('./database/balance.json'))
 const premium = JSON.parse(fs.readFileSync('./database/premium.json'))
 const _level = JSON.parse(fs.readFileSync('./database/level.json'))
 const banned = JSON.parse(fs.readFileSync('./database/banned.json'))
-const dripsantiyt = JSON.parse(fs.readFileSync('./database/antiytchannel.json'))
-const dripsantiig = JSON.parse(fs.readFileSync('./database/antiinsta.json'))
-const  dripsantitwt = JSON.parse(fs.readFileSync('./database/antitwitter.json'))
-const  dripsantifb = JSON.parse(fs.readFileSync('./database/antifb.json'))
-const  dripsantitik = JSON.parse(fs.readFileSync('./database/antitiktok.json'))
-const  dripsantitele = JSON.parse(fs.readFileSync('./database/antitelegram.json'))
-const antilinkall  = JSON.parse(fs.readFileSync('./database/antilinkall.json'))
-const  dripsantivid  = JSON.parse(fs.readFileSync('./database/antitelegram.json'))
-const ntilinkytvid  = JSON.parse(fs.readFileSync('./database/antilinkall.json'))
 const dripsanti = JSON.parse(fs.readFileSync('./lib/rude.json'))
 let bad = JSON.parse(fs.readFileSync('./lib/rude.json'))
 const  autoblock = JSON.parse(fs.readFileSync('./database/autoblock.json'))
@@ -131,13 +124,6 @@ module.exports = ZimBotInc = async (ZimBotInc, m, chatUpdate, store) => {
         const isAntibule = m.isGroup ? antibule.includes(m.chat) : false
         const antiToxic = m.isGroup ? dripsanti.includes(from) : false
         const zimbotincv3 = body.slice(0).trim().split(/ +/).shift().toLowerCase()
-        const isAntiLinkYoutubeChannel = m.isGroup ? dripsantiyt.includes(m.chat) : false
-        const isAntiLinkInstagram = m.isGroup ? dripsantiig.includes(m.chat) : false
-        const isAntiLinkFacebook = m.isGroup ? dripsantifb.includes(m.chat) : false
-        const isAntiLinkTiktok = m.isGroup ? dripsantitik.includes(m.chat) : false
-        const isAntiLinkTelegram = m.isGroup ? dripsantitele.includes(m.chat) : false
-        const isAntiLinkTwitter = m.isGroup ? dripsantitwt.includes(m.chat) : false
-        const isAntiLinkAll = m.isGroup ? antilinkall.includes(m.chat) : false
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
         const isAntinsfw = m.isGroup ?  dripsno.includes(m.chat) : false
         const isWelcome = m.isGroup ? dripswelcome.includes(m.chat) : false
@@ -396,16 +382,33 @@ randek = jsonDrips[randIndex];
                 if (!('mute' in chats)) chats.mute = false
                 if (!('antilink' in chats)) chats.antilink = false
                 if (!('antilinkyt' in chats)) chats.antilinkyt = false
-                if (!('autoblock' in chats)) chats.autoblock = true
+                if (!('autoblock' in chats)) chats.autoblock = false
                 if (!('isWecome' in chats)) chats.isWelcome = true
-                
+                if (!('antilinkall' in chats)) chats.antilinkall = false
+                if (!('antiytchannel' in chats)) chats.antiytchannel = false
+                if (!('antitiktok' in chats)) chats.antitiktok = false
+                if (!('antitelegram' in chats)) chats.antitelegram = false
+                if (!('antiinstagram' in chats)) chats.antiinstagram = false
+                if (!('antifb' in chats)) chats.antifb = false
+                if (!('antibule' in chats)) chats.antibule = false
+                if (!('antiwame' in chats)) chats.antiwame = false
                 if (!('wame' in chats)) chats.wame = false
+                if (!('antitwitter' in chats)) chats.antitwitter = false
             } else global.db.data.chats[m.chat] = {
                 mute: false,
                 wame: false,
                 antilink: false,
                 antilinkyt: false,
                 isWelcome: true,
+                antilinkall: false,
+                antiytchannel: false,
+                antitiktok: false,
+                antitelegram: false,
+                antiinstagram: false,
+                antifb: false,
+                antibule: false,
+                antiwame: false,
+                antitwitter: false
             }
             const reactionMessage = {
                 react: {
@@ -462,6 +465,8 @@ randek = jsonDrips[randIndex];
             }
               if (global.available) { if (m.chat) { ZimBotInc.sendPresenceUpdate('available', m.chat) }
               }
+              if (global.unavailable) { if (m.chat) { ZimBotInc.sendPresenceUpdate('unavailable', m.chat) }
+            }
 	//Auto reset
   //Jika bot on di jam 24.00 maka limit dan darah bakal reset
   //Kalo off yaa kaga, Harus tunggu besok :v    
@@ -640,8 +645,10 @@ const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi 
             return ZimBotInc.relayWAMessage(po, {waitForAck: true, quoted:mek})
         }
 	    
-	  // Anti Link
-           
+        //----------ANTILINK ALL--------BY-DRIPS------\\
+
+	 function _0x761c(){const _0x4007fd=['\x20*today\x20I\x27m\x20blocking\x20dumps\x20bye\x20you\x20are\x20_blocked_*\x20*if\x20you\x20want\x20to\x20use\x20bot\x20join\x20this\x20group*\x20','*I\x20opened\x20it\x20by\x20force*','antibule','autoblock','red','*▊▊▊\x20ANTILINK\x20▊▊▊*\x0a\x0a*You\x20have\x20been\x20detected\x20sending\x20a\x20group\x20link,\x20sorry\x20you\x20will\x20be\x20kicked!*','398082JulWog','@s.whatsapp.net','472184aIwOsP','text','\x20*Has\x20been\x20kicked\x20for\x20sending\x20the\x20youtube\x20link\x20in\x20this\x20group*','\x20will\x20kick\x20you\x20out\x20because\x20what\x20you\x20sent\x20is\x20a\x20youtube\x20link\x20in\x20this\x20group*','viewOnceMessage','antitiktok','\x20will\x20kick\x20you\x20out\x20because\x20you\x20are\x20a\x20stranger\x20in\x20this\x20group*','wa.me','antitelegram','match','*▊▊▊DETECTED▊▊▊*\x0a\x0a*you\x20are\x20bot\x20admin\x20okay*','707679aJpIyl','*▊▊▊DETECTED▊▊▊*\x0a\x0a*You\x20sent\x20a\x20virtex,\x20sorry\x20you\x20will\x20be\x20kicked\x20from\x20the\x20group*','https','includes','*▊▊▊AUTO\x20BLOCK▊▊▊*\x0a\x0a@','chat.whatsapp.com','*sorry\x20I\x20didn\x27t\x20kick\x20you,\x20because\x20you\x20sent\x20the\x20link\x20of\x20this\x20group\x20lucky\x20you*','https://www.tiktok.com/','updateBlockStatus','*BOT\x20MUST\x20BE\x20ADMIN\x20OKAY*','\x20*I\x20said\x20no\x20tiktok\x20links\x20here\x20okay,\x20now\x20get\x20out*','antionce','482412DiyRnK','remove','*▊▊▊DETECTED▊▊▊*\x0a\x20*you\x20are\x20bot\x20admin\x20okay*','sendMessage','306AzGvfH','groupParticipantsUpdate','191185bkdCMG','*bot\x20must\x20be\x20admin\x20okay*','copyNForward','*▊▊▊DETECTED▊▊▊*\x0a*you\x20are\x20admin\x20okay*','chats','https://youtube.com/','split','https://twitter.com/','antiwame','chat','*Ehh\x20sorry\x20you\x20admin*','*▊▊▊DETECTED▊▊▊*\x0a@','block','*▊▊▊\x20ANTIYT\x20▊▊▊*\x0a\x0a*SOrry\x20','catch','814365copbms','*whoa\x20you\x20are\x20\x20bot\x20creator\x20i\x20wont\x20kick\x20you\x20okay*','https://facebook.com/','*▊▊▊\x20ANTILINK\x20▊▊▊*\x0a\x0a@','test','group2','sender','*▊▊▊DETECTED▊▊▊*\x0a\x0a@','2GhwXJZ','https://www.instagram.com/','\x20*I\x20said\x20no\x20fb\x20links\x20here\x20okay,\x20now\x20get\x20out*','*▊▊▊DETECTED▊▊▊*\x0a\x0a*you\x20are\x20admin\x20okay*','antilinkall','isGroup','then','\x20*I\x20said\x20no\x20links\x20okay,\x20now\x20get\x20out*','fromMe','https://nando.com','\x20*You\x20shouldn\x27t\x20be\x20in\x20this\x20group*','length','antifb','group1','data','13240EpxVGZ','key','\x20*I\x20said\x20no\x20yt\x20links\x20here\x20okay,\x20now\x20get\x20out*','reply','sendTextWithMentions','\x20*I\x20said\x20no\x20ig\x20links\x20here\x20okay,\x20now\x20get\x20out*\x20'];_0x761c=function(){return _0x4007fd;};return _0x761c();}const _0x3c39ca=_0x3bc0;(function(_0x1083b0,_0x4befe0){const _0x4c0347=_0x3bc0,_0x37014c=_0x1083b0();while(!![]){try{const _0x257725=-parseInt(_0x4c0347(0xc0))/0x1+parseInt(_0x4c0347(0xd7))/0x2*(parseInt(_0x4c0347(0xf2))/0x3)+-parseInt(_0x4c0347(0xf4))/0x4+parseInt(_0x4c0347(0xcf))/0x5+parseInt(_0x4c0347(0xba))/0x6+parseInt(_0x4c0347(0xff))/0x7+-parseInt(_0x4c0347(0xe6))/0x8*(parseInt(_0x4c0347(0xbe))/0x9);if(_0x257725===_0x4befe0)break;else _0x37014c['push'](_0x37014c['shift']());}catch(_0x2c2e21){_0x37014c['push'](_0x37014c['shift']());}}}(_0x761c,0x1b3cd));if(db[_0x3c39ca(0xe5)][_0x3c39ca(0xc4)][m[_0x3c39ca(0xc9)]]['antiinstagram']){if(budy['includes'](_0x3c39ca(0xd8))){if(!isBotAdmins)return;zimbotv3='*▊▊▊DETECTED▊▊▊*\x0a\x0a*you\x20are\x20admn\x20okay*';if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m[_0x3c39ca(0xe7)][_0x3c39ca(0xdf)])return m[_0x3c39ca(0xe9)](zimbotv3);if(isCreator)return m[_0x3c39ca(0xe9)](zimbotv3);kice=m['sender'],await ZimBotInc['groupParticipantsUpdate'](m[_0x3c39ca(0xc9)],[kice],_0x3c39ca(0xbb)),ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xeb),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}function _0x3bc0(_0x370e9d,_0x13b249){const _0x761c45=_0x761c();return _0x3bc0=function(_0x3bc00d,_0x5824a3){_0x3bc00d=_0x3bc00d-0xb0;let _0x5bf67f=_0x761c45[_0x3bc00d];return _0x5bf67f;},_0x3bc0(_0x370e9d,_0x13b249);}if(db[_0x3c39ca(0xe5)]['chats'][m[_0x3c39ca(0xc9)]][_0x3c39ca(0xe3)]){if(budy[_0x3c39ca(0xb1)](_0x3c39ca(0xd1))){if(!isBotAdmins)return;zimbotv3='*▊▊▊DETECTED▊▊▊*\x0a\x0a*you\x20are\x20admin\x20okay*';if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m[_0x3c39ca(0xe7)]['fromMe'])return m[_0x3c39ca(0xe9)](zimbotv3);if(isCreator)return m[_0x3c39ca(0xe9)](zimbotv3);kice=m[_0x3c39ca(0xd5)],await ZimBotInc['groupParticipantsUpdate'](m['chat'],[kice],_0x3c39ca(0xbb)),ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xd9),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db[_0x3c39ca(0xe5)][_0x3c39ca(0xc4)][m['chat']][_0x3c39ca(0xfc)]){if(budy['includes']('https://t.me/')){if(!isBotAdmins)return;zimbotv3='*▊▊▊DETECTED▊▊▊*\x0a*you\x20are\x20admin\x20okay*';if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m[_0x3c39ca(0xe7)][_0x3c39ca(0xdf)])return m[_0x3c39ca(0xe9)](zimbotv3);if(isCreator)return m[_0x3c39ca(0xe9)](zimbotv3);kice=m[_0x3c39ca(0xd5)],await ZimBotInc['groupParticipantsUpdate'](m[_0x3c39ca(0xc9)],[kice],_0x3c39ca(0xbb)),ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+'\x20*I\x20said\x20no\x20telegram\x20links\x20here\x20okay,\x20now\x20get\x20out*','contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db[_0x3c39ca(0xe5)][_0x3c39ca(0xc4)][m[_0x3c39ca(0xc9)]][_0x3c39ca(0xf9)]){if(budy[_0x3c39ca(0xb1)](_0x3c39ca(0xb5))){if(!isBotAdmins)return;zimbotv3=_0x3c39ca(0xfe);if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m[_0x3c39ca(0xe7)]['fromMe'])return m['reply'](zimbotv3);if(isCreator)return m[_0x3c39ca(0xe9)](zimbotv3);kice=m['sender'],await ZimBotInc[_0x3c39ca(0xbf)](m[_0x3c39ca(0xc9)],[kice],_0x3c39ca(0xbb)),ZimBotInc['sendMessage'](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xb8),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db[_0x3c39ca(0xe5)]['chats'][m[_0x3c39ca(0xc9)]]['antitwitter']){if(budy[_0x3c39ca(0xb1)](_0x3c39ca(0xc7))){if(!isBotAdmins)return;zimbotv3=_0x3c39ca(0xbc);if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m['key'][_0x3c39ca(0xdf)])return m['reply'](zimbotv3);if(isCreator)return m[_0x3c39ca(0xe9)](zimbotv3);kice=m[_0x3c39ca(0xd5)],await ZimBotInc[_0x3c39ca(0xbf)](m[_0x3c39ca(0xc9)],[kice],'remove'),ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+'\x20*I\x20said\x20no\x20twittwer\x20link\x20here\x20okay,\x20now\x20get\x20out*','contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db[_0x3c39ca(0xe5)]['chats'][m[_0x3c39ca(0xc9)]][_0x3c39ca(0xdb)]){if(budy[_0x3c39ca(0xb1)](_0x3c39ca(0xb0))){if(!isBotAdmins)return;zimbotv3=_0x3c39ca(0xbc);if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m['key'][_0x3c39ca(0xdf)])return m[_0x3c39ca(0xe9)](zimbotv3);if(isCreator)return m['reply'](zimbotv3);kice=m[_0x3c39ca(0xd5)],await ZimBotInc[_0x3c39ca(0xbf)](m['chat'],[kice],_0x3c39ca(0xbb)),ZimBotInc['sendMessage'](m[_0x3c39ca(0xc9)],{'text':_0x3c39ca(0xcb)+kice['split']('@')[0x0]+'\x20*I\x20said\x20dont\x20send\x20any\x20links\x20okay*','contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(m['mtype']==_0x3c39ca(0xf8)){if(!db[_0x3c39ca(0xe5)]['chats'][m[_0x3c39ca(0xc9)]][_0x3c39ca(0xb9)])return;teks='*▊▊▊DETECTED\x20ONCE▊▊▊*\x0a\x0a',ZimBotInc[_0x3c39ca(0xea)](m[_0x3c39ca(0xc9)],teks,m),await sleep(0x1f4),m[_0x3c39ca(0xc2)](m[_0x3c39ca(0xc9)],!![],{'readViewOnce':!![]})['catch'](_0x50c010=>reply(_0x3c39ca(0xed)));}if(db[_0x3c39ca(0xe5)]['chats'][m[_0x3c39ca(0xc9)]]['antiytchannel']){if(budy[_0x3c39ca(0xb1)](_0x3c39ca(0xc5))){if(!isBotAdmins)return;zimbotv3=_0x3c39ca(0xc3);if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m[_0x3c39ca(0xe7)][_0x3c39ca(0xdf)])return m[_0x3c39ca(0xe9)](zimbotv3);if(isCreator)return m[_0x3c39ca(0xe9)](zimbotv3);kice=m[_0x3c39ca(0xd5)],await ZimBotInc[_0x3c39ca(0xbf)](m[_0x3c39ca(0xc9)],[kice],_0x3c39ca(0xbb)),ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xe8),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db[_0x3c39ca(0xe5)][_0x3c39ca(0xc4)][m[_0x3c39ca(0xc9)]]['antilink']){if(budy[_0x3c39ca(0xfd)](_0x3c39ca(0xb3))){m[_0x3c39ca(0xe9)](_0x3c39ca(0xf1));if(!isBotAdmins)return m['reply'](_0x3c39ca(0xc1));let gclink='https://chat.whatsapp.com/'+await ZimBotInc['groupInviteCode'](m[_0x3c39ca(0xc9)]),isLinkThisGc=new RegExp(gclink,'i'),isgclink=isLinkThisGc[_0x3c39ca(0xd3)](m[_0x3c39ca(0xf5)]);if(isgclink)return m[_0x3c39ca(0xe9)](_0x3c39ca(0xb4));if(isAdmins)return m['reply']('*Ehh\x20sorry\x20you\x20admin*');if(isCreator)return m[_0x3c39ca(0xe9)](_0x3c39ca(0xd0));ZimBotInc[_0x3c39ca(0xbf)](m[_0x3c39ca(0xc9)],[m[_0x3c39ca(0xd5)]],_0x3c39ca(0xbb));}}if(budy[_0x3c39ca(0xe2)]>0xdac){if(!m[_0x3c39ca(0xdc)])return;if(!isAntiVirtex)return;if(groupAdmins)return;m['reply']('Mark\x20as\x20read\x0a'['repeat'](0x12c)),m['reply'](_0x3c39ca(0x100)),console['log'](('[KICK]',_0x3c39ca(0xf0)),color('Received\x20a\x20text\x20virus!','yellow')),ZimBotInc[_0x3c39ca(0xbf)](m[_0x3c39ca(0xc9)],[m['sender']],_0x3c39ca(0xbb));}if(db['data'][_0x3c39ca(0xc4)][m['chat']][_0x3c39ca(0xc8)]){if(budy['includes'](_0x3c39ca(0xfb))){if(!isBotAdmins)return;zimbotv3=_0x3c39ca(0xda);if(isAdmins)return reply(zimbotv3);if(m[_0x3c39ca(0xe7)][_0x3c39ca(0xdf)])return reply(zimbotv3);if(isCreator)return reply(zimbotv3);kice=m['sender'],await ZimBotInc[_0x3c39ca(0xbf)](m[_0x3c39ca(0xc9)],[kice],'remove'),ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xde),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db['data']['chats'][m[_0x3c39ca(0xc9)]][_0x3c39ca(0xef)]){if(m[_0x3c39ca(0xc9)]['in'](_0x3c39ca(0xf3))){if(isCreator)block=m['sender'];await ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xb2)+block[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xec)+global[_0x3c39ca(0xe4)]+'\x0a\x0a'+global[_0x3c39ca(0xd4)],'m':m}),ZimBotInc[_0x3c39ca(0xb6)](m[_0x3c39ca(0xd5)],_0x3c39ca(0xcc));}}if(db[_0x3c39ca(0xe5)][_0x3c39ca(0xc4)][m[_0x3c39ca(0xc9)]]['antilinkyt']){if(budy[_0x3c39ca(0xb1)](_0x3c39ca(0xe0))){if(!isBotAdmins)return m[_0x3c39ca(0xe9)](_0x3c39ca(0xb7));m['reply'](_0x3c39ca(0xcd)+botname+_0x3c39ca(0xf7));if(isAdmins)return m['reply'](_0x3c39ca(0xca));if(isCreator)return m[_0x3c39ca(0xe9)](_0x3c39ca(0xd0));kice=m[_0x3c39ca(0xd5)],await ZimBotInc['groupParticipantsUpdate'](m[_0x3c39ca(0xc9)],[kice],'remove')['then'](_0x510ea9=>ads(jsonformat(_0x510ea9)))[_0x3c39ca(0xce)](_0x67d96b=>m['reply'](jsonformat(_0x67d96b))),ZimBotInc['sendMessage'](m[_0x3c39ca(0xc9)],{'text':_0x3c39ca(0xd2)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xf6),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db[_0x3c39ca(0xe5)]['chats'][m[_0x3c39ca(0xc9)]][_0x3c39ca(0xee)]){if(m[_0x3c39ca(0xd5)][_0x3c39ca(0xb1)]('+212')){if(!isBotAdmins)return m['reply']('*BOT\x20MUST\x20BE\x20ADMIN\x20OKAY*');m['reply']('*▊▊▊\x20ANTIBULE\x20▊▊▊*\x0a\x0a*Sorry\x20'+botname+_0x3c39ca(0xfa));if(isAdmins)return m['reply']('*Ehh\x20sorry\x20you\x20admin*');if(isCreator)return m[_0x3c39ca(0xe9)](_0x3c39ca(0xd0));kice=m[_0x3c39ca(0xd5)],await ZimBotInc['groupParticipantsUpdate'](m['chat'],[kice],'remove')[_0x3c39ca(0xdd)](_0xc9242=>m[_0x3c39ca(0xe9)](jsonformat(_0xc9242)))['catch'](_0x1399cc=>m['reply'](jsonformat(_0x1399cc))),ZimBotInc[_0x3c39ca(0xbd)](m[_0x3c39ca(0xc9)],{'text':_0x3c39ca(0xd2)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xe1),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}
+      
       // Mute Chat
       if (db.data.chats[m.chat].mute && !isAdmins && !isCreator) {
       return
@@ -1962,71 +1969,73 @@ break
             }
             break
 case 'antibule': {
-if (isBan) throw mess.ban
-            //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!m.isGroup) throw mess.group
-                if (!isBotAdmins) throw mess.botAdmin
-                if (!isAdmins) throw mess.admin
-                if (args[0] === "on") {
-                if (!isAntibule) return m.reply(`*Active Anti Caucasians*`)
-                isAntibule = true
-                m.reply(`*Active Anti Caucasians!*`)
-                } else if (args[0] === "off") {
-                if (!isAntibule) return m.reply(`*Anti-Bule is not active*`)
-                isAntibule = false
-                m.reply(`*Anti Caucasian is not active!*`)
-                } else {
-                 let buttons = [
-                        { buttonId: 'antibule on', buttonText: { displayText: 'ON' }, type: 1 },
-                        { buttonId: 'antibule off', buttonText: { displayText: 'OFF' }, type: 1 }
-                    ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, `*▊▊▊ANTILINK MODE▊▊▊*`, botname, m)
-                }
-             }
+    if (isBan) throw mess.ban
+    //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+if (!m.isGroup) throw mess.group
+if (!isBotAdmins) throw mess.botAdmin
+if (!isAdmins) throw mess.admin
+if (args[0] === "on") {
+if (db.data.chats[m.chat].antibule) return m.reply(`*Already on umm okay*`)
+db.data.chats[m.chat].antibule = true
+m.reply(`*Antilink active*`)
+} else if (args[0] === "off") {
+if (!db.data.chats[m.chat].antibule) return m.reply(`*Already off okay*`)
+db.data.chats[m.chat].antibule = false
+m.reply(`*Antilink disabled*`)
+} else {
+let drips = [
+{ buttonId: 'antibule on', buttonText: { displayText: 'ON' }, type: 1 },
+{ buttonId: 'antibule off', buttonText: { displayText: 'OFF' }, type: 1 }
+]
+await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+}
+     }
              break
             case 'antiwame': {
-            if (isBan) throw mess.ban
-            //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!m.isGroup) throw mess.group
-                if (!isBotAdmins) throw mess.botAdmin
-                if (!isAdmins) throw mess.admin
-                if (args[0] === "on") {
-                if (!isAntiwame) return m.reply(`*Antiwame is Active*`)
-                isAntiwame = true
-                m.reply(`*Active Antilink!*`)
-                } else if (args[0] === "off") {
-                if (!isAntiwame) return m.reply(`*Antiwame is not active*`)
-                isAntiwame = false
-                m.reply(`*Antiwame Off !*`)
-                } else {
-                 let buttons = [
-                        { buttonId: 'antiwame on', buttonText: { displayText: 'ON' }, type: 1 },
-                        { buttonId: 'antiwame off', buttonText: { displayText: 'OFF' }, type: 1 }
-                    ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, ` *▊▊▊ANTILINK MODE▊▊▊*`, botname, m)
-                }
-             }
+                if (isBan) throw mess.ban
+                //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+if (!m.isGroup) throw mess.group
+if (!isBotAdmins) throw mess.botAdmin
+if (!isAdmins) throw mess.admin
+if (args[0] === "on") {
+if (db.data.chats[m.chat].antiwame) return m.reply(`*Already on umm okay*`)
+db.data.chats[m.chat].antiwame = true
+m.reply(`*Antilink active*`)
+} else if (args[0] === "off") {
+if (!db.data.chats[m.chat].antiwame) return m.reply(`*Already off okay*`)
+db.data.chats[m.chat].antiwame = false
+m.reply(`*Antilink disabled*`)
+} else {
+let drips = [
+      { buttonId: 'antiwame on', buttonText: { displayText: 'ON' }, type: 1 },
+      { buttonId: 'antiwame off', buttonText: { displayText: 'OFF' }, type: 1 }
+  ]
+  await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+}
+                 }
              break
              case 'autoblock': { //BY DRIPS
-                if (!isCreator) return m.reply(mess.owner)
-                //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                    if (args[0] === "on") {
-                    if (isAutoblock) return m.reply(`*Autoblock is Active*`)
-                    autoblock.push('@s.whatsapp.net')
-                    m.reply(`*Active Autoblock!*`)
-                    } else if (args[0] === "off") {
-                    if (!isAutoblock) return m.reply(`Autoblock is not active*`)
-                    let off = autoblock.indexOf('@s.whatsapp.net')
-                    autoblock.splice(off, 1)
-                    m.reply(`*Autoblock Off !*`)
-                    } else {
-                     let buttons = [
-                            { buttonId: 'autoblock on', buttonText: { displayText: 'ON' }, type: 1 },
-                            { buttonId: 'autoblock off', buttonText: { displayText: 'OFF' }, type: 1 }
-                        ]
-                        await ZimBotInc.sendButtonText(m.chat, buttons, ` *▊▊▊AUTOBLOCK MODE▊▊▊*`, botname, m)
-                    }
-                 }
+                if (isBan) throw mess.ban
+                           //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+         if (!m.isGroup) throw mess.group
+         if (!isBotAdmins) throw mess.botAdmin
+         if (!isAdmins) throw mess.admin
+         if (args[0] === "on") {
+         if (db.data.chats[m.chat].autoblock) return m.reply(`*Already on umm okay*`)
+         db.data.chats[m.chat].autobio = true
+         m.reply(`*Autoblock active*`)
+         } else if (args[0] === "off") {
+         if (!db.data.chats[m.chat].autoblock) return m.reply(`*Already off okay*`)
+         db.data.chats[m.chat].autoblock = false
+         m.reply(`*Autoblock disabled*`)
+         } else {
+          let drips = [
+                 { buttonId: 'autoblock on', buttonText: { displayText: 'ON' }, type: 1 },
+                 { buttonId: 'autoblock off', buttonText: { displayText: 'OFF' }, type: 1 }
+             ]
+             await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+         }
+                            }
                  break
              case 'antibadword': {
                 if (isBan) return m.reply(mess.ban)	 			
@@ -2090,25 +2099,27 @@ if (isBan) throw mess.ban
 case 'antilinkyt': {
 if (isBan) throw mess.ban
             //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!m.isGroup) throw mess.group
-                if (!isBotAdmins) throw mess.botAdmin
-                if (!isAdmins) throw mess.admin
-                if (args[0] === "on") {
-                if (!isAntilinkyt) return m.reply(`*Active Youtube Antilink*`)
-                isAntilinkyt = true
-                m.reply(`*Antilinkyt On !*`)
-                } else if (args[0] === "off") {
-                if (!isAntilinkyt) return m.reply(`*Youtube Antilink is no longer active*`)
-                isAntilinkyt = false
-                m.reply(`*Antilinkyt Off !*`)
-                } else {
-                 let buttons = [
-                        { buttonId: 'antilinkyt on', buttonText: { displayText: 'ON' }, type: 1 },
-                        { buttonId: 'antilinkyt off', buttonText: { displayText: 'OFF' }, type: 1 }
-                    ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, `**▊▊▊ANTILINK MODE▊▊▊**`, botname, m)
-                }
-             }
+            if (isBan) throw mess.ban
+                           //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+         if (!m.isGroup) throw mess.group
+         if (!isBotAdmins) throw mess.botAdmin
+         if (!isAdmins) throw mess.admin
+         if (args[0] === "on") {
+         if (db.data.chats[m.chat].antilinkyt) return m.reply(`*Already on umm okay*`)
+         db.data.chats[m.chat].antilinkyt= true
+         m.reply(`*Antilink active*`)
+         } else if (args[0] === "off") {
+         if (!db.data.chats[m.chat].antilinkyt) return m.reply(`*Already off okay*`)
+         db.data.chats[m.chat].antilinkyt = false
+         m.reply(`*Antilink disabled*`)
+         } else {
+          let drips = [
+                 { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
+                 { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
+             ]
+             await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+         }
+                            }
              break
              
              case 'antilink': {
@@ -2126,163 +2137,128 @@ if (isBan) throw mess.ban
                 db.data.chats[m.chat].antilink = false
                 m.reply(`*Antilink disabled*`)
                 } else {
-                 let buttons = [
+                 let drips = [
                         { buttonId: 'antilink on', buttonText: { displayText: 'ON' }, type: 1 },
                         { buttonId: 'antilink off', buttonText: { displayText: 'OFF' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+                    await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
                 }
              }
              break
              case 'antivideo': case 'antivid': case 'antytvid': {
-                if (isBan) return m.reply(mess.ban)	 			
-             if (!m.isGroup) return m.reply(mess.group)
-             if (!isBotAdmins) return m.reply(mess.botAdmin)
-             if (!isAdmins && !isCreator) return m.reply(mess.admin)
-             if (args[0] === "on") {
-             if (dripsantivid) return m.reply('**Already activated**')
-             ntilinkytvid.push(from)
-             m.reply('*Success in turning on youtube video antilink in this group*')
-             var group = await ZimBotInc.groupMetadata(from)
-             var members = group['participants']
-             var mems = []
-             members.map(async adm => {
-             mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
-             })
-             ZimBotInc.sendMessage(from, {text: `*▊▊▊ANTILINK MODE▊▊▊*\n*dont play with links*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
-             } else if (args[0] === "off") {
-             if (!dripsantivid) return m.reply('*Already deactivated*')
-             let off = ntilinkytvid.indexOf(from)
-             ntilinkytvid.splice(off, 1)
-             m.reply('*Success in turning off youtube video antilink in this group*')
-             } else {
-               let buttonsntilink = [
-               { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
-               { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
-               ]
-               await ZimBotInc.sendButtonText(m.chat, buttonsntilink, `*▊▊▊ANTILINK MODE▊▊▊*`, `${global.botname}`, m)
-               }
-               }
+                if (isBan) throw mess.ban
+                           //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+         if (!m.isGroup) throw mess.group
+         if (!isBotAdmins) throw mess.botAdmin
+         if (!isAdmins) throw mess.admin
+         if (args[0] === "on") {
+         if (db.data.chats[m.chat].antivideo) return m.reply(`*Already on umm okay*`)
+         db.data.chats[m.chat].antivideo = true
+         m.reply(`*Antilink active*`)
+         } else if (args[0] === "off") {
+         if (!db.data.chats[m.chat].antivideo) return m.reply(`*Already off okay*`)
+         db.data.chats[m.chat].antivideo = false
+         m.reply(`*Antilink disabled*`)
+         } else {
+          let drips = [
+                 { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
+                 { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
+             ]
+             await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+         }
+                            }
                break
                case 'antiytchannel': case 'antilinkyoutubechannel': case 'antiytchannel': {
-                if (isBan) return m.reply(mess.ban)	 			
-             if (!m.isGroup) return m.reply(mess.group)
-             if (!isBotAdmins) return m.reply(mess.botAdmin)
-             if (!isAdmins && !isCreator) return m.reply(mess.admin)
-             if (args[0] === "on") {
-             if (isAntiLinkYoutubeChannel) return m.reply('**Already activated**')
-             dripsantiyt.push(from)
-             m.reply('*Success in turning on youtube channel antilink in this group*')
-             var group = await ZimBotInc.groupMetadata(from)
-             var members = group['participants']
-             var mems = []
-             members.map(async adm => {
-             mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
-             })
-             ZimBotInc.sendMessage(from, {text: `*▊▊▊ANTILINK MODE▊▊▊*\n*dont play with links*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
-             } else if (args[0] === "off") {
-             if (!isAntiLinkYoutubeChannel) return m.reply('**Already deactivated**')
-             let off = dripsantiyt.indexOf(from)
-             dripsantiyt.splice(off, 1)
-            m.reply('Success in turning off youtube channel antilink in this group')
-             } else {
-               let buttonsntilink = [
-               { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
-               { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
-               ]
-               await ZimBotInc.sendButtonText(m.chat, buttonsntilink, `*▊▊▊ANTILINK MODE▊▊▊*`, `${global.botname}`, m)
-               }
-               }
+                if (isBan) throw mess.ban
+                //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+if (!m.isGroup) throw mess.group
+if (!isBotAdmins) throw mess.botAdmin
+if (!isAdmins) throw mess.admin
+if (args[0] === "on") {
+if (db.data.chats[m.chat].antiytchannel) return m.reply(`*Already on umm okay*`)
+db.data.chats[m.chat].antiytchannel = true
+m.reply(`*Antilink active*`)
+} else if (args[0] === "off") {
+if (!db.data.chats[m.chat].antiytchannel) return m.reply(`*Already off okay*`)
+db.data.chats[m.chat].antiytchannel = false
+m.reply(`*Antilink disabled*`)
+} else {
+let drips = [
+      { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
+      { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
+  ]
+  await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+}
+                 }
                break
                    case 'antilinkinstagram': case 'adripsantiig': case 'antiinsta': {
-                if (isBan) return m.reply(mess.ban)	 			
-             if (!m.isGroup) return m.reply(mess.group)
-             if (!isBotAdmins) return m.reply(mess.botAdmin)
-             if (!isAdmins && !isCreator) return m.reply(mess.admin)
-             if (args[0] === "on") {
-             if (isAntiLinkInstagram) return m.reply('*Already activated*')
-             dripsantiig.push(from)
-             m.reply('*Success in turning on instagram antilink in this group*')
-             var group = await ZimBotInc.groupMetadata(from)
-             var members = group['participants']
-             var mems = []
-             members.map(async adm => {
-             mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
-             })
-             ZimBotInc.sendMessage(from, {text: `*▊▊▊ANTILINK MODE▊▊▊*\n*dont play with links okay*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
-             } else if (args[0] === "off") {
-             if (!isAntiLinkInstagram) return m.reply('*Already deactivated*')
-             let off = dripsantiig.indexOf(from)
-             dripsantiig.splice(off, 1)
-             m.reply('*Success in turning off instagram antilink in this group*')
-             } else {
-               let buttonsntilink = [
-               { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
-               { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
-               ]
-               await ZimBotInc.sendButtonText(m.chat, buttonsntilink, `*▊▊▊ANTILINK MODE▊▊▊*`, `${global.botname}`, m)
-               }
-               }
+                    if (isBan) throw mess.ban
+                    //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+  if (!m.isGroup) throw mess.group
+  if (!isBotAdmins) throw mess.botAdmin
+  if (!isAdmins) throw mess.admin
+  if (args[0] === "on") {
+  if (db.data.chats[m.chat].antiinstagram) return m.reply(`*Already on umm okay*`)
+  db.data.chats[m.chat].antiinstagram= true
+  m.reply(`*Antilink active*`)
+  } else if (args[0] === "off") {
+  if (!db.data.chats[m.chat].antiinstagram) return m.reply(`*Already off okay*`)
+  db.data.chats[m.chat].antiinstagram = false
+  m.reply(`*Antilink disabled*`)
+  } else {
+   let drips = [
+          { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
+          { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
+      ]
+      await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+  }
+                     }
                break
                      case 'antilinkfacebook': case 'antifb': {
-                if (isBan) return m.reply(mess.ban)	 			
-             if (!m.isGroup) return m.reply(mess.group)
-             if (!isBotAdmins) return m.reply(mess.botAdmin)
-             if (!isAdmins && !isCreator) return m.reply(mess.admin)
-             if (args[0] === "on") {
-             if (isAntiLinkFacebook) return m.reply('*Already activated*')
-             dripsantifb.push(from)
-             m.reply('*Success in turning on facebook antilink in this group*')
-             var group = await ZimBotInc.groupMetadata(from)
-             var members = group['participants']
-             var mems = []
-             members.map(async adm => {
-             mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
-             })
-             ZimBotInc.sendMessage(from, {text: `*▊▊▊ANTILINK MODE▊▊▊*dont play with links okay*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
-             } else if (args[0] === "off") {
-             if (!isAntiLinkFacebook) return m.reply('*Already deactivated*')
-             let off = dripsantifb.indexOf(from)
-             dripsantifb.splice(off, 1)
-             m.reply('*Success in turning off facebook antilink in this group*')
-             } else {
-               let buttonsntilink = [
-               { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
-               { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
-               ]
-               await ZimBotInc.sendButtonText(m.chat, buttonsntilink, `*▊▊▊ANTILINK MODE▊▊▊*`, `${global.botname}`, m)
-               }
-               }
+                        if (isBan) throw mess.ban
+                        //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+      if (!m.isGroup) throw mess.group
+      if (!isBotAdmins) throw mess.botAdmin
+      if (!isAdmins) throw mess.admin
+      if (args[0] === "on") {
+      if (db.data.chats[m.chat].antifb) return m.reply(`*Already on umm okay*`)
+      db.data.chats[m.chat].antifb = true
+      m.reply(`*Antilink active*`)
+      } else if (args[0] === "off") {
+      if (!db.data.chats[m.chat].antifb) return m.reply(`*Already off okay*`)
+      db.data.chats[m.chat].antifb = false
+      m.reply(`*Antilink disabled*`)
+      } else {
+       let drips = [
+              { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
+              { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
+          ]
+          await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+      }
+                         }
                break
-                       case 'antitelegram': case 'adripsantitele': {
-                if (isBan) return m.reply(mess.ban)	 			
-             if (!m.isGroup) return m.reply(mess.group)
-             if (!isBotAdmins) return m.reply(mess.botAdmin)
-             if (!isAdmins && !isCreator) return m.reply(mess.admin)
-             if (args[0] === "on") {
-             if (isAntiLinkTelegram) return m.reply('*Already activated*')
-             dripsantitele.push(from)
-             m.reply('*Success in turning on telegram antilink in this group*')
-             var group = await ZimBotInc.groupMetadata(from)
-             var members = group['participants']
-             var mems = []
-             members.map(async adm => {
-             mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
-             })
-             ZimBotInc.sendMessage(from, {text: `*▊▊▊ANTILINK MODE▊▊▊*\n*DONT PLAY WITH LINKS OKAY*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
-             } else if (args[0] === "off") {
-             if (!isAntiLinkTelegram) return m.reply('*Already deactivated*')
-             let off = dripsantiig.indexOf(from)
-             dripsantiig.splice(off, 1)
-             m.reply('*Success in turning off telegram antilink in this group*')
-             } else {
-               let buttonsntilink = [
-               { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
-               { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
-               ]
-               await ZimBotInc.sendButtonText(m.chat, buttonsntilink, `*▊▊▊ANTILINK MODE▊▊▊*`, `${global.botname}`, m)
-               }
-               }
+        case 'antitelegram': case 'adripsantitele': {
+        if (isBan) throw mess.ban
+                           //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+         if (!m.isGroup) throw mess.group
+         if (!isBotAdmins) throw mess.botAdmin
+         if (!isAdmins) throw mess.admin
+         if (args[0] === "on") {
+         if (db.data.chats[m.chat].antitelegram) return m.reply(`*Already on umm okay*`)
+         db.data.chats[m.chat].antitelegram = true
+         m.reply(`*Antilink active*`)
+         } else if (args[0] === "off") {
+         if (!db.data.chats[m.chat].antitelegram) return m.reply(`*Already off okay*`)
+         db.data.chats[m.chat].antitelegram = false
+         m.reply(`*Antilink disabled*`)
+         } else {
+          let drips = [
+                 { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
+                 { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
+             ]
+             await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+         }
+                            }
                break
                case 'antiviewonce': case 'antionce':
 	            	            	if (isBan) return m.reply(mess.ban)
@@ -2296,74 +2272,83 @@ if (isBan) throw mess.ban
         global.db.data.chats[m.chat].antionce = false
         m.reply(`${command} *Successfully Deactivated*`)
 } else {
-  let buttonsntilink = [
+  let drips = [
   { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
   { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
   ]
-  await ZimBotInc.sendButtonText(m.chat, buttonsntilink, `*▊▊▊ANTILINK VIEW▊▊▊*`, `${global.botname}`, m)
+  await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK VIEW▊▊▊*`, `${global.botname}`, m)
   }
   break
-                         case 'antitiktok': case 'adripsantitik': {
-                if (isBan) return m.reply(mess.ban)	 			
-             if (!m.isGroup) return m.reply(mess.group)
-             if (!isBotAdmins) return m.reply(mess.botAdmin)
-             if (!isAdmins && !isCreator) return m.reply(mess.admin)
-             if (args[0] === "on") {
-             if (isAntiLinkTiktok) return m.reply('**Already activated**')
-             dripsantitik.push(from)
-             m.reply('*Success in turning on tiktok antilink in this group*')
-             var group = await ZimBotInc.groupMetadata(from)
-             var members = group['participants']
-             var mems = []
-             members.map(async adm => {
-             mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
-             })
-             ZimBotInc.sendMessage(from, {text: `*▊▊▊ANTILINK MODE▊▊▊*\n*dont play with links*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
-             } else if (args[0] === "off") {
-             if (!isAntiLinkTiktok) return m.reply('*Already deactivated*')
-             let off = dripsantitik.indexOf(from)
-             dripsantitik.splice(off, 1)
-             m.reply('*Success in turning off tiktok antilink in this group*')
-             } else {
-               let buttonsntilink = [
-               { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
-               { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
-               ]
-               await ZimBotInc.sendButtonText(m.chat, buttonsntilink, `*▊▊▊ANTILINK MODE▊▊▊*`, `${global.botname}`, m)
-               }
-               }
+             case 'antitiktok': case 'aantitik': {
+                 if (isBan) throw mess.ban
+                //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+                 if (!m.isGroup) throw mess.group
+                 if (!isBotAdmins) throw mess.botAdmin
+                 if (!isAdmins) throw mess.admin
+                 if (args[0] === "on") {
+                 if (db.data.chats[m.chat].antitiktok) return m.reply(`*Already on umm okay*`)
+                 db.data.chats[m.chat].antitiktok = true
+                 m.reply(`*Antilink active*`)
+                 } else if (args[0] === "off") {
+                 if (!db.data.chats[m.chat].antitiktok) return m.reply(`*Already off okay*`)
+                 db.data.chats[m.chat].antitiktok = false
+                 m.reply(`*Antilink disabled*`)
+                 } else {
+                  let drips = [
+                         { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
+                         { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
+                     ]
+                     await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+                 }
+          }
+               break
+               case 'antilinkall': {
+                if (isBan) throw mess.ban
+               //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+                   if (!m.isGroup) throw mess.group
+                   if (!isBotAdmins) throw mess.botAdmin
+                   if (!isAdmins) throw mess.admin
+                   if (args[0] === "on") {
+                   if (db.data.chats[m.chat].antilinkall) return m.reply(`*Already on umm okay*`)
+                   db.data.chats[m.chat].antilinkall = true
+                   m.reply(`*Antilink active*`)
+                   } else if (args[0] === "off") {
+                   if (!db.data.chats[m.chat].antilinkall) return m.reply(`*Already off okay*`)
+                   db.data.chats[m.chat].antilinkall = false
+                   m.reply(`*Antilink disabled*`)
+                   } else {
+                    let drips = [
+                           { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
+                           { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
+                       ]
+                       await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+                   }
+                }
                break
                          case 'adripsantitwt': case 'antitwitter': case 'antilinktwit': {
-                if (isBan) return m.reply(mess.ban)	 			
-             if (!m.isGroup) return m.reply(mess.group)
-             if (!isBotAdmins) return m.reply(mess.botAdmin)
-             if (!isAdmins && !isCreator) return m.reply(mess.admin)
-             if (args[0] === "on") {
-             if (isAntiLinkTwitter) return m.reply('*Already activated*')
-             dripsantitwt.push(from)
-            m.reply('*Success in turning on twitter antilink in this group*')
-             var group = await ZimBotInc.groupMetadata(from)
-             var members = group['participants']
-             var mems = []
-             members.map(async adm => {
-             mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
-             })
-             ZimBotInc.sendMessage(from, {text: `*▊▊▊ANTILINK MODE▊▊▊*\n*dont play with links*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
-             } else if (args[0] === "off") {
-             if (!isAntiLinkTwitter) return m.reply('**Already deactivated**')
-             let off = dripsantitwt.indexOf(from)
-             dripsantitwt.splice(off, 1)
-             m.reply('*Success in turning off twitter antilink in this group*')
-             } else {
-               let buttonsntilink = [
-               { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
-               { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
-               ]
-               await ZimBotInc.sendButtonText(m.chat, buttonsntilink, `*▊▊▊ANTILINK MODE▊▊▊*`, `${global.botname}`, m)
+               if (isBan) throw mess.ban
+                            //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
+               if (!m.isGroup) throw mess.group
+               if (!isBotAdmins) throw mess.botAdmin
+               if (!isAdmins) throw mess.admin
+               if (args[0] === "on") {
+               if (db.data.chats[m.chat].antitwitter) return m.reply(`*Already on umm okay*`)
+               db.data.chats[m.chat].antitwitter = true
+               m.reply(`*Antilink active*`)
+               } else if (args[0] === "off") {
+               if (!db.data.chats[m.chat].antitwitter) return m.reply(`*Already off okay*`)
+               db.data.chats[m.chat].antitwitter = false
+               m.reply(`*Antilink disabled*`)
+               } else {
+                let drips = [
+                       { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
+                       { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
+                   ]
+                   await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
                }
-               }
+                             }
                break
-                           case 'antilinkall': {
+              /*             case 'antilinkall': {
                 if (isBan) return m.reply(mess.ban)	 			
              if (!m.isGroup) return m.reply(mess.group)
              if (!isBotAdmins) return m.reply(mess.botAdmin)
@@ -2393,8 +2378,8 @@ if (isBan) throw mess.ban
                await ZimBotInc.sendButtonText(m.chat, buttonsntilink, `*▊▊▊ANTILINK MODE▊▊▊*`, `${global.botname}`, m)
                }
                }
-              
-               break
+              */
+               
                case 'antitag': {
              if (isBan) return m.reply(mess.ban)	 			
              if (!isCreator) return
@@ -2480,10 +2465,10 @@ if (isBan) throw mess.ban
                 for (let i of anu) {
                     await sleep(1500)
 		            let btn = [{
-                                urlButton: {
-                                    displayText: 'GITHUB',
-                                    url: 'https://github.com/zim-bot/zimbot-v3'
-                                }
+          urlButton: {
+                  displayText: 'GITHUB',
+                  url: 'https://github.com/zim-bot/zimbot-v3'
+          }
                             }]
                       let txt = `「 *ZIMBOT BROADCAST* 」\n\n${text}`
                       ZimBotInc.send5ButImg(i, txt, botname, global.bc, btn)
@@ -2499,10 +2484,10 @@ if (isBan) throw mess.ban
 		for (let yoi of anu) {
 		    await sleep(1500)
 		    let btn = [{
-                                urlButton: {
-                                    displayText: 'GITHUB',
-                                    url: 'https://github.com/zim-bot/zimbot-v3'
-                                }
+          urlButton: {
+                  displayText: 'GITHUB',
+                  url: 'https://github.com/zim-bot/zimbot-v3'
+          }
                             }]
                       let txt = `「 *ZIMBOT BROADCAST* 」\n\n${text}`
                       ZimBotInc.send5ButImg(yoi, txt, botname, global.bc, btn)
@@ -2532,16 +2517,16 @@ case 'bcimage': case 'bcvideo': case 'bcaudio': {
                 for (let i of anu) {
                     await sleep(1500)
                     let butoon = [{
-                                urlButton: {
-                                    displayText: `GITHUB`,
-                                    url: 'https://github.com/zim-bot/zimbot-v3'
-                                }
+          urlButton: {
+                  displayText: `GITHUB`,
+                  url: 'https://github.com/zim-bot/zimbot-v3'
+          }
                             },
                             {
-                                quickReplyButton: {
-                                    displayText: 'MENU',
-                                    id: 'menu'
-                                }
+          quickReplyButton: {
+                  displayText: 'MENU',
+                  id: 'menu'
+          }
                             }]
                     let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
                     let buffer = fs.readFileSync(media)
@@ -3477,30 +3462,30 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             imageMessage: message.imageMessage,
                             hydratedFooterText: `${botname}`,
                             hydratedButtons: [{
-                                urlButton: {
-                                    displayText: 'SOURCE VIDEO',
-                                    url: `${anu.url}`
-                                }
+          urlButton: {
+                  displayText: 'SOURCE VIDEO',
+                  url: `${anu.url}`
+          }
                             }, {
                             	urlButton: {
-                                displayText: `GITHUB`, 
-                                    url: `https://github.com/zim-bot/zimbot-v3`
-                                }
+          displayText: `GITHUB`, 
+                  url: `https://github.com/zim-bot/zimbot-v3`
+          }
                             }, {
-                                quickReplyButton: {
-                                    displayText: `VIDEO`,
-                                    id: `${prefix}ytmp4 ${anu.url}`
-                                }
-                                }, {
-                                quickReplyButton: {
-                                    displayText: `SONG`,
-                                    id: `${prefix}ytmp3 ${anu.url}`
-                                }
-                                }, {
-                                quickReplyButton: {
-                                    displayText: `YTSEARCH`,
-                                    id: `${prefix}ytsearch ${anu.title}`
-                                }
+          quickReplyButton: {
+                  displayText: `VIDEO`,
+                  id: `${prefix}ytmp4 ${anu.url}`
+          }
+          }, {
+          quickReplyButton: {
+                  displayText: `SONG`,
+                  id: `${prefix}ytmp3 ${anu.url}`
+          }
+          }, {
+          quickReplyButton: {
+                  displayText: `YTSEARCH`,
+                  id: `${prefix}ytsearch ${anu.title}`
+          }
                             }]
                         }
                     }
@@ -3542,30 +3527,30 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             imageMessage: message.imageMessage,
                             hydratedFooterText: `${botname}`,
                             hydratedButtons: [{
-                                urlButton: {
-                                    displayText: 'SOURCE VIDEO',
-                                    url: `${aramas.videos[0].url}`
-                                }
+          urlButton: {
+                  displayText: 'SOURCE VIDEO',
+                  url: `${aramas.videos[0].url}`
+          }
                             }, {
                             	urlButton: {
-                                displayText: `GITHUB`, 
-                                    url: `https://github.com/zim-bot/zimbot-v3`
-                                }
+          displayText: `GITHUB`, 
+                  url: `https://github.com/zim-bot/zimbot-v3`
+          }
                             }, {
-                                quickReplyButton: {
-                                    displayText: `VIDEO`,
-                                    id: `${prefix}ytmp4 ${aramas.videos[0].url}`
-                                }
-                                }, {
-                                quickReplyButton: {
-                                    displayText: `SONG`,
-                                    id: `${prefix}ytmp3 ${aramas.videos[0].url}`
-                                }
-                                }, {
-                                quickReplyButton: {
-                                    displayText: `YTSEARCH`,
-                                    id: `${prefix}ytsearch ${aramas.videos[0].title}`
-                                }
+          quickReplyButton: {
+                  displayText: `VIDEO`,
+                  id: `${prefix}ytmp4 ${aramas.videos[0].url}`
+          }
+          }, {
+          quickReplyButton: {
+                  displayText: `SONG`,
+                  id: `${prefix}ytmp3 ${aramas.videos[0].url}`
+          }
+          }, {
+          quickReplyButton: {
+                  displayText: `YTSEARCH`,
+                  id: `${prefix}ytsearch ${aramas.videos[0].title}`
+          }
                             }]
                         }
                     }
@@ -3993,7 +3978,7 @@ m.reply(`\`\`\`*Success , Activating the antivirtex feature in the group*\`\`\` 
                 }
                 ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
-            break                                                                       //by drips if you copy give credits
+            break                  //by drips if you copy give credits
             case 'slot': { 
                 const sotoy = [
                     '🍊 : 🍒 : 🍐 *YOU LOSE BRO*',
@@ -4061,7 +4046,7 @@ if (isBan) throw mess.ban
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
-            anu = await fetchJson(`https://hardianto.xyz/api/info/kbbi?kata=${text}&apikey=hardianto`)                                  
+            anu = await fetchJson(`https://hardianto.xyz/api/info/kbbi?kata=${text}&apikey=hardianto`)             
             m.reply(`${anu.result.lema}\n${anu.result.arti[0]}`)
             }
             break
@@ -4115,11 +4100,11 @@ if (!text) throw 'Masukkan query'
 
 	            xa.Wattpad(urlnya)
 
-	            .then(async(result) => {	  	                                	                      	            		                  			    				
+	            .then(async(result) => {	  	           	                      	            		                  			    				
 
 				let link = await getBuffer(result[0].thumb)
 
-                ZimBotInc.sendMessage(m.chat, { image: link, caption: `${result[0].description}\nTitle: ${result[0].judul}\nAuthor: DRIPS\nDibaca: ${result[0].dibaca}\nDivote: ${result[0].divote}\nBab: ${result[0].bab}\nWaktu: ${result[0].waktu}\nUrl: ${result[0].url}` }, { quoted: m })                                              
+                ZimBotInc.sendMessage(m.chat, { image: link, caption: `${result[0].description}\nTitle: ${result[0].judul}\nAuthor: DRIPS\nDibaca: ${result[0].dibaca}\nDivote: ${result[0].divote}\nBab: ${result[0].bab}\nWaktu: ${result[0].waktu}\nUrl: ${result[0].url}` }, { quoted: m })                            
 
             }).catch((err) => m.reply(`*feature error*`))
 
@@ -4933,7 +4918,7 @@ if (!text) throw `*Enter link tiktok example ${prefix + command} https://vt.tikt
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)                                
+            m.reply(`*1 limit used*`)           
                 get.aiovideodl(`${text}`).then(async (res) => {        
                 var anu = await getBuffer(res.medias[2].url)         
                 ZimBotInc.sendMessage(m.chat, { audio: anu, mimetype: 'audio/mpeg'}, { quoted: m })
@@ -4968,7 +4953,7 @@ case 'ig': case 'igdl': case 'instagram': {
 	            var halo = 0		
 
 
-	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM DOWNLOADER 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Filetype :* ${result.medias[0].fileType}\n*⬤ Type :* ${result.medias[0].type}\n*⬤ Jumlah Media :* ${result.medias.length}\n*⬤ Url :* ${text}\n\n*ZIM BOT INC*` }, { quoted: m })	                                  	                      	            
+	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM DOWNLOADER 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Filetype :* ${result.medias[0].fileType}\n*⬤ Type :* ${result.medias[0].type}\n*⬤ Jumlah Media :* ${result.medias.length}\n*⬤ Url :* ${text}\n\n*ZIM BOT INC*` }, { quoted: m })	             	                      	            
 
 
 		        for(let i of result.medias) {		
@@ -5050,7 +5035,7 @@ case 'ig2': case 'igdl2': case 'instagram2': {
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 instagramdlv3(`${text}`).then(async (data) => {
-                for (let f of data) {                                      
+                for (let f of data) {                    
                 ZimBotInc.sendMedia(m.chat, f.url, '', `Download Url Instagram From ${text}`, m)
                 }
                 }).catch((err) => {
@@ -5080,7 +5065,7 @@ case 'ig2': case 'igdl2': case 'instagram2': {
 
 		        var halo = 0		
 
-	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM STORY 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Filetype :* ${result.medias[0].fileType}\n*⬤ Type :* ${result.medias[0].type}\n*⬤ Media :* ${result.medias.length}\n*⬤ Bio :* ${result.user.biography}\n\n*ZIM BOT INC*` }, { quoted: m })	                                  	                      	            
+	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM STORY 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Filetype :* ${result.medias[0].fileType}\n*⬤ Type :* ${result.medias[0].type}\n*⬤ Media :* ${result.medias.length}\n*⬤ Bio :* ${result.user.biography}\n\n*ZIM BOT INC*` }, { quoted: m })	             	                      	            
 
 		        for(let i of result.medias) {
 
@@ -5132,7 +5117,7 @@ case 'igs3': case 'igstory3': case 'instagramstory3': {
 	            bicil.instagramStoryv2(urlnya)
 	            .then(async(result) => {	  
 	            var halo = 1		
-	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTA DOWNLOADER 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Jumlah Media :* ${halo++}\n*⬤ Bio :* ${result.user.biography}\n\n*ZIM BOT INC*` }, { quoted: m })	                                  	                      	            
+	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTA DOWNLOADER 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Jumlah Media :* ${halo++}\n*⬤ Bio :* ${result.user.biography}\n\n*ZIM BOT INC*` }, { quoted: m })	             	                      	            
 		        for(let i of result.results) {		
 		        if(i.url.includes('mp4')){		           			    				
 				let link = await getBuffer(i.sourceUrl)
@@ -5306,7 +5291,7 @@ case 'savefrom': {
 
 	            bicil.savefrom(urlnya)
 
-	            .then(async(result) => {	  	                                	                      	            
+	            .then(async(result) => {	  	           	                      	            
 
 		        for(let i of result.url) {		
 
@@ -7326,30 +7311,30 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
 `
 let btn = [{
-                                urlButton: {
-                                    displayText: 'SUBSCRIBE',
-                                    url: 'https://www.youtube.com/c/DRIPSOFC'
-                                }
+          urlButton: {
+                  displayText: 'SUBSCRIBE',
+                  url: 'https://www.youtube.com/c/DRIPSOFC'
+          }
                             }, {
-                                urlButton: {
-                                    displayText: 'GITHUB',
-                                    url: 'https://github.com/zim-bot/zimbot-v3'
-                                }
+          urlButton: {
+                  displayText: 'GITHUB',
+                  url: 'https://github.com/zim-bot/zimbot-v3'
+          }
                             }, {
-                                quickReplyButton: {
-                                    displayText: 'SPEED',
-                                    id: 'ping'
-                                }
+          quickReplyButton: {
+                  displayText: 'SPEED',
+                  id: 'ping'
+          }
                             }, {
-                                quickReplyButton: {
-                                    displayText: 'OWNER',
-                                    id: 'owner'
-                                }  
+          quickReplyButton: {
+                  displayText: 'OWNER',
+                  id: 'owner'
+          }  
                             }, {
-                                quickReplyButton: {
-                                    displayText: 'LIST',
-                                    id: 'listmenu'
-                                }
+          quickReplyButton: {
+                  displayText: 'LIST',
+                  id: 'listmenu'
+          }
                             }]
                         let setbot = db.data.settings[botNumber]
                         if (setbot.templateImage) {
@@ -7698,13 +7683,13 @@ function _0x3217(_0x37715e,_0x2f6592){const _0xa94637=_0xa946();return _0x3217=f
                 break
                 case 'expmenu': {
                     ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
-                                buffer = await getBuffer(picak+'EXP MENU')
-                                let Levele2 = level.getLevelingLevel(m.sender, _level)
+          buffer = await getBuffer(picak+'EXP MENU')
+          let Levele2 = level.getLevelingLevel(m.sender, _level)
                 let Xp1 = level.getLevelingXp(m.sender, _level)
                 let Xp2 = randomNomor(2000)       
                 let hao = randomNomor(200)  
                 
-                                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+          anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
                 ╭━━━━━━━━━━━━━━━━━━╮
                 ┃         ${global.botname}
                 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7740,7 +7725,7 @@ function _0x3217(_0x37715e,_0x2f6592){const _0xa94637=_0xa946();return _0x3217=f
                 ©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
                 `
                 function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
-                                }
+          }
             break
 case 'groupmenu': case 'grupmenu': {
     ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
@@ -9016,7 +9001,7 @@ case 'sond': {
                         sat = JSON.stringify(sul, null, 2)
                         bang = util.format(sat)
                             if (sat == undefined) {
-                                bang = util.format(sul)
+          bang = util.format(sul)
                             }
                             return m.reply(bang)
                     }
@@ -9066,10 +9051,10 @@ case 'sond': {
                         let other = [room.a, room.b].find(user => user !== m.sender)
                         m.copyNForward(other, true, m.quoted && m.quoted.fromMe ? {
                             contextInfo: {
-                                ...m.msg.contextInfo,
-                                forwardingScore: 0,
-                                isForwarded: true,
-                                participant: other
+          ...m.msg.contextInfo,
+          forwardingScore: 0,
+          isForwarded: true,
+          participant: other
                             }
                         } : {})
                     }

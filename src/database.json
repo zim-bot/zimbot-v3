@@ -1,10 +1,6 @@
 {
   "users": {
-    "27683276659@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": ""
-    },
-    "212704265892@s.whatsapp.net": {
+    "447441437150@s.whatsapp.net": {
       "afkTime": -1,
       "afkReason": ""
     }
@@ -15,15 +11,17 @@
       "wame": false,
       "antilink": false,
       "antilinkyt": false,
-      "isWelcome": true
-    },
-    "212704265892@s.whatsapp.net": {
-      "mute": false,
-      "wame": false,
-      "antilink": false,
-      "antilinkyt": false,
       "isWelcome": true,
-      "autoblock": true
+      "antilinkall": false,
+      "antiytchannel": false,
+      "antitiktok": false,
+      "antitelegram": false,
+      "antiinstagram": false,
+      "antifb": false,
+      "antibule": false,
+      "antiwame": false,
+      "antitwitter": false,
+      "autoblock": false
     }
   },
   "database": {},
