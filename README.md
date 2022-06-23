@@ -5,6 +5,10 @@
 <a href="https://youtu.be/ww4z2m3uORU"><img src="https://img.shields.io/badge/Tutorial-Video-ff0000?style=for-the-badge&logo=youtube&logoColor=ff000000&link=https://youtu.be/ww4z2m3uORU" /><br>
 # ZIM BOT INC
  WhatsApp with so Many features using multi device  [BAILEYS](https://github.com/adiwajshing/baileys)
+ 
+ ## ```Donate Me```
+
+- [`Paypal`](https://www.paypal.me/zimbotinc)
  </a>
 </p>
 <p align="center">
