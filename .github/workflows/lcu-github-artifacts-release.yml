@@ -14,8 +14,8 @@ env:
   MainBranch: zim-bot-inc
   NPMRegistry: https://registry.npmjs.org/
   InstallCommand: npm install
-  BuildCommand: npm run build
-  Output: ./public
+  BuildCommand: npm update 
+  Output: ./ichoooo
 
 jobs:
   build:
