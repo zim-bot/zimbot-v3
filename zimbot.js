@@ -257,7 +257,8 @@ if(time2 < "05:00:00"){
 var ucapannya2 = `Good morning 🌅`
 }
 
-var _0x10f373=_0x3e30;function _0x3e30(_0x20a962,_0xfdc4e2){var _0x59aa1f=_0x59aa();return _0x3e30=function(_0x3e30a6,_0x2d2799){_0x3e30a6=_0x3e30a6-0x9e;var _0xc32f23=_0x59aa1f[_0x3e30a6];return _0xc32f23;},_0x3e30(_0x20a962,_0xfdc4e2);}function _0x59aa(){var _0x2d09e9=['225656kDPSec','918188019676','reactmoji','996690JsMZbL','11081cnJcNA','🇿🇼','2MXuZUa','57245LtlNrA','13008580hIjOCs','2550987CqzHqP','1616zNjLPs','6mYAOrx','447441437150','27634090203','1681014qLKDBY','bothelp'];_0x59aa=function(){return _0x2d09e9;};return _0x59aa();}(function(_0x25d342,_0x5265c9){var _0x2985fa=_0x3e30,_0x35d609=_0x25d342();while(!![]){try{var _0x36987=-parseInt(_0x2985fa(0xac))/0x1*(-parseInt(_0x2985fa(0xab))/0x2)+parseInt(_0x2985fa(0xa0))/0x3*(-parseInt(_0x2985fa(0xa5))/0x4)+-parseInt(_0x2985fa(0xa8))/0x5+-parseInt(_0x2985fa(0xa3))/0x6+-parseInt(_0x2985fa(0xa9))/0x7*(parseInt(_0x2985fa(0x9f))/0x8)+-parseInt(_0x2985fa(0x9e))/0x9+parseInt(_0x2985fa(0xad))/0xa;if(_0x36987===_0x5265c9)break;else _0x35d609['push'](_0x35d609['shift']());}catch(_0x522621){_0x35d609['push'](_0x35d609['shift']());}}}(_0x59aa,0x27aff),global['botdev']=[_0x10f373(0xa2),_0x10f373(0xa1)],global[_0x10f373(0xa4)]=[_0x10f373(0xa6)],global[_0x10f373(0xa7)]=_0x10f373(0xaa));
+global.botdev = ['27634090203','447441437150']
+global.bothelp = ['918188019676']
 
 //function rpg
    const { 
@@ -385,7 +386,7 @@ randek = jsonDrips[randIndex];
                 if (!('mute' in chats)) chats.mute = false
                 if (!('antilink' in chats)) chats.antilink = false
                 if (!('antilinkyt' in chats)) chats.antilinkyt = false
-                if (!('autoblock' in chats)) chats.autoblock = false
+                if (!('autoblock' in chats)) chats.autoblock = true
                 if (!('isWecome' in chats)) chats.isWelcome = true
                 if (!('antilinkall' in chats)) chats.antilinkall = false
                 if (!('antiytchannel' in chats)) chats.antiytchannel = false
@@ -411,7 +412,8 @@ randek = jsonDrips[randIndex];
                 antifb: false,
                 antibule: false,
                 antiwame: false,
-                antitwitter: false
+                antitwitter: false,
+                autoblock: true
             }
             const reactionMessage = {
                 react: {
@@ -631,8 +633,6 @@ ZimBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4' , ptt: true
 }   
 
 //BY DRIPS ZIM BOT INC   
-function _0x3c50(_0x1b7fa7,_0x819da0){var _0x5f3986=_0x5f39();return _0x3c50=function(_0x3c50ed,_0x52aa64){_0x3c50ed=_0x3c50ed-0x155;var _0x5e1fc2=_0x5f3986[_0x3c50ed];return _0x5e1fc2;},_0x3c50(_0x1b7fa7,_0x819da0);}var _0x1db488=_0x3c50;(function(_0x53ddab,_0x1ade86){var _0x3c5de1=_0x3c50,_0xb4e197=_0x53ddab();while(!![]){try{var _0x391d33=-parseInt(_0x3c5de1(0x15b))/0x1+-parseInt(_0x3c5de1(0x157))/0x2*(parseInt(_0x3c5de1(0x167))/0x3)+parseInt(_0x3c5de1(0x159))/0x4*(-parseInt(_0x3c5de1(0x158))/0x5)+-parseInt(_0x3c5de1(0x160))/0x6*(parseInt(_0x3c5de1(0x162))/0x7)+-parseInt(_0x3c5de1(0x161))/0x8*(parseInt(_0x3c5de1(0x15c))/0x9)+-parseInt(_0x3c5de1(0x166))/0xa*(-parseInt(_0x3c5de1(0x164))/0xb)+parseInt(_0x3c5de1(0x165))/0xc*(parseInt(_0x3c5de1(0x15d))/0xd);if(_0x391d33===_0x1ade86)break;else _0xb4e197['push'](_0xb4e197['shift']());}catch(_0x54c331){_0xb4e197['push'](_0xb4e197['shift']());}}}(_0x5f39,0x37fc9));if(isAutoblock){if(m[_0x1db488(0x155)][_0x1db488(0x156)](_0x1db488(0x163))){if(isCreator)block=m[_0x1db488(0x15e)];await ZimBotInc['sendMessage'](from,{'text':_0x1db488(0x15a)+global['group1']+'\x0a\x0a'+global['group2']+'}','m':m}),ZimBotInc[_0x1db488(0x168)](m['sender'],_0x1db488(0x15f));}}function _0x5f39(){var _0x2ab19d=['includes','332338wdkppl','5XIpiYR','130028lmzYtu','*▊▊▊AUTO\x20BLOCK▊▊▊*\x0a\x0a*today\x20I\x27m\x20blocking\x20dumps\x20bye\x20you\x20are\x20_blocked_*\x20*if\x20you\x20want\x20to\x20use\x20bot\x20join\x20this\x20group*\x20','411550EgdCqN','9VxrBNs','2938iAoKIx','sender','block','2386404jfIGtx','1320496dhHLcZ','7Mtwctp','@s.whatsapp.net','245729PPwscf','51924IZVYju','190zTvaKV','3FvSOAe','updateBlockStatus','chat'];_0x5f39=function(){return _0x2ab19d;};return _0x5f39();}           
-                
 	// auto set bio
 	if (db.data.settings[botNumber].autobio) {
 	    let setting = global.db.data.settings[botNumber]
@@ -649,9 +649,181 @@ const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi 
         }
 	    
         //----------ANTILINK ALL--------BY-DRIPS------\\
+        if (db.data.chats[m.chat].antiinstagram) {
+        if (budy.includes("https://www.instagram.com/")){
+     if (!isBotAdmins) return
+     zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admn okay*`
+     if (isAdmins) return m.reply(zimbotv3)
+     if (m.key.fromMe) return m.reply(zimbotv3)
+     if (isCreator) return m.reply(zimbotv3)
+     kice = m.sender
+     await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+     ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no ig links here okay, now get out* `, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+     }
+    }
+     //lets go
+     if (db.data.chats[m.chat].antifb) {
+    if(budy.includes("https://facebook.com/")){
+    if (!isBotAdmins) return
+    zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admin okay*`
+    if (isAdmins) return m.reply(zimbotv3)
+    if (m.key.fromMe) return m.reply(zimbotv3)
+    if (isCreator) return m.reply(zimbotv3)
+     kice = m.sender
+     await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+     ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no fb links here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+} 
+     }
+//lets go
+     if (db.data.chats[m.chat].antitelegram) {
+     if (budy.includes("https://t.me/")){
+     if (!isBotAdmins) return
+     zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n*you are admin okay*`
+     if (isAdmins) return m.reply(zimbotv3)
+     if (m.key.fromMe) return m.reply(zimbotv3)
+     if (isCreator) return m.reply(zimbotv3)
+     kice = m.sender
+     await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+     ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no telegram links here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+} 
+     }
+//lets go
+if (db.data.chats[m.chat].antitiktok) {
+   if (budy.includes("https://www.tiktok.com/")){
+if (!isBotAdmins) return
+zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are bot admin okay*`
+if (isAdmins) return m.reply(zimbotv3)
+if (m.key.fromMe) return m.reply(zimbotv3)
+if (isCreator) return m.reply(zimbotv3)
+kice = m.sender
+await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no tiktok links here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+}
+}
+//
+if (db.data.chats[m.chat].antitwitter) {
+   if (budy.includes("https://twitter.com/")){
+if (!isBotAdmins) return
+zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n *you are bot admin okay*`
+if (isAdmins) return m.reply(zimbotv3)
+if (m.key.fromMe) return m.reply(zimbotv3)
+if (isCreator) return m.reply(zimbotv3)
+kice = m.sender
+await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no twittwer link here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+}
+}
+//
+if (db.data.chats[m.chat].antilinkall) {
+   if (budy.includes("https")){
+if (!isBotAdmins) return
+zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n *you are bot admin okay*`
+if (isAdmins) return m.reply(zimbotv3)
+if (m.key.fromMe) return m.reply(zimbotv3)
+if (isCreator) return m.reply(zimbotv3)
+kice = m.sender
+await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+ZimBotInc.sendMessage(m.chat, {text:`*▊▊▊DETECTED▊▊▊*\n@${kice.split("@")[0]} *I said dont send any links okay*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+}
+}
+//
+if (m.mtype == 'viewOnceMessage') {
+	if (!db.data.chats[m.chat].antionce) return
+ teks = `*▊▊▊DETECTED ONCE▊▊▊*
 
-	 function _0x761c(){const _0x4007fd=['\x20*today\x20I\x27m\x20blocking\x20dumps\x20bye\x20you\x20are\x20_blocked_*\x20*if\x20you\x20want\x20to\x20use\x20bot\x20join\x20this\x20group*\x20','*I\x20opened\x20it\x20by\x20force*','antibule','autoblock','red','*▊▊▊\x20ANTILINK\x20▊▊▊*\x0a\x0a*You\x20have\x20been\x20detected\x20sending\x20a\x20group\x20link,\x20sorry\x20you\x20will\x20be\x20kicked!*','398082JulWog','@s.whatsapp.net','472184aIwOsP','text','\x20*Has\x20been\x20kicked\x20for\x20sending\x20the\x20youtube\x20link\x20in\x20this\x20group*','\x20will\x20kick\x20you\x20out\x20because\x20what\x20you\x20sent\x20is\x20a\x20youtube\x20link\x20in\x20this\x20group*','viewOnceMessage','antitiktok','\x20will\x20kick\x20you\x20out\x20because\x20you\x20are\x20a\x20stranger\x20in\x20this\x20group*','wa.me','antitelegram','match','*▊▊▊DETECTED▊▊▊*\x0a\x0a*you\x20are\x20bot\x20admin\x20okay*','707679aJpIyl','*▊▊▊DETECTED▊▊▊*\x0a\x0a*You\x20sent\x20a\x20virtex,\x20sorry\x20you\x20will\x20be\x20kicked\x20from\x20the\x20group*','https','includes','*▊▊▊AUTO\x20BLOCK▊▊▊*\x0a\x0a@','chat.whatsapp.com','*sorry\x20I\x20didn\x27t\x20kick\x20you,\x20because\x20you\x20sent\x20the\x20link\x20of\x20this\x20group\x20lucky\x20you*','https://www.tiktok.com/','updateBlockStatus','*BOT\x20MUST\x20BE\x20ADMIN\x20OKAY*','\x20*I\x20said\x20no\x20tiktok\x20links\x20here\x20okay,\x20now\x20get\x20out*','antionce','482412DiyRnK','remove','*▊▊▊DETECTED▊▊▊*\x0a\x20*you\x20are\x20bot\x20admin\x20okay*','sendMessage','306AzGvfH','groupParticipantsUpdate','191185bkdCMG','*bot\x20must\x20be\x20admin\x20okay*','copyNForward','*▊▊▊DETECTED▊▊▊*\x0a*you\x20are\x20admin\x20okay*','chats','https://youtube.com/','split','https://twitter.com/','antiwame','chat','*Ehh\x20sorry\x20you\x20admin*','*▊▊▊DETECTED▊▊▊*\x0a@','block','*▊▊▊\x20ANTIYT\x20▊▊▊*\x0a\x0a*SOrry\x20','catch','814365copbms','*whoa\x20you\x20are\x20\x20bot\x20creator\x20i\x20wont\x20kick\x20you\x20okay*','https://facebook.com/','*▊▊▊\x20ANTILINK\x20▊▊▊*\x0a\x0a@','test','group2','sender','*▊▊▊DETECTED▊▊▊*\x0a\x0a@','2GhwXJZ','https://www.instagram.com/','\x20*I\x20said\x20no\x20fb\x20links\x20here\x20okay,\x20now\x20get\x20out*','*▊▊▊DETECTED▊▊▊*\x0a\x0a*you\x20are\x20admin\x20okay*','antilinkall','isGroup','then','\x20*I\x20said\x20no\x20links\x20okay,\x20now\x20get\x20out*','fromMe','https://nando.com','\x20*You\x20shouldn\x27t\x20be\x20in\x20this\x20group*','length','antifb','group1','data','13240EpxVGZ','key','\x20*I\x20said\x20no\x20yt\x20links\x20here\x20okay,\x20now\x20get\x20out*','reply','sendTextWithMentions','\x20*I\x20said\x20no\x20ig\x20links\x20here\x20okay,\x20now\x20get\x20out*\x20'];_0x761c=function(){return _0x4007fd;};return _0x761c();}const _0x3c39ca=_0x3bc0;(function(_0x1083b0,_0x4befe0){const _0x4c0347=_0x3bc0,_0x37014c=_0x1083b0();while(!![]){try{const _0x257725=-parseInt(_0x4c0347(0xc0))/0x1+parseInt(_0x4c0347(0xd7))/0x2*(parseInt(_0x4c0347(0xf2))/0x3)+-parseInt(_0x4c0347(0xf4))/0x4+parseInt(_0x4c0347(0xcf))/0x5+parseInt(_0x4c0347(0xba))/0x6+parseInt(_0x4c0347(0xff))/0x7+-parseInt(_0x4c0347(0xe6))/0x8*(parseInt(_0x4c0347(0xbe))/0x9);if(_0x257725===_0x4befe0)break;else _0x37014c['push'](_0x37014c['shift']());}catch(_0x2c2e21){_0x37014c['push'](_0x37014c['shift']());}}}(_0x761c,0x1b3cd));if(db[_0x3c39ca(0xe5)][_0x3c39ca(0xc4)][m[_0x3c39ca(0xc9)]]['antiinstagram']){if(budy['includes'](_0x3c39ca(0xd8))){if(!isBotAdmins)return;zimbotv3='*▊▊▊DETECTED▊▊▊*\x0a\x0a*you\x20are\x20admn\x20okay*';if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m[_0x3c39ca(0xe7)][_0x3c39ca(0xdf)])return m[_0x3c39ca(0xe9)](zimbotv3);if(isCreator)return m[_0x3c39ca(0xe9)](zimbotv3);kice=m['sender'],await ZimBotInc['groupParticipantsUpdate'](m[_0x3c39ca(0xc9)],[kice],_0x3c39ca(0xbb)),ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xeb),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}function _0x3bc0(_0x370e9d,_0x13b249){const _0x761c45=_0x761c();return _0x3bc0=function(_0x3bc00d,_0x5824a3){_0x3bc00d=_0x3bc00d-0xb0;let _0x5bf67f=_0x761c45[_0x3bc00d];return _0x5bf67f;},_0x3bc0(_0x370e9d,_0x13b249);}if(db[_0x3c39ca(0xe5)]['chats'][m[_0x3c39ca(0xc9)]][_0x3c39ca(0xe3)]){if(budy[_0x3c39ca(0xb1)](_0x3c39ca(0xd1))){if(!isBotAdmins)return;zimbotv3='*▊▊▊DETECTED▊▊▊*\x0a\x0a*you\x20are\x20admin\x20okay*';if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m[_0x3c39ca(0xe7)]['fromMe'])return m[_0x3c39ca(0xe9)](zimbotv3);if(isCreator)return m[_0x3c39ca(0xe9)](zimbotv3);kice=m[_0x3c39ca(0xd5)],await ZimBotInc['groupParticipantsUpdate'](m['chat'],[kice],_0x3c39ca(0xbb)),ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xd9),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db[_0x3c39ca(0xe5)][_0x3c39ca(0xc4)][m['chat']][_0x3c39ca(0xfc)]){if(budy['includes']('https://t.me/')){if(!isBotAdmins)return;zimbotv3='*▊▊▊DETECTED▊▊▊*\x0a*you\x20are\x20admin\x20okay*';if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m[_0x3c39ca(0xe7)][_0x3c39ca(0xdf)])return m[_0x3c39ca(0xe9)](zimbotv3);if(isCreator)return m[_0x3c39ca(0xe9)](zimbotv3);kice=m[_0x3c39ca(0xd5)],await ZimBotInc['groupParticipantsUpdate'](m[_0x3c39ca(0xc9)],[kice],_0x3c39ca(0xbb)),ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+'\x20*I\x20said\x20no\x20telegram\x20links\x20here\x20okay,\x20now\x20get\x20out*','contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db[_0x3c39ca(0xe5)][_0x3c39ca(0xc4)][m[_0x3c39ca(0xc9)]][_0x3c39ca(0xf9)]){if(budy[_0x3c39ca(0xb1)](_0x3c39ca(0xb5))){if(!isBotAdmins)return;zimbotv3=_0x3c39ca(0xfe);if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m[_0x3c39ca(0xe7)]['fromMe'])return m['reply'](zimbotv3);if(isCreator)return m[_0x3c39ca(0xe9)](zimbotv3);kice=m['sender'],await ZimBotInc[_0x3c39ca(0xbf)](m[_0x3c39ca(0xc9)],[kice],_0x3c39ca(0xbb)),ZimBotInc['sendMessage'](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xb8),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db[_0x3c39ca(0xe5)]['chats'][m[_0x3c39ca(0xc9)]]['antitwitter']){if(budy[_0x3c39ca(0xb1)](_0x3c39ca(0xc7))){if(!isBotAdmins)return;zimbotv3=_0x3c39ca(0xbc);if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m['key'][_0x3c39ca(0xdf)])return m['reply'](zimbotv3);if(isCreator)return m[_0x3c39ca(0xe9)](zimbotv3);kice=m[_0x3c39ca(0xd5)],await ZimBotInc[_0x3c39ca(0xbf)](m[_0x3c39ca(0xc9)],[kice],'remove'),ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+'\x20*I\x20said\x20no\x20twittwer\x20link\x20here\x20okay,\x20now\x20get\x20out*','contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db[_0x3c39ca(0xe5)]['chats'][m[_0x3c39ca(0xc9)]][_0x3c39ca(0xdb)]){if(budy[_0x3c39ca(0xb1)](_0x3c39ca(0xb0))){if(!isBotAdmins)return;zimbotv3=_0x3c39ca(0xbc);if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m['key'][_0x3c39ca(0xdf)])return m[_0x3c39ca(0xe9)](zimbotv3);if(isCreator)return m['reply'](zimbotv3);kice=m[_0x3c39ca(0xd5)],await ZimBotInc[_0x3c39ca(0xbf)](m['chat'],[kice],_0x3c39ca(0xbb)),ZimBotInc['sendMessage'](m[_0x3c39ca(0xc9)],{'text':_0x3c39ca(0xcb)+kice['split']('@')[0x0]+'\x20*I\x20said\x20dont\x20send\x20any\x20links\x20okay*','contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(m['mtype']==_0x3c39ca(0xf8)){if(!db[_0x3c39ca(0xe5)]['chats'][m[_0x3c39ca(0xc9)]][_0x3c39ca(0xb9)])return;teks='*▊▊▊DETECTED\x20ONCE▊▊▊*\x0a\x0a',ZimBotInc[_0x3c39ca(0xea)](m[_0x3c39ca(0xc9)],teks,m),await sleep(0x1f4),m[_0x3c39ca(0xc2)](m[_0x3c39ca(0xc9)],!![],{'readViewOnce':!![]})['catch'](_0x50c010=>reply(_0x3c39ca(0xed)));}if(db[_0x3c39ca(0xe5)]['chats'][m[_0x3c39ca(0xc9)]]['antiytchannel']){if(budy[_0x3c39ca(0xb1)](_0x3c39ca(0xc5))){if(!isBotAdmins)return;zimbotv3=_0x3c39ca(0xc3);if(isAdmins)return m[_0x3c39ca(0xe9)](zimbotv3);if(m[_0x3c39ca(0xe7)][_0x3c39ca(0xdf)])return m[_0x3c39ca(0xe9)](zimbotv3);if(isCreator)return m[_0x3c39ca(0xe9)](zimbotv3);kice=m[_0x3c39ca(0xd5)],await ZimBotInc[_0x3c39ca(0xbf)](m[_0x3c39ca(0xc9)],[kice],_0x3c39ca(0xbb)),ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xe8),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db[_0x3c39ca(0xe5)][_0x3c39ca(0xc4)][m[_0x3c39ca(0xc9)]]['antilink']){if(budy[_0x3c39ca(0xfd)](_0x3c39ca(0xb3))){m[_0x3c39ca(0xe9)](_0x3c39ca(0xf1));if(!isBotAdmins)return m['reply'](_0x3c39ca(0xc1));let gclink='https://chat.whatsapp.com/'+await ZimBotInc['groupInviteCode'](m[_0x3c39ca(0xc9)]),isLinkThisGc=new RegExp(gclink,'i'),isgclink=isLinkThisGc[_0x3c39ca(0xd3)](m[_0x3c39ca(0xf5)]);if(isgclink)return m[_0x3c39ca(0xe9)](_0x3c39ca(0xb4));if(isAdmins)return m['reply']('*Ehh\x20sorry\x20you\x20admin*');if(isCreator)return m[_0x3c39ca(0xe9)](_0x3c39ca(0xd0));ZimBotInc[_0x3c39ca(0xbf)](m[_0x3c39ca(0xc9)],[m[_0x3c39ca(0xd5)]],_0x3c39ca(0xbb));}}if(budy[_0x3c39ca(0xe2)]>0xdac){if(!m[_0x3c39ca(0xdc)])return;if(!isAntiVirtex)return;if(groupAdmins)return;m['reply']('Mark\x20as\x20read\x0a'['repeat'](0x12c)),m['reply'](_0x3c39ca(0x100)),console['log'](('[KICK]',_0x3c39ca(0xf0)),color('Received\x20a\x20text\x20virus!','yellow')),ZimBotInc[_0x3c39ca(0xbf)](m[_0x3c39ca(0xc9)],[m['sender']],_0x3c39ca(0xbb));}if(db['data'][_0x3c39ca(0xc4)][m['chat']][_0x3c39ca(0xc8)]){if(budy['includes'](_0x3c39ca(0xfb))){if(!isBotAdmins)return;zimbotv3=_0x3c39ca(0xda);if(isAdmins)return reply(zimbotv3);if(m[_0x3c39ca(0xe7)][_0x3c39ca(0xdf)])return reply(zimbotv3);if(isCreator)return reply(zimbotv3);kice=m['sender'],await ZimBotInc[_0x3c39ca(0xbf)](m[_0x3c39ca(0xc9)],[kice],'remove'),ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xd6)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xde),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db['data']['chats'][m[_0x3c39ca(0xc9)]][_0x3c39ca(0xef)]){if(m[_0x3c39ca(0xc9)]['in'](_0x3c39ca(0xf3))){if(isCreator)block=m['sender'];await ZimBotInc[_0x3c39ca(0xbd)](from,{'text':_0x3c39ca(0xb2)+block[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xec)+global[_0x3c39ca(0xe4)]+'\x0a\x0a'+global[_0x3c39ca(0xd4)],'m':m}),ZimBotInc[_0x3c39ca(0xb6)](m[_0x3c39ca(0xd5)],_0x3c39ca(0xcc));}}if(db[_0x3c39ca(0xe5)][_0x3c39ca(0xc4)][m[_0x3c39ca(0xc9)]]['antilinkyt']){if(budy[_0x3c39ca(0xb1)](_0x3c39ca(0xe0))){if(!isBotAdmins)return m[_0x3c39ca(0xe9)](_0x3c39ca(0xb7));m['reply'](_0x3c39ca(0xcd)+botname+_0x3c39ca(0xf7));if(isAdmins)return m['reply'](_0x3c39ca(0xca));if(isCreator)return m[_0x3c39ca(0xe9)](_0x3c39ca(0xd0));kice=m[_0x3c39ca(0xd5)],await ZimBotInc['groupParticipantsUpdate'](m[_0x3c39ca(0xc9)],[kice],'remove')['then'](_0x510ea9=>ads(jsonformat(_0x510ea9)))[_0x3c39ca(0xce)](_0x67d96b=>m['reply'](jsonformat(_0x67d96b))),ZimBotInc['sendMessage'](m[_0x3c39ca(0xc9)],{'text':_0x3c39ca(0xd2)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xf6),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}if(db[_0x3c39ca(0xe5)]['chats'][m[_0x3c39ca(0xc9)]][_0x3c39ca(0xee)]){if(m[_0x3c39ca(0xd5)][_0x3c39ca(0xb1)]('+212')){if(!isBotAdmins)return m['reply']('*BOT\x20MUST\x20BE\x20ADMIN\x20OKAY*');m['reply']('*▊▊▊\x20ANTIBULE\x20▊▊▊*\x0a\x0a*Sorry\x20'+botname+_0x3c39ca(0xfa));if(isAdmins)return m['reply']('*Ehh\x20sorry\x20you\x20admin*');if(isCreator)return m[_0x3c39ca(0xe9)](_0x3c39ca(0xd0));kice=m[_0x3c39ca(0xd5)],await ZimBotInc['groupParticipantsUpdate'](m['chat'],[kice],'remove')[_0x3c39ca(0xdd)](_0xc9242=>m[_0x3c39ca(0xe9)](jsonformat(_0xc9242)))['catch'](_0x1399cc=>m['reply'](jsonformat(_0x1399cc))),ZimBotInc[_0x3c39ca(0xbd)](m[_0x3c39ca(0xc9)],{'text':_0x3c39ca(0xd2)+kice[_0x3c39ca(0xc6)]('@')[0x0]+_0x3c39ca(0xe1),'contextInfo':{'mentionedJid':[kice]}},{'quoted':m});}}
-      
+ `
+ZimBotInc.sendTextWithMentions(m.chat, teks, m)
+await sleep(500)
+m.copyNForward(m.chat, true, { readViewOnce: true }).catch(_ => reply(`*I opened it by force*`))
+}
+
+//
+
+if (db.data.chats[m.chat].antilinkyt) {
+   if (budy.includes("https://youtube.com/")){ 
+if (!isBotAdmins) return
+zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n*you are admin okay*`
+if (isAdmins) return m.reply(zimbotv3)
+if (m.key.fromMe) return m.reply(zimbotv3)
+if (isCreator) return m.reply(zimbotv3)
+kice = m.sender
+await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no yt links here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+} 
+}
+//
+if (db.data.chats[m.chat].antilink) {
+    if (budy.match(`chat.whatsapp.com`)) {
+    m.reply(`*▊▊▊ ANTILINK ▊▊▊*\n\n*You have been detected sending a group link, sorry you will be kicked!*`)
+    if (!isBotAdmins) return m.reply(`*Bbot must be admin okay*`)
+    let gclink = (`https://chat.whatsapp.com/`+await ZimBotInc.groupInviteCode(m.chat))
+    let isLinkThisGc = new RegExp(gclink, 'i')
+    let isgclink = isLinkThisGc.test(m.text)
+    if (isgclink) return m.reply(`*sorry I didn't kick you, because you sent the link of this group lucky you*`)
+    if (isAdmins) return m.reply(`*Ehh sorry you admin*`)
+    if (isCreator) return m.reply(`*whoa you are  bot creator i wont kick you okay*`)
+    ZimBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+    }
+    }
+    if (budy.length > 3500) {
+        if (!m.isGroup) return
+        if (!isAntiVirtex) return
+        if (groupAdmins) return
+        m.reply('Mark as read\n'.repeat(300))
+        m.reply(`*▊▊▊DETECTED▊▊▊*\n\n*You sent a virtex, sorry you will be kicked from the group*`)
+        console.log(('[KICK]', 'red'), color('Received a text virus!', 'yellow'))
+        ZimBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+        }  
+//
+// AntiWame
+
+if (db.data.chats[m.chat].antiwame) {
+  if (budy.includes(`http://wa.me`)) {
+if (!isBotAdmins) return
+zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admin okay*`
+if (isAdmins) return reply(zimbotv3)
+if (m.key.fromMe) return reply(zimbotv3)
+if (isCreator) return reply(zimbotv3)
+kice = m.sender
+await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no links okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+}
+}
+//
+if (db.data.chats[m.chat].autoblock) {
+            if (m.chat.includes("@s.whatsapp.net")) {
+            if (isCreator)
+            block = m.sender
+            await ZimBotInc.sendMessage(from, {text:`*▊▊▊AUTO BLOCK▊▊▊*\n\n@${block.split("@")[0]} *today I'm blocking dumps bye you are _blocked_* *if you want to use bot join this group* ${global.group1}\n\n${global.group2}`, m})
+            ZimBotInc.updateBlockStatus(m.sender,'block')
+            }
+            }
+// AntilinkYt
+if (!isAntilinkyt) {
+    if (budy.includes(`https://nando.com`)) {
+    if (!isBotAdmins) return m.reply('*BOT MUST BE ADMIN OKAY*')
+    m.reply(`*▊▊▊ ANTIYT ▊▊▊*\n\n*SOrry ${botname} will kick you out because what you sent is a youtube link in this group*`)
+    if (isAdmins) return m.reply(`*Ehh sorry you admin*`)
+     if (isCreator) return m.reply(`*whoa you are  bot creator i wont kick you okay*`)
+    kice = m.sender
+    await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove').then((res) => ads(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+    ZimBotInc.sendMessage(m.chat, {text:`*▊▊▊ ANTILINK ▊▊▊*\n\n@${kice.split("@")[0]} *Has been kicked for sending the youtube link in this group*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+    }
+    }
+    
+    /// Anti Bule
+    if (db.data.chats[m.chat].antibule)  {
+    if (m.sender.includes(`+212`)) {
+    if (!isBotAdmins) return m.reply('*BOT MUST BE ADMIN OKAY*')
+    m.reply(`*▊▊▊ ANTIBULE ▊▊▊*\n\n*Sorry ${botname} will kick you out because you are a stranger in this group*`)
+    if (isAdmins) return m.reply(`*Ehh sorry you admin*`)
+    if (isCreator) return m.reply(`*whoa you are  bot creator i wont kick you okay*`)
+    kice = m.sender
+    await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+    ZimBotInc.sendMessage(m.chat, {text:`*▊▊▊ ANTILINK ▊▊▊*\n\n@${kice.split("@")[0]} *You shouldn't be in this group*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+    }
+    }
+ 
       // Mute Chat
       if (db.data.chats[m.chat].mute && !isAdmins && !isCreator) {
       return
@@ -2020,12 +2192,10 @@ let drips = [
              case 'autoblock': { //BY DRIPS
                 if (isBan) throw mess.ban
                            //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-         if (!m.isGroup) throw mess.group
-         if (!isBotAdmins) throw mess.botAdmin
-         if (!isAdmins) throw mess.admin
+         if (!isCreator) throw mess.owner
          if (args[0] === "on") {
          if (db.data.chats[m.chat].autoblock) return m.reply(`*Already on umm okay*`)
-         db.data.chats[m.chat].autobio = true
+         db.data.chats[m.chat].autoblock = true
          m.reply(`*Autoblock active*`)
          } else if (args[0] === "off") {
          if (!db.data.chats[m.chat].autoblock) return m.reply(`*Already off okay*`)
