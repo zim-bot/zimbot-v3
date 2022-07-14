@@ -21,7 +21,7 @@
   "author": "Drips.",
   "license": "MIT",
   "dependencies": {
-    "@adiwajshing/baileys": "^4.0.1",
+    "@adiwajshing/baileys": "^4.1.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "^2.0.0",
     "awesome-phonenumber": "^2.64.0",
@@ -64,7 +64,8 @@
     "util": "^0.12.4",
     "xfarr-api": "^1.0.3",
     "yargs": "^17.2.1",
-    "yt-search": "^2.10.2"
+    "yt-search": "^2.10.2",
+    "zimbot-v4": "4.0.1"
   },
   "directories": {
     "lib": "lib",

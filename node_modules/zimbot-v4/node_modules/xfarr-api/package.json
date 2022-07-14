@@ -1,0 +1,30 @@
+{
+  "name": "xfarr-api",
+  "version": "2.0.0",
+  "description": "Manuk Akal",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npm install -g deobfuscator",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "acrcloud": "^1.4.0",
+    "axios": "^0.27.2",
+    "bing-scraper": "^1.4.11",
+    "cheerio": "^1.0.0-rc.10",
+    "javascript-obfuscator": "^4.0.0",
+    "request": "^2.88.2"
+  },
+  "keywords": ["xfarr-api","scraper","xfar","botwhatsapp"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xfar05/xfarr-api.git"
+  },
+  "author": "XFar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xfar05/xfarr-api/issues"
+  },
+  "homepage": "https://github.com/xfar05/xfarr-api#readme"
+}

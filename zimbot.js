@@ -386,7 +386,7 @@ randek = jsonDrips[randIndex];
                 if (!('mute' in chats)) chats.mute = false
                 if (!('antilink' in chats)) chats.antilink = false
                 if (!('antilinkyt' in chats)) chats.antilinkyt = false
-                if (!('autoblock' in chats)) chats.autoblock = true
+                if (!('autoblock' in chats)) chats.autoblock = false
                 if (!('isWecome' in chats)) chats.isWelcome = true
                 if (!('antilinkall' in chats)) chats.antilinkall = false
                 if (!('antiytchannel' in chats)) chats.antiytchannel = false
@@ -413,7 +413,7 @@ randek = jsonDrips[randIndex];
                 antibule: false,
                 antiwame: false,
                 antitwitter: false,
-                autoblock: true
+                autoblock: false
             }
             const reactionMessage = {
                 react: {
@@ -5360,10 +5360,6 @@ case 'mediafire': {
 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)            
 if (!text) throw '*Enter a Link Query!*'
 if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) throw '*The link you provided is not valid*'
-if (!isInventoryLimit){ addInventoriLimit(m.sender) }
-            if (isLimit < 1) return m.reply(mess.endLimit)
-            kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
 const baby1 = await mediafireDl(text)
 if (baby1[0].size.split('MB')[0] >= 100) return m.reply('*File Over Limit* '+util.format(baby1))
 const result4 = `*▊▊▊MEDIAFIRE DL▊▊▊*
@@ -7699,9 +7695,9 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 	caption: anu,
 
 	document:fs.readFileSync('./lib/tes.xlsx'), 
-	mimetype: feler,
+	mimetype: drips,
 	jpegThumbnail: buffer,
-	fileName: `${ucapannya2} ${pushname}`,
+	fileName: `ZIM BOT V4`,
 	fileLength: 99999999999999,
 	templateButtons: buttonsDefault,footer: `${botname}`, quoted: m })
       }
