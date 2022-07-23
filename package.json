@@ -31,7 +31,7 @@
     "child_process": "^1.0.2",
     "crypto": "^1.0.1",
     "express": "^4.17.1",
-    "file-type": "^16.5.3",
+    "file-type": "^16.5.4",
     "fluent-ffmpeg": "^2.1.2",
     "fs": "0.0.1-security",
     "got": "^11.8.3",
