@@ -44,7 +44,7 @@
     "jimp": "^0.16.1",
     "jsdom": "^16.4.0",
     "lowdb": "^2.1.0",
-    "mongoose": "^6.2.1",
+    "mongoose": "^6.4.6",
     "moment-timezone": "^0.5.34",
     "kitsune-api": "^0.0.0",
     "link-preview-js": "^2.1.16",
