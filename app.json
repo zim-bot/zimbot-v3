@@ -1,7 +1,7 @@
 {
-  "name": "Zim Bot Inc",
+  "name": "BALOCH EDIT",
   "description": "whatsapp md bot build with nodejs",
-  "repository": "https://github.com/zim-bot/zimbot-v2",
+  "repository": "https://github.com/BalochEdit",
   "logo": "",
   "keywords": ["nodejs", "bot", "whatsapp bot", "whatsapp automation", "multi device"],
   "buildpacks": [

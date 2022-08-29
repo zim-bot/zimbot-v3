@@ -1,26 +1,4 @@
 
-// ⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈
-//▮ZIM BOT INC 2022 ®️ALL RIGHTS RESERVED
-//▮
-//▮FORK AND DON'T FORGET TO GIVE A STAR
-//▮
-//▮THIS SOFTWARE IS UNDER UZ COPYRIGHT
-//▮
-//▮REPORT ABUSE OF THIS SOFTWARE EMAIL US
-//▮reinhardtuna@mail.uk
-//▮WHATSAPP US : +44 7441 437150
-//▮YOUTUBE CHANNELL: https://youtube.com/c/DRIPSOFC
-//▮
-//╰▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-//
-//┏━━━━━━━━━━━━━━━━━━━━━━━━━
-//┃THIS SOFTWARE INCLUDES 
-//┃SOME ENCRYPTED FILES
-//┃
-//┃THANKS FOR CHOOSING ZIMBOT
-//┃THANKS TO DIKA ARDNT
-//┗━━━━━━━━━━━━━━━━━━━━━━━━━
-//
 const fs = require('fs')
 const chalk = require('chalk')
 
@@ -37,14 +15,14 @@ global.APIKeys = {
 }
 
 // Other
-global.owner = ['27634090203','']
-global.premium = ['27634090203','918188019676']
-global.botname = 'ZIM BOT INC'
-global.ownername = 'DRIPS'
-global.group1 = 'https://chat.whatsapp.com/EFsb8RCXV4jLEFk4eAcA1A'
-global.group2 = 'https://chat.whatsapp.com/HSfcYU13g5C8GxINWwSWoA'
-global.packname = 'ZIM BOT INC'
-global.ytchannel = 'https://youtu.be/ww4z2m3uORU'
+global.owner = ['989339658384']
+global.premium = ['989339658384']
+global.botname = 'BALOCH EDIT'
+global.ownername = 'HOSEIN SARBAZI'
+global.group1 = 'https://chat.whatsapp.com/DtpQbVzujrfLRB2xvl97pp'
+global.group2 = 'https://chat.whatsapp.com/EWXqwpZO0GL45MP1ys3asy'
+global.packname = 'BALOCH EDIT'
+global.ytchannel = 'https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ'
 global.monayawal = '100000'
 global.darahawal = '100'
 global.besiAwal = '15'
@@ -65,7 +43,7 @@ global.f3 = 'application/vnd.openxmlformats-officedocument.wordprocessingml.docu
 global.f4 = 'application/zip'
 global.f5 = 'application/pdf'
 global.f6 = 'application/vnd.android.package-archive'
-global.author = 'ZIM BOT INC'
+global.author = 'BALOCH EDIT'
 global.flaming = 'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=amped-logo&doScale=true&scaleWidth=800&scaleHeight=500&text='
 global.sessionName = 'session'
 global.prefa = ['','!','.','🐦','🐤','🗿']
@@ -97,8 +75,8 @@ global.limitawal = {
 }
 global.thumb = fs.readFileSync('./lib/hisoka.jpg')  
 global.bc = fs.readFileSync('./lib/bc.jpg')
-global.visoka = { url: 'https://i.imgur.com/LbmTdhf.mp4' }
-global.vid = { url: 'https://i.imgur.com/LbmTdhf.mp4' }
+global.visoka = { url: 'https://i.ibb.co/DR1Fk9N/IMG-20220820-WA0001.jpg' }
+global.vid = { url: 'https://i.ibb.co/5W3gfSG/image.jpg' }
 
 //—————「 Set Random Image Menu 」—————//
 
