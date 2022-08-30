@@ -61,7 +61,7 @@ const dripswelcome = JSON.parse(fs.readFileSync('./database/welcome.json'))
 
 //////created by BALOCH-EDIT
 
-module.exports = BalochEditInc = async (BalochEditInc, m, chatUpdate, store) => {
+module.exports = ZIMBOTInc = async (ZIMBOTInc, m, chatUpdate, store) => {
     try {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
@@ -70,7 +70,7 @@ module.exports = BalochEditInc = async (BalochEditInc, m, chatUpdate, store) => 
         const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
         const pushname = m.pushName || "No Name"
-        const botNumber = await BalochEditInc.decodeJid(BalochEditInc.user.id)
+        const botNumber = await ZIMBOTInc.decodeJid(ZIMBOTInc.user.id)
         const isCreator = [botNumber, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const itsMe = m.sender == botNumber ? true : false
         const text = q = args.join(" ")
@@ -83,7 +83,7 @@ module.exports = BalochEditInc = async (BalochEditInc, m, chatUpdate, store) => 
         const isAutoblock =  autoblock.includes('@s.whatsapp.net') 
 	
         //GROUP METADATA
-        const groupMetadata = m.isGroup ? await BalochEditInc.groupMetadata(m.chat).catch(e => {}) : ''
+        const groupMetadata = m.isGroup ? await ZIMBOTInc.groupMetadata(m.chat).catch(e => {}) : ''
         const groupName = m.isGroup ? groupMetadata.subject : ''
         const participants = m.isGroup ? await groupMetadata.participants : ''
         const groupAdmins = m.isGroup ? await participants.filter(v => v.admin !== null).map(v => v.id) : ''
@@ -95,7 +95,7 @@ module.exports = BalochEditInc = async (BalochEditInc, m, chatUpdate, store) => 
         const isAntilinkyt = m.isGroup ? antilinkyt.includes(m.chat) : false
         const isAntibule = m.isGroup ? antibule.includes(m.chat) : false
         const antiToxic = m.isGroup ? dripsanti.includes(from) : false
-        const BalochEditincv3 = body.slice(0).trim().split(/ +/).shift().toLowerCase()
+        const ZIMBOTincv3 = body.slice(0).trim().split(/ +/).shift().toLowerCase()
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
         const isAntinsfw = m.isGroup ?  dripsno.includes(m.chat) : false
         const isWelcome = m.isGroup ? dripswelcome.includes(m.chat) : false
@@ -418,7 +418,7 @@ randek = jsonDrips[randIndex];
         }
 	    
         //public or self
-        if (!BalochEditInc.public) {
+        if (!ZIMBOTInc.public) {
             if (!m.key.fromMe) return
         }
     
@@ -428,18 +428,18 @@ randek = jsonDrips[randIndex];
         }
 	
               if (global.dripsreadgroup) {
-              if (m.isGroup) { BalochEditInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
+              if (m.isGroup) { ZIMBOTInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
               }
-              if (global.dripsreadall) { if (m.message) { BalochEditInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
+              if (global.dripsreadall) { if (m.message) { ZIMBOTInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
               }
-                if (global.dripsrecord) { if (m.chat) { BalochEditInc.sendPresenceUpdate('recording', m.chat) }
+                if (global.dripsrecord) { if (m.chat) { ZIMBOTInc.sendPresenceUpdate('recording', m.chat) }
             }
             
-              if (global.dripstyping) { if (m.chat) { BalochEditInc.sendPresenceUpdate('composing', m.chat) }
+              if (global.dripstyping) { if (m.chat) { ZIMBOTInc.sendPresenceUpdate('composing', m.chat) }
             }
-              if (global.available) { if (m.chat) { BalochEditInc.sendPresenceUpdate('available', m.chat) }
+              if (global.available) { if (m.chat) { ZIMBOTInc.sendPresenceUpdate('available', m.chat) }
               }
-              if (global.unavailable) { if (m.chat) { BalochEditInc.sendPresenceUpdate('unavailable', m.chat) }
+              if (global.unavailable) { if (m.chat) { ZIMBOTInc.sendPresenceUpdate('unavailable', m.chat) }
             }
 	//Auto reset
   //Jika bot on di jam 24.00 maka limit dan darah bakal reset
@@ -475,10 +475,10 @@ vide = await getBuffer(global.vid)
 //downloader
 const sendFile = async(link, type, options) => {
 hasil = await getBuffer(link)
-BalochEditInc.sendMessage(from, hasil, type, options).catch(e => {
+ZIMBOTInc.sendMessage(from, hasil, type, options).catch(e => {
 fetch(link).then((hasil) => {
-BalochEditInc.sendMessage(from, hasil, type, options).catch(e => {
-BalochEditInc.sendMessage(from, { url : link }, type, options).catch(e => {
+ZIMBOTInc.sendMessage(from, hasil, type, options).catch(e => {
+ZIMBOTInc.sendMessage(from, { url : link }, type, options).catch(e => {
 m.reply('ERROR [ ! ]')
 console.log(e)
 })
@@ -488,11 +488,11 @@ console.log(e)
 }
 
 const reply = (teks) => {
-    BalochEditInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` BOT GROUP`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BalochEdit/BALOCH.jpg`),"sourceUrl": `${global.ytchannel}`}}}, { quoted: m})
+    ZIMBOTInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` BOT GROUP`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./ZIMBOT/BALOCH.jpg`),"sourceUrl": `${global.ytchannel}`}}}, { quoted: m})
 }
 
 const replay = (teks) => {
-    BalochEditInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `BOT YOUTUBE CHANNEL `, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./Zimbot/BALOCH.jpg`),"sourceUrl": `${global.group2}`}}}, { quoted: m})
+    ZIMBOTInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `BOT YOUTUBE CHANNEL `, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./Zimbot/BALOCH.jpg`),"sourceUrl": `${global.group2}`}}}, { quoted: m})
 }
 
 //dokumen random
@@ -516,7 +516,7 @@ return '```' + abantyulidab+ '```'
 
 
 if (m.chat.startsWith("212")) {
-BalochEditInc.updateBlockStatus(m.sender,'block')
+ZIMBOTInc.updateBlockStatus(m.sender,'block')
             
             }
 
@@ -594,10 +594,10 @@ const levelRole = level.getLevelingLevel(m.sender, _level)
 }        
                      
 // BGM CODE
-for (let drips of BalochEdit){
+for (let drips of ZIMBOT){
     if (budy === drips){
             result = fs.readFileSync(`./bgm/${drips}.mp3`)
-BalochEditInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4' , ptt: true }, { quoted: m})
+ZIMBOTInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4' , ptt: true }, { quoted: m})
 }
 }   
 
@@ -607,34 +607,34 @@ BalochEditInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4' , ptt: 
 	    let setting = global.db.data.settings[botNumber]
 	    if (new Date() * 1 - setting.status > 1000) {
 		let uptime = await runtime(process.uptime())
-		await BalochEditInc.setStatus(`BALOCH-EDIT| BOT ONLINE: ${runtime(uptime)}`)
+		await ZIMBOTInc.setStatus(`BALOCH-EDIT| BOT ONLINE: ${runtime(uptime)}`)
 		setting.status = new Date() * 1
 	    }
 	}
 
 const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi command nya ga keliatan
-            let po = BalochEditInc.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "Pilih Disini","footerText": "𝐻𝑒𝑟𝑚𝑎𝑛 𝐶ℎ𝑎𝑛𝑒𝑙᭄𓅂","listType": "SINGLE_SELECT","sections": list, quoted:mek}}, {})
-            return BalochEditInc.relayWAMessage(po, {waitForAck: true, quoted:mek})
+            let po = ZIMBOTInc.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "Pilih Disini","footerText": "𝐻𝑒𝑟𝑚𝑎𝑛 𝐶ℎ𝑎𝑛𝑒𝑙᭄𓅂","listType": "SINGLE_SELECT","sections": list, quoted:mek}}, {})
+            return ZIMBOTInc.relayWAMessage(po, {waitForAck: true, quoted:mek})
         }
 	    
         //----------ANTILINK ALL--------BY-DRIPS------\\
         if (db.data.chats[m.chat].antiinstagram) {
         if (budy.includes("https://www.instagram.com/")){
      if (!isBotAdmins) return
-     BalochEditv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admn okay*`
-     if (isAdmins) return m.reply(BalochEditv3)
-     if (m.key.fromMe) return m.reply(BalochEditv3)
-     if (isCreator) return m.reply(BalochEditv3)
+     ZIMBOTv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admn okay*`
+     if (isAdmins) return m.reply(ZIMBOTv3)
+     if (m.key.fromMe) return m.reply(ZIMBOTv3)
+     if (isCreator) return m.reply(ZIMBOTv3)
      kice = m.sender
-     await BalochEditInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
-     BalochEditInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no ig links here okay, now get out* `, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+     await ZIMBOTInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+     ZIMBOTInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no ig links here okay, now get out* `, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
      }
     }
      //lets go
      if (db.data.chats[m.chat].antifb) {
     if(budy.includes("https://facebook.com/")){
     if (!isBotAdmins) return
-    BalochEditv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admin okay*`
+    ZIMBOTv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admin okay*`
     if (isAdmins) return m.reply(zimbotv3)
     if (m.key.fromMe) return m.reply(zimbotv3)
     if (isCreator) return m.reply(zimbotv3)
@@ -2608,11 +2608,11 @@ let drips = [
                     await sleep(1500)
 		            let btn = [{
           urlButton: {
-                  displayText: 'GITHUB',
+                  displayText: '😈گیت‌هاب🥀',
                   url: 'https://github.com/BalochEdit'
           }
                             }]
-                      let txt = `「 *ZIMBOT BROADCAST* 」\n\n${text}`
+                      let txt = `「 *کانال بزرگ بلوچ ادیت* 」\n\n${text}`
                       ZimBotInc.send5ButImg(i, txt, botname, global.bc, btn)
                     }
                 m.reply(` *Send Broadcast To* ${anu.length} *Group*`)
@@ -2627,11 +2627,11 @@ let drips = [
 		    await sleep(1500)
 		    let btn = [{
           urlButton: {
-                  displayText: 'GITHUB',
+                  displayText: '🥀گیت‌هاب😈',
                   url: 'https://github.com/BalochEdit'
           }
                             }]
-                      let txt = `「 *ZIMBOT BROADCAST* 」\n\n${text}`
+                      let txt = `「 *🥀کانال بزرگ بلوچ ادیت😈* 」\n\n${text}`
                       ZimBotInc.send5ButImg(yoi, txt, botname, global.bc, btn)
 		}
 		m.reply('*Success Broadcast*')
@@ -2660,13 +2660,13 @@ case 'bcimage': case 'bcvideo': case 'bcaudio': {
                     await sleep(1500)
                     let butoon = [{
           urlButton: {
-                  displayText: `GITHUB`,
+                  displayText: `😈گیت‌هاب🥀`,
                   url: 'https://github.com/BalochEdit'
           }
                             },
                             {
           quickReplyButton: {
-                  displayText: 'MENU',
+                  displayText: '🥀منو😈',
                   id: 'menu'
           }
                             }]
@@ -3605,27 +3605,27 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             hydratedFooterText: `${botname}`,
                             hydratedButtons: [{
           urlButton: {
-                  displayText: 'SOURCE VIDEO',
+                  displayText: '😈سورکه‌ویدیو🥀',
                   url: `${anu.url}`
           }
                             }, {
                             	urlButton: {
-          displayText: `GITHUB`, 
+          displayText: `🥀گیت‌هاب😈`, 
                   url: `https://github.com/BalochEdit`
           }
                             }, {
           quickReplyButton: {
-                  displayText: `VIDEO`,
+                  displayText: `😈ویدیو🥀`,
                   id: `${prefix}ytmp4 ${anu.url}`
           }
           }, {
           quickReplyButton: {
-                  displayText: `SONG`,
+                  displayText: `🥀آهنگ😈`,
                   id: `${prefix}ytmp3 ${anu.url}`
           }
           }, {
           quickReplyButton: {
-                  displayText: `YTSEARCH`,
+                  displayText: `😈یوتیوب‌سرچ🥀`,
                   id: `${prefix}ytsearch ${anu.title}`
           }
                             }]
