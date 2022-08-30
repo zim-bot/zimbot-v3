@@ -59,9 +59,9 @@ const dripsno = JSON.parse(fs.readFileSync('./database/autoblock.json'))
 const dripswelcome = JSON.parse(fs.readFileSync('./database/welcome.json'))
 
 
-//////created by zim-bot-inc
+//////created by BALOCH-EDIT
 
-module.exports = ZimBotInc = async (ZimBotInc, m, chatUpdate, store) => {
+module.exports = BalochEditInc = async (BalochEditInc, m, chatUpdate, store) => {
     try {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
@@ -70,7 +70,7 @@ module.exports = ZimBotInc = async (ZimBotInc, m, chatUpdate, store) => {
         const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
         const pushname = m.pushName || "No Name"
-        const botNumber = await ZimBotInc.decodeJid(ZimBotInc.user.id)
+        const botNumber = await BalochEditInc.decodeJid(BalochEditInc.user.id)
         const isCreator = [botNumber, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const itsMe = m.sender == botNumber ? true : false
         const text = q = args.join(" ")
@@ -83,7 +83,7 @@ module.exports = ZimBotInc = async (ZimBotInc, m, chatUpdate, store) => {
         const isAutoblock =  autoblock.includes('@s.whatsapp.net') 
 	
         //GROUP METADATA
-        const groupMetadata = m.isGroup ? await ZimBotInc.groupMetadata(m.chat).catch(e => {}) : ''
+        const groupMetadata = m.isGroup ? await BalochEditInc.groupMetadata(m.chat).catch(e => {}) : ''
         const groupName = m.isGroup ? groupMetadata.subject : ''
         const participants = m.isGroup ? await groupMetadata.participants : ''
         const groupAdmins = m.isGroup ? await participants.filter(v => v.admin !== null).map(v => v.id) : ''
@@ -95,7 +95,7 @@ module.exports = ZimBotInc = async (ZimBotInc, m, chatUpdate, store) => {
         const isAntilinkyt = m.isGroup ? antilinkyt.includes(m.chat) : false
         const isAntibule = m.isGroup ? antibule.includes(m.chat) : false
         const antiToxic = m.isGroup ? dripsanti.includes(from) : false
-        const zimbotincv3 = body.slice(0).trim().split(/ +/).shift().toLowerCase()
+        const BalochEditincv3 = body.slice(0).trim().split(/ +/).shift().toLowerCase()
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
         const isAntinsfw = m.isGroup ?  dripsno.includes(m.chat) : false
         const isWelcome = m.isGroup ? dripswelcome.includes(m.chat) : false
@@ -418,28 +418,28 @@ randek = jsonDrips[randIndex];
         }
 	    
         //public or self
-        if (!ZimBotInc.public) {
+        if (!BalochEditInc.public) {
             if (!m.key.fromMe) return
         }
     
         // Push Message To Console && Auto Read
         if (m.message) {
-            console.log(chalk.blue(chalk.bgWhite('ZIMBOT')), chalk.whiteBright(chalk.bgRed(new Date)), chalk.black(chalk.bgRed(budy || m.mtype)) + '\n' + chalk.magenta('⦿ FROM'), chalk.bgYellowBright(pushname), chalk.bgGray(m.sender) + '\n' + chalk.bgCyanBright('RECIEVED'), chalk.yellowBright(m.isGroup ? pushname : 'DM', m.chat))
+            console.log(chalk.blue(chalk.bgWhite('BALOCHEDIT')), chalk.whiteBright(chalk.bgRed(new Date)), chalk.black(chalk.bgRed(budy || m.mtype)) + '\n' + chalk.magenta('⦿ FROM'), chalk.bgYellowBright(pushname), chalk.bgGray(m.sender) + '\n' + chalk.bgCyanBright('RECIEVED'), chalk.yellowBright(m.isGroup ? pushname : 'DM', m.chat))
         }
 	
               if (global.dripsreadgroup) {
-              if (m.isGroup) { ZimBotInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
+              if (m.isGroup) { BalochEditInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
               }
-              if (global.dripsreadall) { if (m.message) { ZimBotInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
+              if (global.dripsreadall) { if (m.message) { BalochEditInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
               }
-                if (global.dripsrecord) { if (m.chat) { ZimBotInc.sendPresenceUpdate('recording', m.chat) }
+                if (global.dripsrecord) { if (m.chat) { BalochEditInc.sendPresenceUpdate('recording', m.chat) }
             }
             
-              if (global.dripstyping) { if (m.chat) { ZimBotInc.sendPresenceUpdate('composing', m.chat) }
+              if (global.dripstyping) { if (m.chat) { BalochEditInc.sendPresenceUpdate('composing', m.chat) }
             }
-              if (global.available) { if (m.chat) { ZimBotInc.sendPresenceUpdate('available', m.chat) }
+              if (global.available) { if (m.chat) { BalochEditInc.sendPresenceUpdate('available', m.chat) }
               }
-              if (global.unavailable) { if (m.chat) { ZimBotInc.sendPresenceUpdate('unavailable', m.chat) }
+              if (global.unavailable) { if (m.chat) { BalochEditInc.sendPresenceUpdate('unavailable', m.chat) }
             }
 	//Auto reset
   //Jika bot on di jam 24.00 maka limit dan darah bakal reset
@@ -475,10 +475,10 @@ vide = await getBuffer(global.vid)
 //downloader
 const sendFile = async(link, type, options) => {
 hasil = await getBuffer(link)
-ZimBotInc.sendMessage(from, hasil, type, options).catch(e => {
+BalochEditInc.sendMessage(from, hasil, type, options).catch(e => {
 fetch(link).then((hasil) => {
-ZimBotInc.sendMessage(from, hasil, type, options).catch(e => {
-ZimBotInc.sendMessage(from, { url : link }, type, options).catch(e => {
+BalochEditInc.sendMessage(from, hasil, type, options).catch(e => {
+BalochEditInc.sendMessage(from, { url : link }, type, options).catch(e => {
 m.reply('ERROR [ ! ]')
 console.log(e)
 })
@@ -488,11 +488,11 @@ console.log(e)
 }
 
 const reply = (teks) => {
-    ZimBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` BOT GROUP`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./Zimbot/BALOCH.jpg`),"sourceUrl": `${global.ytchannel}`}}}, { quoted: m})
+    BalochEditInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` BOT GROUP`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BalochEdit/BALOCH.jpg`),"sourceUrl": `${global.ytchannel}`}}}, { quoted: m})
 }
 
 const replay = (teks) => {
-    ZimBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `BOT YOUTUBE CHANNEL `, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./Zimbot/BALOCH.jpg`),"sourceUrl": `${global.group2}`}}}, { quoted: m})
+    BalochEditInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `BOT YOUTUBE CHANNEL `, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./Zimbot/BALOCH.jpg`),"sourceUrl": `${global.group2}`}}}, { quoted: m})
 }
 
 //dokumen random
@@ -516,7 +516,7 @@ return '```' + abantyulidab+ '```'
 
 
 if (m.chat.startsWith("212")) {
-ZimBotInc.updateBlockStatus(m.sender,'block')
+BalochEditInc.updateBlockStatus(m.sender,'block')
             
             }
 
@@ -594,10 +594,10 @@ const levelRole = level.getLevelingLevel(m.sender, _level)
 }        
                      
 // BGM CODE
-for (let drips of zimbot){
+for (let drips of BalochEdit){
     if (budy === drips){
             result = fs.readFileSync(`./bgm/${drips}.mp3`)
-ZimBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4' , ptt: true }, { quoted: m})
+BalochEditInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4' , ptt: true }, { quoted: m})
 }
 }   
 
@@ -607,34 +607,34 @@ ZimBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4' , ptt: true
 	    let setting = global.db.data.settings[botNumber]
 	    if (new Date() * 1 - setting.status > 1000) {
 		let uptime = await runtime(process.uptime())
-		await ZimBotInc.setStatus(`ZIM-BOT-INC| BOT ONLINE: ${runtime(uptime)}`)
+		await BalochEditInc.setStatus(`BALOCH-EDIT| BOT ONLINE: ${runtime(uptime)}`)
 		setting.status = new Date() * 1
 	    }
 	}
 
 const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi command nya ga keliatan
-            let po = ZimBotInc.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "Pilih Disini","footerText": "𝐻𝑒𝑟𝑚𝑎𝑛 𝐶ℎ𝑎𝑛𝑒𝑙᭄𓅂","listType": "SINGLE_SELECT","sections": list, quoted:mek}}, {})
-            return ZimBotInc.relayWAMessage(po, {waitForAck: true, quoted:mek})
+            let po = BalochEditInc.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "Pilih Disini","footerText": "𝐻𝑒𝑟𝑚𝑎𝑛 𝐶ℎ𝑎𝑛𝑒𝑙᭄𓅂","listType": "SINGLE_SELECT","sections": list, quoted:mek}}, {})
+            return BalochEditInc.relayWAMessage(po, {waitForAck: true, quoted:mek})
         }
 	    
         //----------ANTILINK ALL--------BY-DRIPS------\\
         if (db.data.chats[m.chat].antiinstagram) {
         if (budy.includes("https://www.instagram.com/")){
      if (!isBotAdmins) return
-     zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admn okay*`
-     if (isAdmins) return m.reply(zimbotv3)
-     if (m.key.fromMe) return m.reply(zimbotv3)
-     if (isCreator) return m.reply(zimbotv3)
+     BalochEditv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admn okay*`
+     if (isAdmins) return m.reply(BalochEditv3)
+     if (m.key.fromMe) return m.reply(BalochEditv3)
+     if (isCreator) return m.reply(BalochEditv3)
      kice = m.sender
-     await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
-     ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no ig links here okay, now get out* `, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+     await BalochEditInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+     BalochEditInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no ig links here okay, now get out* `, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
      }
     }
      //lets go
      if (db.data.chats[m.chat].antifb) {
     if(budy.includes("https://facebook.com/")){
     if (!isBotAdmins) return
-    zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admin okay*`
+    BalochEditv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admin okay*`
     if (isAdmins) return m.reply(zimbotv3)
     if (m.key.fromMe) return m.reply(zimbotv3)
     if (isCreator) return m.reply(zimbotv3)
@@ -2599,7 +2599,7 @@ let drips = [
             break
             case 'bcgc': case 'bcgroup': {
                 if (!isCreator) throw mess.owner
-                if (!text) throw `*Type some text*\n\nExample : ${prefix + command} ZIM-BOT-INC`
+                if (!text) throw `*Type some text*\n\nExample : ${prefix + command} BALOCH-EDIT`
                 let getGroups = await ZimBotInc.groupFetchAllParticipating()
                 let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
                 let anu = groups.map(v => v.id)
@@ -2620,7 +2620,7 @@ let drips = [
             break
             case 'bc': case 'broadcast': case 'bcall': {
                 if (!isCreator) throw mess.owner
-                if (!text) throw `*Type some text*\n\nExample : ${prefix + command} ZIM-BOT-INC`
+                if (!text) throw `*Type some text*\n\nExample : ${prefix + command} BALOCH-EDIT`
                 let anu = await store.chats.all().map(v => v.id)
                 m.reply(`*Send Broadcast To* ${anu.length} Chat\nTime ${anu.length * 1.5} second`)
 		for (let yoi of anu) {
@@ -2654,7 +2654,7 @@ case 'bcimage': case 'bcvideo': case 'bcaudio': {
                 if (!isCreator) throw mess.owner
                 if (!/video/.test(mime) && !/image/.test(mime) && !/audio/.test(mime)) throw `*Send/Reply Video/Audio/Image You Want to Broadcast With Caption* ${prefix + command}`
                 let anu = await store.chats.all().map(v => v.id)
-                let ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 2022,status: 200, thumbnail: fs.readFileSync('./lib/hisoka.jpg'), surface: 200, message: `ZIM-BOT-INC`, orderTitle: 'ZIM-BOT-INC', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
+                let ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 2022,status: 200, thumbnail: fs.readFileSync('./lib/hisoka.jpg'), surface: 200, message: `BALOCH-EDIT`, orderTitle: 'BALOCH-EDIT', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
                 m.reply(`*Send Broadcast To* ${anu.length} *Group Chat, Time ${anu.length * 1.5} minutes*`)
                 for (let i of anu) {
                     await sleep(1500)
@@ -3283,7 +3283,7 @@ break
 case 'stalkgithub': case 'githubstalk': {
 if (isBan) throw mess.ban
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-              if (!text) throw `*Example : ${prefix + command} zim-bot*`
+              if (!text) throw `*Example : ${prefix + command} BALOCH*`
               ini_result = await fetchJson(`https://api-riychdwayne.herokuapp.com/api/githubstalk?username=${text}&apikey=${setting.riy}`)
               ini_result = ini_result.result             
               ini_txt = `
@@ -5393,7 +5393,7 @@ case 'savefrom': {
 
        title: "**▊▊▊SAVEFROM DL▊▊▊**",
 
-       buttonText: "CLICK HERE",
+       buttonText: "😈دکمه های لیست🥀",
 
        sections
 
@@ -5769,7 +5769,7 @@ break
            case 'git': case 'gitclone':
            // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)                       
             let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
-            if (!args[0]) throw 'link github  EXAMPLE: https://github.com/zim-bot/zim-bot-md'
+            if (!args[0]) throw 'link github  EXAMPLE: https://github.com/BalochEdit'
     if (!regex1.test(args[0])) throw 'link!'
     if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
@@ -5852,7 +5852,7 @@ case 'resep': case 'resepmasakan': {
        text: `*Results of*  ${text}`,
        footer: botname,
        title: "[ Recipes ]",
-       buttonText: "CLICK HERE",
+       buttonText: "😈دکمه های لیست🥀",
        sections
       }, { quoted : m })
 }
@@ -5907,7 +5907,7 @@ case 'apk': case 'apkmod': case 'apkdl': {
        text: `${ucapannya2} ${pushname} *Search Results From ${text} Click the button below to choose*`,
        footer: `© BALOCH EDIT`,
        title: "*▊▊▊APK DOWNLOAD▊▊▊*",
-       buttonText: "CLICK HERE",
+       buttonText: "😈دکمه های لیست🥀",
        sections
       }, { quoted : m })                 
                 }).catch((err) => {
@@ -5943,7 +5943,7 @@ ZimBotInc.sendMessage(m.chat, {text:`@${m.sender.split("@")[0]}`, contextInfo:{m
 break
         case 'wiki': case 'wikipedia': {
        // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} zim bot zimbot-v3`
+                if (!text) throw `Example : ${prefix + command} BALOCH EDIT `
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
@@ -6354,7 +6354,7 @@ Access with ${prefix}getmsg ${text}
             }
             break
 
-//BY ZIM BOT NC
+//BY BALOCH EDIT NC
 
 	    case 'anonymous': {
 	     //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
@@ -6606,9 +6606,51 @@ ZimBotInc.sendMessage(m.chat, {image: {url: anu},viewOnce : true},{quoted: m })
         m.reply(res)
         });
         break
-        case 'tes': case 'test': case 'alive': case 'bot': case 'robot': case 'zimbot': case 'drips':const _0x12fbc6=_0xa830;function _0x5a3e(){const _0x1d2e27=['\x0a┃┃\x0a┃🏮𝗣𝗟𝗔𝗧𝗙𝗢𝗥𝗠\x20:\x20','ownername','Message','\x0a▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋\x0a▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋\x0a\x20+\x202\x207\x206\x20\x203\x20\x204\x20\x200\x20\x209\x20\x200\x202\x20\x200\x20\x203\x0a\x20','botname','\x0a\x0a╭▬▬❪\x20*ZIM\x20BOT\x20INC*❫▬▬▬\x0a┃🏮\x20*LIBRARY:*\x20Baileys-md\x0a┃┃\x0a┃🏮𝗕𝗢𝗧𝗡𝗔𝗠𝗘:\x20','1195460RyNtVa','\x0a┃┃\x0a┃🏮𝗢𝗪𝗡𝗘𝗥𝗡𝗔𝗠𝗘:\x20','LIST','key','6523785MZSaHJ','ZIM\x20BOT\x20IS\x20ALIVE','5878536uJnrmT','\x0a⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯\x0a\x0a*ZIMBOT\x20V3\x20WELCOMES\x20YOU*\x20','imageMessage','OWNER','owner','waUploadToServer','467946xkzyQz','uptime','2369958VHTLog','377875gbZphs','platform','ping','listmenu','chat','184vBAXES','SPEED','https://github.com/BalochEdit','\x0a┃┃\x0a┃🏮𝗡𝗨𝗠𝗕𝗘𝗥:\x20','SUBSCRIBE','3595404noXmcO','GITHUB','relayMessage'];_0x5a3e=function(){return _0x1d2e27;};return _0x5a3e();}(function(_0x2241bd,_0x3fade8){const _0x5e1c6a=_0xa830,_0x587e66=_0x2241bd();while(!![]){try{const _0x19d1c9=parseInt(_0x5e1c6a(0x1aa))/0x1+parseInt(_0x5e1c6a(0x1a9))/0x2+-parseInt(_0x5e1c6a(0x1a7))/0x3+parseInt(_0x5e1c6a(0x1b4))/0x4+parseInt(_0x5e1c6a(0x19f))/0x5+parseInt(_0x5e1c6a(0x1a1))/0x6+parseInt(_0x5e1c6a(0x1bd))/0x7*(-parseInt(_0x5e1c6a(0x1af))/0x8);if(_0x19d1c9===_0x3fade8)break;else _0x587e66['push'](_0x587e66['shift']());}catch(_0x5934cf){_0x587e66['push'](_0x587e66['shift']());}}}(_0x5a3e,0xa1b18));function _0xa830(_0x4b8bc2,_0x133f6d){const _0x5a3e80=_0x5a3e();return _0xa830=function(_0xa83019,_0x49a73f){_0xa83019=_0xa83019-0x19f;let _0x58eca5=_0x5a3e80[_0xa83019];return _0x58eca5;},_0xa830(_0x4b8bc2,_0x133f6d);}{anu=_0x12fbc6(0x1a2)+pushname+_0x12fbc6(0x1bc)+global[_0x12fbc6(0x1bb)]+_0x12fbc6(0x1be)+global[_0x12fbc6(0x1b8)]+_0x12fbc6(0x1b2)+global[_0x12fbc6(0x1a5)]+_0x12fbc6(0x1b7)+os[_0x12fbc6(0x1ab)]()+'\x0a▙▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a🏮\x20*UPTIME:*\x20'+runtime(process[_0x12fbc6(0x1a8)]())+_0x12fbc6(0x1ba),drips=await getBuffer(picak+_0x12fbc6(0x1a0));let message=await prepareWAMessageMedia({'image':drips,'jpegThumbnail':drips},{'upload':ZimBotInc[_0x12fbc6(0x1a6)]});const template=generateWAMessageFromContent(m[_0x12fbc6(0x1ae)],proto[_0x12fbc6(0x1b9)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message[_0x12fbc6(0x1a3)],'hydratedContentText':anu,'hydratedFooterText':''+global['botname'],'hydratedButtons':[{'urlButton':{'displayText':_0x12fbc6(0x1b3),'url':'https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ'}},{'urlButton':{'displayText':_0x12fbc6(0x1b5),'url':_0x12fbc6(0x1b1)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1b0),'id':_0x12fbc6(0x1ac)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1a4),'id':_0x12fbc6(0x1a5)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1bf),'id':_0x12fbc6(0x1ad)}}]}}}),{'userJid':m['chat'],'quoted':m});ZimBotInc[_0x12fbc6(0x1b6)](m[_0x12fbc6(0x1ae)],template['message'],{'messageId':template[_0x12fbc6(0x1c0)]['id']});}
-        
-        break
+        case 'tes': case 'test': case 'alive': case 'bot': case 'robot': case 'zimbot': case 'drips':
+
+╭━━━━━━━━━━━━━━━━━━╮
+┃         ${global.botname}
+┃━━━━━━━━━━━━━━━━━━┃
+┃
+┃ *﷽بنام ان بزرگی ک همتا ندارد ﷽*
+┃
+┃ *مشخصات ربات ⸾⸾ ربات ام دی بلوچ ادیت*
+┃ *کارایی ربات ⸾⸾ مانند بقیه ربات ها عمل میکند*
+┃ *شماره سازنده ربات ⸾⸾ 989339658384*
+┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
+┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
+┃ 
+┃      ↣⚡️یوتیوب⚡️↢ 
+┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
+┃
+┃━━━━━━━━━━━━━━━━━━┃
+┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
+╰━━━━━━━━━━━━━━━━━━╯`,
+       footer: `BALOCH EDIT`,
+       title: `*بات*`,
+       jpegThumbnail: buffer,
+       buttonText: "😈دکمه های لیست🥀",
+       sections
+      }, { quoted : m })
+      } else if (setbot.templateDoc) {
+      const buttonsDefault = [{ urlButton: { displayText: `😈یوتیوب‌چنل🥀`, url : `https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ` } }, { urlButton: { displayText: `😈گیت‌هاب🥀`, url : `https://github.com/BalochEdit` } },
+   {					
+					quickReplyButton: {
+						displayText: '🥀سرعت😈',
+						id: 'ping'
+					}
+				},
+				{
+					quickReplyButton: {
+						displayText: '😈سازنده🥀',
+						id: 'owner'
+					}
+				},	
+				  {
+					quickReplyButton: {
+						displayText: '😈لیست🥀',
+						id: 'listmenu'
+					}},]
         
         
         // Upload status
@@ -6782,7 +6824,7 @@ let sections = []
 
        title: "*▊▊▊ANIME▊▊▊*",
 
-       buttonText: "CLICK HERE",
+       buttonText: "😈دکمه های لیست🥀",
 
        sections
 
@@ -6804,12 +6846,12 @@ break
 
 //by BALOCH EDIT
 
-case 'listmenu': case 'list': {
+case 'listmenu': case 'list': case 'لیست':{
     
     let Levele2 = level.getLevelingLevel(m.sender, _level)
     let sections = []   
-    let listmenu = [`allmenu`,`mainmenu`,`groupmenu`,`expmenu`,`downloadmenu`,`searchingmenu`,`randommenu`,`textpromenu`,`photooxymenu`,`funmenu`,`imageeffectmenu`,`ephotomenu`,`primbonmenu`,`convertmenu`,`databasemenu`,`photofiltermenu`,`anonymousmenu`,`islammenu`,`voicemenu`,`toolsmenu`,`internetmenu`,`shortmenu`,`ownermenu`,`nsfwmenu`,`donasi`]
-    let listmenuu = [`همه منو`,`ماین منو`,`گروه منو`,`اکس پی منو`,`دانلود منو`,`سرچ منو`,`رندوم منو`,`تکست منو`,`پروکسی`,`فان منو`,`افکت عکس`,`ادیت عکس`,`فرینبون مکو`,`کونورت منو`,`دیتابیس منو`,`فتوفایلتر`,`انونیموس منو`,`اسلام منو`,`ویس منو`,`تولس منو`,`اینترنت منو`,`شورت منو`,`اونر منو`,`منو نصفو`,`دونیت`]
+    let listmenu = [`allmenu`,`mainmenu`,`groupmenu`,`expmenu`,`downloadmenu`,`searchingmenu`,`randommenu`,`textpromenu`,`photooxymenu`,`funmenu`,`imageeffectmenu`,`ephotomenu`,`primbonmenu`,`convertmenu`,`databasemenu`,`photofiltermenu`,`anonymousmenu`,`islammenu`,`voicemenu`,`toolsmenu`,`internetmenu`,`shortmenu`,`ownermenu`,`nsfwmenu`]
+    let listmenuu = [`😈همه منو`,`😈ماین منو`,`😈گروه منو`,`😈اکس پی منو`,`😈دانلود منو`,`😈سرچ منو`,`😈رندوم منو`,`😈تکست منو`,`😈پروکسی`,`😈فان منو`,`😈افکت عکس`,`😈ادیت عکس`,`😈فرینبون مکو`,`😈کونورت منو`,`😈دیتابیس منو`,`😈😈فتوفایلتر`,`😈انونیموس منو`,`😈اسلام منو`,`😈ویس منو`,`😈تولس منو`,`😈اینترنت منو`,`😈شورت منو`,`😈اونر منو`,`😈😈منو نصفو`]
             
             let nombor = 1
             let startnum = 0
@@ -6830,7 +6872,7 @@ case 'listmenu': case 'list': {
             m.chat, 
            {
        text: `
-*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -6843,7 +6885,7 @@ case 'listmenu': case 'list': {
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -6851,16 +6893,12 @@ case 'listmenu': case 'list': {
 ╰━━━━━━━━━━━━━━━━━━╯`,
        footer: ZimBotInc.user.name,
        title: `${ucapannya2} ${pushname}`,
-       buttonText: "CLICK HERE",
+       buttonText: "😈دکمه های لیست🥀",
        sections
       }, { quoted : m })
       }
       
      break
-
-case 'setmenu': const _0x82f741=_0x10db;function _0x10db(_0x237750,_0x385d3f){const _0x511702=_0x5117();return _0x10db=function(_0x10db44,_0x596302){_0x10db44=_0x10db44-0x7d;let _0x44663a=_0x511702[_0x10db44];return _0x44663a;},_0x10db(_0x237750,_0x385d3f);}function _0x5117(){const _0x55f57b=['4569NOCauN','3976QKgpog','𝗧𝗘𝗠𝗣𝗟𝗔𝗧𝗘\x20𝗟𝗢𝗖𝗔𝗧𝗜𝗢𝗡','success','templateGif','templateList','Change\x20menu\x20bot\x20to\x20Template\x20Image','templateLocation','setmenu\x20templateDoc','𝗧𝗘𝗠𝗣𝗟𝗔𝗧𝗘\x20𝗟𝗜𝗦𝗧','setmenu\x20templateList','414132SgZwnp','𝗧𝗘𝗠𝗣𝗟𝗔𝗧𝗘\x20𝗜𝗠𝗔𝗚𝗘','34413QPRLmc','setmenu\x20templateImage','settings','templateImage','117gNPFAM','*Hello\x20Owner\x20Cheers\x20to\x20that!*','templateMsg','Change\x20menu\x20bot\x20to\x20Template\x20Gif','916745ZKMUHO','𝗧𝗘𝗠𝗣𝗟𝗔𝗧𝗘\x20𝗠𝗘𝗦𝗦𝗔𝗚𝗘','408710BbeqRt','setmenu\x20templateMessage','templateDoc','reply','162Qmmgsv','name','owner','*Please\x20choose\x20the\x20menu\x20you\x20want\x20to\x20change!\x20I\x20hope\x20you\x20will\x20enjoy🔥*','575736LhEXlv','T𝗘𝗠𝗣𝗟𝗔𝗧𝗘\x20𝗚𝗜𝗙','©️𝗕𝗔𝗟𝗢𝗖𝗛\x20𝗘𝗗𝗜𝗧','sendListMsg','setmenu\x20templateLocation','CLICK\x20HERE','data','setmenu\x20templateGif','𝗧𝗘𝗠𝗣𝗟𝗔𝗧𝗘\x20𝗗𝗢𝗖𝗨𝗠𝗘𝗡𝗧','Change\x20menu\x20bot\x20to\x20Template\x20List','3504dkmSbr'];_0x5117=function(){return _0x55f57b;};return _0x5117();}(function(_0x1c5d29,_0x2a099d){const _0x52c262=_0x10db,_0x4d87c1=_0x1c5d29();while(!![]){try{const _0x4ea884=parseInt(_0x52c262(0x91))/0x1+-parseInt(_0x52c262(0x9f))/0x2*(-parseInt(_0x52c262(0x84))/0x3)+parseInt(_0x52c262(0xa3))/0x4+parseInt(_0x52c262(0x99))/0x5+-parseInt(_0x52c262(0x8f))/0x6+-parseInt(_0x52c262(0x85))/0x7*(-parseInt(_0x52c262(0x83))/0x8)+parseInt(_0x52c262(0x95))/0x9*(-parseInt(_0x52c262(0x9b))/0xa);if(_0x4ea884===_0x2a099d)break;else _0x4d87c1['push'](_0x4d87c1['shift']());}catch(_0x4f1045){_0x4d87c1['push'](_0x4d87c1['shift']());}}}(_0x5117,0x2097a));{if(!isCreator)throw mess[_0x82f741(0xa1)];let setbot=db[_0x82f741(0x7f)][_0x82f741(0x93)][botNumber];if(args[0x0]==='templateImage')setbot[_0x82f741(0x94)]=!![],setbot[_0x82f741(0x8b)]=![],setbot['templateGif']=![],setbot[_0x82f741(0x97)]=![],setbot[_0x82f741(0x89)]=![],setbot[_0x82f741(0x9d)]=![],m[_0x82f741(0x9e)](mess['success']);else{if(args[0x0]==='templateLocation')setbot['templateImage']=![],setbot[_0x82f741(0x8b)]=!![],setbot[_0x82f741(0x88)]=![],setbot[_0x82f741(0x97)]=![],setbot[_0x82f741(0x89)]=![],setbot['templateDoc']=![],m[_0x82f741(0x9e)](mess['success']);else{if(args[0x0]==='templateGif')setbot[_0x82f741(0x94)]=![],setbot[_0x82f741(0x8b)]=![],setbot[_0x82f741(0x88)]=!![],setbot[_0x82f741(0x97)]=![],setbot[_0x82f741(0x89)]=![],setbot['templateDoc']=![],m[_0x82f741(0x9e)](mess[_0x82f741(0x87)]);else{if(args[0x0]==='templateMessage')setbot[_0x82f741(0x94)]=![],setbot[_0x82f741(0x8b)]=![],setbot[_0x82f741(0x88)]=![],setbot[_0x82f741(0x97)]=!![],setbot[_0x82f741(0x89)]=![],setbot['templateDoc']=![],m[_0x82f741(0x9e)](mess[_0x82f741(0x87)]);else{if(args[0x0]===_0x82f741(0x89))setbot['templateImage']=![],setbot['templateLocation']=![],setbot[_0x82f741(0x88)]=![],setbot['templateMsg']=![],setbot[_0x82f741(0x89)]=!![],setbot['templateDoc']=![],m[_0x82f741(0x9e)](mess[_0x82f741(0x87)]);else{if(args[0x0]===_0x82f741(0x9d))setbot[_0x82f741(0x94)]=![],setbot[_0x82f741(0x8b)]=![],setbot[_0x82f741(0x88)]=![],setbot[_0x82f741(0x97)]=![],setbot['templateList']=![],setbot[_0x82f741(0x9d)]=!![],m['reply'](mess['success']);else{let sections=[{'title':_0x82f741(0xa5),'rows':[{'title':_0x82f741(0x90),'rowId':_0x82f741(0x92),'description':_0x82f741(0x8a)},{'title':_0x82f741(0x86),'rowId':_0x82f741(0x7d),'description':'Change\x20menu\x20bot\x20to\x20Template\x20Location'},{'title':_0x82f741(0xa4),'rowId':_0x82f741(0x80),'description':_0x82f741(0x98)},{'title':_0x82f741(0x9a),'rowId':_0x82f741(0x9c),'description':'Change\x20menu\x20bot\x20to\x20Template\x20Message'},{'title':_0x82f741(0x8d),'rowId':_0x82f741(0x8e),'description':_0x82f741(0x82)},{'title':_0x82f741(0x81),'rowId':_0x82f741(0x8c),'description':'Change\x20menu\x20bot\x20to\x20Template\x20Document'}]}];ZimBotInc[_0x82f741(0xa6)](m['chat'],_0x82f741(0xa2),ZimBotInc['user'][_0x82f741(0xa0)],_0x82f741(0x96),_0x82f741(0x7e),sections,m);}}}}}}}
-            break
-
             case 'allmenu': case 'menu': case 'help': {
 ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
 let Levelnye = level.getLevelingLevel(m.sender, _level)
@@ -6873,7 +6911,7 @@ let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -6886,7 +6924,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -6907,7 +6945,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}leaderboard
 ┗━━━━━━━━━━⦿
 
-                 
+┏━❰ *مینی منو* ❱
 ┏━❰ *MAIN MENU* ❱
 ┃⬤${prefix}ping
 ┃⬤${prefix}listpc
@@ -6927,13 +6965,13 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}menu
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *شورت لینک* ❱
 ┏━❰ *SHORTLINK* ❱
 ┃⬤${prefix}shortlink
 ┃⬤${prefix}tinyurl
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *انانیموس* ❱
 ┏━❰ *ANONYMOUS* ❱
 ┃⬤${prefix}start
 ┃⬤${prefix}next
@@ -7450,27 +7488,27 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 `
 let btn = [{
           urlButton: {
-                  displayText: 'SUBSCRIBE',
+                  displayText: '😈یوتیوب‌چنل🥀',
                   url: 'https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ'
           }
                             }, {
           urlButton: {
-                  displayText: 'GITHUB',
+                  displayText: '😈گیت‌هاب🥀',
                   url: 'https://github.com/BalochEdit'
           }
                             }, {
           quickReplyButton: {
-                  displayText: 'SPEED',
+                  displayText: '🥀سرعت😈',
                   id: 'ping'
           }
                             }, {
           quickReplyButton: {
-                  displayText: 'OWNER',
+                  displayText: '😈سازنده🥀',
                   id: 'owner'
           }  
                             }, {
           quickReplyButton: {
-                  displayText: 'LIST',
+                  displayText: '😈لیست🥀',
                   id: 'listmenu'
           }
                             }]
@@ -7485,27 +7523,27 @@ hydratedContentText: anu,
 hydratedFooterText: `${global.botname}`,
 hydratedButtons: [{
 urlButton: {
-displayText: 'SUBSCRIBE',
+displayText: '😈یوتیوب‌چنل🥀',
 url: 'https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ'
 }
 }, {
 urlButton: {
-displayText: 'GITHUB',
+displayText: '😈گیت‌هاب🥀',
 url: 'https://github.com/BalochEdit'
 }
 }, {
 quickReplyButton: {
-displayText: 'SPEED',
+displayText: '🥀سرعت😈',
 id: 'ping'
 }
 }, {
 quickReplyButton: {
-displayText: 'OWNER',
+displayText: '😈سازنده🥀',
 id: 'owner'
 }  
 }, {
 quickReplyButton: {
-displayText: 'LIST',
+displayText: '😈لیست🥀',
 id: 'listmenu'
 }
 }]
@@ -7523,27 +7561,27 @@ hydratedContentText: anu,
 hydratedFooterText: `${botname}`,
 hydratedButtons: [{
 urlButton: {
-displayText: 'SUBSCRIBE',
+displayText: '😈یوتیوب‌چنل🥀',
 url: 'https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ'
 }
 }, {
 urlButton: {
-displayText: 'GITHUB',
+displayText: '😈گیت‌هاب🥀',
 url: 'https://github.com/BalochEdit'
 }
 }, {
 quickReplyButton: {
-displayText: 'SPEED',
+displayText: '🥀سرعت😈',
 id: 'ping'
 }
 }, {
 quickReplyButton: {
-displayText: 'OWNER',
+displayText: '😈سازنده🥀',
 id: 'owner'
 }  
 }, {
 quickReplyButton: {
-displayText: 'LIST',
+displayText: '😈لیست🥀',
 id: 'listmenu'
 }
 }]
@@ -7561,28 +7599,28 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                             hydratedFooterText: botname,
 hydratedButtons: [{
 urlButton: {
-displayText: 'SUBSCRIBE',
+displayText: '😈یوتیوب‌چنل🥀',
 url: 'https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ'
 }
 }, {
 urlButton: {
-displayText: 'GITHUB',
+displayText: '😈گیت‌هاب🥀',
 url: 'https://github.com/BalochEdit'
 }
 }, {
 quickReplyButton: {
-displayText: 'SPEED',
+displayText: '🥀سرعت😈',
 id: 'ping'
 }
 }, {
 quickReplyButton: {
-displayText: 'OWNER',
+displayText: '😈سازنده🥀',
 id: 'owner'
 }  
 }, {
 quickReplyButton: {
 displayText: 'LIST',
-id: 'listmenu'
+id: '😈لیست🥀'
 }
 }]
 }
@@ -7615,7 +7653,7 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             m.chat, 
            {
        text: `
-*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7628,7 +7666,7 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7637,26 +7675,26 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
        footer: `BALOCH EDIT`,
        title: `*LIST MENU*`,
        jpegThumbnail: buffer,
-       buttonText: "CLICK HERE",
+       buttonText: "😈دکمه های لیست🥀",
        sections
       }, { quoted : m })
       } else if (setbot.templateDoc) {
-      const buttonsDefault = [{ urlButton: { displayText: `SUBSCRIBE`, url : `https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ` } }, { urlButton: { displayText: `GITHUB`, url : `https://github.com/BalochEdit` } },
+      const buttonsDefault = [{ urlButton: { displayText: `😈یوتیوب‌چنل🥀`, url : `https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ` } }, { urlButton: { displayText: `😈گیت‌هاب🥀`, url : `https://github.com/BalochEdit` } },
    {					
 					quickReplyButton: {
-						displayText: 'SPEED',
+						displayText: '🥀سرعت😈',
 						id: 'ping'
 					}
 				},
 				{
 					quickReplyButton: {
-						displayText: 'OWNER',
+						displayText: '😈سازنده🥀',
 						id: 'owner'
 					}
 				},	
 				  {
 					quickReplyButton: {
-						displayText: 'LIST',
+						displayText: '😈لیست🥀',
 						id: 'listmenu'
 					}},]
 	
@@ -7666,7 +7704,7 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 	document:fs.readFileSync('./lib/tes.xlsx'), 
 	mimetype: drips,
 	jpegThumbnail: buffer,
-	fileName: `ZIM BOT V4`,
+	fileName: `BALOCH V1`,
 	fileLength: 99999999999999,
 	templateButtons: buttonsDefault,footer: `${botname}`, quoted: m })
       }
@@ -7722,7 +7760,7 @@ let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
 
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7735,7 +7773,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7759,7 +7797,23 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-const _0x5c8923=_0x3878;(function(_0x4cbfbe,_0xacef25){const _0x8ea93=_0x3878,_0xf7c2ca=_0x4cbfbe();while(!![]){try{const _0x36f3fe=-parseInt(_0x8ea93(0x187))/0x1+parseInt(_0x8ea93(0x186))/0x2+-parseInt(_0x8ea93(0x193))/0x3+-parseInt(_0x8ea93(0x191))/0x4*(-parseInt(_0x8ea93(0x18e))/0x5)+parseInt(_0x8ea93(0x18a))/0x6+parseInt(_0x8ea93(0x190))/0x7*(-parseInt(_0x8ea93(0x18b))/0x8)+parseInt(_0x8ea93(0x189))/0x9*(-parseInt(_0x8ea93(0x192))/0xa);if(_0x36f3fe===_0xacef25)break;else _0xf7c2ca['push'](_0xf7c2ca['shift']());}catch(_0x414c20){_0xf7c2ca['push'](_0xf7c2ca['shift']());}}}(_0x123b,0x2f5d7));function _0x123b(){const _0x2f0f04=['fromObject','Message','key','727336srpvwq','384852AXndYJ','GITHUB','2250gziVnA','1729008psFOlG','16LNJOyb','SUBSCRIBE','imageMessage','10KCnDsr','chat','177163ETUuAR','532052VAkVia','9250iOSaTj','171405WytGWt','message'];_0x123b=function(){return _0x2f0f04;};return _0x123b();}let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc['waUploadToServer']});const template=generateWAMessageFromContent(m[_0x5c8923(0x18f)],proto[_0x5c8923(0x184)][_0x5c8923(0x183)]({'templateMessage':{'hydratedTemplate':{'imageMessage':message[_0x5c8923(0x18d)],'hydratedContentText':anu,'hydratedFooterText':''+global['botname'],'hydratedButtons':[{'urlButton':{'displayText':_0x5c8923(0x18c),'url':'https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ'}},{'urlButton':{'displayText':_0x5c8923(0x188),'url':'https://github.com/BalochEdit'}}]}}}),{'userJid':m[_0x5c8923(0x18f)]});function _0x3878(_0x2496c4,_0xe8d08e){const _0x123b1e=_0x123b();return _0x3878=function(_0x387861,_0x2d31c4){_0x387861=_0x387861-0x183;let _0x8acd87=_0x123b1e[_0x387861];return _0x8acd87;},_0x3878(_0x2496c4,_0xe8d08e);}ZimBotInc['relayMessage'](m[_0x5c8923(0x18f)],template[_0x5c8923(0x194)],{'messageId':template[_0x5c8923(0x185)]['id']});
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+templateMessage: {
+hydratedTemplate: {
+imageMessage: message.imageMessage,
+hydratedContentText: anu,
+hydratedFooterText: `${global.botname}`,
+hydratedButtons: [{        
+    "urlButton": {
+      "displayText": "⚡️ساب‌چنل😈",       "url": "https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ"     } }, { urlButton: {     displayText: '🥀گیت‌هاب⚡️',     url: 'https://github.com/BalochEdit'
+}
+}
+]
+}
+}
+               }), { userJid: m.chat })
+                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 case 'nsfwmenu': {
@@ -7770,7 +7824,7 @@ let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
 
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7783,7 +7837,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7816,9 +7870,25 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-function _0x3217(_0x37715e,_0x2f6592){const _0xa94637=_0xa946();return _0x3217=function(_0x32173c,_0x1faa3c){_0x32173c=_0x32173c-0x123;let _0x3b0d30=_0xa94637[_0x32173c];return _0x3b0d30;},_0x3217(_0x37715e,_0x2f6592);}const _0x3ea3f4=_0x3217;(function(_0x329815,_0x3187af){const _0x1742ff=_0x3217,_0x11de18=_0x329815();while(!![]){try{const _0x2af702=parseInt(_0x1742ff(0x12e))/0x1*(-parseInt(_0x1742ff(0x133))/0x2)+-parseInt(_0x1742ff(0x132))/0x3*(parseInt(_0x1742ff(0x138))/0x4)+-parseInt(_0x1742ff(0x134))/0x5*(parseInt(_0x1742ff(0x127))/0x6)+parseInt(_0x1742ff(0x12f))/0x7*(parseInt(_0x1742ff(0x136))/0x8)+-parseInt(_0x1742ff(0x128))/0x9+-parseInt(_0x1742ff(0x129))/0xa+-parseInt(_0x1742ff(0x12b))/0xb*(-parseInt(_0x1742ff(0x131))/0xc);if(_0x2af702===_0x3187af)break;else _0x11de18['push'](_0x11de18['shift']());}catch(_0x573d7e){_0x11de18['push'](_0x11de18['shift']());}}}(_0xa946,0x26ed7));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x3ea3f4(0x130)]});function _0xa946(){const _0x2a0735=['imageMessage','127KwzpDy','7qrwpSX','waUploadToServer','12123564BOwpfZ','784317yPMltC','4158aFgTZO','97980uRbCpG','relayMessage','424624qYNVeq','https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ','4SXNURK','chat','SUBSCRIBE','key','Message','84npVzAw','485649YpjWQW','501510MVGWCT','botname','11WGaHFz','https://github.com/BalochEdit'];_0xa946=function(){return _0x2a0735;};return _0xa946();}const template=generateWAMessageFromContent(m[_0x3ea3f4(0x123)],proto[_0x3ea3f4(0x126)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message[_0x3ea3f4(0x12d)],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x3ea3f4(0x12a)],'hydratedButtons':[{'urlButton':{'displayText':_0x3ea3f4(0x124),'url':_0x3ea3f4(0x137)}},{'urlButton':{'displayText':'GITHUB','url':_0x3ea3f4(0x12c)}}]}}}),{'userJid':m['chat']});ZimBotInc[_0x3ea3f4(0x135)](m['chat'],template['message'],{'messageId':template[_0x3ea3f4(0x125)]['id']});
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+templateMessage: {
+hydratedTemplate: {
+imageMessage: message.imageMessage,
+hydratedContentText: anu,
+hydratedFooterText: `${global.botname}`,
+hydratedButtons: [{        
+    "urlButton": {
+      "displayText": "⚡️ساب‌چنل😈",       "url": "https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ"     } }, { urlButton: {     displayText: '🥀گیت‌هاب⚡️',     url: 'https://github.com/BalochEdit'
+}
+}
+]
+}
+}
+               }), { userJid: m.chat })
+                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
-                break
+            break
                 case 'expmenu': {
                     ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
           buffer = await getBuffer(picak+'EXP MENU')
@@ -7827,7 +7897,7 @@ function _0x3217(_0x37715e,_0x2f6592){const _0xa94637=_0xa946();return _0x3217=f
                 let Xp2 = randomNomor(2000)       
                 let hao = randomNomor(200)  
                 
-          anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+          anu = 
                 ╭━━━━━━━━━━━━━━━━━━╮
                 ┃         ${global.botname}
                 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7840,7 +7910,7 @@ function _0x3217(_0x37715e,_0x2f6592){const _0xa94637=_0xa946();return _0x3217=f
                 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
                 ┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
                 ┃ 
-                ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+                ┃      ↣⚡️یوتیوب⚡️↢ 
                 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
                 ┃
                 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7862,8 +7932,24 @@ function _0x3217(_0x37715e,_0x2f6592){const _0xa94637=_0xa946();return _0x3217=f
                 
                 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
                 `
-                function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/BalochEdit'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
-          }
+                let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+templateMessage: {
+hydratedTemplate: {
+imageMessage: message.imageMessage,
+hydratedContentText: anu,
+hydratedFooterText: `${global.botname}`,
+hydratedButtons: [{        
+    "urlButton": {
+      "displayText": "⚡️ساب‌چنل😈",       "url": "https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ"     } }, { urlButton: {     displayText: '🥀گیت‌هاب⚡️',     url: 'https://github.com/BalochEdit'
+}
+}
+]
+}
+}
+               }), { userJid: m.chat })
+                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                }
             break
 case 'groupmenu': case 'grupmenu': {
     ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
@@ -7872,7 +7958,7 @@ case 'groupmenu': case 'grupmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7885,7 +7971,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7961,7 +8047,7 @@ case 'downloadmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7974,7 +8060,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8056,7 +8142,7 @@ case 'searchingmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8069,7 +8155,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8141,7 +8227,7 @@ case 'randommenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8154,7 +8240,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8234,7 +8320,7 @@ case 'textpromenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8247,7 +8333,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8356,7 +8442,7 @@ case 'photooxymenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8369,7 +8455,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8421,7 +8507,7 @@ case 'ephotomenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8434,7 +8520,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8482,7 +8568,7 @@ case 'sertimenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8495,7 +8581,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8546,7 +8632,7 @@ case 'imageeffectmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8559,7 +8645,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8613,7 +8699,7 @@ case 'funmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8626,7 +8712,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8682,7 +8768,7 @@ case 'primbonmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8695,7 +8781,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8765,7 +8851,7 @@ case 'convertmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8778,7 +8864,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8841,7 +8927,7 @@ case 'databasemenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8854,7 +8940,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8902,7 +8988,7 @@ case 'photofiltermenu': case 'photofilter': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8915,7 +9001,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8996,7 +9082,7 @@ case 'anonymousmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9009,7 +9095,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9054,7 +9140,7 @@ case 'islammenu': case 'islamicmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9067,7 +9153,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9117,7 +9203,7 @@ case 'voicemenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9130,7 +9216,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9181,7 +9267,7 @@ case 'toolsmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9194,7 +9280,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9246,7 +9332,7 @@ case 'internetmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9259,7 +9345,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9316,7 +9402,7 @@ case 'shortmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9329,7 +9415,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9371,7 +9457,7 @@ case 'ownermenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+                anu = 
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         ${global.botname}
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9384,7 +9470,7 @@ let hao = randomNomor(200)
 ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
 ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
 ┃ 
-┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃      ↣⚡️یوتیوب⚡️↢ 
 ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9526,7 +9612,7 @@ case 'sond': {
 		    ZimBotInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
 		}
         }
-        // SCRIPT BY ZIM-BOT ORIGINAL BASE DIKARNDT 
+        // SCRIPT BY BALOCH ORIGINAL BASE DIKARNDT 
 
     } catch (err) {
         m.reply(util.format(err))
