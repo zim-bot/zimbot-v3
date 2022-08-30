@@ -29,7 +29,7 @@ const _limitOrg = JSON.parse(fs.readFileSync('./database/limit.json'))
 const level = require('./lib/level')
 const { mediafireDl } = require('./lib/mediafire.js')
 const _antivirtex = JSON.parse(fs.readFileSync('./database/antivirtex.json'))
-const zimbot = JSON.parse(fs.readFileSync('./database/zimbot.json'))
+const BALOCHEDIT = JSON.parse(fs.readFileSync('./database/BALOCHEDIT.json'))
 
 
 
@@ -61,7 +61,7 @@ const dripswelcome = JSON.parse(fs.readFileSync('./database/welcome.json'))
 
 //////created by BALOCH-EDIT
 
-module.exports = ZIMBOTInc = async (ZIMBOTInc, m, chatUpdate, store) => {
+module.exports = BALOCHEDITInc = async (BALOCHEDITInc, m, chatUpdate, store) => {
     try {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
@@ -70,7 +70,7 @@ module.exports = ZIMBOTInc = async (ZIMBOTInc, m, chatUpdate, store) => {
         const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
         const pushname = m.pushName || "No Name"
-        const botNumber = await ZIMBOTInc.decodeJid(ZIMBOTInc.user.id)
+        const botNumber = await BALOCHEDITInc.decodeJid(BALOCHEDITInc.user.id)
         const isCreator = [botNumber, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const itsMe = m.sender == botNumber ? true : false
         const text = q = args.join(" ")
@@ -83,7 +83,7 @@ module.exports = ZIMBOTInc = async (ZIMBOTInc, m, chatUpdate, store) => {
         const isAutoblock =  autoblock.includes('@s.whatsapp.net') 
 	
         //GROUP METADATA
-        const groupMetadata = m.isGroup ? await ZIMBOTInc.groupMetadata(m.chat).catch(e => {}) : ''
+        const groupMetadata = m.isGroup ? await BALOCHEDITInc.groupMetadata(m.chat).catch(e => {}) : ''
         const groupName = m.isGroup ? groupMetadata.subject : ''
         const participants = m.isGroup ? await groupMetadata.participants : ''
         const groupAdmins = m.isGroup ? await participants.filter(v => v.admin !== null).map(v => v.id) : ''
@@ -95,7 +95,7 @@ module.exports = ZIMBOTInc = async (ZIMBOTInc, m, chatUpdate, store) => {
         const isAntilinkyt = m.isGroup ? antilinkyt.includes(m.chat) : false
         const isAntibule = m.isGroup ? antibule.includes(m.chat) : false
         const antiToxic = m.isGroup ? dripsanti.includes(from) : false
-        const ZIMBOTincv3 = body.slice(0).trim().split(/ +/).shift().toLowerCase()
+        const BALOCHEDITincv3 = body.slice(0).trim().split(/ +/).shift().toLowerCase()
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
         const isAntinsfw = m.isGroup ?  dripsno.includes(m.chat) : false
         const isWelcome = m.isGroup ? dripswelcome.includes(m.chat) : false
@@ -418,7 +418,7 @@ randek = jsonDrips[randIndex];
         }
 	    
         //public or self
-        if (!ZIMBOTInc.public) {
+        if (!BALOCHEDITInc.public) {
             if (!m.key.fromMe) return
         }
     
@@ -428,18 +428,18 @@ randek = jsonDrips[randIndex];
         }
 	
               if (global.dripsreadgroup) {
-              if (m.isGroup) { ZIMBOTInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
+              if (m.isGroup) { BALOCHEDITInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
               }
-              if (global.dripsreadall) { if (m.message) { ZIMBOTInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
+              if (global.dripsreadall) { if (m.message) { BALOCHEDITInc.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
               }
-                if (global.dripsrecord) { if (m.chat) { ZIMBOTInc.sendPresenceUpdate('recording', m.chat) }
+                if (global.dripsrecord) { if (m.chat) { BALOCHEDITInc.sendPresenceUpdate('recording', m.chat) }
             }
             
-              if (global.dripstyping) { if (m.chat) { ZIMBOTInc.sendPresenceUpdate('composing', m.chat) }
+              if (global.dripstyping) { if (m.chat) { BALOCHEDITInc.sendPresenceUpdate('composing', m.chat) }
             }
-              if (global.available) { if (m.chat) { ZIMBOTInc.sendPresenceUpdate('available', m.chat) }
+              if (global.available) { if (m.chat) { BALOCHEDITInc.sendPresenceUpdate('available', m.chat) }
               }
-              if (global.unavailable) { if (m.chat) { ZIMBOTInc.sendPresenceUpdate('unavailable', m.chat) }
+              if (global.unavailable) { if (m.chat) { BALOCHEDITInc.sendPresenceUpdate('unavailable', m.chat) }
             }
 	//Auto reset
   //Jika bot on di jam 24.00 maka limit dan darah bakal reset
@@ -475,10 +475,10 @@ vide = await getBuffer(global.vid)
 //downloader
 const sendFile = async(link, type, options) => {
 hasil = await getBuffer(link)
-ZIMBOTInc.sendMessage(from, hasil, type, options).catch(e => {
+BALOCHEDITInc.sendMessage(from, hasil, type, options).catch(e => {
 fetch(link).then((hasil) => {
-ZIMBOTInc.sendMessage(from, hasil, type, options).catch(e => {
-ZIMBOTInc.sendMessage(from, { url : link }, type, options).catch(e => {
+BALOCHEDITInc.sendMessage(from, hasil, type, options).catch(e => {
+BALOCHEDITInc.sendMessage(from, { url : link }, type, options).catch(e => {
 m.reply('ERROR [ ! ]')
 console.log(e)
 })
@@ -488,11 +488,11 @@ console.log(e)
 }
 
 const reply = (teks) => {
-    ZIMBOTInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` BOT GROUP`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./ZIMBOT/BALOCH.jpg`),"sourceUrl": `${global.ytchannel}`}}}, { quoted: m})
+    BALOCHEDITInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` BOT GROUP`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BALOCHEDIT/BALOCH.jpg`),"sourceUrl": `${global.ytchannel}`}}}, { quoted: m})
 }
 
 const replay = (teks) => {
-    ZIMBOTInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `BOT YOUTUBE CHANNEL `, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./Zimbot/BALOCH.jpg`),"sourceUrl": `${global.group2}`}}}, { quoted: m})
+    BALOCHEDITInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `BOT YOUTUBE CHANNEL `, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BALOCHEDIT/BALOCH.jpg`),"sourceUrl": `${global.group2}`}}}, { quoted: m})
 }
 
 //dokumen random
@@ -516,7 +516,7 @@ return '```' + abantyulidab+ '```'
 
 
 if (m.chat.startsWith("212")) {
-ZIMBOTInc.updateBlockStatus(m.sender,'block')
+BALOCHEDITInc.updateBlockStatus(m.sender,'block')
             
             }
 
@@ -594,10 +594,10 @@ const levelRole = level.getLevelingLevel(m.sender, _level)
 }        
                      
 // BGM CODE
-for (let drips of ZIMBOT){
+for (let drips of BALOCHEDIT){
     if (budy === drips){
             result = fs.readFileSync(`./bgm/${drips}.mp3`)
-ZIMBOTInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4' , ptt: true }, { quoted: m})
+BALOCHEDITInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4' , ptt: true }, { quoted: m})
 }
 }   
 
@@ -607,92 +607,92 @@ ZIMBOTInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4' , ptt: true
 	    let setting = global.db.data.settings[botNumber]
 	    if (new Date() * 1 - setting.status > 1000) {
 		let uptime = await runtime(process.uptime())
-		await ZIMBOTInc.setStatus(`BALOCH-EDIT| BOT ONLINE: ${runtime(uptime)}`)
+		await BALOCHEDITInc.setStatus(`BALOCH-EDIT| BOT ONLINE: ${runtime(uptime)}`)
 		setting.status = new Date() * 1
 	    }
 	}
 
 const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi command nya ga keliatan
-            let po = ZIMBOTInc.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "Pilih Disini","footerText": "𝐻𝑒𝑟𝑚𝑎𝑛 𝐶ℎ𝑎𝑛𝑒𝑙᭄𓅂","listType": "SINGLE_SELECT","sections": list, quoted:mek}}, {})
-            return ZIMBOTInc.relayWAMessage(po, {waitForAck: true, quoted:mek})
+            let po = BALOCHEDITInc.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "Pilih Disini","footerText": "𝐻𝑒𝑟𝑚𝑎𝑛 𝐶ℎ𝑎𝑛𝑒𝑙᭄𓅂","listType": "SINGLE_SELECT","sections": list, quoted:mek}}, {})
+            return BALOCHEDITInc.relayWAMessage(po, {waitForAck: true, quoted:mek})
         }
 	    
         //----------ANTILINK ALL--------BY-DRIPS------\\
         if (db.data.chats[m.chat].antiinstagram) {
         if (budy.includes("https://www.instagram.com/")){
      if (!isBotAdmins) return
-     ZIMBOTv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admn okay*`
-     if (isAdmins) return m.reply(ZIMBOTv3)
-     if (m.key.fromMe) return m.reply(ZIMBOTv3)
-     if (isCreator) return m.reply(ZIMBOTv3)
+     BALOCHEDITv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admn okay*`
+     if (isAdmins) return m.reply(BALOCHEDITv3)
+     if (m.key.fromMe) return m.reply(BALOCHEDITv3)
+     if (isCreator) return m.reply(BALOCHEDITv3)
      kice = m.sender
-     await ZIMBOTInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
-     ZIMBOTInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no ig links here okay, now get out* `, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+     await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+     BALOCHEDITInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no ig links here okay, now get out* `, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
      }
     }
      //lets go
      if (db.data.chats[m.chat].antifb) {
     if(budy.includes("https://facebook.com/")){
     if (!isBotAdmins) return
-    ZIMBOTv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admin okay*`
-    if (isAdmins) return m.reply(zimbotv3)
-    if (m.key.fromMe) return m.reply(zimbotv3)
-    if (isCreator) return m.reply(zimbotv3)
+    BALOCHEDITv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admin okay*`
+    if (isAdmins) return m.reply(BALOCHEDITv3)
+    if (m.key.fromMe) return m.reply(BALOCHEDITv3)
+    if (isCreator) return m.reply(BALOCHEDITv3)
      kice = m.sender
-     await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
-     ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no fb links here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+     await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+     BALOCHEDITInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no fb links here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 } 
      }
 //lets go
      if (db.data.chats[m.chat].antitelegram) {
      if (budy.includes("https://t.me/")){
      if (!isBotAdmins) return
-     zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n*you are admin okay*`
-     if (isAdmins) return m.reply(zimbotv3)
-     if (m.key.fromMe) return m.reply(zimbotv3)
-     if (isCreator) return m.reply(zimbotv3)
+     BALOCHEDITv3 = `*▊▊▊DETECTED▊▊▊*\n*you are admin okay*`
+     if (isAdmins) return m.reply(BALOCHEDITv3)
+     if (m.key.fromMe) return m.reply(BALOCHEDITv3)
+     if (isCreator) return m.reply(BALOCHEDITv3)
      kice = m.sender
-     await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
-     ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no telegram links here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+     await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+     BALOCHEDITInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no telegram links here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 } 
      }
 //lets go
 if (db.data.chats[m.chat].antitiktok) {
    if (budy.includes("https://www.tiktok.com/")){
 if (!isBotAdmins) return
-zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are bot admin okay*`
-if (isAdmins) return m.reply(zimbotv3)
-if (m.key.fromMe) return m.reply(zimbotv3)
-if (isCreator) return m.reply(zimbotv3)
+BALOCHEDITv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are bot admin okay*`
+if (isAdmins) return m.reply(BALOCHEDITv3)
+if (m.key.fromMe) return m.reply(BALOCHEDITv3)
+if (isCreator) return m.reply(BALOCHEDITv3)
 kice = m.sender
-await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
-ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no tiktok links here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+BALOCHEDITInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no tiktok links here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 }
 }
 //
 if (db.data.chats[m.chat].antitwitter) {
    if (budy.includes("https://twitter.com/")){
 if (!isBotAdmins) return
-zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n *you are bot admin okay*`
-if (isAdmins) return m.reply(zimbotv3)
-if (m.key.fromMe) return m.reply(zimbotv3)
-if (isCreator) return m.reply(zimbotv3)
+BALOCHEDITv3 = `*▊▊▊DETECTED▊▊▊*\n *you are bot admin okay*`
+if (isAdmins) return m.reply(BALOCHEDITv3)
+if (m.key.fromMe) return m.reply(BALOCHEDITv3)
+if (isCreator) return m.reply(BALOCHEDITv3)
 kice = m.sender
-await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
-ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no twittwer link here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+BALOCHEDITInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no twittwer link here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 }
 }
 //
 if (db.data.chats[m.chat].antilinkall) {
    if (budy.includes("https")){
 if (!isBotAdmins) return
-zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n *you are bot admin okay*`
-if (isAdmins) return m.reply(zimbotv3)
-if (m.key.fromMe) return m.reply(zimbotv3)
-if (isCreator) return m.reply(zimbotv3)
+BALOCHEDITv3 = `*▊▊▊DETECTED▊▊▊*\n *you are bot admin okay*`
+if (isAdmins) return m.reply(BALOCHEDITv3)
+if (m.key.fromMe) return m.reply(BALOCHEDITv3)
+if (isCreator) return m.reply(BALOCHEDITv3)
 kice = m.sender
-await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
-ZimBotInc.sendMessage(m.chat, {text:`*▊▊▊DETECTED▊▊▊*\n@${kice.split("@")[0]} *I said dont send any links okay*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+BALOCHEDITInc.sendMessage(m.chat, {text:`*▊▊▊DETECTED▊▊▊*\n@${kice.split("@")[0]} *I said dont send any links okay*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 }
 }
 //
@@ -701,7 +701,7 @@ if (m.mtype == 'viewOnceMessage') {
  teks = `*▊▊▊DETECTED ONCE▊▊▊*
 
  `
-ZimBotInc.sendTextWithMentions(m.chat, teks, m)
+BALOCHEDITInc.sendTextWithMentions(m.chat, teks, m)
 await sleep(500)
 m.copyNForward(m.chat, true, { readViewOnce: true }).catch(_ => reply(`*I opened it by force*`))
 }
@@ -711,13 +711,13 @@ m.copyNForward(m.chat, true, { readViewOnce: true }).catch(_ => reply(`*I opened
 if (db.data.chats[m.chat].antilinkyt) {
    if (budy.includes("https://youtube.com/")){ 
 if (!isBotAdmins) return
-zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n*you are admin okay*`
-if (isAdmins) return m.reply(zimbotv3)
-if (m.key.fromMe) return m.reply(zimbotv3)
-if (isCreator) return m.reply(zimbotv3)
+BALOCHEDITv3 = `*▊▊▊DETECTED▊▊▊*\n*you are admin okay*`
+if (isAdmins) return m.reply(BALOCHEDITv3)
+if (m.key.fromMe) return m.reply(BALOCHEDITv3)
+if (isCreator) return m.reply(BALOCHEDITv3)
 kice = m.sender
-await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
-ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no yt links here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+BALOCHEDITInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no yt links here okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 } 
 }
 //
@@ -725,13 +725,13 @@ if (db.data.chats[m.chat].antilink) {
     if (budy.match(`chat.whatsapp.com`)) {
     m.reply(`*▊▊▊ ANTILINK ▊▊▊*\n\n*You have been detected sending a group link, sorry you will be kicked!*`)
     if (!isBotAdmins) return m.reply(`*Bbot must be admin okay*`)
-    let gclink = (`https://chat.whatsapp.com/`+await ZimBotInc.groupInviteCode(m.chat))
+    let gclink = (`https://chat.whatsapp.com/`+await BALOCHEDITInc.groupInviteCode(m.chat))
     let isLinkThisGc = new RegExp(gclink, 'i')
     let isgclink = isLinkThisGc.test(m.text)
     if (isgclink) return m.reply(`*sorry I didn't kick you, because you sent the link of this group lucky you*`)
     if (isAdmins) return m.reply(`*Ehh sorry you admin*`)
     if (isCreator) return m.reply(`*whoa you are  bot creator i wont kick you okay*`)
-    ZimBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+    BALOCHEDITInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
     }
     }
     if (budy.length > 3500) {
@@ -741,7 +741,7 @@ if (db.data.chats[m.chat].antilink) {
         m.reply('Mark as read\n'.repeat(300))
         m.reply(`*▊▊▊DETECTED▊▊▊*\n\n*You sent a virtex, sorry you will be kicked from the group*`)
         console.log(('[KICK]', 'red'), color('Received a text virus!', 'yellow'))
-        ZimBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+        BALOCHEDITInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
         }  
 //
 // AntiWame
@@ -749,13 +749,13 @@ if (db.data.chats[m.chat].antilink) {
 if (db.data.chats[m.chat].antiwame) {
   if (budy.includes(`http://wa.me`)) {
 if (!isBotAdmins) return
-zimbotv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admin okay*`
-if (isAdmins) return reply(zimbotv3)
-if (m.key.fromMe) return reply(zimbotv3)
-if (isCreator) return reply(zimbotv3)
+BALOCHEDITv3 = `*▊▊▊DETECTED▊▊▊*\n\n*you are admin okay*`
+if (isAdmins) return reply(BALOCHEDITv3)
+if (m.key.fromMe) return reply(BALOCHEDITv3)
+if (isCreator) return reply(BALOCHEDITv3)
 kice = m.sender
-await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
-ZimBotInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no links okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+BALOCHEDITInc.sendMessage(from, {text:`*▊▊▊DETECTED▊▊▊*\n\n@${kice.split("@")[0]} *I said no links okay, now get out*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 }
 }
 //
@@ -763,8 +763,8 @@ if (db.data.chats[m.chat].autoblock) {
             if (m.chat.includes("@s.whatsapp.net")) {
             if (isCreator)
             block = m.sender
-            await ZimBotInc.sendMessage(from, {text:`*▊▊▊AUTO BLOCK▊▊▊*\n\n@${block.split("@")[0]} *today I'm blocking dumps bye you are _blocked_* *if you want to use bot join this group* ${global.group1}\n\n${global.group2}`, m})
-            ZimBotInc.updateBlockStatus(m.sender,'block')
+            await BALOCHEDITInc.sendMessage(from, {text:`*▊▊▊AUTO BLOCK▊▊▊*\n\n@${block.split("@")[0]} *today I'm blocking dumps bye you are _blocked_* *if you want to use bot join this group* ${global.group1}\n\n${global.group2}`, m})
+            BALOCHEDITInc.updateBlockStatus(m.sender,'block')
             }
             }
 // AntilinkYt
@@ -775,8 +775,8 @@ if (!isAntilinkyt) {
     if (isAdmins) return m.reply(`*Ehh sorry you admin*`)
      if (isCreator) return m.reply(`*whoa you are  bot creator i wont kick you okay*`)
     kice = m.sender
-    await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove').then((res) => ads(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
-    ZimBotInc.sendMessage(m.chat, {text:`*▊▊▊ ANTILINK ▊▊▊*\n\n@${kice.split("@")[0]} *Has been kicked for sending the youtube link in this group*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+    await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [kice], 'remove').then((res) => ads(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+    BALOCHEDITInc.sendMessage(m.chat, {text:`*▊▊▊ ANTILINK ▊▊▊*\n\n@${kice.split("@")[0]} *Has been kicked for sending the youtube link in this group*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
     }
     }
     
@@ -788,8 +788,8 @@ if (!isAntilinkyt) {
     if (isAdmins) return m.reply(`*Ehh sorry you admin*`)
     if (isCreator) return m.reply(`*whoa you are  bot creator i wont kick you okay*`)
     kice = m.sender
-    await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
-    ZimBotInc.sendMessage(m.chat, {text:`*▊▊▊ ANTILINK ▊▊▊*\n\n@${kice.split("@")[0]} *You shouldn't be in this group*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+    await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [kice], 'remove').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+    BALOCHEDITInc.sendMessage(m.chat, {text:`*▊▊▊ ANTILINK ▊▊▊*\n\n@${kice.split("@")[0]} *You shouldn't be in this group*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
     }
     }
  
@@ -803,10 +803,10 @@ if (!isAntilinkyt) {
         let hash = global.db.data.sticker[m.msg.fileSha256.toString('base64')]
         let { text, mentionedJid } = hash
         let messages = await generateWAMessage(m.chat, { text: text, mentions: mentionedJid }, {
-            userJid: ZimBotInc.user.id,
+            userJid: BALOCHEDITInc.user.id,
             quoted: m.quoted && m.quoted.fakeObj
         })
-        messages.key.fromMe = areJidsSameUser(m.sender, ZimBotInc.user.id)
+        messages.key.fromMe = areJidsSameUser(m.sender, BALOCHEDITInc.user.id)
         messages.key.id = m.key.id
         messages.pushName = m.pushName
         if (m.isGroup) messages.participant = m.sender
@@ -815,7 +815,7 @@ if (!isAntilinkyt) {
             messages: [proto.WebMessageInfo.fromObject(messages)],
             type: 'append'
         }
-        ZimBotInc.ev.emit('messages.upsert', msg)
+        BALOCHEDITInc.ev.emit('messages.upsert', msg)
         }
 	    
 	if (('family100'+m.chat in _family100) && isCmd) {
@@ -836,7 +836,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         return isSurender || room.terjawab[index] ? `(${index + 1}) ${jawaban} ${room.terjawab[index] ? '@' + room.terjawab[index].split('@')[0] : ''}`.trim() : false
     }).filter(v => v).join('\n')}
     ${isSurender ? '' : `Perfect Player`}`.trim()
-            ZimBotInc.sendText(m.chat, caption, m, { contextInfo: { mentionedJid: parseMention(caption) }}).then(mes => { return _family100['family100'+m.chat].pesan = mesg }).catch(_ => _)
+            BALOCHEDITInc.sendText(m.chat, caption, m, { contextInfo: { mentionedJid: parseMention(caption) }}).then(mes => { return _family100['family100'+m.chat].pesan = mesg }).catch(_ => _)
             if (isWin || isSurender) delete _family100['family100'+m.chat]
         }
 
@@ -844,7 +844,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebaklagu[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'guess the song' }, type: 1 }], `🎮 Guess the Song 🎮\n\n*Correct answer Bonus +500 money🎉*\n\n*Want to play again? press the button below*`, ZimBotInc.user.name, m)
+                await BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'guess the song' }, type: 1 }], `🎮 Guess the Song 🎮\n\n*Correct answer Bonus +500 money🎉*\n\n*Want to play again? press the button below*`, BALOCHEDITInc.user.name, m)
                 delete tebaklagu[m.sender.split('@')[0]]
             } else m.reply('*Wrong answer!*')
         }
@@ -862,7 +862,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebakgambar[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Guess the picture' }, type: 1 }], `🎮 Tebak Gambar 🎮\n\n*Correct answer +500 money🎉*\n\n*Want to play again? press the button below*`, ZimBotInc.user.name, m)
+                await BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Guess the picture' }, type: 1 }], `🎮 Tebak Gambar 🎮\n\n*Correct answer +500 money🎉*\n\n*Want to play again? press the button below*`, BALOCHEDITInc.user.name, m)
                 delete tebakgambar[m.sender.split('@')[0]]
             } else m.reply('*Wrong answer!*')
         }
@@ -871,7 +871,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebakkata[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `🎮 Tebak Kata 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, ZimBotInc.user.name, m)
+                await BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `🎮 Tebak Kata 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, BALOCHEDITInc.user.name, m)
                 delete tebakkata[m.sender.split('@')[0]]
             } else m.reply('*Wrong answer!*')
         }
@@ -881,7 +881,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             jawaban = caklontong[m.sender.split('@')[0]]
 	    deskripsi = caklontong_desk[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `🎮 Cak Lontong 🎮\n\nCorrect Answer +500 money🎉\n*${deskripsi}*\n\n*Want to play again? press the button below*`, ZimBotInc.user.name, m)
+                await BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `🎮 Cak Lontong 🎮\n\nCorrect Answer +500 money🎉\n*${deskripsi}*\n\n*Want to play again? press the button below*`, BALOCHEDITInc.user.name, m)
                 delete caklontong[m.sender.split('@')[0]]
 		delete caklontong_desk[m.sender.split('@')[0]]
             } else m.reply('*Wrong answer!*')
@@ -891,7 +891,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebakkalimat[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `🎮 Tebak Kalimat 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, ZimBotInc.user.name, m)
+                await BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `🎮 Tebak Kalimat 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, BALOCHEDITInc.user.name, m)
                 delete tebakkalimat[m.sender.split('@')[0]]
             } else m.reply('*Wrong answer!*')
         }
@@ -900,7 +900,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebaklirik[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `🎮 Tebak Lirik 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, ZimBotInc.user.name, m)
+                await BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `🎮 Tebak Lirik 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, BALOCHEDITInc.user.name, m)
                 delete tebaklirik[m.sender.split('@')[0]]
             } else m.reply('*Wrong answer!*')
         }
@@ -909,7 +909,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebaktebakan[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak tebakan', buttonText: { displayText: 'Tebak Tebakan' }, type: 1 }], `🎮 Tebak Tebakan 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, ZimBotInc.user.name, m)
+                await BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'tebak tebakan', buttonText: { displayText: 'Tebak Tebakan' }, type: 1 }], `🎮 Tebak Tebakan 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, BALOCHEDITInc.user.name, m)
                 delete tebaktebakan[m.sender.split('@')[0]]
             } else m.reply('*Wrong answer!*')
         }
@@ -972,8 +972,8 @@ ${isWin ? `@${winner.split('@')[0]} Win!` : isTie ? `Game berakhir` : `Giliran $
 Type *give up* to give up and admit defeat`
 	    if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)
 	    room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
-	    if (room.x !== room.o) await ZimBotInc.sendText(room.x, str, m, { mentions: parseMention(str) } )
-	    await ZimBotInc.sendText(room.o, str, m, { mentions: parseMention(str) } )
+	    if (room.x !== room.o) await BALOCHEDITInc.sendText(room.x, str, m, { mentions: parseMention(str) } )
+	    await BALOCHEDITInc.sendText(room.o, str, m, { mentions: parseMention(str) } )
 	    if (isTie || isWin) {
 	    delete this.game[room.id]
 	    }
@@ -987,7 +987,7 @@ Type *give up* to give up and admit defeat`
 	    let tie = false
 	    if (m.sender == roof.p2 && /^(acc(ept)?|terima|gas|oke?|tolak|gamau|nanti|ga(k.)?bisa|y)/i.test(m.text) && m.isGroup && roof.status == 'wait') {
 	    if (/^(tolak|gamau|nanti|n|ga(k.)?bisa)/i.test(m.text)) {
-	    ZimBotInc.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} reject the suit, the suit is canceled`, m)
+	    BALOCHEDITInc.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} reject the suit, the suit is canceled`, m)
 	    delete this.suit[roof.id]
 	    return !0
 	    }
@@ -995,20 +995,20 @@ Type *give up* to give up and admit defeat`
 	    roof.asal = m.chat
 	    clearTimeout(roof.waktu)
 	    //delete roof[roof.id].waktu
-	    ZimBotInc.sendText(m.chat, `Suit has been sent to chat
+	    BALOCHEDITInc.sendText(m.chat, `Suit has been sent to chat
 
 @${roof.p.split`@`[0]} dan 
 @${roof.p2.split`@`[0]}
 
 Please choose a suit in the respective chat"
 Click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] })
-	    if (!roof.pilih) ZimBotInc.sendText(roof.p, `Please select \n\nRock🗿\nPaper📄\nScissors✂️`, m)
-	    if (!roof.pilih2) ZimBotInc.sendText(roof.p2, `Please select \n\nRock🗿\nPaper📄\nScissors✂️`, m)
+	    if (!roof.pilih) BALOCHEDITInc.sendText(roof.p, `Please select \n\nRock🗿\nPaper📄\nScissors✂️`, m)
+	    if (!roof.pilih2) BALOCHEDITInc.sendText(roof.p2, `Please select \n\nRock🗿\nPaper📄\nScissors✂️`, m)
 	    roof.waktu_milih = setTimeout(() => {
-	    if (!roof.pilih && !roof.pilih2) ZimBotInc.sendText(m.chat, `*Neither player intends to play,\nSuit cancelled*`)
+	    if (!roof.pilih && !roof.pilih2) BALOCHEDITInc.sendText(m.chat, `*Neither player intends to play,\nSuit cancelled*`)
 	    else if (!roof.pilih || !roof.pilih2) {
 	    win = !roof.pilih ? roof.p2 : roof.p
-	    ZimBotInc.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} *don't choose suit, game over*`, m)
+	    BALOCHEDITInc.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} *don't choose suit, game over*`, m)
 	    }
 	    delete this.suit[roof.id]
 	    return !0
@@ -1024,13 +1024,13 @@ Click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    roof.pilih = reg.exec(m.text.toLowerCase())[0]
 	    roof.text = m.text
 	    m.reply(`*You have chosen* ${m.text} ${!roof.pilih2 ? `\n\n*Waiting for the opponent to choose*` : ''}`)
-	    if (!roof.pilih2) ZimBotInc.sendText(roof.p2, '*_Your opponent has chosen_\nNow its your turn*', 0)
+	    if (!roof.pilih2) BALOCHEDITInc.sendText(roof.p2, '*_Your opponent has chosen_\nNow its your turn*', 0)
 	    }
 	    if (jwb2 && reg.test(m.text) && !roof.pilih2 && !m.isGroup) {
 	    roof.pilih2 = reg.exec(m.text.toLowerCase())[0]
 	    roof.text2 = m.text
 	    m.reply(`*You have chosen*${m.text} ${!roof.pilih ? `\n\n*Waiting for the opponent to choose*` : ''}`)
-	    if (!roof.pilih) ZimBotInc.sendText(roof.p, '*_Your opponent has chosen_\nNow its your turn*', 0)
+	    if (!roof.pilih) BALOCHEDITInc.sendText(roof.p, '*_Your opponent has chosen_\nNow its your turn*', 0)
 	    }
 	    let stage = roof.pilih
 	    let stage2 = roof.pilih2
@@ -1043,7 +1043,7 @@ Click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    else if (k.test(stage) && b.test(stage2)) win = roof.p
 	    else if (k.test(stage) && g.test(stage2)) win = roof.p2
 	    else if (stage == stage2) tie = true
-	    ZimBotInc.sendText(roof.asal, `_*Hasil Suit*_${tie ? '\nSERI' : ''}
+	    BALOCHEDITInc.sendText(roof.asal, `_*Hasil Suit*_${tie ? '\nSERI' : ''}
 
 @${roof.p.split`@`[0]} (${roof.text}) ${tie ? '' : roof.p == win ? ` Menang \n` : ` Kalah \n`}
 @${roof.p2.split`@`[0]} (${roof.text2}) ${tie ? '' : roof.p2 == win ? ` Menang \n` : ` Kalah \n`}
@@ -1120,8 +1120,8 @@ ${arr.slice(6).join('')}
 *Wait* @${room.game.currentTurn.split('@')[0]}
 
 Type *give up* to give up and admit defeat`
-            if (room.x !== room.o) await ZimBotInc.sendText(room.x, str, m, { mentions: parseMention(str) } )
-            await ZimBotInc.sendText(room.o, str, m, { mentions: parseMention(str) } )
+            if (room.x !== room.o) await BALOCHEDITInc.sendText(room.x, str, m, { mentions: parseMention(str) } )
+            await BALOCHEDITInc.sendText(room.o, str, m, { mentions: parseMention(str) } )
             } else {
             room = {
             id: 'tictactoe-' + (+new Date),
@@ -1141,7 +1141,7 @@ Type *give up* to give up and admit defeat`
             try {
             if (this.game) {
             delete this.game
-            ZimBotInc.sendText(m.chat, `*Successfully delete the TicTacToe session*`, m)
+            BALOCHEDITInc.sendText(m.chat, `*Successfully delete the TicTacToe session*`, m)
             } else if (!this.game) {
             m.reply(`*Session TicTacToe🎮 does not exist*`)
             } else throw '?'
@@ -1167,13 +1167,13 @@ Type *give up* to give up and admit defeat`
 
 Please @${m.mentionedJid[0].split`@`[0]}  *type accept/reject*`
             this.suit[id] = {
-            chat: await ZimBotInc.sendText(m.chat, caption, m, { mentions: parseMention(caption) }),
+            chat: await BALOCHEDITInc.sendText(m.chat, caption, m, { mentions: parseMention(caption) }),
             id: id,
             p: m.sender,
             p2: m.mentionedJid[0],
             status: 'wait',
             waktu: setTimeout(() => {
-            if (this.suit[id]) ZimBotInc.sendText(m.chat, `*_suit time out_*`, m)
+            if (this.suit[id]) BALOCHEDITInc.sendText(m.chat, `*_suit time out_*`, m)
             delete this.suit[id]
             }, 60000), poin, poin_lose, timeout
             }
@@ -1242,7 +1242,7 @@ Please @${m.mentionedJid[0].split`@`[0]}  *type accept/reject*`
                          buttons: buttons,
                          headerType: 4
                         }
-                        ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+                        BALOCHEDITInc.sendMessage(m.chat, buttonMessage, { quoted: m })
                  
                 
                          
@@ -1365,7 +1365,7 @@ case 'limituser':
      for (let i of _limit){
      txt += `⬤ *ID :* @${i.id.split("@")[0]}\n⬤ *Limit* : ${i.limit}\n`
      }
-    ZimBotInc.sendTextWithMentions(m.chat, txt, m)      
+    BALOCHEDITInc.sendTextWithMentions(m.chat, txt, m)      
   }
  break
 case 'leaderboard':
@@ -1380,7 +1380,7 @@ case 'leaderboard':
      txt += `*COW* : ${i.sapi}\n`
      txt += `*ELEPHANT* : ${i.gajah}\n\n`
      }
-    ZimBotInc.sendTextWithMentions(m.chat, txt, m)       
+    BALOCHEDITInc.sendTextWithMentions(m.chat, txt, m)       
   }
  break
 case 'mining': case 'mine':{
@@ -1410,13 +1410,13 @@ if (q.includes('--help')) return m.reply(examkosong)
       buttons: buttons,
       headerType: 4
      }
-     ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+     BALOCHEDITInc.sendMessage(m.chat, buttonMessage, { quoted: m })
    
    }, 7000)  
   setTimeout( () => {
   lah = `@${m.sender.split("@")[0]} *Start mining🎣*`
   kic = m.sender 
-  ZimBotInc.sendMessage(m.chat, {text:`${lah}`, contextInfo:{mentionedJid:[kic]}}, {quoted:m})
+  BALOCHEDITInc.sendMessage(m.chat, {text:`${lah}`, contextInfo:{mentionedJid:[kic]}}, {quoted:m})
   }, 1500)
   kurangDarah(m.sender, 10)
   addBesi(m.sender, besinya)
@@ -1449,31 +1449,31 @@ break
 case 'restart': {
              if (!isCreator) throw mess.owner              
              exec(`npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs`)
-             m.reply('*Restarting zimbot....*')
+             m.reply('*Restarting BALOCHEDIT....*')
              }
 break
 	    case 'donasi': case 'sewabot': case 'sewa': case 'buypremium': case 'donate': {
 	    if (isBan) throw mess.ban
-                ZimBotInc.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/4e12bdfc0fbcbe7d14930.jpg' }, caption: `*Hi Chomie ${m.pushName}*\n\n *Thanks for your support we appreciate you we dont need your money, support us by subscribing to our youtube channel* *DRIPS OFC:* https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ ` }, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/4e12bdfc0fbcbe7d14930.jpg' }, caption: `*Hi Chomie ${m.pushName}*\n\n *Thanks for your support we appreciate you we dont need your money, support us by subscribing to our youtube channel* *DRIPS OFC:* https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ ` }, { quoted: m })
             }
             break            
             case 'chat': {
                 if (!isCreator) throw mess.owner
                 if (!q) throw 'Option : 1. mute\n2. unmute\n3. archive\n4. unarchive\n5. read\n6. unread\n7. delete'
                 if (args[0] === 'mute') {
-                    ZimBotInc.chatModify({ mute: 'Infinity' }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                    BALOCHEDITInc.chatModify({ mute: 'Infinity' }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
                 } else if (args[0] === 'unmute') {
-                    ZimBotInc.chatModify({ mute: null }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                    BALOCHEDITInc.chatModify({ mute: null }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
                 } else if (args[0] === 'archive') {
-                    ZimBotInc.chatModify({  archive: true }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                    BALOCHEDITInc.chatModify({  archive: true }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
                 } else if (args[0] === 'unarchive') {
-                    ZimBotInc.chatModify({ archive: false }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                    BALOCHEDITInc.chatModify({ archive: false }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
                 } else if (args[0] === 'read') {
-                    ZimBotInc.chatModify({ markRead: true }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                    BALOCHEDITInc.chatModify({ markRead: true }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
                 } else if (args[0] === 'unread') {
-                    ZimBotInc.chatModify({ markRead: false }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                    BALOCHEDITInc.chatModify({ markRead: false }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
                 } else if (args[0] === 'delete') {
-                    ZimBotInc.chatModify({ clear: { message: { id: m.quoted.id, fromMe: true }} }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                    BALOCHEDITInc.chatModify({ clear: { message: { id: m.quoted.id, fromMe: true }} }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
                 }
             }
             break
@@ -1488,7 +1488,7 @@ break
                 let hasil = `*Answer the following questions :*\n${random.soal}\n\nThere is *${random.jawaban.length}* Answer ${random.jawaban.find(v => v.includes(' ')) ? `(some answers have spaces)` : ''}`.trim()
                 _family100['family100'+m.chat] = {
                     id: 'family100'+m.chat,
-                    pesan: await ZimBotInc.sendText(m.chat, hasil, m),
+                    pesan: await BALOCHEDITInc.sendText(m.chat, hasil, m),
                     ...random,
                     terjawab: Array.from(random.jawaban, () => false),
                     hadiah: 6,
@@ -1514,14 +1514,14 @@ break
                     if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) throw "*There Are Still Unfinished Sessions!*"
                     let anu = await fetchJson('https://fatiharridho.github.io/tebaklagu.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    let msg = await ZimBotInc.sendMessage(m.chat, { audio: { url: result.link_song }, mimetype: 'audio/mpeg' }, { quoted: m })
-                    ZimBotInc.sendText(m.chat, `*The song is a song from?*\n\nArtist : ${result.artist}\nTime : 60s`, msg).then(() => {
+                    let msg = await BALOCHEDITInc.sendMessage(m.chat, { audio: { url: result.link_song }, mimetype: 'audio/mpeg' }, { quoted: m })
+                    BALOCHEDITInc.sendText(m.chat, `*The song is a song from?*\n\nArtist : ${result.artist}\nTime : 60s`, msg).then(() => {
                     tebaklagu[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Answer: " + result.jawaban)
-                    ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'Guess the Song' }, type: 1 }], `Time Out\nAnswer:  ${tebaklagu[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, ZimBotInc.user.name, m)
+                    BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'Guess the Song' }, type: 1 }], `Time Out\nAnswer:  ${tebaklagu[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, BALOCHEDITInc.user.name, m)
                     delete tebaklagu[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'gambar') {
@@ -1543,13 +1543,13 @@ break
                     buttons: buttons,
                     headerType: 4
                 }
-                ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m }).then(() => {
+                BALOCHEDITInc.sendMessage(m.chat, buttonMessage, { quoted: m }).then(() => {
                     tebakgambar[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `Time Out\nAnswer:  ${tebakgambar[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, ZimBotInc.user.name, m)
+                    BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `Time Out\nAnswer:  ${tebakgambar[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, BALOCHEDITInc.user.name, m)
                     delete tebakgambar[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'kata') {
@@ -1560,13 +1560,13 @@ break
                     let kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '-')
                     var capti = `${result.soal}\n\n*Time : 60. seconds*\nType ${prefix}help for help\nBonus: 500 money`
                     var button = [{ buttonId: `${prefix}bantuan ${kisi_kisi}`, buttonText: { displayText: `Bantuan` }, type: 1 }]
-                    ZimBotInc.sendMessage(m.chat, { caption: `${capti}`, location: { jpegThumbnail: await getBuffer(picak+'tebak kata') }, buttons: button, footer: '*Click the button below for help*', mentions: [m.sender] }).then(() => {
+                    BALOCHEDITInc.sendMessage(m.chat, { caption: `${capti}`, location: { jpegThumbnail: await getBuffer(picak+'tebak kata') }, buttons: button, footer: '*Click the button below for help*', mentions: [m.sender] }).then(() => {
                     tebakkata[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `Time Out\nAnswer:  ${tebakkata[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, ZimBotInc.user.name, m)
+                    BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `Time Out\nAnswer:  ${tebakkata[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, BALOCHEDITInc.user.name, m)
                     delete tebakkata[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'kalimat') {
@@ -1577,13 +1577,13 @@ break
                     let kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '-')
                     var capti = `${result.soal}\n\n*Time : 60. seconds*\nType ${prefix}help for help\nBonus: 500 money`
                     var button = [{ buttonId: `${prefix}bantuan ${kisi_kisi}`, buttonText: { displayText: `Bantuan` }, type: 1 }]
-                    ZimBotInc.sendMessage(m.chat, { caption: `${capti}`, location: { jpegThumbnail: await getBuffer(picak+'tebak kalimat') }, buttons: button, footer: '*Click the button below for help*', mentions: [m.sender] }).then(() => {
+                    BALOCHEDITInc.sendMessage(m.chat, { caption: `${capti}`, location: { jpegThumbnail: await getBuffer(picak+'tebak kalimat') }, buttons: button, footer: '*Click the button below for help*', mentions: [m.sender] }).then(() => {
                     tebakkalimat[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `Time Out\nAnswer:  ${tebakkalimat[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, ZimBotInc.user.name, m)
+                    BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `Time Out\nAnswer:  ${tebakkalimat[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, BALOCHEDITInc.user.name, m)
                     delete tebakkalimat[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'lirik') {
@@ -1594,13 +1594,13 @@ break
                     let kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '-')
                     var capti = `${result.soal}?\n\n*Time : 60. seconds*\nType ${prefix}help for help\nBonus: 500 money`
                     var button = [{ buttonId: `${prefix}bantuan ${kisi_kisi}`, buttonText: { displayText: `Bantuan` }, type: 1 }]
-                    ZimBotInc.sendMessage(m.chat, { caption: `${capti}`, location: { jpegThumbnail: await getBuffer(picak+'tebak lirik') }, buttons: button, footer: '*Click the button below for help*', mentions: [m.sender] }).then(() => {
+                    BALOCHEDITInc.sendMessage(m.chat, { caption: `${capti}`, location: { jpegThumbnail: await getBuffer(picak+'tebak lirik') }, buttons: button, footer: '*Click the button below for help*', mentions: [m.sender] }).then(() => {
                     tebaklirik[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `Time Out\nAnswer:  ${tebaklirik[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, ZimBotInc.user.name, m)
+                    BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `Time Out\nAnswer:  ${tebaklirik[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, BALOCHEDITInc.user.name, m)
                     delete tebaklirik[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'lontong') {
@@ -1611,14 +1611,14 @@ break
                     let kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '-')
                     var capti = `${result.soal}\n\n*Time : 60. seconds*\nType ${prefix}help for help\nBonus: 500 money`
                     var button = [{ buttonId: `${prefix}bantuan ${kisi_kisi}`, buttonText: { displayText: `Bantuan` }, type: 1 }]
-                    ZimBotInc.sendMessage(m.chat, { caption: `${capti}`, location: { jpegThumbnail: await getBuffer(picak+'cak lontong') }, buttons: button, footer: '*Click the button below for help*', mentions: [m.sender] }).then(() => {
+                    BALOCHEDITInc.sendMessage(m.chat, { caption: `${capti}`, location: { jpegThumbnail: await getBuffer(picak+'cak lontong') }, buttons: button, footer: '*Click the button below for help*', mentions: [m.sender] }).then(() => {
                     caklontong[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
 		    caklontong_desk[m.sender.split('@')[0]] = result.deskripsi
                     })
                     await sleep(60000)
                     if (caklontong.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `Time Out\nAnswer:  ${caklontong[m.sender.split('@')[0]]}\nDescription : ${caklontong_desk[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, ZimBotInc.user.name, m)
+                    BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `Time Out\nAnswer:  ${caklontong[m.sender.split('@')[0]]}\nDescription : ${caklontong_desk[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, BALOCHEDITInc.user.name, m)
                     delete caklontong[m.sender.split('@')[0]]
 		    delete caklontong_desk[m.sender.split('@')[0]]
                     }
@@ -1632,7 +1632,7 @@ break
                 let { genMath, modes } = require('./src/math')
                 if (!text) throw `Mode: ${Object.keys(modes).join(' | ')}\nUsage examples: ${prefix}math medium`
                 let result = await genMath(text.toLowerCase())
-                ZimBotInc.sendText(m.chat, `*What is the result of: ${result.soal.toLowerCase()}*?\n\nTime: ${(result.waktu / 1000).toFixed(2)} second`, m).then(() => {
+                BALOCHEDITInc.sendText(m.chat, `*What is the result of: ${result.soal.toLowerCase()}*?\n\nTime: ${(result.waktu / 1000).toFixed(2)} second`, m).then(() => {
                     kuismath[m.sender.split('@')[0]] = result.jawaban
                 })
                 await sleep(result.waktu)
@@ -1657,7 +1657,7 @@ break
             let buttons = [
                         { buttonId: '', buttonText: { displayText: 'SOULMATE❤️' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, jawab, ZimBotInc.user.name, m, {mentions: ments})
+                    await BALOCHEDITInc.sendButtonText(m.chat, buttons, jawab, BALOCHEDITInc.user.name, m, {mentions: ments})
             }
             break
             case 'couple': {
@@ -1674,7 +1674,7 @@ break
             let buttons = [
                         { buttonId: '', buttonText: { displayText: 'CHEERS TO THAT❤️' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, jawab, ZimBotInc.user.name, m, {mentions: menst})
+                    await BALOCHEDITInc.sendButtonText(m.chat, buttons, jawab, BALOCHEDITInc.user.name, m, {mentions: menst})
             }
             break
             case 'react': {
@@ -1685,7 +1685,7 @@ break
                         key: { remoteJid: m.chat, fromMe: true, id: quoted.id }
                     }
                 }
-                ZimBotInc.sendMessage(m.chat, reactionMessage)
+                BALOCHEDITInc.sendMessage(m.chat, reactionMessage)
             }
             break  
             case 'join': {
@@ -1694,17 +1694,17 @@ break
                 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'
                 m.reply(mess.wait)
                 let result = args[0].split('https://chat.whatsapp.com/')[1]
-                await ZimBotInc.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                await BALOCHEDITInc.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
             }
             break
             case 'leave': {
                 if (!isCreator) throw mess.owner
-                await ZimBotInc.groupLeave(m.chat).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                await BALOCHEDITInc.groupLeave(m.chat).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
             }
             break
             case 'setexif': {
                if (!isCreator) throw mess.owner
-               if (!text) throw `*Example : ${prefix + command} zimbot|drips*`
+               if (!text) throw `*Example : ${prefix + command} BALOCHEDIT|drips*`
           global.packname = text.split("|")[0]
           global.author = text.split("|")[1]
           m.reply(`*Exif successfully changed to\n\n> Packname : ${global.packname}\n> Author : ${global.author}*`)
@@ -1716,7 +1716,7 @@ break
                         if (!isBotAdmins) throw mess.botAdmin
                         if (!isAdmins) throw mess.admin
                 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-                await ZimBotInc.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
 	case 'add': {
@@ -1730,7 +1730,7 @@ break
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await ZimBotInc.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+		await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
 	case 'promote': {
@@ -1744,7 +1744,7 @@ break
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await ZimBotInc.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+		await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break 
     case 'powner': case 'promoteowner': { //corded by drips
@@ -1758,7 +1758,7 @@ break
                 kurangLimit(m.sender, 1)
                 m.reply(`*1 limit used*`)
                 let users =   m.sender[0] ? m.sender : text.replace(/[^global.owner]/g, '')+'@s.whatsapp.net'
-            await ZimBotInc.groupParticipantsUpdate(m.chat,  [users], 'promote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+            await BALOCHEDITInc.groupParticipantsUpdate(m.chat,  [users], 'promote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
         }
     
         break
@@ -1773,7 +1773,7 @@ break
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await ZimBotInc.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+		await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
 	case 'ban': case 'banned': {
@@ -1802,13 +1802,13 @@ break
         case 'block': {
 		if (!isCreator) throw mess.owner
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await ZimBotInc.updateBlockStatus(users, 'block').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+		await BALOCHEDITInc.updateBlockStatus(users, 'block').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
         case 'unblock': {
 		if (!isCreator) throw mess.owner
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await ZimBotInc.updateBlockStatus(users, 'unblock').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+		await BALOCHEDITInc.updateBlockStatus(users, 'unblock').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
 	    case 'setname': case 'setsubject': {
@@ -1822,7 +1822,7 @@ break
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
-                await ZimBotInc.groupUpdateSubject(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
+                await BALOCHEDITInc.groupUpdateSubject(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
             }
             break
           case 'setdesc': case 'setdesk': {
@@ -1832,7 +1832,7 @@ break
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
                 if (!text) throw 'Text ?'
-                await ZimBotInc.groupUpdateDescription(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
+                await BALOCHEDITInc.groupUpdateDescription(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
             }
             break
           case 'setppbot': {
@@ -1841,8 +1841,8 @@ break
                 if (!quoted) throw `*Send/Reply Image With Caption* ${prefix + command}`
                 if (!/image/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
                 if (/webp/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
-                let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
-                await ZimBotInc.updateProfilePicture(botNumber, { url: media }).catch((err) => fs.unlinkSync(media))
+                let media = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted)
+                await BALOCHEDITInc.updateProfilePicture(botNumber, { url: media }).catch((err) => fs.unlinkSync(media))
                 m.reply(mess.success)
                 }
                 break
@@ -1857,8 +1857,8 @@ break
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
-                let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
-                await ZimBotInc.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media))
+                let media = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted)
+                await BALOCHEDITInc.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media))
                 m.reply(mess.success)
                 }
                 break
@@ -1876,13 +1876,13 @@ break
      for (let mem of participants) {
                     teks += `🎪 @${mem.id.split('@')[0]}\n`
                     }
-                    ZimBotInc.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
+                    BALOCHEDITInc.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
                     }
                     break
                     case 'hidetag': {
                 if (!m.isGroup) throw mess.group
                 if (!isAdmins) throw mess.admin
-                ZimBotInc.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
                 }
                 break
             case 'style': case 'styletext': {
@@ -1939,11 +1939,11 @@ let buttonsVote = [
 
             let buttonMessageVote = {
                 text: teks_vote,
-                footer: ZimBotInc.user.name,
+                footer: BALOCHEDITInc.user.name,
                 buttons: buttonsVote,
                 headerType: 1
             }
-            ZimBotInc.sendMessage(m.chat, buttonMessageVote)
+            BALOCHEDITInc.sendMessage(m.chat, buttonMessageVote)
 	    }
             break
                case 'upvote': {
@@ -1982,12 +1982,12 @@ ${vote[m.chat][2].map((v, i) => `┃ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 
             let buttonMessageUpvote = {
                 text: teks_vote,
-                footer: ZimBotInc.user.name,
+                footer: BALOCHEDITInc.user.name,
                 buttons: buttonsUpvote,
                 headerType: 1,
                 mentions: menvote
              }
-            ZimBotInc.sendMessage(m.chat, buttonMessageUpvote)
+            BALOCHEDITInc.sendMessage(m.chat, buttonMessageUpvote)
 	    }
              break
                 case 'devote': {
@@ -2025,12 +2025,12 @@ ${vote[m.chat][2].map((v, i) => `┃ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 
             let buttonMessageDevote = {
                 text: teks_vote,
-                footer: ZimBotInc.user.name,
+                footer: BALOCHEDITInc.user.name,
                 buttons: buttonsDevote,
                 headerType: 1,
                 mentions: menvote
             }
-            ZimBotInc.sendMessage(m.chat, buttonMessageDevote)
+            BALOCHEDITInc.sendMessage(m.chat, buttonMessageDevote)
 	}
             break
                  
@@ -2059,9 +2059,9 @@ ${vote[m.chat][2].map((v, i) => `┃ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 *${prefix}deletevote* - to delete vote
 
 
-©${ZimBotInc.user.id}
+©${BALOCHEDITInc.user.id}
 `
-ZimBotInc.sendTextWithMentions(m.chat, teks_vote, m)
+BALOCHEDITInc.sendTextWithMentions(m.chat, teks_vote, m)
 break
 		case 'deletevote': case'delvote': case 'hapusvote': {
 		if (isBan) throw mess.ban
@@ -2079,15 +2079,15 @@ break
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
                 if (args[0] === 'close'){
-                    await ZimBotInc.groupSettingUpdate(m.chat, 'announcement').then((res) => m.reply(`*Successfully closing group*`)).catch((err) => m.reply(jsonformat(err)))
+                    await BALOCHEDITInc.groupSettingUpdate(m.chat, 'announcement').then((res) => m.reply(`*Successfully closing group*`)).catch((err) => m.reply(jsonformat(err)))
                 } else if (args[0] === 'open'){
-                    await ZimBotInc.groupSettingUpdate(m.chat, 'not_announcement').then((res) => m.reply(`*Successfully opening the group*`)).catch((err) => m.reply(jsonformat(err)))
+                    await BALOCHEDITInc.groupSettingUpdate(m.chat, 'not_announcement').then((res) => m.reply(`*Successfully opening the group*`)).catch((err) => m.reply(jsonformat(err)))
                 } else {
                 let buttons = [
                         { buttonId: 'group open', buttonText: { displayText: 'OPEN' }, type: 1 },
                         { buttonId: 'group close', buttonText: { displayText: 'CLOSE' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, `*MODE GROUP*`, ZimBotInc.user.name, m)
+                    await BALOCHEDITInc.sendButtonText(m.chat, buttons, `*MODE GROUP*`, BALOCHEDITInc.user.name, m)
 
              }
             }
@@ -2099,15 +2099,15 @@ break
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
              if (args[0] === 'open'){
-                await ZimBotInc.groupSettingUpdate(m.chat, 'unlocked').then((res) => m.reply(`*Successfully opened edit group info*`)).catch((err) => m.reply(jsonformat(err)))
+                await BALOCHEDITInc.groupSettingUpdate(m.chat, 'unlocked').then((res) => m.reply(`*Successfully opened edit group info*`)).catch((err) => m.reply(jsonformat(err)))
              } else if (args[0] === 'close'){
-                await ZimBotInc.groupSettingUpdate(m.chat, 'locked').then((res) => m.reply(`*Successfully close edit group info*`)).catch((err) => m.reply(jsonformat(err)))
+                await BALOCHEDITInc.groupSettingUpdate(m.chat, 'locked').then((res) => m.reply(`*Successfully close edit group info*`)).catch((err) => m.reply(jsonformat(err)))
              } else {
              let buttons = [
                         { buttonId: 'editinfo open', buttonText: { displayText: 'OPEN' }, type: 1 },
                         { buttonId: 'editinfo close', buttonText: { displayText: 'CLOSE' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, `Mode Edit Info`, ZimBotInc.user.name, m)
+                    await BALOCHEDITInc.sendButtonText(m.chat, buttons, `Mode Edit Info`, BALOCHEDITInc.user.name, m)
 
             }
             }
@@ -2131,7 +2131,7 @@ let drips = [
 { buttonId: 'antibule on', buttonText: { displayText: 'ON' }, type: 1 },
 { buttonId: 'antibule off', buttonText: { displayText: 'OFF' }, type: 1 }
 ]
-await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, BALOCHEDITInc.user.name, m)
 }
      }
              break
@@ -2154,7 +2154,7 @@ let drips = [
       { buttonId: 'antiwame on', buttonText: { displayText: 'ON' }, type: 1 },
       { buttonId: 'antiwame off', buttonText: { displayText: 'OFF' }, type: 1 }
   ]
-  await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+  await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, BALOCHEDITInc.user.name, m)
 }
                  }
              break
@@ -2175,7 +2175,7 @@ let drips = [
                  { buttonId: 'autoblock on', buttonText: { displayText: 'ON' }, type: 1 },
                  { buttonId: 'autoblock off', buttonText: { displayText: 'OFF' }, type: 1 }
              ]
-             await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+             await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, BALOCHEDITInc.user.name, m)
          }
                             }
                  break
@@ -2188,13 +2188,13 @@ let drips = [
              if (antiToxic) return m.reply('*Already activated*')
              dripsanti.push(from)
              m.reply('*Success turning on anti rude in this group*')
-             var group = await ZimBotInc.groupMetadata(from)
+             var group = await BALOCHEDITInc.groupMetadata(from)
              var members = group['participants']
              var mems = []
              members.map(async adm => {
              mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
              })
-             ZimBotInc.sendMessage(from, {text: `*▊▊▊ANTILINK RUDE▊▊▊*\n\n*no hate speech anymore, watch space im going to kick dumps*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+             BALOCHEDITInc.sendMessage(from, {text: `*▊▊▊ANTILINK RUDE▊▊▊*\n\n*no hate speech anymore, watch space im going to kick dumps*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
              } else if (args[0] === "off") {
              if (!antiToxic) return m.reply('*Already deactivated*')
              let off = dripsanti.indexOf(from)
@@ -2205,7 +2205,7 @@ let drips = [
                { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
                { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
                ]
-               await ZimBotInc.sendButtonText(m.chat, buttons, `*▊▊▊ANTILINK BADWORDS▊▊▊*\n\n.`, `${global.botname}`, m)
+               await BALOCHEDITInc.sendButtonText(m.chat, buttons, `*▊▊▊ANTILINK BADWORDS▊▊▊*\n\n.`, `${global.botname}`, m)
                }
                }
                break
@@ -2217,13 +2217,13 @@ let drips = [
              if (isWelcome) return m.reply('*Already activated*')
              dripswelcome.push(from)
              m.reply('*Success turning on anti rude in this group*')
-             var group = await ZimBotInc.groupMetadata(from)
+             var group = await BALOCHEDITInc.groupMetadata(from)
              var members = group['participants']
              var mems = []
              members.map(async adm => {
              mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
              })
-             ZimBotInc.sendMessage(from, {text: `*▊▊▊▊▊▊*\n\n**`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+             BALOCHEDITInc.sendMessage(from, {text: `*▊▊▊▊▊▊*\n\n**`, contextInfo: { mentionedJid : mems }}, {quoted:m})
              } else if (args[0] === "off") {
              if (!isWelcome) return m.reply('*Already deactivated*')
              let off = dripswelcome.indexOf(from)
@@ -2234,7 +2234,7 @@ let drips = [
                { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
                { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
                ]
-               await ZimBotInc.sendButtonText(m.chat, buttons, `*▊▊▊▊▊▊*\n\n.`, `${global.botname}`, m)
+               await BALOCHEDITInc.sendButtonText(m.chat, buttons, `*▊▊▊▊▊▊*\n\n.`, `${global.botname}`, m)
                }
                }*/
                break
@@ -2259,7 +2259,7 @@ if (isBan) throw mess.ban
                  { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
                  { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
              ]
-             await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+             await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, BALOCHEDITInc.user.name, m)
          }
                             }
              break
@@ -2283,7 +2283,7 @@ if (isBan) throw mess.ban
                         { buttonId: 'antilink on', buttonText: { displayText: 'ON' }, type: 1 },
                         { buttonId: 'antilink off', buttonText: { displayText: 'OFF' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+                    await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, BALOCHEDITInc.user.name, m)
                 }
              }
              break
@@ -2306,7 +2306,7 @@ if (isBan) throw mess.ban
                  { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
                  { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
              ]
-             await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+             await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, BALOCHEDITInc.user.name, m)
          }
                             }
                break
@@ -2329,7 +2329,7 @@ let drips = [
       { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
       { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
   ]
-  await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+  await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, BALOCHEDITInc.user.name, m)
 }
                  }
                break
@@ -2352,7 +2352,7 @@ let drips = [
           { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
           { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
       ]
-      await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+      await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, BALOCHEDITInc.user.name, m)
   }
                      }
                break
@@ -2375,7 +2375,7 @@ let drips = [
               { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
               { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
           ]
-          await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+          await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, BALOCHEDITInc.user.name, m)
       }
                          }
                break
@@ -2398,7 +2398,7 @@ let drips = [
                  { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
                  { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
              ]
-             await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+             await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, BALOCHEDITInc.user.name, m)
          }
                             }
                break
@@ -2418,7 +2418,7 @@ let drips = [
   { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
   { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
   ]
-  await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK VIEW▊▊▊*`, `${global.botname}`, m)
+  await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK VIEW▊▊▊*`, `${global.botname}`, m)
   }
   break
              case 'antitiktok': case 'aantitik': {
@@ -2440,7 +2440,7 @@ let drips = [
                          { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
                          { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
                      ]
-                     await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+                     await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, BALOCHEDITInc.user.name, m)
                  }
           }
                break
@@ -2463,7 +2463,7 @@ let drips = [
                            { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
                            { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
                        ]
-                       await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+                       await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, BALOCHEDITInc.user.name, m)
                    }
                 }
                break
@@ -2486,7 +2486,7 @@ let drips = [
                        { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
                        { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
                    ]
-                   await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+                   await BALOCHEDITInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, BALOCHEDITInc.user.name, m)
                }
                              }
                break
@@ -2500,13 +2500,13 @@ let drips = [
              antilinkall.push(m.chat)
              fs.writeFileSync('./database/antilinkall.json', JSON.stringify(antilinkall))
              m.reply('*Success  turning on all antilink in this group*')
-             var group = await ZimBotInc.groupMetadata(from)
+             var group = await BALOCHEDITInc.groupMetadata(from)
              var members = group['participants']
              var mems = []
              members.map(async adm => {
              mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
              })
-             ZimBotInc.sendMessage(m.chat, {text: `*▊▊▊ANTILINK ALL▊▊▊*\n*turned on dont play with links*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+             BALOCHEDITInc.sendMessage(m.chat, {text: `*▊▊▊ANTILINK ALL▊▊▊*\n*turned on dont play with links*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
              } else if (args[0] === "off") {
              if (!isAntiLinkAll) return m.reply('**Already deactivated**')
              let off = antilinkall.indexOf(m.chat)
@@ -2517,7 +2517,7 @@ let drips = [
                { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
                { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
                ]
-               await ZimBotInc.sendButtonText(m.chat, buttonsntilink, `*▊▊▊ANTILINK MODE▊▊▊*`, `${global.botname}`, m)
+               await BALOCHEDITInc.sendButtonText(m.chat, buttonsntilink, `*▊▊▊ANTILINK MODE▊▊▊*`, `${global.botname}`, m)
                }
                }
               */
@@ -2552,17 +2552,17 @@ let drips = [
                 if (args[0] === "on") {
                 if (db.data.chats[m.chat].mute) return m.reply(`*Already on okay*`)
                 db.data.chats[m.chat].mute = true
-                m.reply(`${ZimBotInc.user.name} *has been muted in this group!*`)
+                m.reply(`${BALOCHEDITInc.user.name} *has been muted in this group!*`)
                 } else if (args[0] === "off") {
                 if (!db.data.chats[m.chat].mute) return m.reply(`*Already off okay*`)
                 db.data.chats[m.chat].mute = false
-                m.reply(`${ZimBotInc.user.name} *has been unmuted in this group!*`)
+                m.reply(`${BALOCHEDITInc.user.name} *has been unmuted in this group!*`)
                 } else {
                  let buttons = [
                         { buttonId: 'mute on', buttonText: { displayText: 'ON' }, type: 1 },
                         { buttonId: 'mute off', buttonText: { displayText: 'OFF' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, `Mute Bot`, ZimBotInc.user.name, m)
+                    await BALOCHEDITInc.sendButtonText(m.chat, buttons, `Mute Bot`, BALOCHEDITInc.user.name, m)
                 }
              }
              break
@@ -2570,8 +2570,8 @@ let drips = [
             if (isBan) throw mess.ban
             //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 if (!m.isGroup) throw mess.group
-                let response = await ZimBotInc.groupInviteCode(m.chat)
-                ZimBotInc.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\n*Link Group* : ${groupMetadata.subject}`, m, { detectLink: true })
+                let response = await BALOCHEDITInc.groupInviteCode(m.chat)
+                BALOCHEDITInc.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\n*Link Group* : ${groupMetadata.subject}`, m, { detectLink: true })
             }
             break
             case 'ephemeral': {
@@ -2582,9 +2582,9 @@ let drips = [
                 if (!isAdmins) throw mess.admin
                 if (!text) throw '*Enter the enable/disable value*'
                 if (args[0] === 'enable') {
-                    await ZimBotInc.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL }).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                    await BALOCHEDITInc.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL }).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
                 } else if (args[0] === 'disable') {
-                    await ZimBotInc.sendMessage(m.chat, { disappearingMessagesInChat: false }).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                    await BALOCHEDITInc.sendMessage(m.chat, { disappearingMessagesInChat: false }).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
                 }
             }
             break
@@ -2594,13 +2594,13 @@ let drips = [
                 if (!m.quoted) throw false
                 let { chat, fromMe, id, isBaileys } = m.quoted
                 if (!isBaileys) throw '*The message was not sent by a bot!*'
-                ZimBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
+                BALOCHEDITInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
             }
             break
             case 'bcgc': case 'bcgroup': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw `*Type some text*\n\nExample : ${prefix + command} BALOCH-EDIT`
-                let getGroups = await ZimBotInc.groupFetchAllParticipating()
+                let getGroups = await BALOCHEDITInc.groupFetchAllParticipating()
                 let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
                 let anu = groups.map(v => v.id)
                 m.reply(`*Send Broadcast To* ${anu.length} *Group Chat, Time ${anu.length * 1.5} second*`)
@@ -2613,7 +2613,7 @@ let drips = [
           }
                             }]
                       let txt = `「 *کانال بزرگ بلوچ ادیت* 」\n\n${text}`
-                      ZimBotInc.send5ButImg(i, txt, botname, global.bc, btn)
+                      BALOCHEDITInc.send5ButImg(i, txt, botname, global.bc, btn)
                     }
                 m.reply(` *Send Broadcast To* ${anu.length} *Group*`)
             }
@@ -2632,7 +2632,7 @@ let drips = [
           }
                             }]
                       let txt = `「 *🥀کانال بزرگ بلوچ ادیت😈* 」\n\n${text}`
-                      ZimBotInc.send5ButImg(yoi, txt, botname, global.bc, btn)
+                      BALOCHEDITInc.send5ButImg(yoi, txt, botname, global.bc, btn)
 		}
 		m.reply('*Success Broadcast*')
             }
@@ -2646,7 +2646,7 @@ case 'bc2': case 'bcloc': {
 	     	for (let yoi of anu) {
 	     	await sleep(1500)
 		    var button = [{ buttonId: `${prefix}ho`, buttonText: { displayText: `${melo2}` }, type: 1 }]              
-            ZimBotInc.sendMessage(yoi, { caption: `${melo}`, location: { jpegThumbnail: await getBuffer(picak+'Brodcast') }, buttons: button, footer: `${botname}`, mentions: [m.sender] })
+            BALOCHEDITInc.sendMessage(yoi, { caption: `${melo}`, location: { jpegThumbnail: await getBuffer(picak+'Brodcast') }, buttons: button, footer: `${botname}`, mentions: [m.sender] })
 		}		
             }
             break
@@ -2670,18 +2670,18 @@ case 'bcimage': case 'bcvideo': case 'bcaudio': {
                   id: 'menu'
           }
                             }]
-                    let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
+                    let media = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted)
                     let buffer = fs.readFileSync(media)
                     if (/webp/.test(mime)) {
-                    ZimBotInc.sendMessage(i, { sticker: { url: media } }, { quoted: ftroli })
+                    BALOCHEDITInc.sendMessage(i, { sticker: { url: media } }, { quoted: ftroli })
                     } else if (/image/.test(mime)) {
                     let junn = `*_BROADCAST IMAGE_*${text ? '\n\n' + text : ''}`
-                    ZimBotInc.send5ButImg(i, junn, `${global.botname}`, buffer, butoon)
+                    BALOCHEDITInc.send5ButImg(i, junn, `${global.botname}`, buffer, butoon)
                     } else if (/video/.test(mime)) {
                     let junn = `*_BROADCAST VIDIO_*${text ? '\n\n' + text : ''}`
-                    ZimBotInc.sendMessage(i, {video: buffer, caption: `${junn}`}, { quoted: ftroli })
+                    BALOCHEDITInc.sendMessage(i, {video: buffer, caption: `${junn}`}, { quoted: ftroli })
                     } else if (/audio/.test(mime)) {
-                    ZimBotInc.sendMessage(i, {audio: buffer, mimetype: 'audio/mpeg'}, { quoted : ftroli })
+                    BALOCHEDITInc.sendMessage(i, {audio: buffer, mimetype: 'audio/mpeg'}, { quoted : ftroli })
                     } else {
                     m.reply(`*Send/Reply Video/Audio/Image You Want to Broadcast With Caption* ${prefix + command}`)
                     }
@@ -2694,12 +2694,12 @@ case 'bctext': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw `*Type some text*\n\nExample : ${prefix + command} zim-ot`
                 //let ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 666666666,status: 200, thumbnail: await getBuffer(picak+'Brodcast'), surface: 200, message: `© ${botname}`, orderTitle: 'memek', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
-                let ftroli = {key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `6283136505591-1614953337@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `© ${botname}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ZimBotInc.user.name},;;;\nFN:${botname},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': await getBuffer(picak+'Brodcast'), thumbnail: await getBuffer(picak+'Brodcast'),sendEphemeral: true}}}
+                let ftroli = {key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `6283136505591-1614953337@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `© ${botname}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${BALOCHEDITInc.user.name},;;;\nFN:${botname},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': await getBuffer(picak+'Brodcast'), thumbnail: await getBuffer(picak+'Brodcast'),sendEphemeral: true}}}
                 let anu = await store.chats.all().map(v => v.id)
                 m.reply(`*Send Broadcast To* ${anu.length} Chat\n*Time ${anu.length * 1.5} seconds*`)
 		for (let yoi of anu) {
 		    await sleep(1500)
-		    ZimBotInc.sendMessage(yoi, {text:`${text}`}, {quoted:ftroli})
+		    BALOCHEDITInc.sendMessage(yoi, {text:`${text}`}, {quoted:ftroli})
 		}
 		m.reply('*Success Broadcast*')
             }
@@ -2713,7 +2713,7 @@ case 'bcvid': case 'bcvideo': {
                 m.reply(`*Send Broadcast To* ${anu.length} Chat\n*Time ${anu.length * 1.5} minute*`)
 		    for (let yoi of anu) {
 		    await sleep(1500)		    
-		    ZimBotInc.sendMessage(yoi, { video: await getBuffer(buf), jpegThumbnail: await getBuffer(picak+'Brodcast'), caption: `${text}` }, { quoted: ftroli}).catch ((err) => m.reply('*Sorry, failed to send the video*'))
+		    BALOCHEDITInc.sendMessage(yoi, { video: await getBuffer(buf), jpegThumbnail: await getBuffer(picak+'Brodcast'), caption: `${text}` }, { quoted: ftroli}).catch ((err) => m.reply('*Sorry, failed to send the video*'))
 		}
 		m.reply('*Sucecess Broadcast*')
             }
@@ -2732,7 +2732,7 @@ case 'bcvid': case 'bcvideo': {
                     teks += `> @${i.userJid.split('@')[0]}\n`
                     teks += ` ┗━> *TIME :* ${moment(waktu * 1000).format('DD/MM/YY HH:mm:ss')} > *STATUS :* ${read ? 'READ' : 'SENT'}\n\n`
                 }
-                ZimBotInc.sendTextWithMentions(m.chat, teks, m)
+                BALOCHEDITInc.sendTextWithMentions(m.chat, teks, m)
             }
             break
             case 'q': case 'quoted': {
@@ -2743,7 +2743,7 @@ case 'bcvid': case 'bcvideo': {
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
-		let wokwol = await ZimBotInc.serializeM(await m.getQuotedObj())
+		let wokwol = await BALOCHEDITInc.serializeM(await m.getQuotedObj())
 		if (!wokwol.quoted) return m.reply('*The message you replied to does not contain a reply*')
 		await wokwol.quoted.copyNForward(m.chat, true)
             }
@@ -2757,7 +2757,7 @@ case 'bcvid': case 'bcvideo': {
                      let nama = store.messages[i].array[0].pushName
                      teks += `⬡ *NAME :* ${nama}\n⬡ *USER :* @${i.split('@')[0]}\n⬡ *CHAT :* https://wa.me/${i.split('@')[0]}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\n`
                  }
-                 ZimBotInc.sendTextWithMentions(m.chat, teks, m)
+                 BALOCHEDITInc.sendTextWithMentions(m.chat, teks, m)
              }
              break
                 case 'listgc': {
@@ -2766,10 +2766,10 @@ case 'bcvid': case 'bcvideo': {
                  let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
                  let teks = `⬣ *LIST GROUP CHAT*\n\nTotal Group : ${anu.length} Group\n\n`
                  for (let i of anu) {
-                     let metadata = await ZimBotInc.groupMetadata(i)
+                     let metadata = await BALOCHEDITInc.groupMetadata(i)
                      teks += `⬡ *NAME :* ${metadata.subject}\n⬡ *OWNER :* @${metadata.owner.split('@')[0]}\n⬡ *ID :* ${metadata.id}\n⬡ *CREATED :* ${moment(metadata.creation * 1000).tz('Africa/Harare').format('DD/MM/YYYY HH:mm:ss')}\n⬡ *MEMBER :* ${metadata.participants.length}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\n`
                  }
-                 ZimBotInc.sendTextWithMentions(m.chat, teks, m)
+                 BALOCHEDITInc.sendTextWithMentions(m.chat, teks, m)
              }
              break
              case 'listonline': case 'liston': {
@@ -2777,7 +2777,7 @@ case 'bcvid': case 'bcvideo': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                     let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
                     let online = [...Object.keys(store.presences[id]), botNumber]
-                    ZimBotInc.sendText(m.chat, '*LIST ONLINE*:\n\n' + online.map(v => '> @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
+                    BALOCHEDITInc.sendText(m.chat, '*LIST ONLINE*:\n\n' + online.map(v => '> @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
             break
             case 'stickerly': {
@@ -2802,12 +2802,12 @@ if (isBan) throw mess.ban
              if (!quoted) throw `*Reply Video/Image With Caption* ${prefix + command}`
                 if (/image/.test(mime)) {
                 let media = await quoted.download()
-                let encmedia = await ZimBotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+                let encmedia = await BALOCHEDITInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
                 await fs.unlinkSync(encmedia)
             } else if (/video/.test(mime)) {
                 if ((quoted.msg || quoted).seconds > 11) return m.reply('*Maximum 10 seconds!*')
                 let media = await quoted.download()
-                let encmedia = await ZimBotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+                let encmedia = await BALOCHEDITInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
                 await fs.unlinkSync(encmedia)
             } else {
                 throw `*Send Image/Video With Caption ${prefix + command}\nDuration 1-9 Seconds*`
@@ -2827,16 +2827,16 @@ const pcknm = swn.split("|")[0];
 const atnm = swn.split("|")[1];
 if (!/webp/.test(mime)) throw `*reply sticker with caption* *${prefix + command}*`
 if (m.quoted.isAnimated === true) {
-ZimBotInc.downloadAndSaveMediaMessage(quoted, "gifee")
-ZimBotInc.sendMessage(m.chat, {sticker:fs.readFileSync("gifee.webp")},{quoted:m})
+BALOCHEDITInc.downloadAndSaveMediaMessage(quoted, "gifee")
+BALOCHEDITInc.sendMessage(m.chat, {sticker:fs.readFileSync("gifee.webp")},{quoted:m})
 } else if (/image/.test(mime)) {
 let media = await quoted.download()
-let encmedia = await ZimBotInc.sendImageAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
+let encmedia = await BALOCHEDITInc.sendImageAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
 await fs.unlinkSync(encmedia)
 } else if (/video/.test(mime)) {
 if ((quoted.msg || quoted).seconds > 11) return m.reply('Maksimal 10 detik!')
 let media = await quoted.download()
-let encmedia = await ZimBotInc.sendVideoAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
+let encmedia = await BALOCHEDITInc.sendVideoAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
 await fs.unlinkSync(encmedia)
 } else {
 m.reply(`*Send Image/Video With Caption* ${prefix + command}\n*Duration Video 1-9 seconds*`)
@@ -2850,7 +2850,7 @@ if (isBan) throw mess.ban
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
-           await ZimBotInc.sendMedia(m.chat, `https://cililitan.herokuapp.com/api/attp?teks=${text}`, 'ZIM', 'BOT M D', m, {asSticker: true}).catch((err) => m.reply('*error while sending sticker*'))
+           await BALOCHEDITInc.sendMedia(m.chat, `https://cililitan.herokuapp.com/api/attp?teks=${text}`, 'ZIM', 'BOT M D', m, {asSticker: true}).catch((err) => m.reply('*error while sending sticker*'))
          }
          break
 case 'attp4': {
@@ -2860,7 +2860,7 @@ if (isBan) throw mess.ban
            if (isLimit < 1) return m.reply(mess.endLimit)
            kurangLimit(m.sender, 1)
            m.reply(`*1 limit used*`)
-           await ZimBotInc.sendMedia(m.chat, `https://api.xteam.xyz/attp?file&teks=${text}`, 'ZIM', 'BOT M D', m, {asSticker: true}).catch((err) => m.reply('*error while sending sticker*'))
+           await BALOCHEDITInc.sendMedia(m.chat, `https://api.xteam.xyz/attp?file&teks=${text}`, 'ZIM', 'BOT M D', m, {asSticker: true}).catch((err) => m.reply('*error while sending sticker*'))
                      }
                      break
 case 'ttp1': {
@@ -2870,13 +2870,13 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
-ZimBotInc.sendMessage(m.chat, { sticker : { url : `https://cililitan.herokuapp.com/api/texttopng?teks=${text}`}, quoted: m }).catch((err) => m.reply('*error while sending sticker*'))
+BALOCHEDITInc.sendMessage(m.chat, { sticker : { url : `https://cililitan.herokuapp.com/api/texttopng?teks=${text}`}, quoted: m }).catch((err) => m.reply('*error while sending sticker*'))
 } 
 break
 case 'ttp2': {
 if (isBan) throw mess.ban
            if (!text) throw `Example : ${prefix + command} text`
-           await ZimBotInc.sendMedia(m.chat, `https://cililitan.herokuapp.com/api/texttopng2?teks=${text}`, 'A L Y A', 'B O T M D', m, {asSticker: true})
+           await BALOCHEDITInc.sendMedia(m.chat, `https://cililitan.herokuapp.com/api/texttopng2?teks=${text}`, 'A L Y A', 'B O T M D', m, {asSticker: true})
          }
 break
 
@@ -2910,7 +2910,7 @@ break
 		let [emoji1, emoji2] = text.split`+`
 		let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
 		for (let res of anu.results) {
-		    let encmedia = await ZimBotInc.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })
+		    let encmedia = await BALOCHEDITInc.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })
 		    await fs.unlinkSync(encmedia)
 		}
 	    }
@@ -2920,7 +2920,7 @@ break
 	    if (!text) throw `Example : ${prefix + command} 😅`
 		let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(text)}`)
 		for (let res of anu.results) {
-		    let encmedia = await ZimBotInc.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })
+		    let encmedia = await BALOCHEDITInc.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })
 		    await fs.unlinkSync(encmedia)
 		}
 	    }
@@ -2934,7 +2934,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)   
                 anu = await fetchJson(`https://api.lolhuman.xyz/api/smoji3/${encodeURIComponent(text)}?apikey=${setting.lolkey}`)                
-                ZimBotInc.sendImageAsSticker(m.chat, anu.result.emoji.whatsapp, m, { packname: global.packname, author: global.author }).catch((err) => m.reply(jsonformat('*Sorry there was an error*')))               
+                BALOCHEDITInc.sendImageAsSticker(m.chat, anu.result.emoji.whatsapp, m, { packname: global.packname, author: global.author }).catch((err) => m.reply(jsonformat('*Sorry there was an error*')))               
                       }
                   break
 	       case 'smeme': case 'stickmeme': case 'stikmeme': case 'stickermeme': case 'stikermeme': {
@@ -2953,7 +2953,7 @@ if (isBan) throw mess.ban
 	        let { floNime } = require('./lib/uploader')
 	        let fatGans = await floNime(dwnld)
 	        let smeme = `https://api.memegen.link/images/custom/${encodeURIComponent(atas)}/${encodeURIComponent(bawah)}.png?background=${fatGans.result.url}`
-	        let FaTiH = await ZimBotInc.sendImageAsSticker(m.chat, smeme, m, { packname: global.packname, author: global.auhor })
+	        let FaTiH = await BALOCHEDITInc.sendImageAsSticker(m.chat, smeme, m, { packname: global.packname, author: global.auhor })
 	        await fs.unlinkSync(FaTiH)
             }
 	       break     
@@ -2963,13 +2963,13 @@ if (isBan) throw mess.ban
                 if (!quoted) throw 'Reply Image'
                 if (!/webp/.test(mime)) throw `*reply sticker with caption* *${prefix + command}*`
                 m.reply(mess.wait)
-                let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
+                let media = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted)
                 let ran = await getRandom('.png')
                 exec(`ffmpeg -i ${media} ${ran}`, (err) => {
                     fs.unlinkSync(media)
                     if (err) throw err
                     let buffer = fs.readFileSync(ran)                    
-                    ZimBotInc.sendMessage(m.chat, { image: buffer, jpegThumbnail:buffer, caption: `*Sticker Toimg By ${botname}*` }, { quoted: m }).catch((err) => m.reply('*Sorry An error occurred*'))
+                    BALOCHEDITInc.sendMessage(m.chat, { image: buffer, jpegThumbnail:buffer, caption: `*Sticker Toimg By ${botname}*` }, { quoted: m }).catch((err) => m.reply('*Sorry An error occurred*'))
                     fs.unlinkSync(ran)
                 })
             }
@@ -2984,7 +2984,7 @@ if (isBan) throw mess.ban
             m.reply(`*1 limit used*`)  
             anu = await fetchJson(`https://shot.screenshotapi.net/screenshot?&url=${text}`)                 
             buf = await getBuffer(anu.screenshot)   
-                ZimBotInc.sendMessage(m.chat, { image: { url: anu.screenshot }, jpegThumbnail:buf, caption: `*${command} From ${text}*` }, { quoted: m }).catch((err) => m.reply(jsonformat('*error*')))
+                BALOCHEDITInc.sendMessage(m.chat, { image: { url: anu.screenshot }, jpegThumbnail:buf, caption: `*${command} From ${text}*` }, { quoted: m }).catch((err) => m.reply(jsonformat('*error*')))
             }
             break
 case 'simisimi': case 'simi': {
@@ -3005,9 +3005,9 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)               
 		let { webp2mp4File } = require('./lib/uploader')
-                let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
+                let media = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted)
                 let webpToMp4 = await webp2mp4File(media)
-                await ZimBotInc.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' } }, { quoted: m })
+                await BALOCHEDITInc.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' } }, { quoted: m })
                 await fs.unlinkSync(media)
             }
             break
@@ -3023,7 +3023,7 @@ if (isBan) throw mess.ban
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
             let audio = await toAudio(media, 'mp4')
-            ZimBotInc.sendMessage(m.chat, {audio: audio, mimetype: 'audio/mpeg'}, { quoted : m })
+            BALOCHEDITInc.sendMessage(m.chat, {audio: audio, mimetype: 'audio/mpeg'}, { quoted : m })
             }
             break
             case 'tomp3': {
@@ -3039,7 +3039,7 @@ if (isBan) throw mess.ban
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
             let audio = await toAudio(media, 'mp4')
-            ZimBotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Convert By ${ZimBotInc.user.name}.mp3`}, { quoted : m })
+            BALOCHEDITInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Convert By ${BALOCHEDITInc.user.name}.mp3`}, { quoted : m })
             }
             break
             case 'tovn': case 'toptt': {
@@ -3051,7 +3051,7 @@ if (isBan) throw mess.ban
             let media = await quoted.download()
             let { toPTT } = require('./lib/converter')
             let audio = await toPTT(media, 'mp4')
-            ZimBotInc.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+            BALOCHEDITInc.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
             }
             break
             case 'togif': {
@@ -3064,9 +3064,9 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 		   let { webp2mp4File } = require('./lib/uploader')
-                let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
+                let media = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted)
                 let webpToMp4 = await webp2mp4File(media)
-                await ZimBotInc.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' }, gifPlayback: true }, { quoted: m })
+                await BALOCHEDITInc.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' }, gifPlayback: true }, { quoted: m })
                 await fs.unlinkSync(media)
             }
             break
@@ -3076,7 +3076,7 @@ if (isBan) throw mess.ban
 	        if (!/image/.test(mime) && !/video/.test(mime)) throw `*Send/Reply Image/video With Caption* ${prefix + command}`                
 	    	let { UploadFileUgu, webp2mp4File, floNime, TelegraPh } = require('./lib/uploader')
 	     	m.reply(mess.wait)
-                let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
+                let media = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted)
                 if (/image/.test(mime)) {
                     let anu = await TelegraPh(media)
                     m.reply(util.format(anu))
@@ -3101,7 +3101,7 @@ if (isBan) throw mess.ban
 	    let apirnobg = ['q61faXzzR5zNU6cvcrwtUkRU','S258diZhcuFJooAtHTaPEn4T','5LjfCVAp4vVNYiTjq9mXJWHF','aT7ibfUsGSwFyjaPZ9eoJc61','BY63t7Vx2tS68YZFY6AJ4HHF','5Gdq1sSWSeyZzPMHqz7ENfi8','86h6d6u4AXrst4BVMD9dzdGZ','xp8pSDavAgfE5XScqXo9UKHF','dWbCoCb3TacCP93imNEcPxcL']
 	    let apinobg = apirnobg[Math.floor(Math.random() * apirnobg.length)]
 	    hmm = await './src/remobg-'+getRandom('')
-	    localFile = await ZimBotInc.downloadAndSaveMediaMessage(quoted, hmm)
+	    localFile = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted, hmm)
 	    outputFile = await './src/hremo-'+getRandom('.png')
 	    remobg.removeBackgroundFromImageFile({
 	      path: localFile,
@@ -3111,7 +3111,7 @@ if (isBan) throw mess.ban
 	      scale: "100%",
 	      outputFile 
 	    }).then(async result => {
-	    ZimBotInc.sendMessage(m.chat, {image: fs.readFileSync(outputFile), caption: mess.success}, { quoted : m })
+	    BALOCHEDITInc.sendMessage(m.chat, {image: fs.readFileSync(outputFile), caption: mess.success}, { quoted : m })
 	    await fs.unlinkSync(localFile)
 	    await fs.unlinkSync(outputFile)
 	    })
@@ -3130,7 +3130,7 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 yah = await getBuffer(`https://xteam.xyz/magernulis3?text=${text}&APIKEY=${setting.riy}`)
-ZimBotInc.sendMessage(m.chat, { image: yah }, { quoted: m }).catch((err) => m.reply('*Failed in writing*'))
+BALOCHEDITInc.sendMessage(m.chat, { image: yah }, { quoted: m }).catch((err) => m.reply('*Failed in writing*'))
 }
 break
 case 'magernulis': {            
@@ -3142,7 +3142,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 		buf = await getBuffer(`https://xteam.xyz/magernulis?nama=${tes1}&kelas=${tes2}&text=${text}&APIKEY=${setting.riy}`)
-		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `BALOCH EDIT` }, { quoted: m }).catch((err) => m.reply('*Sorry Failed In Writing*')) 
+		BALOCHEDITInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `BALOCH EDIT` }, { quoted: m }).catch((err) => m.reply('*Sorry Failed In Writing*')) 
 	    }
 	    break
 case 'magernulis2': {            
@@ -3154,7 +3154,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 		buf = await getBuffer(`https://xteam.xyz/magernulis2?text=${text}&APIKEY=${setting.riy}`)
-		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `BALOCH EDIT` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
+		BALOCHEDITInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `BALOCH EDIT` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
 	    }
 	    break
 case 'magernulis3': {            
@@ -3166,7 +3166,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 		buf = await getBuffer(`https://xteam.xyz/magernulis3?text=${text}&APIKEY=${setting.riy}`)
-		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `BALOCH EDIT` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
+		BALOCHEDITInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `BALOCH EDIT` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
 	    }
 	    break
 case 'magernulis4': {            
@@ -3178,7 +3178,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 		buf = await getBuffer(`https://xteam.xyz/magernulis4?text=${text}&APIKEY=${setting.riy}`)
-		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `BALOCH EDIT` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
+		BALOCHEDITInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `BALOCH EDIT` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
 	    }
 	    break
 case 'magernulis5': {            
@@ -3190,7 +3190,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 		buf = await getBuffer(`https://xteam.xyz/magernulis5?text=${text}&APIKEY=${setting.riy}`)
-		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `BALOCH EDIT` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
+		BALOCHEDITInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `BALOCH EDIT` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
 	    }
 	    break
 case 'magernulis6': {            
@@ -3202,20 +3202,20 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 		buf = await getBuffer(`https://xteam.xyz/magernulis6?text=${text}&APIKEY=${setting.riy}`)
-		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `BALOCH EDIT` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
+		BALOCHEDITInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `BALOCH EDIT` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
 	    }
 	    break
 
-//search cmds by zimbot
+//search cmds by BALOCHEDIT
 
-case 'yts': case 'ytsearch': case 'youtubesearch': const _0x244632=_0x2493;(function(_0x42e7e3,_0x26c668){const _0x3abfea=_0x2493,_0x4da3ee=_0x42e7e3();while(!![]){try{const _0xec78a2=-parseInt(_0x3abfea(0x17b))/0x1+-parseInt(_0x3abfea(0x180))/0x2*(-parseInt(_0x3abfea(0x17f))/0x3)+-parseInt(_0x3abfea(0x18b))/0x4*(-parseInt(_0x3abfea(0x165))/0x5)+parseInt(_0x3abfea(0x173))/0x6+-parseInt(_0x3abfea(0x171))/0x7+parseInt(_0x3abfea(0x166))/0x8*(-parseInt(_0x3abfea(0x16f))/0x9)+parseInt(_0x3abfea(0x17d))/0xa*(-parseInt(_0x3abfea(0x178))/0xb);if(_0xec78a2===_0x26c668)break;else _0x4da3ee['push'](_0x4da3ee['shift']());}catch(_0x4ab77b){_0x4da3ee['push'](_0x4da3ee['shift']());}}}(_0x56cc,0x7bb74));function _0x56cc(){const _0x124eb9=['description','36Wlgwfz','122788qdRqlm','\x0a*UPLOAD:*\x20','timestamp','\x20The\x20title\x20of\x20the\x20song\x20you\x20are\x20looking\x20for*','ytmp4\x20','yt-search','▊▊▊YT\x20SEARCH▊▊▊','result:\x20url\x20','\x0a*LINK:*\x20','\x0a*DURATION*\x20','ban','4436uTnxYb','*Example\x20:\x20','mimetype:\x20video/mp4\x20','title','push','3850jVGKsb','8OlfmOa','linkok\x20','sendMessage','VIDEO\x20MP4⬤:','mimetype:\x20audio/mp3\x20','url','\x0a*CHANNEL:*\x20','ytmp3\x20','ago','3680244YcUhko','author','961709ryZPhz','chat','553926TdzmkP','SONG\x20MP3⬤:','all','\x20You\x20can\x20select\x20audio\x20and\x20video\x20media\x20below*','YOUTUBE\x20SEARCH\x20RESULTS','5834103hwgrIN','\x0a*VIEWS:*\x20','views','99563UadJLi','name','10LXMluy'];_0x56cc=function(){return _0x124eb9;};return _0x56cc();}function _0x2493(_0x75d29c,_0x82bebc){const _0x56cc0e=_0x56cc();return _0x2493=function(_0x2493d3,_0xf39622){_0x2493d3=_0x2493d3-0x165;let _0x1347bc=_0x56cc0e[_0x2493d3];return _0x1347bc;},_0x2493(_0x75d29c,_0x82bebc);}{if(isBan)throw mess[_0x244632(0x18a)];if(!text)throw _0x244632(0x18c)+(prefix+command)+_0x244632(0x183);let yts=require(_0x244632(0x185)),search=await yts(text),no=0x1,sections=[];for(let i of search[_0x244632(0x175)]){const list={'title':''+i[_0x244632(0x18e)],'rows':[{'title':_0x244632(0x174),'rowId':prefix+_0x244632(0x16d)+i[_0x244632(0x16b)],'description':_0x244632(0x16a)+i[_0x244632(0x17e)]+_0x244632(0x181)+i['ago']+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+_0x244632(0x188)+i['url']},{'title':_0x244632(0x169),'rowId':prefix+_0x244632(0x184)+i[_0x244632(0x16b)],'description':_0x244632(0x18d)+i[_0x244632(0x17e)]+'\x0a*UPLOAD:*\x20'+i[_0x244632(0x16e)]+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+_0x244632(0x188)+i[_0x244632(0x16b)]},{'title':'SOURCE\x20LINK','rowId':prefix+_0x244632(0x167)+i[_0x244632(0x16b)],'description':_0x244632(0x187)+i[_0x244632(0x17e)]+_0x244632(0x181)+i[_0x244632(0x16e)]+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+'\x0a*LINK:*\x20'+i[_0x244632(0x16b)]}]};sections[_0x244632(0x18f)](list);}const sendm=ZimBotInc[_0x244632(0x168)](m[_0x244632(0x172)],{'text':'*Here\x20are\x20the\x20youtube\x20search\x20results\x20from\x20'+text+_0x244632(0x176),'footer':'©\x20ZIM\x20BOT\x20INC\x202022','title':_0x244632(0x186),'buttonText':_0x244632(0x177),'sections':sections},{'quoted':m});}
+case 'yts': case 'ytsearch': case 'youtubesearch': const _0x244632=_0x2493;(function(_0x42e7e3,_0x26c668){const _0x3abfea=_0x2493,_0x4da3ee=_0x42e7e3();while(!![]){try{const _0xec78a2=-parseInt(_0x3abfea(0x17b))/0x1+-parseInt(_0x3abfea(0x180))/0x2*(-parseInt(_0x3abfea(0x17f))/0x3)+-parseInt(_0x3abfea(0x18b))/0x4*(-parseInt(_0x3abfea(0x165))/0x5)+parseInt(_0x3abfea(0x173))/0x6+-parseInt(_0x3abfea(0x171))/0x7+parseInt(_0x3abfea(0x166))/0x8*(-parseInt(_0x3abfea(0x16f))/0x9)+parseInt(_0x3abfea(0x17d))/0xa*(-parseInt(_0x3abfea(0x178))/0xb);if(_0xec78a2===_0x26c668)break;else _0x4da3ee['push'](_0x4da3ee['shift']());}catch(_0x4ab77b){_0x4da3ee['push'](_0x4da3ee['shift']());}}}(_0x56cc,0x7bb74));function _0x56cc(){const _0x124eb9=['description','36Wlgwfz','122788qdRqlm','\x0a*UPLOAD:*\x20','timestamp','\x20The\x20title\x20of\x20the\x20song\x20you\x20are\x20looking\x20for*','ytmp4\x20','yt-search','▊▊▊YT\x20SEARCH▊▊▊','result:\x20url\x20','\x0a*LINK:*\x20','\x0a*DURATION*\x20','ban','4436uTnxYb','*Example\x20:\x20','mimetype:\x20video/mp4\x20','title','push','3850jVGKsb','8OlfmOa','linkok\x20','sendMessage','VIDEO\x20MP4⬤:','mimetype:\x20audio/mp3\x20','url','\x0a*CHANNEL:*\x20','ytmp3\x20','ago','3680244YcUhko','author','961709ryZPhz','chat','553926TdzmkP','SONG\x20MP3⬤:','all','\x20You\x20can\x20select\x20audio\x20and\x20video\x20media\x20below*','YOUTUBE\x20SEARCH\x20RESULTS','5834103hwgrIN','\x0a*VIEWS:*\x20','views','99563UadJLi','name','10LXMluy'];_0x56cc=function(){return _0x124eb9;};return _0x56cc();}function _0x2493(_0x75d29c,_0x82bebc){const _0x56cc0e=_0x56cc();return _0x2493=function(_0x2493d3,_0xf39622){_0x2493d3=_0x2493d3-0x165;let _0x1347bc=_0x56cc0e[_0x2493d3];return _0x1347bc;},_0x2493(_0x75d29c,_0x82bebc);}{if(isBan)throw mess[_0x244632(0x18a)];if(!text)throw _0x244632(0x18c)+(prefix+command)+_0x244632(0x183);let yts=require(_0x244632(0x185)),search=await yts(text),no=0x1,sections=[];for(let i of search[_0x244632(0x175)]){const list={'title':''+i[_0x244632(0x18e)],'rows':[{'title':_0x244632(0x174),'rowId':prefix+_0x244632(0x16d)+i[_0x244632(0x16b)],'description':_0x244632(0x16a)+i[_0x244632(0x17e)]+_0x244632(0x181)+i['ago']+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+_0x244632(0x188)+i['url']},{'title':_0x244632(0x169),'rowId':prefix+_0x244632(0x184)+i[_0x244632(0x16b)],'description':_0x244632(0x18d)+i[_0x244632(0x17e)]+'\x0a*UPLOAD:*\x20'+i[_0x244632(0x16e)]+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+_0x244632(0x188)+i[_0x244632(0x16b)]},{'title':'SOURCE\x20LINK','rowId':prefix+_0x244632(0x167)+i[_0x244632(0x16b)],'description':_0x244632(0x187)+i[_0x244632(0x17e)]+_0x244632(0x181)+i[_0x244632(0x16e)]+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+'\x0a*LINK:*\x20'+i[_0x244632(0x16b)]}]};sections[_0x244632(0x18f)](list);}const sendm=BALOCHEDITInc[_0x244632(0x168)](m[_0x244632(0x172)],{'text':'*Here\x20are\x20the\x20youtube\x20search\x20results\x20from\x20'+text+_0x244632(0x176),'footer':'©\x20ZIM\x20BOT\x20INC\x202022','title':_0x244632(0x186),'buttonText':_0x244632(0x177),'sections':sections},{'quoted':m});}
                   break
                   case 'dare':
-                   function _0x8c50(_0x211d87,_0x2042b1){const _0x6e865d=_0x6e86();return _0x8c50=function(_0x8c500d,_0x14601b){_0x8c500d=_0x8c500d-0x159;let _0x3d59de=_0x6e865d[_0x8c500d];return _0x3d59de;},_0x8c50(_0x211d87,_0x2042b1);}const _0x3656de=_0x8c50;function _0x6e86(){const _0x2e05fa=['pop\x20to\x20a\x20group\x20member,\x20and\x20say\x20fuck\x20you','Bang\x20on\x20the\x20table\x20(which\x20is\x20at\x20home)\x20until\x20you\x20get\x20scolded\x20for\x20being\x20noisy','Let\x20the\x20group\x20choose\x20a\x20word\x20and\x20a\x20well\x20known\x20song.\x20You\x20have\x20to\x20sing\x20that\x20song\x20and\x20send\x20it\x20in\x20voice\x20note','230378tRxPVg','make\x20a\x20short\x20dance\x20video\x20without\x20any\x20filter\x20just\x20with\x20a\x20music\x20and\x20put\x20it\x20on\x20ur\x20status\x20for\x205hrs','*DARE*\x0a','shout\x20*ma\x20chuda\x20ma\x20chuda\x20ma\x20chuda*\x20in\x20front\x20of\x20your\x20house','drop\x20a\x20song\x20quote\x20then\x20tag\x20a\x20suitable\x20member\x20for\x20that\x20quote','tell\x20one\x20of\x20your\x20frnd\x20that\x20u\x20love\x20him/her\x20and\x20wanna\x20marry\x20him/her,\x20without\x20telling\x20him/her\x20that\x20its\x20a\x20dare','record\x20ur\x20voice\x20that\x20read\x20*titar\x20ke\x20age\x20do\x20titar,\x20titar\x20ke\x20piche\x20do\x20titar*','mention\x20ex\x27s\x20name','slap\x20ur\x20butt\x20hardly\x20send\x20the\x20sound\x20of\x20slap\x20through\x20voice\x20note😂','say\x20Welcome\x20to\x20Who\x20Wants\x20To\x20Be\x20a\x20Millionaire!\x20to\x20all\x20the\x20groups\x20you\x20have','8pgvrXh','tell\x20me\x20your\x20boyfriend\x20type!','shout\x20using\x20harsh\x20words\x20and\x20send\x20it\x20here\x20through\x20vn','chat\x20to\x20any\x20contact\x20in\x20whatsapp\x20and\x20say\x20i\x20will\x20be\x20ur\x20bf/gf\x20for\x205hours','Send\x20a\x20message\x20to\x20your\x20ex\x20and\x20say\x20I\x20still\x20like\x20you','change\x20the\x20name\x20to\x20*I\x20am\x20a\x20child\x20of\x20randi*\x20for\x205\x20hours','length','send\x20your\x20gf/bf\x20pic\x20here','1826408keWpoB','snap\x20your\x20face\x20then\x20send\x20it\x20here','Take\x20an\x20embarrassing\x20selfie\x20and\x20paste\x20it\x20on\x20your\x20profile\x20picture','Walk\x20on\x20your\x20elbows\x20and\x20knees\x20for\x20as\x20long\x20as\x20you\x20can','slap\x20urself\x20firmly\x20and\x20send\x20the\x20sound\x20of\x20slap\x20through\x20voice\x20note😂','write\x20i\x20am\x20lesbian\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20only\x20after\x205hrs','104hTcbZN','change\x20name\x20to\x20*I\x20AM\x20DONKEY*\x20for\x2024\x20hours','20fkKCEG','ss\x20recent\x20call\x20whatsapp','say\x20*i\x20hv\x20crush\x20on\x20you,\x20do\x20you\x20want\x20to\x20be\x20my\x20girlfriend?*\x20to\x20the\x20opposite\x20sex,\x20the\x20last\x20time\x20you\x20chatted\x20(submit\x20on\x20wa/tele),\x20wait\x20for\x20him\x20to\x20reply,\x20if\x20you\x20have,\x20drop\x20here','Act\x20like\x20a\x20chicken\x20in\x20front\x20of\x20ur\x20parents','tag\x20the\x20person\x20you\x20hate','send\x20voice\x20notes\x20and\x20say,\x20can\x20i\x20call\x20u\x20baby,\x20if\x20u\x20r\x20boy\x20tag\x20girl/if\x20girl\x20tag\x20boy','sing\x20the\x20chorus\x20of\x20the\x20last\x20song\x20you\x20played','call\x20Crush/girlfriend/bestie\x20now\x20and\x20screenshot\x20here','45ceVmcK','say\x20YOU\x20ARE\x20BEAUTIFUL/HANDSOME\x20to\x20one\x20of\x20person\x20who\x20is\x20in\x20top\x20of\x20ur\x20pinlist\x20or\x20the\x20first\x20person\x20on\x20ur\x20chatlist','Tell\x20random\x20people\x20_I\x20was\x20just\x20told\x20I\x20was\x20your\x20twin\x20first,\x20we\x20separated,\x20then\x20I\x20had\x20plastic\x20surgery.\x20And\x20this\x20is\x20the\x20most\x20ciyusss_\x20thing','say\x20i\x20love\x20oli\x20london\x20in\x20voice\x20note🤣🤣','say\x20i\x20love\x20the\x20bot\x20owner\x20drips\x20through\x20voice\x20note','1277247yeisPz','make\x20any\x20tiktok\x20dance\x20challenge\x20video\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20it\x20after\x205hrs','call\x20ex\x20saying\x20miss','Show\x20the\x20last\x20five\x20people\x20you\x20texted\x20and\x20what\x20the\x20messages\x20said','change\x20the\x20name\x20to\x20i\x20am\x20idiot\x20for\x2024\x20hours','send\x20abusive\x20words\x20in\x20any\x20grup,\x20excepting\x20this\x20grup,\x20and\x20send\x20screenshot\x20proof\x20here','Open\x20your\x20front\x20door\x20and\x20howl\x20like\x20a\x20wolf\x20for\x2010\x20seconds','call\x20crush/pickle\x20now\x20and\x20send\x20ss','2099328trppgY','Pretending\x20to\x20be\x20possessed,\x20for\x20example:\x20possessed\x20by\x20dog,\x20possessed\x20by\x20grasshoppers,\x20possessed\x20by\x20refrigerator,\x20etc.','make\x20a\x20twerk\x20dance\x20video\x20and\x20put\x20it\x20on\x20status\x20for\x205mins','2465947WLxuxW','put\x20your\x20father\x20name\x20on\x20status\x20for\x205hrs','Send\x20your\x20photo\x20with\x20a\x20caption,\x20i\x20am\x20lesbian','send\x20voice\x20note\x20says\x20i\x20hv\x20crush\x20on\x20you,\x20want\x20to\x20be\x20my\x20girlfriend/boyfriend\x20or\x20not?\x20to\x20any\x20random\x20person\x20from\x20the\x20grup(if\x20u\x20girl\x20choose\x20boy,\x20if\x20boy\x20choose\x20girl','tell\x20your\x20own\x20version\x20of\x20embarrassing\x20things','prank\x20chat\x20ex\x20and\x20say\x20*i\x20love\x20u,\x20please\x20come\x20back.*\x20without\x20saying\x20dare!','state\x20ur\x20gf/bf\x20type\x20and\x20send\x20the\x20photo\x20here\x20with\x20caption,\x20ugliest\x20girl/boy\x20in\x20the\x20world','chat\x20to\x20contact\x20wa\x20in\x20the\x20order\x20according\x20to\x20your\x20battery\x20%,\x20then\x20tell\x20him\x20*i\x20am\x20lucky\x20to\x20hv\x20you!*','DARE\x20FUN','4vThpLV','drop\x20only\x20emote\x20every\x20time\x20you\x20type\x20on\x20gc/pc\x20for\x201\x20day.','260gxUoJt','22344WFKKXV','write\x20i\x20am\x20feeling\x20horny\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20it\x20only\x20after\x205hrs','change\x20name\x20to\x20I\x20AM\x20GAY\x20for\x205\x20hours','send\x20ur\x20whatsapp\x20chat\x20list','put\x20your\x20full\x20name\x20on\x20status\x20for\x205hrs','697776KibxKA','Say\x20*YOU\x20ARE\x20SO\x20BEAUTIFUL\x20DON\x27T\x20LIE*\x20to\x20guys!','make\x201\x20rhyme\x20for\x20the\x20members!','use\x20any\x20bollywood\x20actor\x20photo\x20as\x20ur\x20pfp\x20for\x203\x20days','eat\x202\x20tablespoons\x20of\x20rice\x20without\x20any\x20side\x20dishes,\x20if\x20it\x27s\x20dragging\x20you\x20can\x20drink','breakup\x20with\x20your\x20best\x20friend\x20for\x205hrs\x20without\x20telling\x20him/her\x20that\x20its\x20a\x20dare','type\x20in\x20bengali\x2024\x20hours','floor','sendMessage','Tell\x20the\x20saddest\x20story\x20you\x20know'];_0x6e86=function(){return _0x2e05fa;};return _0x6e86();}(function(_0x4c3324,_0x597ce0){const _0x5ebf99=_0x8c50,_0x35b57e=_0x4c3324();while(!![]){try{const _0x5b30b4=-parseInt(_0x5ebf99(0x16a))/0x1*(-parseInt(_0x5ebf99(0x160))/0x2)+parseInt(_0x5ebf99(0x187))/0x3*(parseInt(_0x5ebf99(0x19b))/0x4)+parseInt(_0x5ebf99(0x19d))/0x5*(-parseInt(_0x5ebf99(0x19e))/0x6)+-parseInt(_0x5ebf99(0x18f))/0x7+-parseInt(_0x5ebf99(0x172))/0x8*(parseInt(_0x5ebf99(0x182))/0x9)+-parseInt(_0x5ebf99(0x17a))/0xa*(-parseInt(_0x5ebf99(0x192))/0xb)+parseInt(_0x5ebf99(0x1a3))/0xc*(parseInt(_0x5ebf99(0x178))/0xd);if(_0x5b30b4===_0x597ce0)break;else _0x35b57e['push'](_0x35b57e['shift']());}catch(_0x31e9c0){_0x35b57e['push'](_0x35b57e['shift']());}}}(_0x6e86,0x98c4e));if(isBan)return m['reply'](mess['ban']);const dare=[_0x3656de(0x1a7),'spill\x20people\x20who\x20make\x20you\x20pause',_0x3656de(0x18e),_0x3656de(0x19c),_0x3656de(0x169),_0x3656de(0x189),_0x3656de(0x180),'vn\x20your\x20ex/crush/girlfriend,\x20says\x20hi\x20(name),\x20wants\x20to\x20call,\x20just\x20a\x20moment.\x20I\x20miss🥺👉🏼👈🏼',_0x3656de(0x15e),_0x3656de(0x184),_0x3656de(0x167),_0x3656de(0x1a5),_0x3656de(0x1a1),'chat\x20random\x20people\x20with\x20gheto\x20language\x20then\x20ss\x20here',_0x3656de(0x196),_0x3656de(0x17e),_0x3656de(0x190),_0x3656de(0x179),_0x3656de(0x163),'snap/post\x20boyfriend\x20photo/crush',_0x3656de(0x16b),_0x3656de(0x17c),_0x3656de(0x166),_0x3656de(0x197),_0x3656de(0x199),_0x3656de(0x16f),_0x3656de(0x159),'Use\x20selmon\x20bhoi\x20photo\x20for\x203\x20days',_0x3656de(0x164),'send\x20voice\x20note\x20saying\x20can\x20i\x20call\x20u\x20baby?',_0x3656de(0x17b),_0x3656de(0x1a4),_0x3656de(0x15d),_0x3656de(0x17d),'Pick\x20up\x20a\x20random\x20book\x20and\x20read\x20one\x20page\x20out\x20loud\x20in\x20vn\x20n\x20send\x20it\x20here',_0x3656de(0x18d),_0x3656de(0x174),_0x3656de(0x15f),_0x3656de(0x175),'sing\x20national\x20anthem\x20in\x20voice\x20note','Breakdance\x20for\x2030\x20seconds\x20in\x20the\x20sitting\x20room😂',_0x3656de(0x15c),_0x3656de(0x191),'Eat\x20a\x20raw\x20piece\x20of\x20garlic',_0x3656de(0x18a),_0x3656de(0x1a2),_0x3656de(0x161),'call\x20ur\x20bestie,\x20bitch','put\x20your\x20photo\x20without\x20filter\x20on\x20ur\x20status\x20for\x2010mins',_0x3656de(0x185),_0x3656de(0x16e),_0x3656de(0x181),'pop\x20to\x20one\x20of\x20the\x20group\x20member\x20personal\x20chat\x20and\x20Say\x20you\x20ugly\x20bustard',_0x3656de(0x183),_0x3656de(0x17f),'write\x20i\x20love\x20you\x20(random\x20grup\x20member\x20name,\x20who\x20is\x20online)\x20in\x20personal\x20chat,\x20(if\x20u\x20r\x20boy\x20write\x20girl\x20name/if\x20girl\x20write\x20boy\x20name)\x20take\x20a\x20snap\x20of\x20the\x20pic\x20and\x20send\x20it\x20here',_0x3656de(0x1a6),'put\x20your\x20crush\x20photo\x20on\x20status\x20with\x20caption,\x20this\x20is\x20my\x20crush',_0x3656de(0x1a0),_0x3656de(0x16d),_0x3656de(0x195),_0x3656de(0x168),_0x3656de(0x198),'shout\x20bravooooooooo\x20and\x20send\x20here\x20through\x20voice\x20note',_0x3656de(0x173),_0x3656de(0x194),_0x3656de(0x16c),'shout\x20you\x20bastard\x20in\x20front\x20of\x20your\x20mom/papa',_0x3656de(0x18b),_0x3656de(0x176),_0x3656de(0x186),_0x3656de(0x171),_0x3656de(0x188),_0x3656de(0x1a8),_0x3656de(0x165),'say\x20i\x20love\x20depak\x20kalal\x20through\x20voice\x20note',_0x3656de(0x19f),_0x3656de(0x177),'kiss\x20your\x20mommy\x20or\x20papa\x20and\x20say\x20i\x20love\x20you😌',_0x3656de(0x193),_0x3656de(0x18c)],dripsdare=dare[Math[_0x3656de(0x15a)](Math['random']()*dare[_0x3656de(0x170)])];buffer=await getBuffer(picak+_0x3656de(0x19a)),ZimBotInc[_0x3656de(0x15b)](from,{'image':buffer,'caption':_0x3656de(0x162)+dripsdare},{'quoted':m});
+                   function _0x8c50(_0x211d87,_0x2042b1){const _0x6e865d=_0x6e86();return _0x8c50=function(_0x8c500d,_0x14601b){_0x8c500d=_0x8c500d-0x159;let _0x3d59de=_0x6e865d[_0x8c500d];return _0x3d59de;},_0x8c50(_0x211d87,_0x2042b1);}const _0x3656de=_0x8c50;function _0x6e86(){const _0x2e05fa=['pop\x20to\x20a\x20group\x20member,\x20and\x20say\x20fuck\x20you','Bang\x20on\x20the\x20table\x20(which\x20is\x20at\x20home)\x20until\x20you\x20get\x20scolded\x20for\x20being\x20noisy','Let\x20the\x20group\x20choose\x20a\x20word\x20and\x20a\x20well\x20known\x20song.\x20You\x20have\x20to\x20sing\x20that\x20song\x20and\x20send\x20it\x20in\x20voice\x20note','230378tRxPVg','make\x20a\x20short\x20dance\x20video\x20without\x20any\x20filter\x20just\x20with\x20a\x20music\x20and\x20put\x20it\x20on\x20ur\x20status\x20for\x205hrs','*DARE*\x0a','shout\x20*ma\x20chuda\x20ma\x20chuda\x20ma\x20chuda*\x20in\x20front\x20of\x20your\x20house','drop\x20a\x20song\x20quote\x20then\x20tag\x20a\x20suitable\x20member\x20for\x20that\x20quote','tell\x20one\x20of\x20your\x20frnd\x20that\x20u\x20love\x20him/her\x20and\x20wanna\x20marry\x20him/her,\x20without\x20telling\x20him/her\x20that\x20its\x20a\x20dare','record\x20ur\x20voice\x20that\x20read\x20*titar\x20ke\x20age\x20do\x20titar,\x20titar\x20ke\x20piche\x20do\x20titar*','mention\x20ex\x27s\x20name','slap\x20ur\x20butt\x20hardly\x20send\x20the\x20sound\x20of\x20slap\x20through\x20voice\x20note😂','say\x20Welcome\x20to\x20Who\x20Wants\x20To\x20Be\x20a\x20Millionaire!\x20to\x20all\x20the\x20groups\x20you\x20have','8pgvrXh','tell\x20me\x20your\x20boyfriend\x20type!','shout\x20using\x20harsh\x20words\x20and\x20send\x20it\x20here\x20through\x20vn','chat\x20to\x20any\x20contact\x20in\x20whatsapp\x20and\x20say\x20i\x20will\x20be\x20ur\x20bf/gf\x20for\x205hours','Send\x20a\x20message\x20to\x20your\x20ex\x20and\x20say\x20I\x20still\x20like\x20you','change\x20the\x20name\x20to\x20*I\x20am\x20a\x20child\x20of\x20randi*\x20for\x205\x20hours','length','send\x20your\x20gf/bf\x20pic\x20here','1826408keWpoB','snap\x20your\x20face\x20then\x20send\x20it\x20here','Take\x20an\x20embarrassing\x20selfie\x20and\x20paste\x20it\x20on\x20your\x20profile\x20picture','Walk\x20on\x20your\x20elbows\x20and\x20knees\x20for\x20as\x20long\x20as\x20you\x20can','slap\x20urself\x20firmly\x20and\x20send\x20the\x20sound\x20of\x20slap\x20through\x20voice\x20note😂','write\x20i\x20am\x20lesbian\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20only\x20after\x205hrs','104hTcbZN','change\x20name\x20to\x20*I\x20AM\x20DONKEY*\x20for\x2024\x20hours','20fkKCEG','ss\x20recent\x20call\x20whatsapp','say\x20*i\x20hv\x20crush\x20on\x20you,\x20do\x20you\x20want\x20to\x20be\x20my\x20girlfriend?*\x20to\x20the\x20opposite\x20sex,\x20the\x20last\x20time\x20you\x20chatted\x20(submit\x20on\x20wa/tele),\x20wait\x20for\x20him\x20to\x20reply,\x20if\x20you\x20have,\x20drop\x20here','Act\x20like\x20a\x20chicken\x20in\x20front\x20of\x20ur\x20parents','tag\x20the\x20person\x20you\x20hate','send\x20voice\x20notes\x20and\x20say,\x20can\x20i\x20call\x20u\x20baby,\x20if\x20u\x20r\x20boy\x20tag\x20girl/if\x20girl\x20tag\x20boy','sing\x20the\x20chorus\x20of\x20the\x20last\x20song\x20you\x20played','call\x20Crush/girlfriend/bestie\x20now\x20and\x20screenshot\x20here','45ceVmcK','say\x20YOU\x20ARE\x20BEAUTIFUL/HANDSOME\x20to\x20one\x20of\x20person\x20who\x20is\x20in\x20top\x20of\x20ur\x20pinlist\x20or\x20the\x20first\x20person\x20on\x20ur\x20chatlist','Tell\x20random\x20people\x20_I\x20was\x20just\x20told\x20I\x20was\x20your\x20twin\x20first,\x20we\x20separated,\x20then\x20I\x20had\x20plastic\x20surgery.\x20And\x20this\x20is\x20the\x20most\x20ciyusss_\x20thing','say\x20i\x20love\x20oli\x20london\x20in\x20voice\x20note🤣🤣','say\x20i\x20love\x20the\x20bot\x20owner\x20drips\x20through\x20voice\x20note','1277247yeisPz','make\x20any\x20tiktok\x20dance\x20challenge\x20video\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20it\x20after\x205hrs','call\x20ex\x20saying\x20miss','Show\x20the\x20last\x20five\x20people\x20you\x20texted\x20and\x20what\x20the\x20messages\x20said','change\x20the\x20name\x20to\x20i\x20am\x20idiot\x20for\x2024\x20hours','send\x20abusive\x20words\x20in\x20any\x20grup,\x20excepting\x20this\x20grup,\x20and\x20send\x20screenshot\x20proof\x20here','Open\x20your\x20front\x20door\x20and\x20howl\x20like\x20a\x20wolf\x20for\x2010\x20seconds','call\x20crush/pickle\x20now\x20and\x20send\x20ss','2099328trppgY','Pretending\x20to\x20be\x20possessed,\x20for\x20example:\x20possessed\x20by\x20dog,\x20possessed\x20by\x20grasshoppers,\x20possessed\x20by\x20refrigerator,\x20etc.','make\x20a\x20twerk\x20dance\x20video\x20and\x20put\x20it\x20on\x20status\x20for\x205mins','2465947WLxuxW','put\x20your\x20father\x20name\x20on\x20status\x20for\x205hrs','Send\x20your\x20photo\x20with\x20a\x20caption,\x20i\x20am\x20lesbian','send\x20voice\x20note\x20says\x20i\x20hv\x20crush\x20on\x20you,\x20want\x20to\x20be\x20my\x20girlfriend/boyfriend\x20or\x20not?\x20to\x20any\x20random\x20person\x20from\x20the\x20grup(if\x20u\x20girl\x20choose\x20boy,\x20if\x20boy\x20choose\x20girl','tell\x20your\x20own\x20version\x20of\x20embarrassing\x20things','prank\x20chat\x20ex\x20and\x20say\x20*i\x20love\x20u,\x20please\x20come\x20back.*\x20without\x20saying\x20dare!','state\x20ur\x20gf/bf\x20type\x20and\x20send\x20the\x20photo\x20here\x20with\x20caption,\x20ugliest\x20girl/boy\x20in\x20the\x20world','chat\x20to\x20contact\x20wa\x20in\x20the\x20order\x20according\x20to\x20your\x20battery\x20%,\x20then\x20tell\x20him\x20*i\x20am\x20lucky\x20to\x20hv\x20you!*','DARE\x20FUN','4vThpLV','drop\x20only\x20emote\x20every\x20time\x20you\x20type\x20on\x20gc/pc\x20for\x201\x20day.','260gxUoJt','22344WFKKXV','write\x20i\x20am\x20feeling\x20horny\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20it\x20only\x20after\x205hrs','change\x20name\x20to\x20I\x20AM\x20GAY\x20for\x205\x20hours','send\x20ur\x20whatsapp\x20chat\x20list','put\x20your\x20full\x20name\x20on\x20status\x20for\x205hrs','697776KibxKA','Say\x20*YOU\x20ARE\x20SO\x20BEAUTIFUL\x20DON\x27T\x20LIE*\x20to\x20guys!','make\x201\x20rhyme\x20for\x20the\x20members!','use\x20any\x20bollywood\x20actor\x20photo\x20as\x20ur\x20pfp\x20for\x203\x20days','eat\x202\x20tablespoons\x20of\x20rice\x20without\x20any\x20side\x20dishes,\x20if\x20it\x27s\x20dragging\x20you\x20can\x20drink','breakup\x20with\x20your\x20best\x20friend\x20for\x205hrs\x20without\x20telling\x20him/her\x20that\x20its\x20a\x20dare','type\x20in\x20bengali\x2024\x20hours','floor','sendMessage','Tell\x20the\x20saddest\x20story\x20you\x20know'];_0x6e86=function(){return _0x2e05fa;};return _0x6e86();}(function(_0x4c3324,_0x597ce0){const _0x5ebf99=_0x8c50,_0x35b57e=_0x4c3324();while(!![]){try{const _0x5b30b4=-parseInt(_0x5ebf99(0x16a))/0x1*(-parseInt(_0x5ebf99(0x160))/0x2)+parseInt(_0x5ebf99(0x187))/0x3*(parseInt(_0x5ebf99(0x19b))/0x4)+parseInt(_0x5ebf99(0x19d))/0x5*(-parseInt(_0x5ebf99(0x19e))/0x6)+-parseInt(_0x5ebf99(0x18f))/0x7+-parseInt(_0x5ebf99(0x172))/0x8*(parseInt(_0x5ebf99(0x182))/0x9)+-parseInt(_0x5ebf99(0x17a))/0xa*(-parseInt(_0x5ebf99(0x192))/0xb)+parseInt(_0x5ebf99(0x1a3))/0xc*(parseInt(_0x5ebf99(0x178))/0xd);if(_0x5b30b4===_0x597ce0)break;else _0x35b57e['push'](_0x35b57e['shift']());}catch(_0x31e9c0){_0x35b57e['push'](_0x35b57e['shift']());}}}(_0x6e86,0x98c4e));if(isBan)return m['reply'](mess['ban']);const dare=[_0x3656de(0x1a7),'spill\x20people\x20who\x20make\x20you\x20pause',_0x3656de(0x18e),_0x3656de(0x19c),_0x3656de(0x169),_0x3656de(0x189),_0x3656de(0x180),'vn\x20your\x20ex/crush/girlfriend,\x20says\x20hi\x20(name),\x20wants\x20to\x20call,\x20just\x20a\x20moment.\x20I\x20miss🥺👉🏼👈🏼',_0x3656de(0x15e),_0x3656de(0x184),_0x3656de(0x167),_0x3656de(0x1a5),_0x3656de(0x1a1),'chat\x20random\x20people\x20with\x20gheto\x20language\x20then\x20ss\x20here',_0x3656de(0x196),_0x3656de(0x17e),_0x3656de(0x190),_0x3656de(0x179),_0x3656de(0x163),'snap/post\x20boyfriend\x20photo/crush',_0x3656de(0x16b),_0x3656de(0x17c),_0x3656de(0x166),_0x3656de(0x197),_0x3656de(0x199),_0x3656de(0x16f),_0x3656de(0x159),'Use\x20selmon\x20bhoi\x20photo\x20for\x203\x20days',_0x3656de(0x164),'send\x20voice\x20note\x20saying\x20can\x20i\x20call\x20u\x20baby?',_0x3656de(0x17b),_0x3656de(0x1a4),_0x3656de(0x15d),_0x3656de(0x17d),'Pick\x20up\x20a\x20random\x20book\x20and\x20read\x20one\x20page\x20out\x20loud\x20in\x20vn\x20n\x20send\x20it\x20here',_0x3656de(0x18d),_0x3656de(0x174),_0x3656de(0x15f),_0x3656de(0x175),'sing\x20national\x20anthem\x20in\x20voice\x20note','Breakdance\x20for\x2030\x20seconds\x20in\x20the\x20sitting\x20room😂',_0x3656de(0x15c),_0x3656de(0x191),'Eat\x20a\x20raw\x20piece\x20of\x20garlic',_0x3656de(0x18a),_0x3656de(0x1a2),_0x3656de(0x161),'call\x20ur\x20bestie,\x20bitch','put\x20your\x20photo\x20without\x20filter\x20on\x20ur\x20status\x20for\x2010mins',_0x3656de(0x185),_0x3656de(0x16e),_0x3656de(0x181),'pop\x20to\x20one\x20of\x20the\x20group\x20member\x20personal\x20chat\x20and\x20Say\x20you\x20ugly\x20bustard',_0x3656de(0x183),_0x3656de(0x17f),'write\x20i\x20love\x20you\x20(random\x20grup\x20member\x20name,\x20who\x20is\x20online)\x20in\x20personal\x20chat,\x20(if\x20u\x20r\x20boy\x20write\x20girl\x20name/if\x20girl\x20write\x20boy\x20name)\x20take\x20a\x20snap\x20of\x20the\x20pic\x20and\x20send\x20it\x20here',_0x3656de(0x1a6),'put\x20your\x20crush\x20photo\x20on\x20status\x20with\x20caption,\x20this\x20is\x20my\x20crush',_0x3656de(0x1a0),_0x3656de(0x16d),_0x3656de(0x195),_0x3656de(0x168),_0x3656de(0x198),'shout\x20bravooooooooo\x20and\x20send\x20here\x20through\x20voice\x20note',_0x3656de(0x173),_0x3656de(0x194),_0x3656de(0x16c),'shout\x20you\x20bastard\x20in\x20front\x20of\x20your\x20mom/papa',_0x3656de(0x18b),_0x3656de(0x176),_0x3656de(0x186),_0x3656de(0x171),_0x3656de(0x188),_0x3656de(0x1a8),_0x3656de(0x165),'say\x20i\x20love\x20depak\x20kalal\x20through\x20voice\x20note',_0x3656de(0x19f),_0x3656de(0x177),'kiss\x20your\x20mommy\x20or\x20papa\x20and\x20say\x20i\x20love\x20you😌',_0x3656de(0x193),_0x3656de(0x18c)],dripsdare=dare[Math[_0x3656de(0x15a)](Math['random']()*dare[_0x3656de(0x170)])];buffer=await getBuffer(picak+_0x3656de(0x19a)),BALOCHEDITInc[_0x3656de(0x15b)](from,{'image':buffer,'caption':_0x3656de(0x162)+dripsdare},{'quoted':m});
               break
                             
        case 'truth':
-       const _0x45073b=_0x541b;function _0x5870(){const _0x588d65=['floor','1048000sorRkN','154702JHVebg','3521192senVkO','What\x27s\x20your\x20worst\x20habit\x20at\x20school??','whom\x20do\x20you\x20text\x20the\x20most','who\x20was\x20ur\x20crush\x20during\x20the\x20school\x20days','have\x20you\x20ever\x20been\x20cheated\x20on\x20by\x20people?','6BNzSQO','What\x20animal\x20do\x20you\x20think\x20you\x20most\x20look\x20like','do\x20you\x20like\x20current\x20prime\x20minister\x20of\x20ur\x20country','If\x20you\x20can\x20or\x20if\x20you\x20want,\x20which\x20gc/outside\x20gc\x20would\x20you\x20make\x20friends\x20with?\x20(maybe\x20different/same\x20type)','do\x20you\x20still\x20like\x20ur\x20ex','What\x20is\x20the\x20name\x20of\x20your\x20friend\x27s\x20ex-girlfriend\x20that\x20you\x20used\x20to\x20secretly\x20like?','Ever\x20had\x20a\x20one\x20sided\x20love?\x20if\x20so\x20who?\x20how\x20does\x20it\x20feel\x20bro?','\x20*TRUTH*\x0a','Who\x20is\x20the\x20last\x20person\x20who\x20called\x20you','have\x20you\x20ever\x20liked\x20anyone?\x20how\x20long?','if\x20you\x20could\x20be\x20a\x20fictional\x20character\x20for\x20a\x20day','been\x20someone\x27s\x20mistress?','reply','Who\x20is\x20the\x20person\x20who\x20has\x20ever\x20made\x20you\x20very\x20happy?','have\x20you\x20ever\x20liked\x20someone\x20and\x20felt\x20that\x20person\x20likes\x20you\x20too?','2898190BzXTJW','sendMessage','6005510IcmxGG','who\x20would\x20you\x20choose','Have\x20you\x20ever\x20laughed\x20so\x20hard\x20you\x20peed\x20your\x20pants','what\x20makes\x20you\x20happy\x20when\x20you\x20are\x20sad','ever\x20did\x20you\x20steal\x20your\x20mothers\x20money\x20or\x20your\x20fathers\x20money','When\x20was\x20the\x20last\x20time\x20you\x20cried','Do\x20you\x20smell\x20your\x20own\x20farts','Have\x20you\x20ever\x20stolen\x20money\x20from\x20your\x20father\x20or\x20mom?\x20The\x20reason?','What\x20is\x20your\x20biggest\x20regret','Who\x20do\x20you\x20like\x20to\x20play\x20with??','Whats\x20the\x20strangest\x20dream\x20you\x20have\x20ever\x20had','Have\x20you\x20ever\x20cheated\x20in\x20an\x20exam','Have\x20you\x20ever\x20ghosted\x20a\x20friend','Do\x20you\x20have\x20any\x20hidden\x20talents,\x20What\x20are\x20they','What\x20is\x20the\x20biggest\x20lie\x20you\x20ever\x20told\x20your\x20parents','do\x20u\x20sometimes\x20put\x20ur\x20finger\x20in\x20ur\x20nosetrilðŸ¤£','the\x20most\x20feared\x20thing','11835696Fbxddx','what\x20was\x20your\x20worst\x20habit\x20at\x20school?','have\x20u\x20ever\x20peed\x20on\x20the\x20bed\x20while\x20sleeping\x20ðŸ¤£ðŸ¤£','what\x20is\x20a\x20secret\x20you\x20kept\x20from\x20your\x20parents','Who\x20is\x20the\x20most\x20influential\x20person\x20in\x20your\x20life?','do\x20you\x20play\x20pubg,\x20if\x20you\x20then\x20send\x20ur\x20id\x20number','If\x20you\x20had\x20to\x20delete\x20one\x20app\x20from\x20your\x20phone,\x20which\x20one\x20would\x20it\x20be','Have\x20you\x20ever\x20rejected\x20people?\x20the\x20reason\x20why?','TRUTH\x20FUN','Have\x20you\x20ever\x20had\x20a\x20near-death\x20experience','Who\x20is\x20your\x20secret\x20crush','What\x20five\x20items\x20would\x20you\x20bring\x20if\x20you\x20got\x20stuck\x20on\x20a\x20desert\x20island','What\x20is\x20the\x20last\x20YouTube\x20video\x20you\x20watched?','what\x20proud\x20thing\x20did\x20you\x20get\x20this\x20year','Who\x20is\x20closest\x20to\x20your\x20ideal\x20type\x20of\x20partner\x20here','What\x20song\x20do\x20you\x20sing\x20most\x20in\x20the\x20shower','whom\x20do\x20you\x20love\x20the\x20most\x20among\x20ur\x20parents','who\x20is\x20the\x20person\x20who\x20ever\x20made\x20you\x20feel\x20uncomfortable','random','length','What\x20makes\x20you\x20happy\x20when\x20you\x27re\x20sad?','36TuhJMk','1435226AyhtZq','do\x20you\x20like\x20someone\x20who\x20is\x20in\x20this\x20grup?\x20if\x20you\x20then\x20who?','Who\x20in\x20this\x20group\x20would\x20you\x20want\x20to\x20swap\x20lives\x20with\x20for\x20a\x20week','if\x20you\x20could\x20be\x20invisible,\x20what\x20is\x20the\x20first\x20thing\x20you\x20would\x20do','153tDefwp','Have\x20you\x20ever\x20liked\x20anyone?\x20How\x20long?','who\x20do\x20you\x20like\x20to\x20play\x20together\x20with?','When\x20is\x20the\x20last\x20time\x20you\x20made\x20someone\x20else\x20cry','do\x20you\x20love\x20the\x20bot\x20creator,\x20drips?ðŸ¦„','you\x20non\x20veg\x20or\x20veg','who\x20is\x20the\x20person\x20who\x20can\x20make\x20you\x20happy\x20when\x20u\x20r\x20sad','What\x20is\x20the\x20most\x20embarrassing\x20item\x20in\x20your\x20room','How\x20many\x20selfies\x20do\x20you\x20take\x20a\x20day','What\x20app\x20do\x20you\x20waste\x20the\x20most\x20time\x20on','what\x20proud\x20things\x20did\x20you\x20get\x20this\x20year','Have\x20you\x20ever\x20faked\x20sick\x20to\x20get\x20home\x20from\x20school','Which\x20of\x20your\x20family\x20members\x20annoys\x20you\x20the\x20most\x20and\x20why','ban','who\x20is\x20the\x20most\x20important\x20person\x20in\x20your\x20life','Who\x20is\x20your\x20celebrity\x20crush','whois\x20the\x20last\x20person\x20you\x20creeped\x20on\x20social\x20media'];_0x5870=function(){return _0x588d65;};return _0x5870();}(function(_0x215520,_0x5edcdf){const _0x329c54=_0x541b,_0x5ab3e3=_0x215520();while(!![]){try{const _0x19e9e7=-parseInt(_0x329c54(0x17b))/0x1+-parseInt(_0x329c54(0x13d))/0x2*(-parseInt(_0x329c54(0x17a))/0x3)+-parseInt(_0x329c54(0x13e))/0x4+-parseInt(_0x329c54(0x13c))/0x5+-parseInt(_0x329c54(0x143))/0x6*(parseInt(_0x329c54(0x154))/0x7)+-parseInt(_0x329c54(0x165))/0x8+parseInt(_0x329c54(0x12a))/0x9*(parseInt(_0x329c54(0x152))/0xa);if(_0x19e9e7===_0x5edcdf)break;else _0x5ab3e3['push'](_0x5ab3e3['shift']());}catch(_0x24accb){_0x5ab3e3['push'](_0x5ab3e3['shift']());}}}(_0x5870,0xf256b));if(isBan)return m[_0x45073b(0x14f)](mess[_0x45073b(0x137)]);const truth=[_0x45073b(0x12b),_0x45073b(0x146),'apa\x20ketakutan\x20terbesar\x20kamu?','Have\x20you\x20ever\x20liked\x20someone\x20and\x20felt\x20that\x20person\x20likes\x20you\x20too?',_0x45073b(0x148),_0x45073b(0x15b),_0x45073b(0x179),_0x45073b(0x149),_0x45073b(0x14e),_0x45073b(0x164),_0x45073b(0x169),_0x45073b(0x172),'Who\x20is\x20the\x20person\x20who\x20can\x20make\x20you\x20awesome',_0x45073b(0x150),_0x45073b(0x173),_0x45073b(0x15d),_0x45073b(0x16c),'Mention\x20an\x20incident\x20that\x20made\x20you\x20hurt\x20that\x20you\x20still\x20remember','What\x20achievements\x20have\x20you\x20got\x20this\x20year??',_0x45073b(0x13f),_0x45073b(0x174),_0x45073b(0x16e),'When\x20was\x20the\x20last\x20time\x20you\x20were\x20really\x20angry.\x20Why?',_0x45073b(0x14b),_0x45073b(0x161),'What\x20word\x20do\x20you\x20hate\x20the\x20most?',_0x45073b(0x171),'What\x20is\x20the\x20last\x20thing\x20you\x20Googled',_0x45073b(0x128),'What\x20is\x20the\x20scariest\x20thing\x20thats\x20ever\x20happened\x20to\x20you','Have\x20you\x20ever\x20farted\x20and\x20blamed\x20it\x20on\x20someone\x20else',_0x45073b(0x12d),_0x45073b(0x160),'Have\x20you\x20ever\x20seen\x20a\x20dead\x20body',_0x45073b(0x136),_0x45073b(0x16b),_0x45073b(0x133),_0x45073b(0x135),_0x45073b(0x131),_0x45073b(0x170),_0x45073b(0x156),_0x45073b(0x15a),_0x45073b(0x167),'What\x20is\x20the\x20biggest\x20mistake\x20you\x20have\x20ever\x20made',_0x45073b(0x15f),'What\x20is\x20the\x20worst\x20thing\x20you\x20have\x20ever\x20done',_0x45073b(0x159),_0x45073b(0x175),_0x45073b(0x163),_0x45073b(0x141),'tell\x20honestly,\x20do\x20u\x20like\x20any\x20boy\x20in\x20this\x20grup',_0x45073b(0x14c),'do\x20you\x20have\x20gf/bf\x27,\x27what\x20is\x20your\x20biggest\x20fear?',_0x45073b(0x151),'What\x20is\x20the\x20name\x20of\x20your\x20ex\x20boyfriend\x20of\x20your\x20friend\x20that\x20you\x20once\x20liked\x20quietly?',_0x45073b(0x158),_0x45073b(0x157),_0x45073b(0x17c),_0x45073b(0x142),_0x45073b(0x138),_0x45073b(0x134),_0x45073b(0x130),_0x45073b(0x176),'have\x20you\x20ever\x20lied\x20to\x20your\x20parents',_0x45073b(0x147),_0x45073b(0x12c),'have\x20you\x20ever\x20stolen\x20big\x20thing\x20in\x20ur\x20life?\x20the\x20reason\x20why?','Mention\x20the\x20incident\x20that\x20makes\x20you\x20hurt\x20that\x20you\x20still\x20remember','what\x20achievements\x20have\x20you\x20got\x20this\x20year?',_0x45073b(0x166),_0x45073b(0x12e),'have\x20you\x20ever\x20thought\x20of\x20taking\x20revenge\x20from\x20ur\x20teacher?',_0x45073b(0x145),_0x45073b(0x12f),_0x45073b(0x129),_0x45073b(0x168),_0x45073b(0x155),_0x45073b(0x140),_0x45073b(0x162),_0x45073b(0x139),_0x45073b(0x16f),_0x45073b(0x13a),'If\x20a\x20genie\x20granted\x20you\x20three\x20wishes,\x20what\x20would\x20you\x20ask\x20for',_0x45073b(0x15c),_0x45073b(0x144),_0x45073b(0x132),'What\x20was\x20your\x20favorite\x20childhood\x20show',_0x45073b(0x14d),_0x45073b(0x15e),_0x45073b(0x16a)],dripstruth=truth[Math[_0x45073b(0x13b)](Math[_0x45073b(0x177)]()*truth[_0x45073b(0x178)])];function _0x541b(_0x2c4ab1,_0x44a9a5){const _0x5870c2=_0x5870();return _0x541b=function(_0x541b55,_0x531cd7){_0x541b55=_0x541b55-0x128;let _0xcd1a06=_0x5870c2[_0x541b55];return _0xcd1a06;},_0x541b(_0x2c4ab1,_0x44a9a5);}buffer=await getBuffer(picak+_0x45073b(0x16d)),ZimBotInc[_0x45073b(0x153)](from,{'image':buffer,'caption':_0x45073b(0x14a)+dripstruth},{'quoted':m});
+       const _0x45073b=_0x541b;function _0x5870(){const _0x588d65=['floor','1048000sorRkN','154702JHVebg','3521192senVkO','What\x27s\x20your\x20worst\x20habit\x20at\x20school??','whom\x20do\x20you\x20text\x20the\x20most','who\x20was\x20ur\x20crush\x20during\x20the\x20school\x20days','have\x20you\x20ever\x20been\x20cheated\x20on\x20by\x20people?','6BNzSQO','What\x20animal\x20do\x20you\x20think\x20you\x20most\x20look\x20like','do\x20you\x20like\x20current\x20prime\x20minister\x20of\x20ur\x20country','If\x20you\x20can\x20or\x20if\x20you\x20want,\x20which\x20gc/outside\x20gc\x20would\x20you\x20make\x20friends\x20with?\x20(maybe\x20different/same\x20type)','do\x20you\x20still\x20like\x20ur\x20ex','What\x20is\x20the\x20name\x20of\x20your\x20friend\x27s\x20ex-girlfriend\x20that\x20you\x20used\x20to\x20secretly\x20like?','Ever\x20had\x20a\x20one\x20sided\x20love?\x20if\x20so\x20who?\x20how\x20does\x20it\x20feel\x20bro?','\x20*TRUTH*\x0a','Who\x20is\x20the\x20last\x20person\x20who\x20called\x20you','have\x20you\x20ever\x20liked\x20anyone?\x20how\x20long?','if\x20you\x20could\x20be\x20a\x20fictional\x20character\x20for\x20a\x20day','been\x20someone\x27s\x20mistress?','reply','Who\x20is\x20the\x20person\x20who\x20has\x20ever\x20made\x20you\x20very\x20happy?','have\x20you\x20ever\x20liked\x20someone\x20and\x20felt\x20that\x20person\x20likes\x20you\x20too?','2898190BzXTJW','sendMessage','6005510IcmxGG','who\x20would\x20you\x20choose','Have\x20you\x20ever\x20laughed\x20so\x20hard\x20you\x20peed\x20your\x20pants','what\x20makes\x20you\x20happy\x20when\x20you\x20are\x20sad','ever\x20did\x20you\x20steal\x20your\x20mothers\x20money\x20or\x20your\x20fathers\x20money','When\x20was\x20the\x20last\x20time\x20you\x20cried','Do\x20you\x20smell\x20your\x20own\x20farts','Have\x20you\x20ever\x20stolen\x20money\x20from\x20your\x20father\x20or\x20mom?\x20The\x20reason?','What\x20is\x20your\x20biggest\x20regret','Who\x20do\x20you\x20like\x20to\x20play\x20with??','Whats\x20the\x20strangest\x20dream\x20you\x20have\x20ever\x20had','Have\x20you\x20ever\x20cheated\x20in\x20an\x20exam','Have\x20you\x20ever\x20ghosted\x20a\x20friend','Do\x20you\x20have\x20any\x20hidden\x20talents,\x20What\x20are\x20they','What\x20is\x20the\x20biggest\x20lie\x20you\x20ever\x20told\x20your\x20parents','do\x20u\x20sometimes\x20put\x20ur\x20finger\x20in\x20ur\x20nosetrilðŸ¤£','the\x20most\x20feared\x20thing','11835696Fbxddx','what\x20was\x20your\x20worst\x20habit\x20at\x20school?','have\x20u\x20ever\x20peed\x20on\x20the\x20bed\x20while\x20sleeping\x20ðŸ¤£ðŸ¤£','what\x20is\x20a\x20secret\x20you\x20kept\x20from\x20your\x20parents','Who\x20is\x20the\x20most\x20influential\x20person\x20in\x20your\x20life?','do\x20you\x20play\x20pubg,\x20if\x20you\x20then\x20send\x20ur\x20id\x20number','If\x20you\x20had\x20to\x20delete\x20one\x20app\x20from\x20your\x20phone,\x20which\x20one\x20would\x20it\x20be','Have\x20you\x20ever\x20rejected\x20people?\x20the\x20reason\x20why?','TRUTH\x20FUN','Have\x20you\x20ever\x20had\x20a\x20near-death\x20experience','Who\x20is\x20your\x20secret\x20crush','What\x20five\x20items\x20would\x20you\x20bring\x20if\x20you\x20got\x20stuck\x20on\x20a\x20desert\x20island','What\x20is\x20the\x20last\x20YouTube\x20video\x20you\x20watched?','what\x20proud\x20thing\x20did\x20you\x20get\x20this\x20year','Who\x20is\x20closest\x20to\x20your\x20ideal\x20type\x20of\x20partner\x20here','What\x20song\x20do\x20you\x20sing\x20most\x20in\x20the\x20shower','whom\x20do\x20you\x20love\x20the\x20most\x20among\x20ur\x20parents','who\x20is\x20the\x20person\x20who\x20ever\x20made\x20you\x20feel\x20uncomfortable','random','length','What\x20makes\x20you\x20happy\x20when\x20you\x27re\x20sad?','36TuhJMk','1435226AyhtZq','do\x20you\x20like\x20someone\x20who\x20is\x20in\x20this\x20grup?\x20if\x20you\x20then\x20who?','Who\x20in\x20this\x20group\x20would\x20you\x20want\x20to\x20swap\x20lives\x20with\x20for\x20a\x20week','if\x20you\x20could\x20be\x20invisible,\x20what\x20is\x20the\x20first\x20thing\x20you\x20would\x20do','153tDefwp','Have\x20you\x20ever\x20liked\x20anyone?\x20How\x20long?','who\x20do\x20you\x20like\x20to\x20play\x20together\x20with?','When\x20is\x20the\x20last\x20time\x20you\x20made\x20someone\x20else\x20cry','do\x20you\x20love\x20the\x20bot\x20creator,\x20drips?ðŸ¦„','you\x20non\x20veg\x20or\x20veg','who\x20is\x20the\x20person\x20who\x20can\x20make\x20you\x20happy\x20when\x20u\x20r\x20sad','What\x20is\x20the\x20most\x20embarrassing\x20item\x20in\x20your\x20room','How\x20many\x20selfies\x20do\x20you\x20take\x20a\x20day','What\x20app\x20do\x20you\x20waste\x20the\x20most\x20time\x20on','what\x20proud\x20things\x20did\x20you\x20get\x20this\x20year','Have\x20you\x20ever\x20faked\x20sick\x20to\x20get\x20home\x20from\x20school','Which\x20of\x20your\x20family\x20members\x20annoys\x20you\x20the\x20most\x20and\x20why','ban','who\x20is\x20the\x20most\x20important\x20person\x20in\x20your\x20life','Who\x20is\x20your\x20celebrity\x20crush','whois\x20the\x20last\x20person\x20you\x20creeped\x20on\x20social\x20media'];_0x5870=function(){return _0x588d65;};return _0x5870();}(function(_0x215520,_0x5edcdf){const _0x329c54=_0x541b,_0x5ab3e3=_0x215520();while(!![]){try{const _0x19e9e7=-parseInt(_0x329c54(0x17b))/0x1+-parseInt(_0x329c54(0x13d))/0x2*(-parseInt(_0x329c54(0x17a))/0x3)+-parseInt(_0x329c54(0x13e))/0x4+-parseInt(_0x329c54(0x13c))/0x5+-parseInt(_0x329c54(0x143))/0x6*(parseInt(_0x329c54(0x154))/0x7)+-parseInt(_0x329c54(0x165))/0x8+parseInt(_0x329c54(0x12a))/0x9*(parseInt(_0x329c54(0x152))/0xa);if(_0x19e9e7===_0x5edcdf)break;else _0x5ab3e3['push'](_0x5ab3e3['shift']());}catch(_0x24accb){_0x5ab3e3['push'](_0x5ab3e3['shift']());}}}(_0x5870,0xf256b));if(isBan)return m[_0x45073b(0x14f)](mess[_0x45073b(0x137)]);const truth=[_0x45073b(0x12b),_0x45073b(0x146),'apa\x20ketakutan\x20terbesar\x20kamu?','Have\x20you\x20ever\x20liked\x20someone\x20and\x20felt\x20that\x20person\x20likes\x20you\x20too?',_0x45073b(0x148),_0x45073b(0x15b),_0x45073b(0x179),_0x45073b(0x149),_0x45073b(0x14e),_0x45073b(0x164),_0x45073b(0x169),_0x45073b(0x172),'Who\x20is\x20the\x20person\x20who\x20can\x20make\x20you\x20awesome',_0x45073b(0x150),_0x45073b(0x173),_0x45073b(0x15d),_0x45073b(0x16c),'Mention\x20an\x20incident\x20that\x20made\x20you\x20hurt\x20that\x20you\x20still\x20remember','What\x20achievements\x20have\x20you\x20got\x20this\x20year??',_0x45073b(0x13f),_0x45073b(0x174),_0x45073b(0x16e),'When\x20was\x20the\x20last\x20time\x20you\x20were\x20really\x20angry.\x20Why?',_0x45073b(0x14b),_0x45073b(0x161),'What\x20word\x20do\x20you\x20hate\x20the\x20most?',_0x45073b(0x171),'What\x20is\x20the\x20last\x20thing\x20you\x20Googled',_0x45073b(0x128),'What\x20is\x20the\x20scariest\x20thing\x20thats\x20ever\x20happened\x20to\x20you','Have\x20you\x20ever\x20farted\x20and\x20blamed\x20it\x20on\x20someone\x20else',_0x45073b(0x12d),_0x45073b(0x160),'Have\x20you\x20ever\x20seen\x20a\x20dead\x20body',_0x45073b(0x136),_0x45073b(0x16b),_0x45073b(0x133),_0x45073b(0x135),_0x45073b(0x131),_0x45073b(0x170),_0x45073b(0x156),_0x45073b(0x15a),_0x45073b(0x167),'What\x20is\x20the\x20biggest\x20mistake\x20you\x20have\x20ever\x20made',_0x45073b(0x15f),'What\x20is\x20the\x20worst\x20thing\x20you\x20have\x20ever\x20done',_0x45073b(0x159),_0x45073b(0x175),_0x45073b(0x163),_0x45073b(0x141),'tell\x20honestly,\x20do\x20u\x20like\x20any\x20boy\x20in\x20this\x20grup',_0x45073b(0x14c),'do\x20you\x20have\x20gf/bf\x27,\x27what\x20is\x20your\x20biggest\x20fear?',_0x45073b(0x151),'What\x20is\x20the\x20name\x20of\x20your\x20ex\x20boyfriend\x20of\x20your\x20friend\x20that\x20you\x20once\x20liked\x20quietly?',_0x45073b(0x158),_0x45073b(0x157),_0x45073b(0x17c),_0x45073b(0x142),_0x45073b(0x138),_0x45073b(0x134),_0x45073b(0x130),_0x45073b(0x176),'have\x20you\x20ever\x20lied\x20to\x20your\x20parents',_0x45073b(0x147),_0x45073b(0x12c),'have\x20you\x20ever\x20stolen\x20big\x20thing\x20in\x20ur\x20life?\x20the\x20reason\x20why?','Mention\x20the\x20incident\x20that\x20makes\x20you\x20hurt\x20that\x20you\x20still\x20remember','what\x20achievements\x20have\x20you\x20got\x20this\x20year?',_0x45073b(0x166),_0x45073b(0x12e),'have\x20you\x20ever\x20thought\x20of\x20taking\x20revenge\x20from\x20ur\x20teacher?',_0x45073b(0x145),_0x45073b(0x12f),_0x45073b(0x129),_0x45073b(0x168),_0x45073b(0x155),_0x45073b(0x140),_0x45073b(0x162),_0x45073b(0x139),_0x45073b(0x16f),_0x45073b(0x13a),'If\x20a\x20genie\x20granted\x20you\x20three\x20wishes,\x20what\x20would\x20you\x20ask\x20for',_0x45073b(0x15c),_0x45073b(0x144),_0x45073b(0x132),'What\x20was\x20your\x20favorite\x20childhood\x20show',_0x45073b(0x14d),_0x45073b(0x15e),_0x45073b(0x16a)],dripstruth=truth[Math[_0x45073b(0x13b)](Math[_0x45073b(0x177)]()*truth[_0x45073b(0x178)])];function _0x541b(_0x2c4ab1,_0x44a9a5){const _0x5870c2=_0x5870();return _0x541b=function(_0x541b55,_0x531cd7){_0x541b55=_0x541b55-0x128;let _0xcd1a06=_0x5870c2[_0x541b55];return _0xcd1a06;},_0x541b(_0x2c4ab1,_0x44a9a5);}buffer=await getBuffer(picak+_0x45073b(0x16d)),BALOCHEDITInc[_0x45073b(0x153)](from,{'image':buffer,'caption':_0x45073b(0x14a)+dripstruth},{'quoted':m});
               break
                   case 'lyrics': {
                     if (isBan) return m.rely(mess.ban)
@@ -3248,7 +3248,7 @@ case 'stickersearch': {
   let noh = require('./lib/lol.js')                
   noh.stickersearch(`${text}`).then(async (res) => {   
   for (let x of res.sticker_url) {
-  ZimBotInc.sendImageAsSticker(m.chat, x, m, { packname: global.packname, author: global.author })      
+  BALOCHEDITInc.sendImageAsSticker(m.chat, x, m, { packname: global.packname, author: global.author })      
                }
                 }).catch((err) => {
                     m.reply(`*${text} Not found*`)
@@ -3277,7 +3277,7 @@ teks = `
 ▢ Bio : ${tod.result.bio}
 `
 var yaha = await getBuffer(gaber)
-ZimBotInc.sendMessage(m.chat, { image: yaha, jpegThumbnail:yaha, caption: `${teks}` }, { quoted: m }).catch((err) => m.reply('*Username Not found*'))
+BALOCHEDITInc.sendMessage(m.chat, { image: yaha, jpegThumbnail:yaha, caption: `${teks}` }, { quoted: m }).catch((err) => m.reply('*Username Not found*'))
 }
 break
 case 'stalkgithub': case 'githubstalk': {
@@ -3301,7 +3301,7 @@ if (isBan) throw mess.ban
 \`\`\`🗃️ LOCATION : ${ini_result.location}\`\`\`
 \`\`\`🗃️ TWITTER : ${ini_result.twiter_username}\`\`\`
 `
-ZimBotInc.sendImage(m.chat, ini_result.avatar, `${ini_txt}`, m).catch((err) => m.reply('*Username Not found*'))
+BALOCHEDITInc.sendImage(m.chat, ini_result.avatar, `${ini_txt}`, m).catch((err) => m.reply('*Username Not found*'))
 }
 break
 
@@ -3326,7 +3326,7 @@ if (isBan) throw mess.ban
 \`\`\`📻 TWEET : ${get_result.tweet}\`\`\`
 \`\`\`🗃️ JOINED : ${get_result.joined}\`\`\`
 `
-ZimBotInc.sendImage(m.chat, get_result.profile_picture, `${ini_txt}`, m).catch((err) => m.reply('*Username Not found*'))
+BALOCHEDITInc.sendImage(m.chat, get_result.profile_picture, `${ini_txt}`, m).catch((err) => m.reply('*Username Not found*'))
 }
 break
 case 'tiktokstalk': {
@@ -3347,7 +3347,7 @@ if (isBan) throw mess.ban
 \`\`\`📻 VIDEO : ${get_result.video}\`\`\`
 \`\`\`🗃️ DESCRIPTION : ${get_result.bio}\`\`\`
 `
-ZimBotInc.sendImage(m.chat, get_result.user_picture, `${ini_txt}`, m).catch((err) => m.reply('*Username Not found*'))
+BALOCHEDITInc.sendImage(m.chat, get_result.user_picture, `${ini_txt}`, m).catch((err) => m.reply('*Username Not found*'))
 }
 break
 case 'linkwa': case 'carigc': {
@@ -3390,7 +3390,7 @@ if (isBan) throw mess.ban
             ini_txt += `*URL* : ${i.url}\n`
             ini_txt += `*DESKRIPSI* : ${i.description}\n\n`         
             }   
-            ZimBotInc.sendImage(m.chat, x.result[0].thumbnail, `${ini_txt}`, m).catch((err) => m.reply(jsonformat('*Sorry there was an error*')))
+            BALOCHEDITInc.sendImage(m.chat, x.result[0].thumbnail, `${ini_txt}`, m).catch((err) => m.reply(jsonformat('*Sorry there was an error*')))
             }
             break
 case 'brainly': {
@@ -3480,7 +3480,7 @@ if (isBan) throw mess.ban
 //var kontoll = await getBuffer(anu.result.owner.profile_pic)	
 				//sendButLocation(from, `${reply22}`,`© drips`, {jpegThumbnail:kontoll}, [{buttonId:`${prefix}menu`,buttonText:{displayText:'OKE'},type:1}], {contextInfo: { mentionedJid: [sender, owner]}})
 anu = await getBuffer(anu.thumb)
-ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${reply212}` }, { quoted: m}).catch((err) => m.reply('*No search results found*'))
+BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `${reply212}` }, { quoted: m}).catch((err) => m.reply('*No search results found*'))
 	            }
                 break
 case 'font': {
@@ -3506,7 +3506,7 @@ if (isBan) throw mess.ban
             ini_txt += `*Rate* : ${i.tanggal}\n`
             ini_txt += `*ARTIKEL* : ${i.artikel}\n`
             ini_txt += `*URL* : ${i.url}\n`                 
-            ZimBotInc.sendImage(m.chat, i.thumb, `${ini_txt}`, m).catch((err) => m.reply(jsonformat('*Sorry there was an error*')))
+            BALOCHEDITInc.sendImage(m.chat, i.thumb, `${ini_txt}`, m).catch((err) => m.reply(jsonformat('*Sorry there was an error*')))
             }
             break
 case 'searchanime': {
@@ -3517,7 +3517,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api.akuari.my.id/search/konachan?query=${text}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
            case 'lyrics': case 'lirik': case 'liriklagu': {
@@ -3545,7 +3545,7 @@ if (isBan) throw mess.ban
 	            //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)        
                 anu = await fetchJson(`https://cililitan.herokuapp.com/api/infogempa`)
                 let F = `*INFO GEMPA*\n*Waktu:* ${anu.result.waktu}\n*Magnitude:* ${anu.result.magnitudo}\n*Depth:* ${anu.result.kedalaman}\n*Coordinate:* ${anu.result.koordinat}\n*Location:* ${anu.result.lokasi}\n*Tsunami:* ${anu.result.tsunami}`            
-                ZimBotInc.sendImage(m.chat, anu.result.gambar, `${F}`, m).catch ((err) => m.reply('*Sorry, the feature error is currently*'))
+                BALOCHEDITInc.sendImage(m.chat, anu.result.gambar, `${F}`, m).catch ((err) => m.reply('*Sorry, the feature error is currently*'))
             }
                 break
             case 'google': {
@@ -3572,11 +3572,11 @@ if (isBan) throw mess.ban
                     caption: `*▊▊▊ GOOGLE IMAGE ▊▊▊*
 🤠 *Query* : ${text}
 🔗 *Media Url* : ${images}`,
-                    footer: ZimBotInc.user.name,
+                    footer: BALOCHEDITInc.user.name,
                     buttons: buttons,
                     headerType: 4
                 }
-                ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m }).catch((err) => m.reply('*Sorry An error occurred*'))
+                BALOCHEDITInc.sendMessage(m.chat, buttonMessage, { quoted: m }).catch((err) => m.reply('*Sorry An error occurred*'))
         })
         }
         break
@@ -3596,7 +3596,7 @@ case 'play': {
 *⬤URL :* ${anu.url}
 *⬤DESCRIPTION :* ${anu.description}
 `
-message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { upload:   ZimBotInc.waUploadToServer })
+message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { upload:   BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                     templateMessage: {
                         hydratedTemplate: {
@@ -3633,16 +3633,16 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                     }
                 
                 }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 }
 break
-case 'song': function _0x2619(_0xa712bd,_0x3cc493){const _0x2f0691=_0x2f06();return _0x2619=function(_0x261933,_0x59f241){_0x261933=_0x261933-0x1a2;let _0x917ca7=_0x2f0691[_0x261933];return _0x917ca7;},_0x2619(_0xa712bd,_0x3cc493);}function _0x2f06(){const _0x55f35b=['5882437fKRgcs','CLICK\x20HERE','SONG\x20MP3⬤:\x20','4hJSzkU','12pZvqNm','814707ccVmTU','\x20story\x20wa\x20anime','all','ytmp3\x20','4372FqRNJf','10410rOdoIb','9jVLgZE','221753YSKLus','description','228MgPUWT','1606370nMGtMJ','yt-search','ytmp4\x20','push','chat','title','875MAamOM','VIDEO\x20MP4⬤:\x20','3693992HrmsNO','url','sendMessage','HERE\x20IS\x20YOUR\x20RESULTS\x20CHOMIE\x20FROM\x20*','Example\x20:\x20'];_0x2f06=function(){return _0x55f35b;};return _0x2f06();}const _0x494681=_0x2619;(function(_0x2f990d,_0x3dab42){const _0x5d3d5d=_0x2619,_0x91ff83=_0x2f990d();while(!![]){try{const _0x5d2979=-parseInt(_0x5d3d5d(0x1bc))/0x1*(parseInt(_0x5d3d5d(0x1a5))/0x2)+-parseInt(_0x5d3d5d(0x1b8))/0x3*(parseInt(_0x5d3d5d(0x1b6))/0x4)+parseInt(_0x5d3d5d(0x1ac))/0x5*(parseInt(_0x5d3d5d(0x1bd))/0x6)+-parseInt(_0x5d3d5d(0x1a3))/0x7+parseInt(_0x5d3d5d(0x1ae))/0x8*(parseInt(_0x5d3d5d(0x1a2))/0x9)+-parseInt(_0x5d3d5d(0x1a6))/0xa+parseInt(_0x5d3d5d(0x1b3))/0xb*(parseInt(_0x5d3d5d(0x1b7))/0xc);if(_0x5d2979===_0x3dab42)break;else _0x91ff83['push'](_0x91ff83['shift']());}catch(_0xd3cf2c){_0x91ff83['push'](_0x91ff83['shift']());}}}(_0x2f06,0x527b8));{if(!text)throw _0x494681(0x1b2)+(prefix+command)+_0x494681(0x1b9);let yts=require(_0x494681(0x1a7)),search=await yts(text),sections=[],listmenu=[_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x0][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x2]['url'],'ytmp3\x20'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1af)],'ytmp4\x20'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x7][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x8]['url'],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x9][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xa][_0x494681(0x1af)],'ytmp3\x20'+search[_0x494681(0x1ba)][0xb]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xc]['url'],_0x494681(0x1bb)+search['all'][0xd][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1af)],'ytmp3\x20'+search['all'][0xf]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x11]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x13][_0x494681(0x1af)]],listmenuu=[_0x494681(0x1ad)+search['all'][0x0][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x2][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x3][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1ab)],_0x494681(0x1ad)+search['all'][0x6][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x7]['title'],'VIDEO\x20MP4⬤:\x20'+search[_0x494681(0x1ba)][0x8][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xa]['title'],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0xb][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xc][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search['all'][0xd][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0xf][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x11]['title'],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1ab)]],listmenuuu=['\x0a'+search[_0x494681(0x1ba)][0x0][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x1]['description'],'\x0a'+search[_0x494681(0x1ba)][0x2][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1a4)],'\x0a'+search['all'][0x4]['description'],'\x0a'+search['all'][0x5][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x7]['description'],'\x0a'+search[_0x494681(0x1ba)][0x8]['description'],'\x0a'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1a4)],'\x0a'+search['all'][0xa][_0x494681(0x1a4)],'\x0a'+search['all'][0xb][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xc][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xd][_0x494681(0x1a4)],'\x0a'+search['all'][0xe][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xf]['description'],'\x0a'+search[_0x494681(0x1ba)][0x10]['description'],'\x0a'+search['all'][0x11]['description'],'\x0a'+search[_0x494681(0x1ba)][0x12][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1a4)]],nombor=0x1,startnum=0x0,startnumm=0x0;for(let x of listmenu){const list={'title':'RESULT\x20NUMBER\x20'+nombor++,'rows':[{'title':''+listmenuu[startnum++],'description':''+listmenuuu[startnumm++],'rowId':''+prefix+x}]};sections[_0x494681(0x1a9)](list);}const sendm=ZimBotInc[_0x494681(0x1b0)](m[_0x494681(0x1aa)],{'text':'\x0a\x0a*CHEERS\x20TO\x20THAT*','footer':botname,'title':_0x494681(0x1b1)+text+'*\x20_select\x20song\x20or\x20video\x20below_','buttonText':_0x494681(0x1b4),'sections':sections},{'quoted':m});}
+case 'song': function _0x2619(_0xa712bd,_0x3cc493){const _0x2f0691=_0x2f06();return _0x2619=function(_0x261933,_0x59f241){_0x261933=_0x261933-0x1a2;let _0x917ca7=_0x2f0691[_0x261933];return _0x917ca7;},_0x2619(_0xa712bd,_0x3cc493);}function _0x2f06(){const _0x55f35b=['5882437fKRgcs','CLICK\x20HERE','SONG\x20MP3⬤:\x20','4hJSzkU','12pZvqNm','814707ccVmTU','\x20story\x20wa\x20anime','all','ytmp3\x20','4372FqRNJf','10410rOdoIb','9jVLgZE','221753YSKLus','description','228MgPUWT','1606370nMGtMJ','yt-search','ytmp4\x20','push','chat','title','875MAamOM','VIDEO\x20MP4⬤:\x20','3693992HrmsNO','url','sendMessage','HERE\x20IS\x20YOUR\x20RESULTS\x20CHOMIE\x20FROM\x20*','Example\x20:\x20'];_0x2f06=function(){return _0x55f35b;};return _0x2f06();}const _0x494681=_0x2619;(function(_0x2f990d,_0x3dab42){const _0x5d3d5d=_0x2619,_0x91ff83=_0x2f990d();while(!![]){try{const _0x5d2979=-parseInt(_0x5d3d5d(0x1bc))/0x1*(parseInt(_0x5d3d5d(0x1a5))/0x2)+-parseInt(_0x5d3d5d(0x1b8))/0x3*(parseInt(_0x5d3d5d(0x1b6))/0x4)+parseInt(_0x5d3d5d(0x1ac))/0x5*(parseInt(_0x5d3d5d(0x1bd))/0x6)+-parseInt(_0x5d3d5d(0x1a3))/0x7+parseInt(_0x5d3d5d(0x1ae))/0x8*(parseInt(_0x5d3d5d(0x1a2))/0x9)+-parseInt(_0x5d3d5d(0x1a6))/0xa+parseInt(_0x5d3d5d(0x1b3))/0xb*(parseInt(_0x5d3d5d(0x1b7))/0xc);if(_0x5d2979===_0x3dab42)break;else _0x91ff83['push'](_0x91ff83['shift']());}catch(_0xd3cf2c){_0x91ff83['push'](_0x91ff83['shift']());}}}(_0x2f06,0x527b8));{if(!text)throw _0x494681(0x1b2)+(prefix+command)+_0x494681(0x1b9);let yts=require(_0x494681(0x1a7)),search=await yts(text),sections=[],listmenu=[_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x0][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x2]['url'],'ytmp3\x20'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1af)],'ytmp4\x20'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x7][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x8]['url'],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x9][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xa][_0x494681(0x1af)],'ytmp3\x20'+search[_0x494681(0x1ba)][0xb]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xc]['url'],_0x494681(0x1bb)+search['all'][0xd][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1af)],'ytmp3\x20'+search['all'][0xf]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x11]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x13][_0x494681(0x1af)]],listmenuu=[_0x494681(0x1ad)+search['all'][0x0][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x2][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x3][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1ab)],_0x494681(0x1ad)+search['all'][0x6][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x7]['title'],'VIDEO\x20MP4⬤:\x20'+search[_0x494681(0x1ba)][0x8][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xa]['title'],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0xb][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xc][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search['all'][0xd][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0xf][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x11]['title'],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1ab)]],listmenuuu=['\x0a'+search[_0x494681(0x1ba)][0x0][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x1]['description'],'\x0a'+search[_0x494681(0x1ba)][0x2][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1a4)],'\x0a'+search['all'][0x4]['description'],'\x0a'+search['all'][0x5][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x7]['description'],'\x0a'+search[_0x494681(0x1ba)][0x8]['description'],'\x0a'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1a4)],'\x0a'+search['all'][0xa][_0x494681(0x1a4)],'\x0a'+search['all'][0xb][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xc][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xd][_0x494681(0x1a4)],'\x0a'+search['all'][0xe][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xf]['description'],'\x0a'+search[_0x494681(0x1ba)][0x10]['description'],'\x0a'+search['all'][0x11]['description'],'\x0a'+search[_0x494681(0x1ba)][0x12][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1a4)]],nombor=0x1,startnum=0x0,startnumm=0x0;for(let x of listmenu){const list={'title':'RESULT\x20NUMBER\x20'+nombor++,'rows':[{'title':''+listmenuu[startnum++],'description':''+listmenuuu[startnumm++],'rowId':''+prefix+x}]};sections[_0x494681(0x1a9)](list);}const sendm=BALOCHEDITInc[_0x494681(0x1b0)](m[_0x494681(0x1aa)],{'text':'\x0a\x0a*CHEERS\x20TO\x20THAT*','footer':botname,'title':_0x494681(0x1b1)+text+'*\x20_select\x20song\x20or\x20video\x20below_','buttonText':_0x494681(0x1b4),'sections':sections},{'quoted':m});}
      break
-case 'ytsaudio': case 'ytsmusic': case 'ytsearchmusic': function _0x46a1(){const _0x3cb4a8=['44fHOPfg','chat','ago','ban','4252496icAfHA','yt-search','description','\x20guspy\x20warior\x20ita\x20seunononga','34092pFHiyl','\x0a*LINK:*\x20','12epfryU','views','74qcPxDS','title','LIST\x20OF\x20AUDIOS','133001HPuagx','url','2461554eExvyT','push','677018pTstMj','42513SkDmLN','\x0a*VIEWS:*\x20','name','author','ytmp3\x20','546sLAwAk','\x0a*DURATION:*\x20','\x0a*UPLOAD:*\x20','timestamp','38900mFwmYh','20kEdwTq'];_0x46a1=function(){return _0x3cb4a8;};return _0x46a1();}function _0x35ef(_0x1538a1,_0x2458a4){const _0x46a1f5=_0x46a1();return _0x35ef=function(_0x35ef79,_0x36917d){_0x35ef79=_0x35ef79-0xf2;let _0x553e0e=_0x46a1f5[_0x35ef79];return _0x553e0e;},_0x35ef(_0x1538a1,_0x2458a4);}const _0x49fc3c=_0x35ef;(function(_0x180268,_0x1db291){const _0x90f637=_0x35ef,_0x1f645e=_0x180268();while(!![]){try{const _0xfa5e79=parseInt(_0x90f637(0x103))/0x1+-parseInt(_0x90f637(0xfc))/0x2*(parseInt(_0x90f637(0x104))/0x3)+parseInt(_0x90f637(0x10f))/0x4*(-parseInt(_0x90f637(0x10d))/0x5)+parseInt(_0x90f637(0xf8))/0x6*(parseInt(_0x90f637(0x109))/0x7)+-parseInt(_0x90f637(0xf4))/0x8+-parseInt(_0x90f637(0x101))/0x9*(-parseInt(_0x90f637(0x10e))/0xa)+parseInt(_0x90f637(0xff))/0xb*(-parseInt(_0x90f637(0xfa))/0xc);if(_0xfa5e79===_0x1db291)break;else _0x1f645e['push'](_0x1f645e['shift']());}catch(_0x54be1f){_0x1f645e['push'](_0x1f645e['shift']());}}}(_0x46a1,0x7d682));{if(isBan)throw mess[_0x49fc3c(0xf3)];if(!text)throw'Example\x20:\x20'+(prefix+command)+_0x49fc3c(0xf7);let yts=require(_0x49fc3c(0xf5)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i['title'],'rows':[{'title':i[_0x49fc3c(0xfd)]+'\x0a','rowId':prefix+_0x49fc3c(0x108)+i[_0x49fc3c(0x100)],'description':i[_0x49fc3c(0xf6)]+_0x49fc3c(0x10b)+i[_0x49fc3c(0xf2)]+'\x0a*CHANNEL:*\x20'+i[_0x49fc3c(0x107)][_0x49fc3c(0x106)]+_0x49fc3c(0x105)+i[_0x49fc3c(0xfb)]+_0x49fc3c(0x10a)+i[_0x49fc3c(0x10c)]+_0x49fc3c(0xf9)+i[_0x49fc3c(0x100)]}]};sections[_0x49fc3c(0x102)](list);}const sendm=ZimBotInc['sendMessage'](m[_0x49fc3c(0x110)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20Here\x20are\x20the\x20search\x20results\x20from\x20ytsaudio','buttonText':_0x49fc3c(0xfe),'sections':sections},{'quoted':m});}
+case 'ytsaudio': case 'ytsmusic': case 'ytsearchmusic': function _0x46a1(){const _0x3cb4a8=['44fHOPfg','chat','ago','ban','4252496icAfHA','yt-search','description','\x20guspy\x20warior\x20ita\x20seunononga','34092pFHiyl','\x0a*LINK:*\x20','12epfryU','views','74qcPxDS','title','LIST\x20OF\x20AUDIOS','133001HPuagx','url','2461554eExvyT','push','677018pTstMj','42513SkDmLN','\x0a*VIEWS:*\x20','name','author','ytmp3\x20','546sLAwAk','\x0a*DURATION:*\x20','\x0a*UPLOAD:*\x20','timestamp','38900mFwmYh','20kEdwTq'];_0x46a1=function(){return _0x3cb4a8;};return _0x46a1();}function _0x35ef(_0x1538a1,_0x2458a4){const _0x46a1f5=_0x46a1();return _0x35ef=function(_0x35ef79,_0x36917d){_0x35ef79=_0x35ef79-0xf2;let _0x553e0e=_0x46a1f5[_0x35ef79];return _0x553e0e;},_0x35ef(_0x1538a1,_0x2458a4);}const _0x49fc3c=_0x35ef;(function(_0x180268,_0x1db291){const _0x90f637=_0x35ef,_0x1f645e=_0x180268();while(!![]){try{const _0xfa5e79=parseInt(_0x90f637(0x103))/0x1+-parseInt(_0x90f637(0xfc))/0x2*(parseInt(_0x90f637(0x104))/0x3)+parseInt(_0x90f637(0x10f))/0x4*(-parseInt(_0x90f637(0x10d))/0x5)+parseInt(_0x90f637(0xf8))/0x6*(parseInt(_0x90f637(0x109))/0x7)+-parseInt(_0x90f637(0xf4))/0x8+-parseInt(_0x90f637(0x101))/0x9*(-parseInt(_0x90f637(0x10e))/0xa)+parseInt(_0x90f637(0xff))/0xb*(-parseInt(_0x90f637(0xfa))/0xc);if(_0xfa5e79===_0x1db291)break;else _0x1f645e['push'](_0x1f645e['shift']());}catch(_0x54be1f){_0x1f645e['push'](_0x1f645e['shift']());}}}(_0x46a1,0x7d682));{if(isBan)throw mess[_0x49fc3c(0xf3)];if(!text)throw'Example\x20:\x20'+(prefix+command)+_0x49fc3c(0xf7);let yts=require(_0x49fc3c(0xf5)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i['title'],'rows':[{'title':i[_0x49fc3c(0xfd)]+'\x0a','rowId':prefix+_0x49fc3c(0x108)+i[_0x49fc3c(0x100)],'description':i[_0x49fc3c(0xf6)]+_0x49fc3c(0x10b)+i[_0x49fc3c(0xf2)]+'\x0a*CHANNEL:*\x20'+i[_0x49fc3c(0x107)][_0x49fc3c(0x106)]+_0x49fc3c(0x105)+i[_0x49fc3c(0xfb)]+_0x49fc3c(0x10a)+i[_0x49fc3c(0x10c)]+_0x49fc3c(0xf9)+i[_0x49fc3c(0x100)]}]};sections[_0x49fc3c(0x102)](list);}const sendm=BALOCHEDITInc['sendMessage'](m[_0x49fc3c(0x110)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20Here\x20are\x20the\x20search\x20results\x20from\x20ytsaudio','buttonText':_0x49fc3c(0xfe),'sections':sections},{'quoted':m});}
                   break
-case 'ytsvideo': case 'ytsearchvideo': function _0x4c3b(_0x54ae6d,_0x1bd257){const _0x3b9c98=_0x3b9c();return _0x4c3b=function(_0x4c3b5c,_0x283661){_0x4c3b5c=_0x4c3b5c-0xde;let _0x293112=_0x3b9c98[_0x4c3b5c];return _0x293112;},_0x4c3b(_0x54ae6d,_0x1bd257);}const _0x309941=_0x4c3b;(function(_0x39a082,_0x29c94e){const _0x31d9ff=_0x4c3b,_0x475bdc=_0x39a082();while(!![]){try{const _0x413430=parseInt(_0x31d9ff(0xde))/0x1+-parseInt(_0x31d9ff(0xf6))/0x2+-parseInt(_0x31d9ff(0xef))/0x3*(-parseInt(_0x31d9ff(0xe7))/0x4)+-parseInt(_0x31d9ff(0xf5))/0x5+parseInt(_0x31d9ff(0xec))/0x6+parseInt(_0x31d9ff(0xf2))/0x7*(-parseInt(_0x31d9ff(0xe2))/0x8)+-parseInt(_0x31d9ff(0xf3))/0x9;if(_0x413430===_0x29c94e)break;else _0x475bdc['push'](_0x475bdc['shift']());}catch(_0x42b36d){_0x475bdc['push'](_0x475bdc['shift']());}}}(_0x3b9c,0x95b3f));function _0x3b9c(){const _0x638643=['3DDoYge','description','views','21pCPFvn','6141285sksXBX','\x0a*DURATION*\x20','1562925wRUdVF','624600RRcHIn','yt-search','url','1208674kLzYwF','sendMessage','chat','name','2313448kMulLs','ago','\x0a*LINK:*\x20','ytmp4\x20','title','1890928GCYvLv','Example\x20:\x20','LIST\x20OF\x20VIDEOS','\x20seh\x20calaz\x20takambo\x20tamba\x20munyika','\x0a*UPLOAD:*\x20','6639420uOEBHC','timestamp','\x0a*VIEWS:*\x20'];_0x3b9c=function(){return _0x638643;};return _0x3b9c();}{if(isBan)throw mess['ban'];if(!text)throw _0x309941(0xe8)+(prefix+command)+_0x309941(0xea);let yts=require(_0x309941(0xf7)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i[_0x309941(0xe6)],'rows':[{'title':i['title']+'\x0a','rowId':prefix+_0x309941(0xe5)+i['url'],'description':i[_0x309941(0xf0)]+_0x309941(0xeb)+i[_0x309941(0xe3)]+'\x0a*CHANNEL:*\x20'+i['author'][_0x309941(0xe1)]+_0x309941(0xee)+i[_0x309941(0xf1)]+_0x309941(0xf4)+i[_0x309941(0xed)]+_0x309941(0xe4)+i[_0x309941(0xf8)]}]};sections['push'](list);}const sendm=ZimBotInc[_0x309941(0xdf)](m[_0x309941(0xe0)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20*Here\x20are\x20the\x20search\x20results\x20from\x20ytsvideo*','buttonText':_0x309941(0xe9),'sections':sections},{'quoted':m});}
+case 'ytsvideo': case 'ytsearchvideo': function _0x4c3b(_0x54ae6d,_0x1bd257){const _0x3b9c98=_0x3b9c();return _0x4c3b=function(_0x4c3b5c,_0x283661){_0x4c3b5c=_0x4c3b5c-0xde;let _0x293112=_0x3b9c98[_0x4c3b5c];return _0x293112;},_0x4c3b(_0x54ae6d,_0x1bd257);}const _0x309941=_0x4c3b;(function(_0x39a082,_0x29c94e){const _0x31d9ff=_0x4c3b,_0x475bdc=_0x39a082();while(!![]){try{const _0x413430=parseInt(_0x31d9ff(0xde))/0x1+-parseInt(_0x31d9ff(0xf6))/0x2+-parseInt(_0x31d9ff(0xef))/0x3*(-parseInt(_0x31d9ff(0xe7))/0x4)+-parseInt(_0x31d9ff(0xf5))/0x5+parseInt(_0x31d9ff(0xec))/0x6+parseInt(_0x31d9ff(0xf2))/0x7*(-parseInt(_0x31d9ff(0xe2))/0x8)+-parseInt(_0x31d9ff(0xf3))/0x9;if(_0x413430===_0x29c94e)break;else _0x475bdc['push'](_0x475bdc['shift']());}catch(_0x42b36d){_0x475bdc['push'](_0x475bdc['shift']());}}}(_0x3b9c,0x95b3f));function _0x3b9c(){const _0x638643=['3DDoYge','description','views','21pCPFvn','6141285sksXBX','\x0a*DURATION*\x20','1562925wRUdVF','624600RRcHIn','yt-search','url','1208674kLzYwF','sendMessage','chat','name','2313448kMulLs','ago','\x0a*LINK:*\x20','ytmp4\x20','title','1890928GCYvLv','Example\x20:\x20','LIST\x20OF\x20VIDEOS','\x20seh\x20calaz\x20takambo\x20tamba\x20munyika','\x0a*UPLOAD:*\x20','6639420uOEBHC','timestamp','\x0a*VIEWS:*\x20'];_0x3b9c=function(){return _0x638643;};return _0x3b9c();}{if(isBan)throw mess['ban'];if(!text)throw _0x309941(0xe8)+(prefix+command)+_0x309941(0xea);let yts=require(_0x309941(0xf7)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i[_0x309941(0xe6)],'rows':[{'title':i['title']+'\x0a','rowId':prefix+_0x309941(0xe5)+i['url'],'description':i[_0x309941(0xf0)]+_0x309941(0xeb)+i[_0x309941(0xe3)]+'\x0a*CHANNEL:*\x20'+i['author'][_0x309941(0xe1)]+_0x309941(0xee)+i[_0x309941(0xf1)]+_0x309941(0xf4)+i[_0x309941(0xed)]+_0x309941(0xe4)+i[_0x309941(0xf8)]}]};sections['push'](list);}const sendm=BALOCHEDITInc[_0x309941(0xdf)](m[_0x309941(0xe0)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20*Here\x20are\x20the\x20search\x20results\x20from\x20ytsvideo*','buttonText':_0x309941(0xe9),'sections':sections},{'quoted':m});}
                   break
-case 'yts2': case 'youtubesearch2': case 'ytsearch2': const _0x367230=_0x7a1b;(function(_0x26fbd0,_0x29b735){const _0x3fbe28=_0x7a1b,_0x275c0e=_0x26fbd0();while(!![]){try{const _0x2ee184=-parseInt(_0x3fbe28(0x70))/0x1+parseInt(_0x3fbe28(0x68))/0x2*(parseInt(_0x3fbe28(0x6c))/0x3)+parseInt(_0x3fbe28(0x73))/0x4+parseInt(_0x3fbe28(0x74))/0x5+parseInt(_0x3fbe28(0x77))/0x6+-parseInt(_0x3fbe28(0x6e))/0x7+-parseInt(_0x3fbe28(0x6a))/0x8;if(_0x2ee184===_0x29b735)break;else _0x275c0e['push'](_0x275c0e['shift']());}catch(_0x4987dd){_0x275c0e['push'](_0x275c0e['shift']());}}}(_0x3a3e,0x7e8f6));function _0x7a1b(_0x2bbe12,_0x2db74a){const _0x3a3eb8=_0x3a3e();return _0x7a1b=function(_0x7a1b5f,_0xb700fa){_0x7a1b5f=_0x7a1b5f-0x68;let _0x4e426f=_0x3a3eb8[_0x7a1b5f];return _0x4e426f;},_0x7a1b(_0x2bbe12,_0x2db74a);}function _0x3a3e(){const _0xe7d720=['3SOVAdT','\x20story\x20wa\x20anime','2848391hZOnOV','yt-search','523865hTPSLj','CLICK\x20HERE','all','2700252wdBUpq','4085610EqrFLz','description','chat','4241982zoUaHp','title','ytmp3\x20','1855474dcfikL','sendMessage','13422008SKxjtp','push'];_0x3a3e=function(){return _0xe7d720;};return _0x3a3e();}{if(!text)throw'Example\x20:\x20'+(prefix+command)+_0x367230(0x6d);let yts=require(_0x367230(0x6f)),search=await yts(text),no=0x1,sections=[];for(let i of search[_0x367230(0x72)]){const list={'title':''+i[_0x367230(0x78)],'rows':[{'title':i['title']+'\x0a\x0a','rowId':prefix+_0x367230(0x79)+i['url'],'description':''+i[_0x367230(0x75)]}]};sections[_0x367230(0x6b)](list);}const sendm=ZimBotInc[_0x367230(0x69)](m[_0x367230(0x76)],{'text':'\x20'+text,'footer':botname,'title':'*Here\x20are\x20the\x20search\x20results\x20from\x20yts2*','buttonText':_0x367230(0x71),'sections':sections},{'quoted':m});}
+case 'yts2': case 'youtubesearch2': case 'ytsearch2': const _0x367230=_0x7a1b;(function(_0x26fbd0,_0x29b735){const _0x3fbe28=_0x7a1b,_0x275c0e=_0x26fbd0();while(!![]){try{const _0x2ee184=-parseInt(_0x3fbe28(0x70))/0x1+parseInt(_0x3fbe28(0x68))/0x2*(parseInt(_0x3fbe28(0x6c))/0x3)+parseInt(_0x3fbe28(0x73))/0x4+parseInt(_0x3fbe28(0x74))/0x5+parseInt(_0x3fbe28(0x77))/0x6+-parseInt(_0x3fbe28(0x6e))/0x7+-parseInt(_0x3fbe28(0x6a))/0x8;if(_0x2ee184===_0x29b735)break;else _0x275c0e['push'](_0x275c0e['shift']());}catch(_0x4987dd){_0x275c0e['push'](_0x275c0e['shift']());}}}(_0x3a3e,0x7e8f6));function _0x7a1b(_0x2bbe12,_0x2db74a){const _0x3a3eb8=_0x3a3e();return _0x7a1b=function(_0x7a1b5f,_0xb700fa){_0x7a1b5f=_0x7a1b5f-0x68;let _0x4e426f=_0x3a3eb8[_0x7a1b5f];return _0x4e426f;},_0x7a1b(_0x2bbe12,_0x2db74a);}function _0x3a3e(){const _0xe7d720=['3SOVAdT','\x20story\x20wa\x20anime','2848391hZOnOV','yt-search','523865hTPSLj','CLICK\x20HERE','all','2700252wdBUpq','4085610EqrFLz','description','chat','4241982zoUaHp','title','ytmp3\x20','1855474dcfikL','sendMessage','13422008SKxjtp','push'];_0x3a3e=function(){return _0xe7d720;};return _0x3a3e();}{if(!text)throw'Example\x20:\x20'+(prefix+command)+_0x367230(0x6d);let yts=require(_0x367230(0x6f)),search=await yts(text),no=0x1,sections=[];for(let i of search[_0x367230(0x72)]){const list={'title':''+i[_0x367230(0x78)],'rows':[{'title':i['title']+'\x0a\x0a','rowId':prefix+_0x367230(0x79)+i['url'],'description':''+i[_0x367230(0x75)]}]};sections[_0x367230(0x6b)](list);}const sendm=BALOCHEDITInc[_0x367230(0x69)](m[_0x367230(0x76)],{'text':'\x20'+text,'footer':botname,'title':'*Here\x20are\x20the\x20search\x20results\x20from\x20yts2*','buttonText':_0x367230(0x71),'sections':sections},{'quoted':m});}
                   break
 case 'play2':  {  
 if (isBan) throw mess.ban            
@@ -3661,7 +3661,7 @@ if (isBan) throw mess.ban
 *⬤TITLE :* ${aramas.videos[0].title}
 *⬤SIZE :* ${data.medias[7].formattedSize}
 *⬤DESCRIPTION :* ${aramas.videos[0].description}`
-message = await prepareWAMessageMedia({ image : { url: aramas.videos[0].thumbnail } }, { upload:   ZimBotInc.waUploadToServer })
+message = await prepareWAMessageMedia({ image : { url: aramas.videos[0].thumbnail } }, { upload:   BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                     templateMessage: {
                         hydratedTemplate: {
@@ -3697,7 +3697,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                         }
                     }
                 }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 			    })
 				} catch (err) {
 					reply('*An error occurred maybe the query was not found*')
@@ -3718,8 +3718,8 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 
 *⬤▶━━━━━━━━━2:30*\n\n*⬤TITLE :* ${media.title}\n*⬤FILESIZE :* ${media.filesizeF}\n*⬤URL :* ${isUrl(text)}\n*⬤EXT :* MP3\n*⬤RESOLUTION :* ${args[1] || '128kbps'}\n\n*BALOCH EDIT*`
                 buf = await getBuffer(media.thumb)
-                ZimBotInc.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m }).catch((err) => m.reply('*Sorry, the link you provided is not valid*'))                
-                ZimBotInc.sendMessage(m.chat, {document:{url:media.dl_link}, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                BALOCHEDITInc.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m }).catch((err) => m.reply('*Sorry, the link you provided is not valid*'))                
+                BALOCHEDITInc.sendMessage(m.chat, {document:{url:media.dl_link}, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
                 title:media.title,
                 body:"YOUTUBE MP3",
                 mediaType:2,
@@ -3746,8 +3746,8 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 
 *⬤▶━━━━━━━━━2:30*\n\n*⬤Title* : ${media.title}\n*⬤FILESIZE* : ${media.filesizeF}\n*⬤URL* : ${isUrl(text)}\n*⬤EXT* : MP3\n*⬤RESOLUTION* : ${args[1] || '360p'}\n\n*BALOCH EDIT*`
                 var buf = await getBuffer(media.thumb)
-                ZimBotInc.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${capti}` }, { quoted: m })
-                ZimBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `*Downloading From ${text}*` }, { quoted: m }).catch((err) => m.reply('*error while sending the video*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${capti}` }, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `*Downloading From ${text}*` }, { quoted: m }).catch((err) => m.reply('*error while sending the video*'))
             }
             break
 case 'ytshorts': case 'shorts': {
@@ -3765,8 +3765,8 @@ case 'ytshorts': case 'shorts': {
 
 *⬤▶━━━━━━━━━2:30*\n\n\n\n*⬤TITLE:* ${data.title}\n*⬤QUALITY:* ${data.medias[0].quality}\n*⬤SIZE:* ${data.medias[0].formattedSize}\n*⬤DURATION* ${data.duration}\n*⬤ID:* ${data.medias[0].cached}\n*⬤LINK:* ${data.url}\n\n*BALOCH EDIT*`
   buf = await getBuffer(data.thumbnail)
-  ZimBotInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${cap}` }, { quoted: m })
-  ZimBotInc.sendMessage(m.chat, { video: { url: data.medias[0].url }, jpegThumbnail:buf, caption: `*⬤TITLE:* ${data.title}\n*⬤QUALITY:* ${data.medias[0].quality}\n*⬤SIZE:* ${data.medias[0].formattedSize}` }, { quoted: m })  
+  BALOCHEDITInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${cap}` }, { quoted: m })
+  BALOCHEDITInc.sendMessage(m.chat, { video: { url: data.medias[0].url }, jpegThumbnail:buf, caption: `*⬤TITLE:* ${data.title}\n*⬤QUALITY:* ${data.medias[0].quality}\n*⬤SIZE:* ${data.medias[0].formattedSize}` }, { quoted: m })  
                 }).catch((err) => {
                     m.reply(`*Failed to download and send media*`)
                 })
@@ -3788,8 +3788,8 @@ case 'ytshorts': case 'shorts': {
                 let quality = args[1] ? args[1] : '128kbps'
                 let media = await yta(urls[text - 1], quality)
                 if (media.filesize >= 100000) return m.reply('*File Over Limit* '+util.format(media))
-                ZimBotInc.sendImage(m.chat, media.thumb, `*⬤TITLE* : ${media.title}\n*⬤FILE SIZE :* ${media.filesizeF}\n*⬤URL :* ${urls[text - 1]}\n*⬤EXT :* MP3\n*⬤RESOLUTION :* ${args[1] || '128kbps'}`, m)
-                ZimBotInc.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
+                BALOCHEDITInc.sendImage(m.chat, media.thumb, `*⬤TITLE* : ${media.title}\n*⬤FILE SIZE :* ${media.filesizeF}\n*⬤URL :* ${urls[text - 1]}\n*⬤EXT :* MP3\n*⬤RESOLUTION :* ${args[1] || '128kbps'}`, m)
+                BALOCHEDITInc.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
             break
             case 'getvideo': {          
@@ -3808,7 +3808,7 @@ case 'ytshorts': case 'shorts': {
                 let quality = args[1] ? args[1] : '360p'
                 let media = await ytv(urls[text - 1], quality)
                 if (media.filesize >= 100000) return m.reply('*File Over Limit* '+util.format(media))
-                ZimBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `*⬤TITLE :* ${media.title}\n*⬤FILESIZE :* ${media.filesizeF}\n*⬤URL :* ${urls[text - 1]}\n*⬤EXT:* MP3\n*⬤RESOLUTION :* ${args[1] || '360p'}` }, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `*⬤TITLE :* ${media.title}\n*⬤FILESIZE :* ${media.filesizeF}\n*⬤URL :* ${urls[text - 1]}\n*⬤EXT:* MP3\n*⬤RESOLUTION :* ${args[1] || '360p'}` }, { quoted: m })
             }
             break
 
@@ -3837,7 +3837,7 @@ if (isBan) throw mess.ban
                     buttons: buttons,
                     headerType: 4
                 }
-                ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m }).catch((err) => m.reply('*Sorry An error occurred*'))
+                BALOCHEDITInc.sendMessage(m.chat, buttonMessage, { quoted: m }).catch((err) => m.reply('*Sorry An error occurred*'))
             }
            break
           case 'angie': case 'aria': case 'attic': case 'blackandwhite': case 'chorme1977': case 'constrastbandw':
@@ -3853,10 +3853,10 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 	        	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
-                let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)                
+                let media = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted)                
                 let anu = await TelegraPh(media)
                 let buf = await getBuffer(`https://violetics.pw/api/photofilter/${command}?apikey=${setting.violkey}&image=${anu}`)
-                ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `PhotoFilter ${command}` }, { quoted: m}).catch ((err) => m.reply('*Sorry failed to create a filter*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `PhotoFilter ${command}` }, { quoted: m}).catch ((err) => m.reply('*Sorry failed to create a filter*'))
                 }
                 break
            case 'quotemaker': {
@@ -3868,7 +3868,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://xteam.xyz/quotemaker?text=${text}&wm=stars&APIKEY=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
            case 'gaming': {
@@ -3878,7 +3878,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/gaming?apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
            case 'pentol': {
@@ -3888,7 +3888,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/pentol?apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
            case 'cogan2': {
@@ -3897,7 +3897,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/cogan2?apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
            case 'cecan2': {
@@ -3906,7 +3906,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/cecan2?apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
             break
            case 'islami': {
@@ -3915,7 +3915,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/islami?apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
            
@@ -3926,7 +3926,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/aesthetic?apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
            case 'anime': {
@@ -3934,7 +3934,7 @@ if (isBan) throw mess.ban
                 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)                
                 m.reply(mess.wait)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/anime?apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
            case 'drakjoke': case 'darkjoke': {
@@ -3944,7 +3944,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://xteam.xyz/randomimage/drak?APIKEY=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
            case 'megumin': {
@@ -3954,7 +3954,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/megumin?apikey=${setting.riy}`)
-                ZimBotInc.sendMessag0 (m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessag0 (m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
            case 'yotsuba': {
@@ -3963,7 +3963,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/yotsuba?apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
            case 'shinomiya': {
@@ -3972,7 +3972,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/shinomiya?apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
            case 'yumeko': {
@@ -3982,7 +3982,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/yumeko?apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
            case 'tejina': {
@@ -3991,7 +3991,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/tejina?apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
           case 'cyberspace': {
@@ -4000,7 +4000,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/cyberspace?apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
            break
            case 'chiho': {
@@ -4009,7 +4009,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/chiho?apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
             break                   
            case 'waifu': {
@@ -4031,7 +4031,7 @@ if (isBan) throw mess.ban
                     buttons: buttons,
                     headerType: 4
                 }
-                ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             
   
@@ -4040,7 +4040,7 @@ if (isBan) throw mess.ban
 					reply(mess.wait)
 					axios.get(`https://api.waifu.pics/sfw/${command}`)
 					.then(({data}) => {
-						ZimBotInc.sendImageAsSticker(m.chat, data.url, m, { packname: global.packname, author: global.author })
+						BALOCHEDITInc.sendImageAsSticker(m.chat, data.url, m, { packname: global.packname, author: global.author })
                     })
                     break 
                     
@@ -4072,8 +4072,8 @@ m.reply(`\`\`\`*Success , Activating the antivirtex feature in the group*\`\`\` 
             m.reply(`*1 limit used*`)
                 let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
                 let random = anu[Math.floor(Math.random() * anu.length)]
-                ZimBotInc.sendMessage(m.chat, { image: { url: random.male }, caption: `Couple Male` }, { quoted: m })
-                ZimBotInc.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { image: { url: random.male }, caption: `Couple Male` }, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: m })
             }
 	    break        
             case 'coffe': case 'kopi': {
@@ -4093,7 +4093,7 @@ m.reply(`\`\`\`*Success , Activating the antivirtex feature in the group*\`\`\` 
                     buttons: buttons,
                     headerType: 4
                 }
-                ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
            
@@ -4114,11 +4114,11 @@ m.reply(`\`\`\`*Success , Activating the antivirtex feature in the group*\`\`\` 
                 let buttonMessage = {
                     image: { url: result.image[0] },
                     caption: `> Title : ${result.title}\n> Category : ${result.type}\n> Detail : ${result.source}\n> Media Url : ${result.image[2] || result.image[1] || result.image[0]}`,
-                    footer: ZimBotInc.user.name,
+                    footer: BALOCHEDITInc.user.name,
                     buttons: buttons,
                     headerType: 4
                 }
-                ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break                  //by drips if you copy give credits
             case 'slot': { 
@@ -4149,7 +4149,7 @@ m.reply(`\`\`\`*Success , Activating the antivirtex feature in the group*\`\`\` 
                     randIndex = Math.floor(Math.random() * jsonData.length)
                     randKey = jsonData[randIndex];
                     buffer = await getBuffer(randKey.result)
-                    ZimBotInc.sendMessage(from, { image: buffer, caption: '*SLOT MACHINE*\n'+ dripslot }, {quoted:m})
+                    BALOCHEDITInc.sendMessage(from, { image: buffer, caption: '*SLOT MACHINE*\n'+ dripslot }, {quoted:m})
                 }
                     
                 
@@ -4174,11 +4174,11 @@ m.reply(`\`\`\`*Success , Activating the antivirtex feature in the group*\`\`\` 
                 let buttonMessage = {
                     image: { url: result.image },
                     caption: `> Title : ${result.title}\n> Source : ${result.source}\n> Media Url : ${result.image}`,
-                    footer: ZimBotInc.user.name,
+                    footer: BALOCHEDITInc.user.name,
                     buttons: buttons,
                     headerType: 4
                 }
-                ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
             case 'kbbi': {            
@@ -4223,7 +4223,7 @@ if (isBan) throw mess.ban
                     buttons: buttons,
                     headerType: 2
                 }
-                ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
             case 'wp': case 'wattpad': case 'wattpadsearch': {
@@ -4246,7 +4246,7 @@ if (!text) throw 'Masukkan query'
 
 				let link = await getBuffer(result[0].thumb)
 
-                ZimBotInc.sendMessage(m.chat, { image: link, caption: `${result[0].description}\nTitle: ${result[0].judul}\nAuthor: DRIPS\nDibaca: ${result[0].dibaca}\nDivote: ${result[0].divote}\nBab: ${result[0].bab}\nWaktu: ${result[0].waktu}\nUrl: ${result[0].url}` }, { quoted: m })                            
+                BALOCHEDITInc.sendMessage(m.chat, { image: link, caption: `${result[0].description}\nTitle: ${result[0].judul}\nAuthor: DRIPS\nDibaca: ${result[0].dibaca}\nDivote: ${result[0].divote}\nBab: ${result[0].bab}\nWaktu: ${result[0].waktu}\nUrl: ${result[0].url}` }, { quoted: m })                            
 
             }).catch((err) => m.reply(`*feature error*`))
 
@@ -4267,7 +4267,7 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 peh = `https://xteam.xyz/tahta?text=${text}&APIKEY=${setting.riy}`
-ZimBotInc.sendMessage(m.chat, {image: await getBuffer(peh)}, {quoted:m}).catch ((err) => m.reply('error'))     
+BALOCHEDITInc.sendMessage(m.chat, {image: await getBuffer(peh)}, {quoted:m}).catch ((err) => m.reply('error'))     
 }
 break
 
@@ -4280,7 +4280,7 @@ break
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/textpro/${command}?text=${text}&apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, caption: `Text Pro ${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `Text Pro ${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                 case 'nsfw': {
@@ -4292,13 +4292,13 @@ break
                  if (isAntinsfw) return reply('*Already activated*')
                  dripsno.push(from)
                  reply('*hahaha turning on horny mood in this group happy now*')
-                 var group = await ZimBotInc.groupMetadata(from)
+                 var group = await BALOCHEDITInc.groupMetadata(from)
                  var members = group['participants']
                  var mems = []
                  members.map(async adm => {
                  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
                  })
-                 ZimBotInc.sendMessage(from, {text: `*horny mood activated everyone be ready for masturbation*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+                 BALOCHEDITInc.sendMessage(from, {text: `*horny mood activated everyone be ready for masturbation*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
                  } else if (args[0] === "off") {
                  if (!isAntinsfw) return reply('*Already deactivated*')
                  let off = dripsno.indexOf(from)
@@ -4309,7 +4309,7 @@ break
                    { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
                    { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
                    ]
-                   await ZimBotInc.sendButtonText(m.chat, button, `*▊▊▊HORNY MOOD▊▊▊*\n\n*TURN IT ON SO PEOPLE THEY WILL START TO MASTURBATE LOL*`, `${global.botname}`, m)
+                   await BALOCHEDITInc.sendButtonText(m.chat, button, `*▊▊▊HORNY MOOD▊▊▊*\n\n*TURN IT ON SO PEOPLE THEY WILL START TO MASTURBATE LOL*`, `${global.botname}`, m)
                    }
                    }
                    break
@@ -4323,7 +4323,7 @@ break
                   reply(mess.wait)
                   crazybitch = await fetchJson(`https://wallebotapi.mitomods.com/docs/nsfw/${command}?apikey=Donitas`)
                   fuckyou = await getBuffer(crazybitch.result)
-                  ZimBotInc.sendMessage(m.chat, {image:fuckyou}, { quoted: m })
+                  BALOCHEDITInc.sendMessage(m.chat, {image:fuckyou}, { quoted: m })
                   
                   
             
@@ -4337,7 +4337,7 @@ break
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/textpro/${command}?text=${text}&text2=.&apikey=${setting.riy}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, caption: `Text Pro ${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `Text Pro ${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                 case 'silk':  case '3dnature': case 'bevel': case 'birthdaycake': case  'burnpaper':  case 'coffee': case 'coffee-heartcup': case 'embroiderytext': case 'flaming': case 'flowertypo': case 'funnycup': case 'fur': case 'gerbang': case 'glowrainbow': case 'gradientavatar': case 'graffititext': case 'harrypotter': case 'lovemessage': case 'luxuryroyal': case 'neonlight': case 'sweetcandy': case 'summertext': case 'woodheart': case 'woodblock': case 'yellowroses': case 'wolfmetal': case 'underwaterocean': {
@@ -4349,7 +4349,7 @@ break
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
             anu = await getBuffer(`https://violetics.pw/api/photooxy/${command}?apikey=${setting.violkey}&text=${text}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, caption: `*PHOTO OXY ${command}*` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `*PHOTO OXY ${command}*` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
      case 'wanted': case 'ytcomment': case 'beautiful': case 'jail': case 'fotojatoh': case 'pixelate': case 'blur': case 'imagesketch': case 'triggeredwebp': case 'shit': case 'burn': case 'invert': case 'gay': case 'wanted': case 'rip': case 'delete': {
@@ -4361,10 +4361,10 @@ break
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 	        	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
-                let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)                
+                let media = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted)                
                 let anu = await TelegraPh(media)
                 let buf = await getBuffer(`https://cililitan.herokuapp.com/api/${command}?url=${anu}`)
-                ZimBotInc.sendMessage(m.chat, { image: buf, caption: `Effect ${command}` }, { quoted: m}).catch ((err) => m.reply('error'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: buf, caption: `Effect ${command}` }, { quoted: m}).catch ((err) => m.reply('error'))
                 }
                 break
                 //TRUTH OR DARE
@@ -4380,7 +4380,7 @@ if (isBan) throw mess.ban
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api.akuari.my.id/ephoto/${command}?text=${text}&text_2=${text}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, caption: `*EPHOTO ${command}*` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `*EPHOTO ${command}*` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
 case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': case 'sandsummer-beach': case 'snow-text': case 'water-3d': case 'water-effect': case 'wet-glass': case 'status-mood2': case 'summerysand': {
@@ -4391,7 +4391,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                     kurangLimit(m.sender, 1)
                      m.reply(`*1 limit used*`)
                     anu = await getBuffer(`https://violetics.pw/api/ephoto360/${command}?apikey=${setting.violkey}&text=${text}`)
-                    ZimBotInc.sendMessage(m.chat, { image: anu, caption: `*EPHOTO ${command}*` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
+                    BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `*EPHOTO ${command}*` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
                     }
                     break
                 break
@@ -4402,7 +4402,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/fuckboy?apikey=${setting.lolkey}&name=${text}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                 case 'fuckgirlserti': {
@@ -4412,7 +4412,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/fuckgirl?apikey=${setting.lolkey}&name=${text}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                 case 'bucinserti': {
@@ -4422,7 +4422,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/bucinserti?apikey=${setting.lolkey}&name=${text}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                 case 'goodboyserti': {
@@ -4432,7 +4432,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/goodboy?apikey=${setting.lolkey}&name=${text}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                 case 'goodgirlserti': {
@@ -4442,7 +4442,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/goodgirl?apikey=${setting.lolkey}&name=${text}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                 case 'badboyserti': {
@@ -4452,7 +4452,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/badboy?apikey=${setting.lolkey}&name=${text}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                case 'badgirlserti': {
@@ -4462,7 +4462,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/badgirl?apikey=${setting.lolkey}&name=${text}`)
-                ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
 //BALOCH EDIT
@@ -4476,7 +4476,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             m.reply(`*1 limit used*`)
                 let anu = await primbon.nomer_hoki(Number(text))
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *NAME HP :* ${anu.message.nomer_hp}\n> *CHECK POINT :* ${anu.message.angka_shuzi}\n> *ENERGY POSITION :*\n- Riches : ${anu.message.energi_positif.kekayaan}\n- Health : ${anu.message.energi_positif.kesehatan}\n- Love : ${anu.message.energi_positif.cinta}\n- Stability : ${anu.message.energi_positif.kestabilan}\n- Percentage : ${anu.message.energi_positif.persentase}\n> *Negative Energy :*\n- Dispute : ${anu.message.energi_negatif.perselisihan}\n- Loss : ${anu.message.energi_negatif.kehilangan}\n- Disaster: ${anu.message.energi_negatif.malapetaka}\n- destruction : ${anu.message.energi_negatif.kehancuran}\n- Percentage : ${anu.message.energi_negatif.persentase}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *NAME HP :* ${anu.message.nomer_hp}\n> *CHECK POINT :* ${anu.message.angka_shuzi}\n> *ENERGY POSITION :*\n- Riches : ${anu.message.energi_positif.kekayaan}\n- Health : ${anu.message.energi_positif.kesehatan}\n- Love : ${anu.message.energi_positif.cinta}\n- Stability : ${anu.message.energi_positif.kestabilan}\n- Percentage : ${anu.message.energi_positif.persentase}\n> *Negative Energy :*\n- Dispute : ${anu.message.energi_negatif.perselisihan}\n- Loss : ${anu.message.energi_negatif.kehilangan}\n- Disaster: ${anu.message.energi_negatif.malapetaka}\n- destruction : ${anu.message.energi_negatif.kehancuran}\n- Percentage : ${anu.message.energi_negatif.persentase}`, m)
             }
             break
             case 'artimimpi': case 'tafsirmimpi': {
@@ -4488,7 +4488,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             m.reply(`*1 limit used*`)
                 let anu = await primbon.tafsir_mimpi(text)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Dream :* ${anu.message.mimpi}\n> *ARTI :* ${anu.message.arti}\n> *SOLUTION :* ${anu.message.solusi}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Dream :* ${anu.message.mimpi}\n> *ARTI :* ${anu.message.arti}\n> *SOLUTION :* ${anu.message.solusi}`, m)
             }
             break
             case 'ramalanjodoh': case 'ramaljodoh': {
@@ -4501,7 +4501,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *YOUR NAME :* ${anu.message.nama_anda.nama}\n> *YOUR BIRTH :* ${anu.message.nama_anda.tgl_lahir}\n> *Spouse Name :* ${anu.message.nama_pasangan.nama}\n> *Born Couple :* ${anu.message.nama_pasangan.tgl_lahir}\n> *Results :* ${anu.message.result}\n> *Notes :* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *YOUR NAME :* ${anu.message.nama_anda.nama}\n> *YOUR BIRTH :* ${anu.message.nama_anda.tgl_lahir}\n> *Spouse Name :* ${anu.message.nama_pasangan.nama}\n> *Born Couple :* ${anu.message.nama_pasangan.tgl_lahir}\n> *Results :* ${anu.message.result}\n> *Notes :* ${anu.message.catatan}`, m)
             }
             break
             case 'ramalanjodohbali': case 'ramaljodohbali': {
@@ -4514,7 +4514,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh_bali(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *YOUR NAME :* ${anu.message.nama_anda.nama}\n> *YOUR BIRTH :* ${anu.message.nama_anda.tgl_lahir}\n> *SPOUSE NAME :* ${anu.message.nama_pasangan.nama}\n> *BORN COUPLE :* ${anu.message.nama_pasangan.tgl_lahir}\n> *RESULTS :* ${anu.message.result}\n> *NOTES :* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *YOUR NAME :* ${anu.message.nama_anda.nama}\n> *YOUR BIRTH :* ${anu.message.nama_anda.tgl_lahir}\n> *SPOUSE NAME :* ${anu.message.nama_pasangan.nama}\n> *BORN COUPLE :* ${anu.message.nama_pasangan.tgl_lahir}\n> *RESULTS :* ${anu.message.result}\n> *NOTES :* ${anu.message.catatan}`, m)
             }
             break
             case 'suamiistri': {
@@ -4527,7 +4527,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.suami_istri(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *NAME :* ${anu.message.suami.nama}\n> *Husband Born :* ${anu.message.suami.tgl_lahir}\n> *Wife's name:* ${anu.message.istri.nama}\n> *Born Wife :* ${anu.message.istri.tgl_lahir}\n> *RESULTS :* ${anu.message.result}\n> *Notes :* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *NAME :* ${anu.message.suami.nama}\n> *Husband Born :* ${anu.message.suami.tgl_lahir}\n> *Wife's name:* ${anu.message.istri.nama}\n> *Born Wife :* ${anu.message.istri.tgl_lahir}\n> *RESULTS :* ${anu.message.result}\n> *Notes :* ${anu.message.catatan}`, m)
             }
             //GIVE CREDITS
             break
@@ -4541,7 +4541,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_cinta(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Your name :* ${anu.message.nama_anda.nama}\n> *Your birth :* ${anu.message.nama_anda.tgl_lahir}\n> *Spouse Name :* ${anu.message.nama_pasangan.nama}\n> *Born Couple :* ${anu.message.nama_pasangan.tgl_lahir}\n> *Positive side :* ${anu.message.sisi_positif}\n> *Negative Side :* ${anu.message.sisi_negatif}\n> *NOTES :* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Your name :* ${anu.message.nama_anda.nama}\n> *Your birth :* ${anu.message.nama_anda.tgl_lahir}\n> *Spouse Name :* ${anu.message.nama_pasangan.nama}\n> *Born Couple :* ${anu.message.nama_pasangan.tgl_lahir}\n> *Positive side :* ${anu.message.sisi_positif}\n> *Negative Side :* ${anu.message.sisi_negatif}\n> *NOTES :* ${anu.message.catatan}`, m)
             }
             break
             case 'artinama': {            
@@ -4552,7 +4552,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             m.reply(`*1 limit used*`)
                 let anu = await primbon.arti_nama(text)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *NAME :* ${anu.message.nama}\n> *ARTI :* ${anu.message.arti}\n> *NOTES :* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *NAME :* ${anu.message.nama}\n> *ARTI :* ${anu.message.arti}\n> *NOTES :* ${anu.message.catatan}`, m)
             }
             break
             case 'kecocokannama': case 'cocoknama': {
@@ -4565,7 +4565,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.kecocokan_nama(nama, tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *NAME :* ${anu.message.nama}\n> *Born :* ${anu.message.tgl_lahir}\n> *Life Path :* ${anu.message.life_path}\n> *Destiny :* ${anu.message.destiny}\n> *Destiny Desire :* ${anu.message.destiny_desire}\n> *Personality :* ${anu.message.personality}\n> *Percentage :* ${anu.message.persentase_kecocokan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *NAME :* ${anu.message.nama}\n> *Born :* ${anu.message.tgl_lahir}\n> *Life Path :* ${anu.message.life_path}\n> *Destiny :* ${anu.message.destiny}\n> *Destiny Desire :* ${anu.message.destiny_desire}\n> *Personality :* ${anu.message.personality}\n> *Percentage :* ${anu.message.persentase_kecocokan}`, m)
             }
             break
             case 'kecocokanpasangan': case 'cocokpasangan': case 'pasangan': {
@@ -4578,7 +4578,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [nama1, nama2] = text.split`|`
                 let anu = await primbon.kecocokan_nama_pasangan(nama1, nama2)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendImage(m.chat,  anu.message.gambar, `> *Your name :* ${anu.message.nama_anda}\n> *Spouse Name :* ${anu.message.nama_pasangan}\n> *Positive side :* ${anu.message.sisi_positif}\n> *Negative Side :* ${anu.message.sisi_negatif}`, m)
+                BALOCHEDITInc.sendImage(m.chat,  anu.message.gambar, `> *Your name :* ${anu.message.nama_anda}\n> *Spouse Name :* ${anu.message.nama_pasangan}\n> *Positive side :* ${anu.message.sisi_positif}\n> *Negative Side :* ${anu.message.sisi_negatif}`, m)
             }
             break
             case 'jadianpernikahan': case 'jadiannikah': {
@@ -4587,7 +4587,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.tanggal_jadian_pernikahan(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Tanggal Pernikahan :* ${anu.message.tanggal}\n> *characteristics:* ${anu.message.karakteristik}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Tanggal Pernikahan :* ${anu.message.tanggal}\n> *characteristics:* ${anu.message.karakteristik}`, m)
             }
             break
             case 'sifatusaha': {
@@ -4596,7 +4596,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_usaha_bisnis(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Born :* ${anu.message.hari_lahir}\n> *Effort :* ${anu.message.usaha}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Born :* ${anu.message.hari_lahir}\n> *Effort :* ${anu.message.usaha}`, m)
             }
             break
             case 'rejeki': case 'rezeki': {
@@ -4605,7 +4605,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rejeki_hoki_weton(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Born :* ${anu.message.hari_lahir}\n> *Sustenance:* ${anu.message.rejeki}\n> *NOTES* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Born :* ${anu.message.hari_lahir}\n> *Sustenance:* ${anu.message.rejeki}\n> *NOTES* ${anu.message.catatan}`, m)
             }
             break
             case 'pekerjaan': case 'kerja': {
@@ -4614,7 +4614,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.pekerjaan_weton_lahir(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Born :* ${anu.message.hari_lahir}\n> *Work :* ${anu.message.pekerjaan}\n> *NOTES* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Born :* ${anu.message.hari_lahir}\n> *Work :* ${anu.message.pekerjaan}\n> *NOTES* ${anu.message.catatan}`, m)
             }
             break
             case 'ramalannasib': case 'ramalnasib': case 'nasib': {
@@ -4623,7 +4623,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.ramalan_nasib(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Analysis :* ${anu.message.analisa}\n> *Root Number :* ${anu.message.angka_akar}\n> *Properties:* ${anu.message.sifat}\n> *Elemennt :* ${anu.message.elemen}\n> *Lucky Numbers :* ${anu.message.angka_keberuntungan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Analysis :* ${anu.message.analisa}\n> *Root Number :* ${anu.message.angka_akar}\n> *Properties:* ${anu.message.sifat}\n> *Elemennt :* ${anu.message.elemen}\n> *Lucky Numbers :* ${anu.message.angka_keberuntungan}`, m)
             }
             break
             case 'potensipenyakit': case 'penyakit': {
@@ -4632,7 +4632,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.cek_potensi_penyakit(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Analysis :* ${anu.message.analisa}\n> *SECTOR :* ${anu.message.sektor}\n> *Element :* ${anu.message.elemen}\n> *NOTES* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Analysis :* ${anu.message.analisa}\n> *SECTOR :* ${anu.message.sektor}\n> *Element :* ${anu.message.elemen}\n> *NOTES* ${anu.message.catatan}`, m)
             }
             break
             case 'artitarot': case 'tarot': {
@@ -4641,7 +4641,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.arti_kartu_tarot(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendImage(m.chat, anu.message.image, `> *Born :* ${anu.message.tgl_lahir}\n> *Symbol tart :* ${anu.message.simbol_tarot}\n> *Arti :* ${anu.message.arti}\n> *NOTES* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendImage(m.chat, anu.message.image, `> *Born :* ${anu.message.tgl_lahir}\n> *Symbol tart :* ${anu.message.simbol_tarot}\n> *Arti :* ${anu.message.arti}\n> *NOTES* ${anu.message.catatan}`, m)
             }
             break
             case 'fengshui': {
@@ -4650,7 +4650,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [nama, gender, tahun] = text.split`,`
                 let anu = await primbon.perhitungan_feng_shui(nama, gender, tahun)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *NAME :* ${anu.message.nama}\n> *Born :* ${anu.message.tahun_lahir}\n> *Gender :* ${anu.message.jenis_kelamin}\n> *Kua Numbers :* ${anu.message.angka_kua}\n> *Group :* ${anu.message.kelompok}\n> *CHARACTER :* ${anu.message.karakter}\n> *Good Sector :* ${anu.message.sektor_baik}\n> *Bad Sector :* ${anu.message.sektor_buruk}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *NAME :* ${anu.message.nama}\n> *Born :* ${anu.message.tahun_lahir}\n> *Gender :* ${anu.message.jenis_kelamin}\n> *Kua Numbers :* ${anu.message.angka_kua}\n> *Group :* ${anu.message.kelompok}\n> *CHARACTER :* ${anu.message.karakter}\n> *Good Sector :* ${anu.message.sektor_baik}\n> *Bad Sector :* ${anu.message.sektor_buruk}`, m)
             }
             break
             case 'haribaik': {
@@ -4659,7 +4659,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.petung_hari_baik(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Born :* ${anu.message.tgl_lahir}\n> *Kala Tinantang :* ${anu.message.kala_tinantang}\n> *Info :* ${anu.message.info}\n> *NOTES* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Born :* ${anu.message.tgl_lahir}\n> *Kala Tinantang :* ${anu.message.kala_tinantang}\n> *Info :* ${anu.message.info}\n> *NOTES* ${anu.message.catatan}`, m)
             }
             break
             case 'harisangar': case 'taliwangke': {
@@ -4668,7 +4668,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.hari_sangar_taliwangke(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Born :* ${anu.message.tgl_lahir}\n> *Results :* ${anu.message.result}\n> *Info :* ${anu.message.info}\n> *NOTES* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Born :* ${anu.message.tgl_lahir}\n> *Results :* ${anu.message.result}\n> *Info :* ${anu.message.info}\n> *NOTES* ${anu.message.catatan}`, m)
             }
             break
             case 'harinaas': case 'harisial': {
@@ -4677,7 +4677,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_hari_naas(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Born Day :* ${anu.message.hari_lahir}\n> *Born Date : :* ${anu.message.tgl_lahir}\n> *fateful day :* ${anu.message.hari_naas}\n> *Info :* ${anu.message.catatan}\n> *NOTES* ${anu.message.info}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Born Day :* ${anu.message.hari_lahir}\n> *Born Date : :* ${anu.message.tgl_lahir}\n> *fateful day :* ${anu.message.hari_naas}\n> *Info :* ${anu.message.catatan}\n> *NOTES* ${anu.message.info}`, m)
             }
             break
             case 'nagahari': case 'harinaga': {
@@ -4686,7 +4686,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rahasia_naga_hari(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Born Day :* ${anu.message.hari_lahir}\n> *Born Date :* ${anu.message.tgl_lahir}\n> *Dragon Day Direction :* ${anu.message.arah_naga_hari}\n> *NOTES* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Born Day :* ${anu.message.hari_lahir}\n> *Born Date :* ${anu.message.tgl_lahir}\n> *Dragon Day Direction :* ${anu.message.arah_naga_hari}\n> *NOTES* ${anu.message.catatan}`, m)
             }
             break
             case 'arahrejeki': case 'arahrezeki': {
@@ -4695,7 +4695,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_arah_rejeki(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Born Day :* ${anu.message.hari_lahir}\n> *Born Date : :* ${anu.message.tgl_lahir}\n> *Sustenance Direction:* ${anu.message.arah_rejeki}\n> *NOTES* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Born Day :* ${anu.message.hari_lahir}\n> *Born Date : :* ${anu.message.tgl_lahir}\n> *Sustenance Direction:* ${anu.message.arah_rejeki}\n> *NOTES* ${anu.message.catatan}`, m)
             }
             break
             case 'peruntungan': {
@@ -4704,7 +4704,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [nama, tgl, bln, thn, untuk] = text.split`,`
                 let anu = await primbon.ramalan_peruntungan(nama, tgl, bln, thn, untuk)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *NAME :* ${anu.message.nama}\n> *Born :* ${anu.message.tgl_lahir}\n> *Peruntungan Tahun :* ${anu.message.peruntungan_tahun}\n> *Results :* ${anu.message.result}\n> *NOTES* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *NAME :* ${anu.message.nama}\n> *Born :* ${anu.message.tgl_lahir}\n> *Peruntungan Tahun :* ${anu.message.peruntungan_tahun}\n> *Results :* ${anu.message.result}\n> *NOTES* ${anu.message.catatan}`, m)
             }
             break
             case 'weton': case 'wetonjawa': {
@@ -4713,7 +4713,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.weton_jawa(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Date :* ${anu.message.tanggal}\n> *Number of Neptune :* ${anu.message.jumlah_neptu}\n> *Character of the Day:* ${anu.message.watak_hari}\n> *Dragon Day :* ${anu.message.naga_hari}\n> *Good Hour :* ${anu.message.jam_baik}\n> *Birth Character :* ${anu.message.watak_kelahiran}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Date :* ${anu.message.tanggal}\n> *Number of Neptune :* ${anu.message.jumlah_neptu}\n> *Character of the Day:* ${anu.message.watak_hari}\n> *Dragon Day :* ${anu.message.naga_hari}\n> *Good Hour :* ${anu.message.jam_baik}\n> *Birth Character :* ${anu.message.watak_kelahiran}`, m)
             }
             break
             case 'sifat': case 'karakter': {
@@ -4722,7 +4722,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_karakter_tanggal_lahir(nama, tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *NAME :* ${anu.message.nama}\n> *Born :* ${anu.message.tgl_lahir}\n> *Lifeline :* ${anu.message.garis_hidup}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *NAME :* ${anu.message.nama}\n> *Born :* ${anu.message.tgl_lahir}\n> *Lifeline :* ${anu.message.garis_hidup}`, m)
             }
             break
             case 'keberuntungan': {
@@ -4731,7 +4731,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.potensi_keberuntungan(nama, tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *NAME :* ${anu.message.nama}\n> *Born :* ${anu.message.tgl_lahir}\n> *Results :* ${anu.message.result}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *NAME :* ${anu.message.nama}\n> *Born :* ${anu.message.tgl_lahir}\n> *Results :* ${anu.message.result}`, m)
             }
             break
             case 'memancing': {
@@ -4740,7 +4740,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_memancing_ikan(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Date :* ${anu.message.tgl_memancing}\n> *Results :* ${anu.message.result}\n> *NOTES* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Date :* ${anu.message.tgl_memancing}\n> *Results :* ${anu.message.result}\n> *NOTES* ${anu.message.catatan}`, m)
             }
             break
             case 'masasubur': {
@@ -4749,7 +4749,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 let [tgl, bln, thn, siklus] = text.split`,`
                 let anu = await primbon.masa_subur(tgl, bln, thn, siklus)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Results :* ${anu.message.result}\n> *NOTES* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Results :* ${anu.message.result}\n> *NOTES* ${anu.message.catatan}`, m)
             }
             break
             case 'zodiak': case 'zodiac': {
@@ -4785,7 +4785,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 
                 let anu = await primbon.zodiak(zodiac)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Zodiak :* ${anu.message.zodiak}\n> *NAME:* ${anu.message.nomor_keberuntungan}\n> *Aroma :* ${anu.message.aroma_keberuntungan}\n> *Planet :* ${anu.message.planet_yang_mengitari}\n> *Flower :* ${anu.message.bunga_keberuntungan}\n> *Warn :* ${anu.message.warna_keberuntungan}\n> *Batu :* ${anu.message.batu_keberuntungan}\n> *Element :* ${anu.message.elemen_keberuntungan}\n> *Zodiac Couple :* ${anu.message.pasangan_zodiak}\n> *NOTES* ${anu.message.catatan}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Zodiak :* ${anu.message.zodiak}\n> *NAME:* ${anu.message.nomor_keberuntungan}\n> *Aroma :* ${anu.message.aroma_keberuntungan}\n> *Planet :* ${anu.message.planet_yang_mengitari}\n> *Flower :* ${anu.message.bunga_keberuntungan}\n> *Warn :* ${anu.message.warna_keberuntungan}\n> *Batu :* ${anu.message.batu_keberuntungan}\n> *Element :* ${anu.message.elemen_keberuntungan}\n> *Zodiac Couple :* ${anu.message.pasangan_zodiak}\n> *NOTES* ${anu.message.catatan}`, m)
             }
             break
             case 'shio': {
@@ -4793,7 +4793,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 if (!text) throw `Example : ${prefix + command} tikus\n\nNote : For Detail https://primbon.com/shio.htm`
                 let anu = await primbon.shio(text)
                 if (anu.status == false) return m.reply(anu.message)
-                ZimBotInc.sendText(m.chat, `> *Results :* ${anu.message}`, m)
+                BALOCHEDITInc.sendText(m.chat, `> *Results :* ${anu.message}`, m)
             }
             break
 	    case 'stalker': case 'stalk': {
@@ -4841,7 +4841,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                     if (!id) throw `No Query username, Example : ${prefix + command} ig cak_haho`
                     let { result: anu } = await fetchJson(api('zenz', '/api/stalker/ig', { username: id }, 'apikey'))
                     if (anu.status == false) return m.reply(anu.result.message)
-                    ZimBotInc.sendMedia(m.chat, anu.caption.profile_hd, '', `> Full Name : ${anu.caption.full_name}\n> User Name : ${anu.caption.user_name}\n> ID ${anu.caption.user_id}\n> Followers : ${anu.caption.followers}\n> Following : ${anu.caption.following}\n> Bussines : ${anu.caption.bussines}\n> Profesional : ${anu.caption.profesional}\n> Verified : ${anu.caption.verified}\n> Private : ${anu.caption.private}\n> Bio : ${anu.caption.biography}\n> Bio Url : ${anu.caption.bio_url}`, m)
+                    BALOCHEDITInc.sendMedia(m.chat, anu.caption.profile_hd, '', `> Full Name : ${anu.caption.full_name}\n> User Name : ${anu.caption.user_name}\n> ID ${anu.caption.user_id}\n> Followers : ${anu.caption.followers}\n> Following : ${anu.caption.following}\n> Bussines : ${anu.caption.bussines}\n> Profesional : ${anu.caption.profesional}\n> Verified : ${anu.caption.verified}\n> Private : ${anu.caption.private}\n> Bio : ${anu.caption.biography}\n> Bio Url : ${anu.caption.bio_url}`, m)
 		    db.data.users[m.sender].limit -= 1
                 } else if (type.toLowerCase() == 'npm') {
                     if (!id) throw `No Query username, Example : ${prefix + command} npm scrape-primbon`
@@ -4875,7 +4875,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                     buttons: buttons,
                     headerType: 5
                 }
-                ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })                
+                BALOCHEDITInc.sendMessage(m.chat, buttonMessage, { quoted: m })                
                 }).catch((err) => {
                     m.reply(`*Failed to download media and send videos*`)
                 })
@@ -4892,7 +4892,7 @@ anu = await fetchJson(`https://violetics.pw/api/downloader/tiktok?apikey=df7d-42
 let listmn = `*▊▊▊TIKTOK DL▊▊▊*\n\n*Title:* ${anu.result.title}\n*Author:* ${anu.result.id}\n*Url:* ${anu.result.url}`
 buf = await getBuffer(anu.result.thumb)
 buf2 = await getBuffer(anu.result.link_dl2)
-let message = await prepareWAMessageMedia({ video: buf2, gifPlayback:false, jpegThumbnail:buf }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ video: buf2, gifPlayback:false, jpegThumbnail:buf }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -4928,7 +4928,7 @@ id: 'donadi'
 }
 }
 }), { userJid: m.chat, quoted: m })
-ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 }
 break
 case 'tiktok': case 'tiktoknowm': case 'tiktokwm': case 'tt': case 'ttnowm': case 'ttwm': {
@@ -4949,8 +4949,8 @@ if (isBan) throw mess.ban
                   let caption = `
                   *▊▊▊TIKTOK DL▊▊▊*\n\n*AUTHOR* : DRIPS\n*NICKNAME* : ${video.author.nickname}\n*CAPTION* : ${video.description}\n*QUALITY* : nowatermark\n*COMMENTS* : ${memek}\n*CREATE* ${hadir} Ago\n*LIKES* : ${hadi}\n*DISLIKE* : ${hadie}\n*SOURCE* : ${text}\n\n\n*BALOCH EDIT*`
                   buf = await getBuffer(video.author.avatar)                
-                  ZimBotInc.sendMessage(m.chat, { image: { url: video.author.avatar }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m })
-                  ZimBotInc.sendMessage(m.chat, { video: { url: video.video.no_watermark }, jpegThumbnail:buf, mimetype: 'video/mp4', caption: `*Downloading From ${text}*` }, { quoted: m })               
+                  BALOCHEDITInc.sendMessage(m.chat, { image: { url: video.author.avatar }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m })
+                  BALOCHEDITInc.sendMessage(m.chat, { video: { url: video.video.no_watermark }, jpegThumbnail:buf, mimetype: 'video/mp4', caption: `*Downloading From ${text}*` }, { quoted: m })               
                 }).catch((err) => {
                     m.reply(`*Failed to download media and send videos*`)
                 })
@@ -4972,8 +4972,8 @@ case 'tiktokk': case 'ttk': {
                     var memek = randomNomor(1000)                      
                   let caption = `*▊▊▊TIKTOK DL▊▊▊*\n\n*AUTHOR* : DRIPS\n*NICKNAME* : ${video.author.nickname}\n*CAPTION* : ${video.description}\n*COMMENTS* : ${memek}\n*CREATE* ${hadir} Ago\n*LIKES* : ${hadi}\n*DISLIKES* : ${hadie}\n*SOURCE* : ${text}\n\n\n*BALOCH EDIT*`
                   buf = await getBuffer(video.author.avatar)                
-                  ZimBotInc.sendMessage(m.chat, { image: { url: video.author.avatar }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m })
-                  ZimBotInc.sendMessage(m.chat, { video: { url: video.video.no_watermark }, jpegThumbnail:buf, mimetype: 'video/mp4', caption: `*Downloading From ${text}*` }, { quoted: m })               
+                  BALOCHEDITInc.sendMessage(m.chat, { image: { url: video.author.avatar }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m })
+                  BALOCHEDITInc.sendMessage(m.chat, { video: { url: video.video.no_watermark }, jpegThumbnail:buf, mimetype: 'video/mp4', caption: `*Downloading From ${text}*` }, { quoted: m })               
                 }).catch((err) => {
                     m.reply(`*Failed to download media and send videos*`)
                 })
@@ -4995,7 +4995,7 @@ case 'tt3': case 'tiktok3': {
                     var memek = randomNomor(1000)                      
                   let caption = `**▊▊▊TIKTOK DL▊▊▊**\n\n*⬤AUTHOR* : DRIPS\n*⬤NICKNAME* : ${video.author.nickname}\n*⬤CAPTION* : ${video.description}\n*⬤COMMENTS* : ${memek}\n*⬤CREATE* ${hadir} Ago\n*⬤LIKES* : ${hadi}\n*⬤DISLIKES* : ${hadie}\n*⬤ SOURCE* : ${text}`
                   buf = await getBuffer(video.author.avatar)                
-                  let message = await prepareWAMessageMedia({ image: buf, jpegThumbnail: buf }, { upload: ZimBotInc.waUploadToServer })
+                  let message = await prepareWAMessageMedia({ image: buf, jpegThumbnail: buf }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -5031,7 +5031,7 @@ id: `tiktokmp3 ${text}`
 }
 }
 }), { userJid: m.chat, quoted: m })
-ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })                
+BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })                
                 }).catch((err) => {
                     m.reply(`*Failed to download media and send videos*`)
                 })
@@ -5047,7 +5047,7 @@ case 'tiktokmp3': case 'tiktokaudio': {
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 got.tiktokDown(`${text}`).then(async (data) => {
-                ZimBotInc.sendMessage(m.chat, { audio: { url: data.result.nowatermark }, mimetype: 'audio/mp4'}, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { audio: { url: data.result.nowatermark }, mimetype: 'audio/mp4'}, { quoted: m })
                 }).catch((err) => {
                     m.reply(`*Failed to download media and send audio*`)
                 })
@@ -5063,7 +5063,7 @@ if (!text) throw `*Enter link tiktok example ${prefix + command} https://vt.tikt
             m.reply(`*1 limit used*`)           
                 get.aiovideodl(`${text}`).then(async (res) => {        
                 var anu = await getBuffer(res.medias[2].url)         
-                ZimBotInc.sendMessage(m.chat, { audio: anu, mimetype: 'audio/mpeg'}, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { audio: anu, mimetype: 'audio/mpeg'}, { quoted: m })
                 }).catch((err) => {
                     m.reply(`*Failed to download media and send videos*`)
                 })
@@ -5095,7 +5095,7 @@ case 'ig': case 'igdl': case 'instagram': {
 	            var halo = 0		
 
 
-	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM DOWNLOADER 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Filetype :* ${result.medias[0].fileType}\n*⬤ Type :* ${result.medias[0].type}\n*⬤ Jumlah Media :* ${result.medias.length}\n*⬤ Url :* ${text}\n\n*BALOCH EDIT*` }, { quoted: m })	             	                      	            
+	            BALOCHEDITInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM DOWNLOADER 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Filetype :* ${result.medias[0].fileType}\n*⬤ Type :* ${result.medias[0].type}\n*⬤ Jumlah Media :* ${result.medias.length}\n*⬤ Url :* ${text}\n\n*BALOCH EDIT*` }, { quoted: m })	             	                      	            
 
 
 		        for(let i of result.medias) {		
@@ -5106,14 +5106,14 @@ case 'ig': case 'igdl': case 'instagram': {
 
 				let link = await getBuffer(i.url)
 
-                ZimBotInc.sendMessage(m.chat, { video: link, jpegThumbnail: await getBuffer(i.preview), caption: `*Instagram ${i.type}*` }, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { video: link, jpegThumbnail: await getBuffer(i.preview), caption: `*Instagram ${i.type}*` }, { quoted: m })
 
                 } else {
 
 
                 let link = await getBuffer(i.url)
 
-                ZimBotInc.sendMessage(m.chat, { image: link, jpegThumbnail: await getBuffer(i.preview), caption: `*Instagram ${i.type}*` }, { quoted: m })          
+                BALOCHEDITInc.sendMessage(m.chat, { image: link, jpegThumbnail: await getBuffer(i.preview), caption: `*Instagram ${i.type}*` }, { quoted: m })          
 
 
                }
@@ -5142,10 +5142,10 @@ case 'ig': case 'igdl': case 'instagram': {
 		        for(let i of result){
 			    if(i.url.includes('mp4')){
 				let link = await getBuffer(i.url)
-                ZimBotInc.sendMessage(m.chat, { video: link, jpegThumbnail: await getBuffer(i.thumbnail), caption: `*${botname}*` }, { quoted: m }) 
+                BALOCHEDITInc.sendMessage(m.chat, { video: link, jpegThumbnail: await getBuffer(i.thumbnail), caption: `*${botname}*` }, { quoted: m }) 
                 } else {
                     let link = await getBuffer(i.url)
-                  ZimBotInc.sendMessage(m.chat, { image: link, jpegThumbnail: await getBuffer(i.thumbnail), caption: `*${botname}*` }, { quoted: m })                  
+                  BALOCHEDITInc.sendMessage(m.chat, { image: link, jpegThumbnail: await getBuffer(i.thumbnail), caption: `*${botname}*` }, { quoted: m })                  
                 }
             }
             }).catch((err) => m.reply(`*Failed When Downloading And Sending Media*`))
@@ -5163,8 +5163,8 @@ case 'ig2': case 'igdl2': case 'instagram2': {
             for(let i of anu.medias){                
                 var txt = `*▊▊▊INSTA DL▊▊▊*\n\n*Username:* ${anu.user.username}\n*Fullname:* ${anu.user.fullName}\n*Followers:* ${anu.user.followers}\n*Type:* ${anu.medias[0].type}\n*Tipe:* ${anu.medias[0].fileType}\n*ID:* ${anu.user.id}\n*Jumlah Media:* ${oi++}\n*Url:* ${text}\n\n*BALOCH EDIT*`
                 var buf = await getBuffer(anu.user.profilePicUrl)        
-                ZimBotInc.sendMessage(m.chat, { image: { url: anu.user.profilePicUrl }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m }).catch((err) => m.reply('error'))
-                ZimBotInc.sendMessage(m.chat, { video: { url: i.url }, jpegThumbnail:buf, caption: `${botname}`}, { quoted: m }).catch((err) => m.reply('error'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: { url: anu.user.profilePicUrl }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m }).catch((err) => m.reply('error'))
+                BALOCHEDITInc.sendMessage(m.chat, { video: { url: i.url }, jpegThumbnail:buf, caption: `${botname}`}, { quoted: m }).catch((err) => m.reply('error'))
                }
             }
             break
@@ -5178,7 +5178,7 @@ case 'ig2': case 'igdl2': case 'instagram2': {
             m.reply(`*1 limit used*`)
                 instagramdlv3(`${text}`).then(async (data) => {
                 for (let f of data) {                    
-                ZimBotInc.sendMedia(m.chat, f.url, '', `Download Url Instagram From ${text}`, m)
+                BALOCHEDITInc.sendMedia(m.chat, f.url, '', `Download Url Instagram From ${text}`, m)
                 }
                 }).catch((err) => {
                     m.reply(`*Failed to download media and send videos*`)
@@ -5207,7 +5207,7 @@ case 'ig2': case 'igdl2': case 'instagram2': {
 
 		        var halo = 0		
 
-	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM STORY 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Filetype :* ${result.medias[0].fileType}\n*⬤ Type :* ${result.medias[0].type}\n*⬤ Media :* ${result.medias.length}\n*⬤ Bio :* ${result.user.biography}\n\n*BALOCH EDIT*` }, { quoted: m })	             	                      	            
+	            BALOCHEDITInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM STORY 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Filetype :* ${result.medias[0].fileType}\n*⬤ Type :* ${result.medias[0].type}\n*⬤ Media :* ${result.medias.length}\n*⬤ Bio :* ${result.user.biography}\n\n*BALOCH EDIT*` }, { quoted: m })	             	                      	            
 
 		        for(let i of result.medias) {
 
@@ -5215,13 +5215,13 @@ case 'ig2': case 'igdl2': case 'instagram2': {
 
 				let link = await getBuffer(i.url)
 
-                ZimBotInc.sendMessage(m.chat, { video: link, jpegThumbnail: await getBuffer(i.preview), caption: `*Story ${i.type}*` }, { quoted: m }) 
+                BALOCHEDITInc.sendMessage(m.chat, { video: link, jpegThumbnail: await getBuffer(i.preview), caption: `*Story ${i.type}*` }, { quoted: m }) 
 
                 } else {
 
                     let link = await getBuffer(i.url)
 
-                  ZimBotInc.sendMessage(m.chat, { image: link, jpegThumbnail: await getBuffer(i.preview), caption: `*Story ${i.type}*` }, { quoted: m })                  
+                  BALOCHEDITInc.sendMessage(m.chat, { image: link, jpegThumbnail: await getBuffer(i.preview), caption: `*Story ${i.type}*` }, { quoted: m })                  
 
                 }
 
@@ -5243,7 +5243,7 @@ case 'igs2': case 'igstory2': case 'instagramstory2':{
                 anu = await fetchJson(`https://api.akuari.my.id/downloader/igStory?username=${text}`)        
                 for (let i of anu) {
                 tummb = await getBuffer(i.preview)         
-                ZimBotInc.sendMessage(m.chat, { video: { url: i.url }, jpegThumbnail:tummb, caption: `*${botname}*`}, { quoted: m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { video: { url: i.url }, jpegThumbnail:tummb, caption: `*${botname}*`}, { quoted: m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
                 }
             }
             break
@@ -5259,14 +5259,14 @@ case 'igs3': case 'igstory3': case 'instagramstory3': {
 	            bicil.instagramStoryv2(urlnya)
 	            .then(async(result) => {	  
 	            var halo = 1		
-	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTA DOWNLOADER 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Jumlah Media :* ${halo++}\n*⬤ Bio :* ${result.user.biography}\n\n*BALOCH EDIT*` }, { quoted: m })	             	                      	            
+	            BALOCHEDITInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTA DOWNLOADER 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Jumlah Media :* ${halo++}\n*⬤ Bio :* ${result.user.biography}\n\n*BALOCH EDIT*` }, { quoted: m })	             	                      	            
 		        for(let i of result.results) {		
 		        if(i.url.includes('mp4')){		           			    				
 				let link = await getBuffer(i.sourceUrl)
-                ZimBotInc.sendMessage(m.chat, { video: link, jpegThumbnail: await getBuffer(i.thumbnail), caption: `*Story ${i.type}*` }, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { video: link, jpegThumbnail: await getBuffer(i.thumbnail), caption: `*Story ${i.type}*` }, { quoted: m })
                 } else {
                 let link = await getBuffer(i.url)
-                ZimBotInc.sendMessage(m.chat, { image: link, jpegThumbnail: await getBuffer(i.thumbnail), caption: `*Story ${i.type}*` }, { quoted: m })          
+                BALOCHEDITInc.sendMessage(m.chat, { image: link, jpegThumbnail: await getBuffer(i.thumbnail), caption: `*Story ${i.type}*` }, { quoted: m })          
                }
               }
             }).catch((err) => m.reply(`*Sorry Story Instagram ${text} Tnot found*`))
@@ -5282,7 +5282,7 @@ case 'igs3': case 'igstory3': case 'instagramstory3': {
             m.reply(`*1 limit used*`)
                 instagramdlv3(`${text}`).then(async (data) => {            
                 var buf = await getBuffer(data[0].thumbnail)        
-                ZimBotInc.sendMessage(m.chat, { video: { url: data[0].url }, jpegThumbnail:buf, caption: `${botname}`}, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { video: { url: data[0].url }, jpegThumbnail:buf, caption: `${botname}`}, { quoted: m })
                 }).catch((err) => {
                     m.reply(`*Failed to download media and send videos*`)
                 })
@@ -5298,8 +5298,8 @@ case 'igs3': case 'igstory3': case 'instagramstory3': {
                 let anu = await fetchJson(`https://api.lolhuman.xyz/api/jooxplay?apikey=${setting.lolkey}&query=${text}`)
                 let msg = `*▊▊▊JOOX DL▊▊▊*\n\n*Title :* ${anu.result.info.song}\n*Album :* ${anu.result.info.album}\n*Singer :* ${anu.result.info.song}\n*Publish :* ${anu.result.info.date}\n*Link :* ${anu.result.audio[0].link}\n\n*BALOCH EDIT*`
                 buf = await getBuffer(anu.result.image)
-                ZimBotInc.sendMessage(m.chat, { image: { url: anu.result.image }, jpegThumbnail:buf, caption: `${msg}` }, { quoted: m }).catch((err) => m.reply('*Sorry An error occurred*'))
-                ZimBotInc.sendMessage(m.chat, { audio: { url: anu.result.audio[0].link }, mimetype: 'audio/mpeg' }, { quoted: m }).catch((err) => m.reply('*Sorry An error occurred*'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: { url: anu.result.image }, jpegThumbnail:buf, caption: `${msg}` }, { quoted: m }).catch((err) => m.reply('*Sorry An error occurred*'))
+                BALOCHEDITInc.sendMessage(m.chat, { audio: { url: anu.result.audio[0].link }, mimetype: 'audio/mpeg' }, { quoted: m }).catch((err) => m.reply('*Sorry An error occurred*'))
             }
             break
             case 'soundcloud': case 'scdl': {               
@@ -5318,8 +5318,8 @@ case 'igs3': case 'igstory3': case 'instagramstory3': {
                     txt += `*⬤Url Source :* ${data.url}\n\n`
                     txt += `*BALOCH EDIT*`
                 buf = await getBuffer(data.thumbnail)   
-                ZimBotInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m }).catch((err) => m.reply('link error'))    
-                ZimBotInc.sendMessage(m.chat, { audio: { url: data.medias[0].url }, mimetype: 'audio/mpeg', fileName: data.title+'.m4a' }, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m }).catch((err) => m.reply('link error'))    
+                BALOCHEDITInc.sendMessage(m.chat, { audio: { url: data.medias[0].url }, mimetype: 'audio/mpeg', fileName: data.title+'.m4a' }, { quoted: m })
                 }).catch((err) => {
                     m.reply(`*Failed to download media and send audio*`)
                 })
@@ -5337,11 +5337,11 @@ const result4 = `*▊▊▊MEDIAFIRE DL▊▊▊*
 *Size* : ${baby1[0].size}
 *Mime* : ${baby1[0].mime}
 *Link* : ${baby1[0].link}\n
-_whoa wait zimbot processing..._
+_whoa wait BALOCHEDIT processing..._
 
 *BALOCH EDIT*`
 m.reply(`${result4}`)
-ZimBotInc.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => m.reply('*Failed to download File*'))
+BALOCHEDITInc.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => m.reply('*Failed to download File*'))
 }
 break
 case 'savefrom': {
@@ -5381,7 +5381,7 @@ case 'savefrom': {
 
      }
 
-  const sendm =  ZimBotInc.sendMessage(
+  const sendm =  BALOCHEDITInc.sendMessage(
 
       m.chat, 
 
@@ -5437,7 +5437,7 @@ case 'savefrom': {
 
 				let link = await getBuffer(i.url)
 
-                ZimBotInc.sendMessage(m.chat, { video: link, caption: `*quality ${i.subname}*` }, { quoted: m })                  
+                BALOCHEDITInc.sendMessage(m.chat, { video: link, caption: `*quality ${i.subname}*` }, { quoted: m })                  
 
                }
 
@@ -5457,7 +5457,7 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 anu = await fetchJson(`https://xteam.xyz/dl/linkedin?url=${text}&APIKEY=${setting.riy}`)
-ZimBotInc.sendMessage(m.chat, {video: await getBuffer(anu.result.resurl), mimetype: 'video/mp4'}, {quoted:m}).catch ((err) => m.reply('Failed to download File'))     
+BALOCHEDITInc.sendMessage(m.chat, {video: await getBuffer(anu.result.resurl), mimetype: 'video/mp4'}, {quoted:m}).catch ((err) => m.reply('Failed to download File'))     
 }
 break
 case 'smule': {
@@ -5478,7 +5478,7 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
 
 anu = await fetchJson(`https://xteam.xyz/dl/smule?url=${text}&APIKEY=${setting.riy}`)
 
-ZimBotInc.sendMessage(m.chat, {video: await getBuffer(anu.result[0]), mimetype: 'video/mp4'}, {quoted:m}).catch ((err) => m.reply('*Failed to download File*'))     
+BALOCHEDITInc.sendMessage(m.chat, {video: await getBuffer(anu.result[0]), mimetype: 'video/mp4'}, {quoted:m}).catch ((err) => m.reply('*Failed to download File*'))     
 
 }
 
@@ -5492,7 +5492,7 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 anu = await fetchJson(`https://xteam.xyz/dl/vimeo?url=${text}&APIKEY=${setting.riy}`)
-ZimBotInc.sendMessage(m.chat, {video: await getBuffer(anu.result.hd.url), mimetype: 'video/mp4'}, {quoted:m}).catch ((err) => m.reply('*Failed to download File*'))     
+BALOCHEDITInc.sendMessage(m.chat, {video: await getBuffer(anu.result.hd.url), mimetype: 'video/mp4'}, {quoted:m}).catch ((err) => m.reply('*Failed to download File*'))     
 }
 break
 case 'zippyshare': {
@@ -5506,7 +5506,7 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
 anu = await fetchJson(`https://violetics.pw/api/downloader/zippyshare?apikey=df7d-425a-3bc8&url=${text}`)
 m.reply(`*${util.format(anu)}*`)
 linkyke = await getBuffer(anu.result.dlink)
-ZimBotInc.sendMessage(m.chat, {document: linkyke, mimetype: 'application/zip', fileName: `${anu.result.filename}`}, {quoted:m}).catch ((err) => m.reply('*Failed to download File*'))     
+BALOCHEDITInc.sendMessage(m.chat, {document: linkyke, mimetype: 'application/zip', fileName: `${anu.result.filename}`}, {quoted:m}).catch ((err) => m.reply('*Failed to download File*'))     
 }
 break
 case 'googledrive': {
@@ -5519,7 +5519,7 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             m.reply(`*1 limit used*`)
 anu = await fetchJson(`https://xteam.xyz/dl/drive?url=${text}&APIKEY=${setting.riy}`)
 m.reply(`${util.format(anu)}`)
-ZimBotInc.sendMessage(m.chat, {document: await getBuffer(anu.result.server2), mimetype: 'application/zip', fileName: `${anu.result.title}`}, {quoted:m}).catch ((err) => m.reply('*Failed to download File*'))     
+BALOCHEDITInc.sendMessage(m.chat, {document: await getBuffer(anu.result.server2), mimetype: 'application/zip', fileName: `${anu.result.title}`}, {quoted:m}).catch ((err) => m.reply('*Failed to download File*'))     
 }
 break
 case 'imagetopdf': {
@@ -5530,10 +5530,10 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
-                let medi = await ZimBotInc.downloadAndSaveMediaMessage(quoted)                
+                let medi = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted)                
                 let anu = await TelegraPh(medi)            
 hayo = `https://xteam.xyz/imagetopdf?url=${anu}&APIKEY=${setting.riy}`
-ZimBotInc.sendMessage(m.chat, {document: await getBuffer(hayo), mimetype: 'application/pdf', fileName: `${botname}.pdf`}, {quoted:m}).catch ((err) => m.reply('*Failed to download File*'))     
+BALOCHEDITInc.sendMessage(m.chat, {document: await getBuffer(hayo), mimetype: 'application/pdf', fileName: `${botname}.pdf`}, {quoted:m}).catch ((err) => m.reply('*Failed to download File*'))     
 }
 break
 case 'twitter': case 'td': case 'twitterdl': {     	             
@@ -5553,9 +5553,9 @@ case 'twitter': case 'td': case 'twitterdl': {
                     txt += `*⬤URL :* ${data.url}\n\n`
                     txt += `*BALOCH EDIT*`
                 buf = await getBuffer(data.thumbnail)    
-                ZimBotInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m })
                 for (let i of data.medias) {
-                ZimBotInc.sendMessage(m.chat, { video: { url: i.url }, jpegThumbnail:buf, caption: `*Downloading From ${text}*`}, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { video: { url: i.url }, jpegThumbnail:buf, caption: `*Downloading From ${text}*`}, { quoted: m })
                 }
                 }).catch((err) => {
                     m.reply(`*Failed to download media and send videos*`)
@@ -5579,7 +5579,7 @@ case 'twitter2': case 'td2': case 'twitterdl2': {
                     txt += `*⬤URL :* ${data.url}\n\n`
                     txt += `*Hi ${pushname}The bot is doing great job dont forget to subcribe*`
                 buf = await getBuffer(data.thumbnail)    
-                ZimBotInc.sendMessage(m.chat, { video: { url: x.url }, jpegThumbnail:buf, caption: `${txt}`}, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { video: { url: x.url }, jpegThumbnail:buf, caption: `${txt}`}, { quoted: m })
                 }
                 }).catch((err) => m.reply(`Sorry the faiture is error`))   
             }
@@ -5593,7 +5593,7 @@ case 'twittermp3': case 'twitteraudio': {
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
                 xa.Twitter(`${text}`).then(async (data) => {
-                ZimBotInc.sendMessage(m.chat, { audio: { url: data.medias[1].url }, mimetype: 'audio/mp4'}, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { audio: { url: data.medias[1].url }, mimetype: 'audio/mp4'}, { quoted: m })
                 }).catch((err) => {
                     m.reply(`*Failed to download media and send audio*`)
                 })
@@ -5626,11 +5626,11 @@ case 'fbdl': case 'fb': case 'facebook': case 'pesbuk': {
 
                 buf = await getBuffer(data.thumbnail)    
 
-                ZimBotInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m })         
+                BALOCHEDITInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m })         
 
                 for (let i of data.result) {     
 
-                ZimBotInc.sendMessage(m.chat, { video: { url: i.url }, jpegThumbnail:buf, caption: `*⬤ Quality :* ${i.quality}`}, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, { video: { url: i.url }, jpegThumbnail:buf, caption: `*⬤ Quality :* ${i.quality}`}, { quoted: m })
 
                 }          
 
@@ -5653,7 +5653,7 @@ case 'fbmp3': case 'facebookmp3': case 'facebookaudio': {
             m.reply(`*1 limit used*`)
   let noh = require('@bochilteam/scraper')                
   noh.savefrom(`${text}`).then(async (anu) => {  
-  ZimBotInc.sendMessage(m.chat, { audio: { url: anu.url[0].url }, mimetype: 'audio/mp4' }, { quoted: m })      
+  BALOCHEDITInc.sendMessage(m.chat, { audio: { url: anu.url[0].url }, mimetype: 'audio/mp4' }, { quoted: m })      
                 }).catch((err) => {
                     m.reply(`*Failed to link to audio*`)
                 })
@@ -5676,8 +5676,8 @@ case 'fb6': {
                     txt += `*⬤URL :* ${data.url}\n\n`
                     txt += `*BALOCH EDIT*`
                 buf = await getBuffer(data.thumbnail)    
-                ZimBotInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m })              
-                ZimBotInc.sendMessage(m.chat, { video: { url: data.medias[1].url }, jpegThumbnail:buf, caption: `*⬤ Quality :* ${data.medias[1].quality}`}, { quoted: m })                
+                BALOCHEDITInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m })              
+                BALOCHEDITInc.sendMessage(m.chat, { video: { url: data.medias[1].url }, jpegThumbnail:buf, caption: `*⬤ Quality :* ${data.medias[1].quality}`}, { quoted: m })                
                 }).catch((err) => {
                     m.reply(`*Failed When Downloading Media and Sending Files*`)
                 })
@@ -5695,8 +5695,8 @@ case 'fb6': {
                 if (anu.filesize_video >= 100000) return m.reply('*File Over Limit* '+util.format(anu))
                 tummb = await getBuffer(anu.thumb)
                 audio = await getBuffer(anu.audio)        
-                ZimBotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `${anu.title}`}, { quoted : m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
-                ZimBotInc.sendMessage(m.chat, { video: { url: anu.video }, jpegThumbnail:tummb, caption: `${util.format(anu)}`}, { quoted: m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
+                BALOCHEDITInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `${anu.title}`}, { quoted : m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { video: { url: anu.video }, jpegThumbnail:tummb, caption: `${util.format(anu)}`}, { quoted: m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
             }
             break
             case 'igreal': case 'instagramreal': {
@@ -5709,7 +5709,7 @@ case 'fb6': {
             m.reply(`*1 limit used*`)
                 anu = await fetchJson(`https://api.akuari.my.id/downloader/igdl?link=${text}`)        
                 tummb = await getBuffer(anu.medias[0].preview)         
-                ZimBotInc.sendMessage(m.chat, { video: { url: anu.medias[0].url }, jpegThumbnail:tummb, caption: `${util.format(anu)}`}, { quoted: m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { video: { url: anu.medias[0].url }, jpegThumbnail:tummb, caption: `${util.format(anu)}`}, { quoted: m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
             }
             break
             case 'fb3': case 'facebook3': {
@@ -5722,7 +5722,7 @@ case 'fb6': {
             m.reply(`*1 limit used*`)
                 anu = await fetchJson(`https://api-riychdwayne.herokuapp.com/api/downloader/facebook?url=${text}&apikey=${setting.riy}`)        
                 tummb = await getBuffer(anu.thumbnail)         
-                ZimBotInc.sendMessage(m.chat, { video: { url: anu.medias }, jpegThumbnail:tummb, caption: `*📽️ FACEBOOK DOWNLOADER*\n\n*Name* : ${anu.title}\n*Filesize* : ${anu.medias[1].formattedSize}\n*Quality* : ${anu.medias[1].quality}\n*Ext* : ${anu.medias[1].extension}\n`}, { quoted: m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { video: { url: anu.medias }, jpegThumbnail:tummb, caption: `*📽️ FACEBOOK DOWNLOADER*\n\n*Name* : ${anu.title}\n*Filesize* : ${anu.medias[1].formattedSize}\n*Quality* : ${anu.medias[1].quality}\n*Ext* : ${anu.medias[1].extension}\n`}, { quoted: m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
             }
             break
 case 'fb2': case 'facebook2': {
@@ -5735,7 +5735,7 @@ case 'fb2': case 'facebook2': {
             m.reply(`*1 limit used*`)
                 anu = await fetchJson(`https://violetics.pw/api/downloader/facebook?apikey=${setting.violkey}&url=${text}`)
                 tummb = await getBuffer('https://telegra.ph/file/9789a09c964cee5597a05.jpg')    
-                ZimBotInc.sendMessage(m.chat, { video: { url: anu.result.url[0].url }, jpegThumbnail:tummb, caption: `*📽️ FACEBOOK DOWNLOADER*\n\n*Name* : ${anu.result.meta.title}\n*Quality* : ${anu.result.url[0].subname}\n*Ext* : ${anu.result.url[0].ext}\n`}, { quoted: m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
+                BALOCHEDITInc.sendMessage(m.chat, { video: { url: anu.result.url[0].url }, jpegThumbnail:tummb, caption: `*📽️ FACEBOOK DOWNLOADER*\n\n*Name* : ${anu.result.meta.title}\n*Quality* : ${anu.result.url[0].subname}\n*Ext* : ${anu.result.url[0].ext}\n`}, { quoted: m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
             }
             break
 	        case 'pindl': case 'pinterestdl': {
@@ -5748,7 +5748,7 @@ case 'fb2': case 'facebook2': {
             m.reply(`*1 limit used*`)
   let noh = require('./lib/lol.js')                
   noh.pin(`${text}`).then(async (data) => {    
-  ZimBotInc.sendMessage(m.chat, { video: { url: data.data.url }, caption: `${data.data.file}` }, { quoted: m })  
+  BALOCHEDITInc.sendMessage(m.chat, { video: { url: data.data.url }, caption: `${data.data.file}` }, { quoted: m })  
                 }).catch((err) => {
                     m.reply(`*${text}  BALOCH EDIT*`)
                 })
@@ -5781,7 +5781,7 @@ break
     let filename = (await fetch(url, {method: 'HEAD'})).headers.get('content-disposition').match(/attachment; filename=(.*)/)[1]
     // 'attachment; filenameq=ZidniGanz.zip'
     m.reply(`*Please wait, sending repository..*`)
-    ZimBotInc.sendMessage(m.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip' }, { quoted: m }).catch((err) => m.reply('*Sorry, the github link you provided is private, and cant be made into a file*'))
+    BALOCHEDITInc.sendMessage(m.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip' }, { quoted: m }).catch((err) => m.reply('*Sorry, the github link you provided is private, and cant be made into a file*'))
 			break    
             case 'umma': case 'ummadl': {
                // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
@@ -5807,14 +5807,14 @@ break
 *URL :* ${anu.media[0]}
 *To download media, please click one of the buttons below or enter the ytmp3/ytmp4 command with the url above*
 `,
-			footer: ZimBotInc.user.name,
+			footer: BALOCHEDITInc.user.name,
 			buttons,
 			headerType: 4
 		    }
-		    ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+		    BALOCHEDITInc.sendMessage(m.chat, buttonMessage, { quoted: m })
 		} else if (anu.type == 'image') {
 		    anu.media.map(async (url) => {
-		        ZimBotInc.sendMessage(m.chat, { image: { url }, caption: `> Title : ${anu.title}\n> Author : ${anu.author.name}\n> Like : ${anu.like}\n> Caption : ${anu.caption}` }, { quoted: m })
+		        BALOCHEDITInc.sendMessage(m.chat, { image: { url }, caption: `> Title : ${anu.title}\n> Author : ${anu.author.name}\n> Like : ${anu.like}\n> Caption : ${anu.caption}` }, { quoted: m })
 		    })
 		}
 	    }
@@ -5827,7 +5827,7 @@ break
 				if (!text) throw `Example : ${prefix + command} Nasi padang`
 				    anu = await fetchJson(`https://bx-hunter.herokuapp.com/api/resepmakanan?query=${text}&apikey=${setting.HunterApi}`)
 					hasilresep = `❏ *${anu.results.title}*\n\n❏ Porsi : ${anu.results.servings}\n❏ Waktu : ${anu.results.times}\n❏ Kesulitan : ${anu.results.dificulty}\n❏ Pengguna : ${anu.results.author.user}\n❏ Tanggal Diterbitkan : ${anu.results.author.datePublished}\n❏ Deskripsi : ${anu.results.desc}\n\n━━━━━━━━━━━━━━━━━━━━\n❏ *Tutorial*\n\n❏ Bahan : ${anu.results.ingredient}\n❏ Langkah : ${anu.results.step}`										
-					ZimBotInc.sendImage(m.chat, anu.results.thumb, `${hasilresep}`, m).catch((err) => m.reply('*Sorry, the feature is in error*'))
+					BALOCHEDITInc.sendImage(m.chat, anu.results.thumb, `${hasilresep}`, m).catch((err) => m.reply('*Sorry, the feature is in error*'))
 					}
 		break
 case 'resep': case 'resepmasakan': {
@@ -5846,7 +5846,7 @@ case 'resep': case 'resepmasakan': {
      }
      sections.push(list)   
      }
-  const sendm =  ZimBotInc.sendMessage(
+  const sendm =  BALOCHEDITInc.sendMessage(
       m.chat, 
       {
        text: `*Results of*  ${text}`,
@@ -5865,7 +5865,7 @@ case 'makanan': {
             m.reply(`*1 limit used*`)
                 anu = await fetchJson(`https://mnazria.herokuapp.com/api/resep-search?text=${text}`)       
                 buf = await getBuffer(anu.results[1].thumb)  
-                ZimBotInc.sendMessage(m.chat, { image: { url: anu.results[3].thumb }, jpegThumbnail:buf, caption: `${util.format(anu)}` }, { quoted: m }).catch((err) => m.reply('error'))
+                BALOCHEDITInc.sendMessage(m.chat, { image: { url: anu.results[3].thumb }, jpegThumbnail:buf, caption: `${util.format(anu)}` }, { quoted: m }).catch((err) => m.reply('error'))
 }
 break
 
@@ -5901,7 +5901,7 @@ case 'apk': case 'apkmod': case 'apkdl': {
      }
      sections.push(list)   
      }
-  const sendm =  ZimBotInc.sendMessage(
+  const sendm =  BALOCHEDITInc.sendMessage(
       m.chat, 
       {
        text: `${ucapannya2} ${pushname} *Search Results From ${text} Click the button below to choose*`,
@@ -5928,8 +5928,8 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
            if (anu[0].size.split('MB')[0] >= 150) return m.reply('*File Over Limit* '+util.format(anu))
            for (let i of anu) {    
            linkye = `*▊▊▊APK DOWNLOAD▊▊▊*\n\n*TITLE:* ${i.title}\n*UPDATE:* ${i.up}\n*VERSION:* ${i.vers}\n*FILESIZE:* ${i.size}\n*URL:* \n*DESCRIPTION:* ${i.desc}\n\n*BALOCH EDIT*`         
-                ZimBotInc.sendMessage(m.chat, { image: await getBuffer(i.thumb), jpegThumbnail: await getBuffer(i.thumb), caption: `${linkye}` }, { quoted: m })
-                ZimBotInc.sendMessage(m.chat, {document: await getBuffer(i.link), mimetype: `application/vnd.android.package-archive`, fileName: `${i.title}`}, {quoted:m})  
+                BALOCHEDITInc.sendMessage(m.chat, { image: await getBuffer(i.thumb), jpegThumbnail: await getBuffer(i.thumb), caption: `${linkye}` }, { quoted: m })
+                BALOCHEDITInc.sendMessage(m.chat, {document: await getBuffer(i.link), mimetype: `application/vnd.android.package-archive`, fileName: `${i.title}`}, {quoted:m})  
                 }  
                 }).catch((err) => {
                     m.reply(`*Failed When Downloading Media and Sending Files*`)
@@ -5937,7 +5937,7 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
                 }                          
                 break
 case 'tagme': {
-ZimBotInc.sendMessage(m.chat, {text:`@${m.sender.split("@")[0]}`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+BALOCHEDITInc.sendMessage(m.chat, {text:`@${m.sender.split("@")[0]}`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 }
 
 break
@@ -5987,7 +5987,7 @@ break
         let { ringtone } = require('./lib/scraper3')
 		let anu = await ringtone(text)
 		let result = anu[Math.floor(Math.random() * anu.length)]
-		ZimBotInc.sendMessage(m.chat, { audio: { url: result.audio }, fileName: result.title+'.mp3', mimetype: 'audio/mpeg' }, { quoted: m })
+		BALOCHEDITInc.sendMessage(m.chat, { audio: { url: result.audio }, fileName: result.title+'.mp3', mimetype: 'audio/mpeg' }, { quoted: m })
 	    }
 	    break
 		case 'iqra': {
@@ -5995,23 +5995,23 @@ break
 		oh = `Example : ${prefix + command} 3\n\nIQRA Yang tersedia : 1,2,3,4,5,6`
 		if (!text) throw oh
 		yy = await getBuffer(`https://islamic-api-indonesia.herokuapp.com/api/data/pdf/iqra${text}`)
-		ZimBotInc.sendMessage(m.chat, {document: yy, mimetype: 'application/pdf', fileName: `iqra${text}.pdf`}, {quoted:m}).catch ((err) => m.reply(oh))
+		BALOCHEDITInc.sendMessage(m.chat, {document: yy, mimetype: 'application/pdf', fileName: `iqra${text}.pdf`}, {quoted:m}).catch ((err) => m.reply(oh))
 		}
 		break
 		case 'juzamma': {
 		//if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
 		if (args[0] === 'pdf') {
 		m.reply(mess.wait)
-		ZimBotInc.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.pdf'}, mimetype: 'application/pdf', fileName: 'juz-amma-arab-latin-indonesia.pdf'}, {quoted:m})
+		BALOCHEDITInc.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.pdf'}, mimetype: 'application/pdf', fileName: 'juz-amma-arab-latin-indonesia.pdf'}, {quoted:m})
 		} else if (args[0] === 'docx') {
 		m.reply(mess.wait)
-		ZimBotInc.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.docx'}, mimetype: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', fileName: 'juz-amma-arab-latin-indonesia.docx'}, {quoted:m})
+		BALOCHEDITInc.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.docx'}, mimetype: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', fileName: 'juz-amma-arab-latin-indonesia.docx'}, {quoted:m})
 		} else if (args[0] === 'pptx') {
 		m.reply(mess.wait)
-		ZimBotInc.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.pptx'}, mimetype: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', fileName: 'juz-amma-arab-latin-indonesia.pptx'}, {quoted:m})
+		BALOCHEDITInc.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.pptx'}, mimetype: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', fileName: 'juz-amma-arab-latin-indonesia.pptx'}, {quoted:m})
 		} else if (args[0] === 'xlsx') {
 		m.reply(mess.wait)
-		ZimBotInc.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.xlsx'}, mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', fileName: 'juz-amma-arab-latin-indonesia.xlsx'}, {quoted:m})
+		BALOCHEDITInc.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.xlsx'}, mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', fileName: 'juz-amma-arab-latin-indonesia.xlsx'}, {quoted:m})
 		} else {
 		m.reply(`Mau format apa ? Example : ${prefix + command} pdf
 
@@ -6096,7 +6096,7 @@ case 'alquranaudio': {
 if (!text) throw `Which Surah Number You Want To Find\nExample : ${prefix + command} 18 or ${prefix + command} 18/10`
 m.reply('Sabar Sedang Proses...')
 ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/quran/audio/${text}?apikey=${setting.lolkey}`)
-ZimBotInc.sendMessage(m.chat, { audio: ini_buffer, mimetype: 'audio/mpeg', fileName: `mp3` }, { quoted: m }).catch ((err) => m.reply('*error while sending the audio*'))
+BALOCHEDITInc.sendMessage(m.chat, { audio: ini_buffer, mimetype: 'audio/mpeg', fileName: `mp3` }, { quoted: m }).catch ((err) => m.reply('*error while sending the audio*'))
 }
 break
 
@@ -6158,7 +6158,7 @@ break
 
 ( Q.S ${res.result.data.surah.name.transliteration.id} : ${res.result.data.number.inSurah} )`
 		m.reply(txt)
-		ZimBotInc.sendMessage(m.chat, {audio: { url: res.result.data.audio.primary }, mimetype: 'audio/mpeg'}, { quoted : m })
+		BALOCHEDITInc.sendMessage(m.chat, {audio: { url: res.result.data.audio.primary }, mimetype: 'audio/mpeg'}, { quoted : m })
 		}
 		break
 		case 'tafsirsurah': {
@@ -6201,13 +6201,13 @@ break
                 if (/tupai/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"'
                 if (/audio/.test(mime)) {
                 m.reply(mess.wait)
-                let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
+                let media = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted)
                 let ran = getRandom('.mp3')
                 exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
                 fs.unlinkSync(media)
                 if (err) return m.reply(err)
                 let buff = fs.readFileSync(ran)
-                ZimBotInc.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })
+                BALOCHEDITInc.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })
                 fs.unlinkSync(ran)
                 })
                 } else m.reply(`Reply to the audio you want to change with a caption *${prefix + command}*`)
@@ -6260,7 +6260,7 @@ break
 Info: *bold* hash is Locked
 ${Object.entries(global.db.data.sticker).map(([key, value], index) => `${index + 1}. ${value.locked ? `*${key}*` : key} : ${value.text}`).join('\n')}
 `.trim()
-                ZimBotInc.sendText(m.chat, teks, m, { mentions: Object.values(global.db.data.sticker).map(x => x.mentionedJid).reduce((a,b) => [...a, ...b], []) })
+                BALOCHEDITInc.sendText(m.chat, teks, m, { mentions: Object.values(global.db.data.sticker).map(x => x.mentionedJid).reduce((a,b) => [...a, ...b], []) })
             }
             break
             case 'lockcmd': {            
@@ -6300,7 +6300,7 @@ Access with ${prefix}getmsg ${text}
             m.reply(`*1 limit used*`)
                 let msgs = global.db.data.database
                 if (!(text.toLowerCase() in msgs)) throw `'${text}' not registered in the message list`
-                ZimBotInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)
+                BALOCHEDITInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)
             }
             break
             case 'listmsg': {
@@ -6363,7 +6363,7 @@ Access with ${prefix}getmsg ${text}
 				let buttons = [
                     { buttonId: 'start', buttonText: { displayText: 'START' }, type: 1 }
                 ]
-                ZimBotInc.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await ZimBotInc.getName(m.sender)} Welcome To Anonymous Chat\n\nClick the button below to find a partner\`\`\``, ZimBotInc.user.name, m)
+                BALOCHEDITInc.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await BALOCHEDITInc.getName(m.sender)} Welcome To Anonymous Chat\n\nClick the button below to find a partner\`\`\``, BALOCHEDITInc.user.name, m)
             }
 			break
             case 'keluar': case 'leave': {
@@ -6375,12 +6375,12 @@ Access with ${prefix}getmsg ${text}
                     let buttons = [
                         { buttonId: 'start', buttonText: { displayText: 'START' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, `\`\`\`*You are not in an anonymous session, press the button to find a partner* \`\`\``)
+                    await BALOCHEDITInc.sendButtonText(m.chat, buttons, `\`\`\`*You are not in an anonymous session, press the button to find a partner* \`\`\``)
                     throw false
                 }
                 m.reply('Ok')
                 let other = room.other(m.sender)
-                if (other) await ZimBotInc.sendText(other, `\`\`\`*Partner Has Left Anonymous Session*\`\`\``, m)
+                if (other) await BALOCHEDITInc.sendText(other, `\`\`\`*Partner Has Left Anonymous Session*\`\`\``, m)
                 delete this.anonymous[room.id]
                 if (command === 'leave') break
             }
@@ -6392,7 +6392,7 @@ Access with ${prefix}getmsg ${text}
                     let buttons = [
                         { buttonId: 'keluar', buttonText: { displayText: 'STOP' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, `\`\`\`*You are still in an anonymous session, press the button below to terminate your anonymous session*\`\`\``, ZimBotInc.user.name, m)
+                    await BALOCHEDITInc.sendButtonText(m.chat, buttons, `\`\`\`*You are still in an anonymous session, press the button below to terminate your anonymous session*\`\`\``, BALOCHEDITInc.user.name, m)
                     throw false
                 }
                 let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
@@ -6401,10 +6401,10 @@ Access with ${prefix}getmsg ${text}
                         { buttonId: 'next', buttonText: { displayText: 'SKIP' }, type: 1 },
                         { buttonId: 'keluar', buttonText: { displayText: 'STOP' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(room.a, buttons, `\`\`\`*Successfully Found Partner, now you can send message*\`\`\``, ZimBotInc.user.name, m)
+                    await BALOCHEDITInc.sendButtonText(room.a, buttons, `\`\`\`*Successfully Found Partner, now you can send message*\`\`\``, BALOCHEDITInc.user.name, m)
                     room.b = m.sender
                     room.state = 'CHATTING'
-                    await ZimBotInc.sendButtonText(room.b, buttons, `\`\`\`Successfully Found Partner, now you can send message\`\`\``, ZimBotInc.user.name, m)
+                    await BALOCHEDITInc.sendButtonText(room.b, buttons, `\`\`\`Successfully Found Partner, now you can send message\`\`\``, BALOCHEDITInc.user.name, m)
                 } else {
                     let id = + new Date
                     this.anonymous[id] = {
@@ -6422,7 +6422,7 @@ Access with ${prefix}getmsg ${text}
                     let buttons = [
                         { buttonId: 'keluar', buttonText: { displayText: 'STOP' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, `\`\`\`*Please wait, looking for a partner*\`\`\``, ZimBotInc.user.name, m)
+                    await BALOCHEDITInc.sendButtonText(m.chat, buttons, `\`\`\`*Please wait, looking for a partner*\`\`\``, BALOCHEDITInc.user.name, m)
                 }
                 break
             }
@@ -6435,11 +6435,11 @@ Access with ${prefix}getmsg ${text}
                     let buttons = [
                         { buttonId: 'start', buttonText: { displayText: 'START' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, `\`\`\`You are not in an anonymous session, press the button to find a partner*\`\`\``)
+                    await BALOCHEDITInc.sendButtonText(m.chat, buttons, `\`\`\`You are not in an anonymous session, press the button to find a partner*\`\`\``)
                     throw false
                 }
                 let other = romeo.other(m.sender)
-                if (other) await ZimBotInc.sendText(other, `\`\`\`*Partner Has Left Anonymous Session*\`\`\``, m)
+                if (other) await BALOCHEDITInc.sendText(other, `\`\`\`*Partner Has Left Anonymous Session*\`\`\``, m)
                 delete this.anonymous[romeo.id]
                 let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
                 if (room) {
@@ -6447,10 +6447,10 @@ Access with ${prefix}getmsg ${text}
                         { buttonId: 'next', buttonText: { displayText: 'SKIP' }, type: 1 },
                         { buttonId: 'keluar', buttonText: { displayText: 'STOP' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(room.a, buttons, `\`\`\`*Successfully Found Partner, now you can send message*\`\`\``, ZimBotInc.user.name, m)
+                    await BALOCHEDITInc.sendButtonText(room.a, buttons, `\`\`\`*Successfully Found Partner, now you can send message*\`\`\``, BALOCHEDITInc.user.name, m)
                     room.b = m.sender
                     room.state = 'CHATTING'
-                    await ZimBotInc.sendButtonText(room.b, buttons, `\`\`\`*Successfully Found Partner, now you can send message*\`\`\``, ZimBotInc.user.name, m)
+                    await BALOCHEDITInc.sendButtonText(room.b, buttons, `\`\`\`*Successfully Found Partner, now you can send message*\`\`\``, BALOCHEDITInc.user.name, m)
                 } else {
                     let id = + new Date
                     this.anonymous[id] = {
@@ -6468,19 +6468,19 @@ Access with ${prefix}getmsg ${text}
                     let buttons = [
                         { buttonId: 'keluar', buttonText: { displayText: 'STOP' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(m.chat, buttons, `\`\`\`*Please Wait Looking For Partner*\`\`\``, ZimBotInc.user.name, m)
+                    await BALOCHEDITInc.sendButtonText(m.chat, buttons, `\`\`\`*Please Wait Looking For Partner*\`\`\``, BALOCHEDITInc.user.name, m)
                 }
                 break
             }
             case 'public': {
                 if (!isCreator) throw mess.owner
-                ZimBotInc.public = true
+                BALOCHEDITInc.public = true
                 m.reply('*Bot working as public now hope you will enjoy*')
             }
             break
             case 'self': {
                 if (!isCreator) throw mess.owner
-                ZimBotInc.public = false
+                BALOCHEDITInc.public = false
                 m.reply('*Bot working as private now hope you will enjoy*')
             }
             break
@@ -6549,26 +6549,26 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'owner': case 'creator': {
-                ZimBotInc.sendContact(m.chat, global.owner, m)
-                const devsound = fs.readFileSync('./Zimbot/bot.mp3')
-           ZimBotInc.sendMessage(m.chat, { audio: devsound, mimetype: 'audio/mp4', ptt: true, quoted: m })
+                BALOCHEDITInc.sendContact(m.chat, global.owner, m)
+                const devsound = fs.readFileSync('./BALOCHEDIT/bot.mp3')
+           BALOCHEDITInc.sendMessage(m.chat, { audio: devsound, mimetype: 'audio/mp4', ptt: true, quoted: m })
             
             }
             
             break
             case 'developer': case 'botdev': {
-                ZimBotInc.sendContact(m.chat, global.botdev, m)
-                const devsound = fs.readFileSync('./Zimbot/bot.mp3')
-           ZimBotInc.sendMessage(m.chat, { audio: devsound, mimetype: 'audio/mp4', ptt: true, quoted: m })
+                BALOCHEDITInc.sendContact(m.chat, global.botdev, m)
+                const devsound = fs.readFileSync('./BALOCHEDIT/bot.mp3')
+           BALOCHEDITInc.sendMessage(m.chat, { audio: devsound, mimetype: 'audio/mp4', ptt: true, quoted: m })
             }
 
             
             break
             
             case 'bothelp':  {
-                ZimBotInc.sendContact(m.chat, global.bothelp, m)
-                const devsound = fs.readFileSync('./Zimbot/bot.mp3')
-           ZimBotInc.sendMessage(m.chat, { audio: devsound, mimetype: 'audio/mp4', ptt: true, quoted: m })
+                BALOCHEDITInc.sendContact(m.chat, global.bothelp, m)
+                const devsound = fs.readFileSync('./BALOCHEDIT/bot.mp3')
+           BALOCHEDITInc.sendMessage(m.chat, { audio: devsound, mimetype: 'audio/mp4', ptt: true, quoted: m })
             }
             
             break
@@ -6576,11 +6576,11 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 case 'once': case 'toonce': { //by DRIPS
         if (!quoted) throw 'Reply Image'
         if (/image/.test(mime)) {
-anu = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
-ZimBotInc.sendMessage(m.chat, {image: {url: anu},viewOnce : true},{quoted: m })
+anu = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted)
+BALOCHEDITInc.sendMessage(m.chat, {image: {url: anu},viewOnce : true},{quoted: m })
         } else if (/video/.test(mime)) {
-        anu = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
-        ZimBotInc.sendMessage(m.chat, {video: {url: anu},viewOnce : true},{quoted: m })
+        anu = await BALOCHEDITInc.downloadAndSaveMediaMessage(quoted)
+        BALOCHEDITInc.sendMessage(m.chat, {video: {url: anu},viewOnce : true},{quoted: m })
         }
         }
         break
@@ -6606,53 +6606,6 @@ ZimBotInc.sendMessage(m.chat, {image: {url: anu},viewOnce : true},{quoted: m })
         m.reply(res)
         });
         break
-        case 'tes': case 'test': case 'alive': case 'bot': case 'robot': case 'zimbot': case 'drips':
-
-╭━━━━━━━━━━━━━━━━━━╮
-┃         ${global.botname}
-┃━━━━━━━━━━━━━━━━━━┃
-┃
-┃ *﷽بنام ان بزرگی ک همتا ندارد ﷽*
-┃
-┃ *مشخصات ربات ⸾⸾ ربات ام دی بلوچ ادیت*
-┃ *کارایی ربات ⸾⸾ مانند بقیه ربات ها عمل میکند*
-┃ *شماره سازنده ربات ⸾⸾ 989339658384*
-┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
-┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
-┃ 
-┃      ↣⚡️یوتیوب⚡️↢ 
-┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
-┃
-┃━━━━━━━━━━━━━━━━━━┃
-┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
-╰━━━━━━━━━━━━━━━━━━╯`,
-       footer: `BALOCH EDIT`,
-       title: `*بات*`,
-       jpegThumbnail: buffer,
-       buttonText: "😈دکمه های لیست🥀",
-       sections
-      }, { quoted : m })
-      } else if (setbot.templateDoc) {
-      const buttonsDefault = [{ urlButton: { displayText: `😈یوتیوب‌چنل🥀`, url : `https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ` } }, { urlButton: { displayText: `😈گیت‌هاب🥀`, url : `https://github.com/BalochEdit` } },
-   {					
-					quickReplyButton: {
-						displayText: '🥀سرعت😈',
-						id: 'ping'
-					}
-				},
-				{
-					quickReplyButton: {
-						displayText: '😈سازنده🥀',
-						id: 'owner'
-					}
-				},	
-				  {
-					quickReplyButton: {
-						displayText: '😈لیست🥀',
-						id: 'listmenu'
-					}},]
-        
-        
         // Upload status
         
 //━━━━━━━━━━━━━━━━━━━━[ LIMIT & EXP ]━━━━━━━━━━━━━━━━━━━━
@@ -6678,7 +6631,7 @@ if (q.includes('--help')) return m.reply(examkosong)
   if (!isInventory){ addInventori(m.sender) }
   if (!isInventoriBuruan){ addInventoriBuruan(m.sender) }
    try {
-                    ppuser = await ZimBotInc.profilePictureUrl(m.sender, 'image')
+                    ppuser = await BALOCHEDITInc.profilePictureUrl(m.sender, 'image')
                 } catch {
                     ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
@@ -6686,12 +6639,12 @@ if (q.includes('--help')) return m.reply(examkosong)
               let Xp = level.getLevelingXp(m.sender, _level)
               let Xplu = 10 * Math.pow(Levele, 2) + 50 * Levele + 100         
      var profile = `*▊▊▊USER PROFILE ▊▊▊*\n\n⬤ *USERNAME:* ${pushname}\n⬤ *PREMIUM*: \n⬤ *ADMIN*: \n\n=_=_=_=_=_=_=_=_=_=_=_=_=\n\n*YOUR PROGRESS:*\n⬤ *YOUR LEVEL*: ${Levele}\n⬤ *YOUR XP*: (${Xp} / ${Xplu})\n*⬤ YOUR BLOOD* : ${getDarah(m.sender)}\n⬤ *YOUR IRON:* ${getBesi(m.sender)}\n⬤ *YOUR EMAS:* ${getEmas(m.sender)}\n⬤ *YOUR EMERALD* : ${getEmerald(m.sender)}\n⬤ *YOUR POTION* : ${getPotion(m.sender)}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=\n\nHurry up:\n⬤ *YOUR FISH* : ${getIkan(m.sender)}\n⬤ *YOUR CHICKEN* : ${getAyam(m.sender)}\n⬤ *YOUR RABBIT* : ${getKelinci(m.sender)}\n⬤ *SHEEP* : ${getDomba(m.sender)}\n⬤ *YOUR COW* : ${getSapi(m.sender)}\n⬤ *YOUR ELEPHANTS* : ${getGajah(m.sender)}\n\n*BALOCH EDIT*`
-     ZimBotInc.sendMessage(m.chat, { image: { url: ppuser }, jpegThumbnail: await getBuffer(ppuser), caption: `${profile}` }, { quoted: m }).catch((err) => m.reply('link error'))    
+     BALOCHEDITInc.sendMessage(m.chat, { image: { url: ppuser }, jpegThumbnail: await getBuffer(ppuser), caption: `${profile}` }, { quoted: m }).catch((err) => m.reply('link error'))    
   }
   break
 
 case 'beli': case 'buy':{
-ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'wgheo', buttonText: { displayText: 'BUY LIMIT' }, type: 1 }], `🎉 ${ucapannya2} ${pushname}\n\n*Want to buy a limit??\nPlease click the button below*`, global.botname, m)
+BALOCHEDITInc.sendButtonText(m.chat, [{ buttonId: 'wgheo', buttonText: { displayText: 'BUY LIMIT' }, type: 1 }], `🎉 ${ucapannya2} ${pushname}\n\n*Want to buy a limit??\nPlease click the button below*`, global.botname, m)
 }
 break
 
@@ -6727,9 +6680,9 @@ teks = `*▊▊▊REPORT FEATURE▊▊▊*`
 teks1 = `\n\nNUMBER : @${m.sender.split("@")[0]}\n*REPORT :* ${args.join(" ")}`
 teks2 = `\n\nSucces send to owner`
 for (let i of owner) {
-ZimBotInc.sendMessage(i + "@s.whatsapp.net", {text: teks + teks1, mentions:[m.sender]}, {quoted:m})
+BALOCHEDITInc.sendMessage(i + "@s.whatsapp.net", {text: teks + teks1, mentions:[m.sender]}, {quoted:m})
 }
-ZimBotInc.sendMessage(m.chat, {text: teks + teks2 + teks1, mentions:[m.sender]}, {quoted:m})
+BALOCHEDITInc.sendMessage(m.chat, {text: teks + teks2 + teks1, mentions:[m.sender]}, {quoted:m})
 }
 break
 case 'request': {
@@ -6738,9 +6691,9 @@ teks = `*▊▊▊REQUEST FEATURE▊▊▊*`
 teks1 = `\n\n*NUMBER :* @${m.sender.split("@")[0]}\n*REQUEST :* ${args.join(" ")}`
 teks2 = `\n\nSucces send to owner`
 for (let i of owner) {
-ZimBotInc.sendMessage(i + "@s.whatsapp.net", {text: teks + teks1, mentions:[m.sender]}, {quoted:m})
+BALOCHEDITInc.sendMessage(i + "@s.whatsapp.net", {text: teks + teks1, mentions:[m.sender]}, {quoted:m})
 }
-ZimBotInc.sendMessage(m.chat, {text: teks + teks2 + teks1, mentions:[m.sender]}, {quoted:m})
+BALOCHEDITInc.sendMessage(m.chat, {text: teks + teks2 + teks1, mentions:[m.sender]}, {quoted:m})
 }
 break
 case 'domain': {
@@ -6812,7 +6765,7 @@ let sections = []
 
      }
 
-  const sendm =  ZimBotInc.sendMessage(
+  const sendm =  BALOCHEDITInc.sendMessage(
 
       m.chat, 
 
@@ -6840,18 +6793,18 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             m.reply(`*1 limit used*`)
 res = await fetchJson(`https://api.jikan.moe/v4/anime/${q}`)
 let txt = `𝗔𝗻𝗶𝗺𝗲 𝗜𝗻𝗳𝗼\n\n*TITLE:* *${res.data.title}*\n*ENGLISH:* *${res.data.title_english}*\n*JAPANESE:* *${res.data.title_japanese}*\n*TYPE ANIME:* *${res.data.type}*\n*ADAPTER:* *${res.data.source}*\n*TOTAL EPISODE:* *${res.data.episodes}*\n*STATUS:* *${res.data.status}*\n*ONGOING:* *${res.data.airing ? 'Ya' : 'DRIS'}*\n*AIRED:* *${res.data.aired.string}*\n*DURATION:* *${res.data.duration}*\n*RATING:* *${res.data.rating}*\n*SCORE:* *${res.data.score}*\n*RANK:* *${res.data.rank}*\n*STUDIO:* *${res.data.studios[0].name}* `
-ZimBotInc.sendMessage(m.chat, { image : { url : res.data.images.jpg.image_url}, caption : txt}, {quoted :m }).catch((err) => m.reply('sorry error'))
+BALOCHEDITInc.sendMessage(m.chat, { image : { url : res.data.images.jpg.image_url}, caption : txt}, {quoted :m }).catch((err) => m.reply('sorry error'))
 }
 break
 
 //by BALOCH EDIT
 
-case 'listmenu': case 'list':{
+case 'listmenu': case 'list': case 'لیست':{
     
     let Levele2 = level.getLevelingLevel(m.sender, _level)
     let sections = []   
     let listmenu = [`allmenu`,`mainmenu`,`groupmenu`,`expmenu`,`downloadmenu`,`searchingmenu`,`randommenu`,`textpromenu`,`photooxymenu`,`funmenu`,`imageeffectmenu`,`ephotomenu`,`primbonmenu`,`convertmenu`,`databasemenu`,`photofiltermenu`,`anonymousmenu`,`islammenu`,`voicemenu`,`toolsmenu`,`internetmenu`,`shortmenu`,`ownermenu`,`nsfwmenu`]
-    let listmenuu = [`😈همه منو`,`😈مینی منو`,`😈گروه منو`,`😈اکس پی منو`,`😈دانلود منو`,`😈سرچ منو`,`😈رندوم منو`,`😈تکست منو`,`😈پروکسی`,`😈فان منو`,`😈افکت عکس`,`😈ادیت عکس`,`😈فرینبون مکو`,`😈کونورت منو`,`😈دیتابیس منو`,`😈فتوفایلتر`,`😈انونیموس منو`,`😈اسلام منو`,`😈ویس منو`,`😈تولس منو`,`😈اینترنت منو`,`😈شورت منو`,`😈اونر منو`,منو نصفو😈`]
+    let listmenuu = [`😈همه منو`,`😈مینی منو`,`😈گروه منو`,`😈اکس پی منو`,`😈دانلود منو`,`😈سرچ منو`,`😈رندوم منو`,`😈تکست منو`,`😈پروکسی`,`😈فان منو`,`😈افکت عکس`,`😈ادیت عکس`,`😈فرینبون مکو`,`😈کونورت منو`,`😈دیتابیس منو`,`😈😈فتوفایلتر`,`😈انونیموس منو`,`😈اسلام منو`,`😈ویس منو`,`😈تولس منو`,`😈اینترنت منو`,`😈شورت منو`,`😈اونر منو`,`😈😈منو نصفو`]
             
             let nombor = 1
             let startnum = 0
@@ -6868,7 +6821,7 @@ case 'listmenu': case 'list':{
             }
             sections.push(list)   
             }
-            const sendm =  ZimBotInc.sendMessage(
+            const sendm =  BALOCHEDITInc.sendMessage(
             m.chat, 
            {
        text: `
@@ -6891,7 +6844,7 @@ case 'listmenu': case 'list':{
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯`,
-       footer: ZimBotInc.user.name,
+       footer: BALOCHEDITInc.user.name,
        title: `${ucapannya2} ${pushname}`,
        buttonText: "😈دکمه های لیست🥀",
        sections
@@ -6900,7 +6853,7 @@ case 'listmenu': case 'list':{
       
      break
             case 'allmenu': case 'menu': case 'help': {
-ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
 let Levelnye = level.getLevelingLevel(m.sender, _level)
 let datane = fs.readFileSync('./lib/random.js')
 jsonData = JSON.parse(datane)
@@ -7514,7 +7467,7 @@ let btn = [{
                             }]
                         let setbot = db.data.settings[botNumber]
                         if (setbot.templateImage) {
-                        let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+                        let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -7550,9 +7503,9 @@ id: 'listmenu'
 }
 }
 }), { userJid: m.chat, quoted: m })
-ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                         } else if (setbot.templateGif) {
-                        let message = await prepareWAMessageMedia({ video: global.visoka, gifPlayback:true, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+                        let message = await prepareWAMessageMedia({ video: global.visoka, gifPlayback:true, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -7588,7 +7541,7 @@ id: 'listmenu'
 }
 }
 }), { userJid: m.chat, quoted: m })
-ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                         } else if (setbot.templateLocation) {
                         const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                     templateMessage: {
@@ -7626,9 +7579,9 @@ id: '😈لیست🥀'
 }
 }
 }), { userJid: m.chat, quoted: m })
-ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                         } else if (setbot.templateMsg) {
-                        ZimBotInc.send5ButMsg(m.chat, anu, global.botname, btn)
+                        BALOCHEDITInc.send5ButMsg(m.chat, anu, global.botname, btn)
                         } else if (setbot.templateList) {                       
             let sections = []   
             let listmenu = [`allmenu`,`mainmenu`,`groupmenu`,`expmenu`,`downloadmenu`,`searchingmenu`,`randommenu`,`textpromenu`,`photooxymenu`,`funmenu`,`imageeffectmenu`,`ephotomenu`,`primbonmenu`,`convertmenu`,`databasemenu`,`photofiltermenu`,`anonymousmenu`,`islammenu`,`voicemenu`,`toolsmenu`,`internetmenu`,`shortmenu`,`ownermenu`,`nsfwmenu`]
@@ -7649,7 +7602,7 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             sections.push(list)   
             }
-            const sendm =  ZimBotInc.sendMessage(
+            const sendm =  BALOCHEDITInc.sendMessage(
             m.chat, 
            {
        text: `
@@ -7698,7 +7651,7 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 						id: 'listmenu'
 					}},]
 	
-			ZimBotInc.sendMessage(m.chat,{
+			BALOCHEDITInc.sendMessage(m.chat,{
 	caption: anu,
 
 	document:fs.readFileSync('./lib/tes.xlsx'), 
@@ -7710,7 +7663,7 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
       }
       }
      break
-//let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+//let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 //const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 //templateMessage: {
 //hydratedTemplate: {
@@ -7746,14 +7699,14 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 //}
 //}
 //}), { userJid: m.chat, quoted: m })
-//ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+//BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 //}
 //break
 
 
 
 case 'mainmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'MAIN MENU')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -7797,7 +7750,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -7813,11 +7766,11 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 case 'nsfwmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'HORNY MENU')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -7870,7 +7823,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -7886,11 +7839,11 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
                 case 'expmenu': {
-                    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+                    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
           buffer = await getBuffer(picak+'EXP MENU')
           let Levele2 = level.getLevelingLevel(m.sender, _level)
                 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -7932,7 +7885,7 @@ hydratedButtons: [{
                 
                 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
                 `
-                let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+                let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -7948,11 +7901,11 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 case 'groupmenu': case 'grupmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'GROUP MENU')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -8020,7 +7973,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -8036,12 +7989,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'downloadmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'DOWNLOAD')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -8115,7 +8068,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -8131,12 +8084,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'searchingmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'SEARCH')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -8200,7 +8153,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -8216,12 +8169,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'randommenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'RANDOM')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -8293,7 +8246,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -8309,12 +8262,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'textpromenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'TEXTPRO')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -8415,7 +8368,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -8431,12 +8384,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'photooxymenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'PHOTOOXY')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -8480,7 +8433,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -8496,12 +8449,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'ephotomenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'EPHOTO')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -8541,7 +8494,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -8557,12 +8510,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'sertimenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'CERTIFICATE')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -8605,7 +8558,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -8621,12 +8574,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'imageeffectmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'IMAGE EF')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -8672,7 +8625,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -8688,12 +8641,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'funmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'FUN MENU')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -8741,7 +8694,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -8757,12 +8710,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'primbonmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'PRIMBON')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -8824,7 +8777,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -8840,12 +8793,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'convertmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'CONVERT')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -8900,7 +8853,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -8916,12 +8869,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'databasemenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'DATABASE')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -8961,7 +8914,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -8977,12 +8930,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'photofiltermenu': case 'photofilter': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'PHOTO FILTER')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -9053,7 +9006,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -9069,14 +9022,14 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 
 
 case 'anonymousmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'ANONYMOUS')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -9113,7 +9066,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -9129,12 +9082,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'islammenu': case 'islamicmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'ISLAM')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -9176,7 +9129,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -9192,12 +9145,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
             
 case 'voicemenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'VOICE CHANGER')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -9240,7 +9193,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -9256,12 +9209,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'toolsmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'TOOLS')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -9306,7 +9259,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -9322,11 +9275,11 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 case 'internetmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'INTERNET')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -9375,7 +9328,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -9391,12 +9344,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'shortmenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'SHORTLINK')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -9430,7 +9383,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -9446,12 +9399,12 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
 case 'ownermenu': {
-    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+    BALOCHEDITInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'OWNER MENU')
                 let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
@@ -9503,7 +9456,7 @@ let hao = randomNomor(200)
 
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
-let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
+let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: BALOCHEDITInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
 hydratedTemplate: {
@@ -9519,7 +9472,7 @@ hydratedButtons: [{
 }
 }
                }), { userJid: m.chat })
-                ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                BALOCHEDITInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
             break
 
@@ -9527,7 +9480,7 @@ case 'sond': {
 
             hey = fs.readFileSync('./media/tes.mp3')
 
-            ZimBotInc.sendMessage(m.chat, {audio: hey, mimetype: 'audio/mpeg', ptt:true }, {quoted:m})
+            BALOCHEDITInc.sendMessage(m.chat, {audio: hey, mimetype: 'audio/mpeg', ptt:true }, {quoted:m})
 
             }
 
@@ -9551,15 +9504,15 @@ case 'sond': {
                     }
                 }
                 if (antiToxic)
-                if (bad.includes(zimbotincv3)) {
+                if (bad.includes(BALOCHEDITincv3)) {
                 if (m.text) {
-                zimbotv3 = `*▊▊▊ANTIBAD WORDS▊▊▊*\n\n*Lucky you, you are admin*`
-                if (isAdmins) return m.reply(zimbotv3)
-                if (m.key.fromMe) return m.reply(zimbotv3)
-                if (isCreator) return m.reply(zimbotv3)
+                BALOCHEDITv3 = `*▊▊▊ANTIBAD WORDS▊▊▊*\n\n*Lucky you, you are admin*`
+                if (isAdmins) return m.reply(BALOCHEDITv3)
+                if (m.key.fromMe) return m.reply(BALOCHEDITv3)
+                if (isCreator) return m.reply(BALOCHEDITv3)
                 kice = m.sender
-                await ZimBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
-                ZimBotInc.sendMessage(from, {text:`*▊▊▊ANTIBAD WORDS▊▊▊*\n\n@${kice.split("@")[0]} *was kicked because of being rude to others in this group*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})}
+                await BALOCHEDITInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
+                BALOCHEDITInc.sendMessage(from, {text:`*▊▊▊ANTIBAD WORDS▊▊▊*\n\n@${kice.split("@")[0]} *was kicked because of being rude to others in this group*`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})}
                 }
                 
                 if (budy.startsWith('>')) {
@@ -9609,7 +9562,7 @@ case 'sond': {
 		    if (m.isBaileys) return
 		    let msgs = global.db.data.database
 		    if (!(budy.toLowerCase() in msgs)) return
-		    ZimBotInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
+		    BALOCHEDITInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
 		}
         }
         // SCRIPT BY BALOCH ORIGINAL BASE DIKARNDT 
