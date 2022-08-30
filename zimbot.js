@@ -6859,7 +6859,7 @@ case 'listmenu': case 'list': {
       
      break
 
-            case 'allmenu': case 'menu': case 'help': {
+            case 'allmenu': case 'menu': case 'منو': case 'help':{
 ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
 let Levelnye = level.getLevelingLevel(m.sender, _level)
 let datane = fs.readFileSync('./lib/random.js')
@@ -6891,277 +6891,277 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-    
+┏━❰ *⚡️اکس‌پی‌و‌لیمیت⚡️* ❱    
 ┏━❰ *EXP & LIMIT* ❱
-┃⬤${prefix}sel
-┃⬤${prefix}buy
-┃⬤${prefix}limit 
-┃⬤${prefix}heal
-┃⬤${prefix}limit
-┃⬤${prefix}profile
-┃⬤${prefix}mining
-┃⬤${prefix}berburu
-┃⬤${prefix}limituser
-┃⬤${prefix}leaderboard
+┃⬤${prefix}sel🕊
+┃⬤${prefix}buy🕊
+┃⬤${prefix}limit 🕊
+┃⬤${prefix}heal🕊
+┃⬤${prefix}limit🕊
+┃⬤${prefix}profile🕊
+┃⬤${prefix}mining🕊
+┃⬤${prefix}berburu🕊
+┃⬤${prefix}limituser🕊
+┃⬤${prefix}leaderboard🕊
 ┗━━━━━━━━━━⦿
 
-                 
+┏━❰ *⚡️مینی‌منو⚡️️* ❱                
 ┏━❰ *MAIN MENU* ❱
-┃⬤${prefix}ping
-┃⬤${prefix}listpc
-┃⬤${prefix}listgc
-┃⬤${prefix}owner
-┃⬤${prefix}setmenu
-┃⬤${prefix}botdev
-┃⬤${prefix}setmenu
-┃⬤${prefix}autoblock
-┃⬤${prefix}bothelp
-┃⬤${prefix}delete
-┃⬤${prefix}infochat
-┃⬤${prefix}quoted
-┃⬤${prefix}listonline
-┃⬤${prefix}runtime
-┃⬤${prefix}speedtest
-┃⬤${prefix}menu
+┃⬤${prefix}ping🕊
+┃⬤${prefix}listpc🕊
+┃⬤${prefix}listgc🕊
+┃⬤${prefix}owner🕊
+┃⬤${prefix}botdev🕊
+┃⬤${prefix}setmenu🕊
+┃⬤${prefix}autoblock🕊
+┃⬤${prefix}bothelp🕊
+┃⬤${prefix}delete🕊
+┃⬤${prefix}infochat🕊
+┃⬤${prefix}quoted🕊
+┃⬤${prefix}listonline🕊
+┃⬤${prefix}runtime🕊
+┃⬤${prefix}speedtest🕊
+┃⬤${prefix}menu🕊
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *⚡شورت‌لینک️⚡️* ❱
 ┏━❰ *SHORTLINK* ❱
-┃⬤${prefix}shortlink
-┃⬤${prefix}tinyurl
+┃⬤${prefix}shortlink🕊
+┃⬤${prefix}tinyurl🕊
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *⚡انانیموس️⚡️* ❱
 ┏━❰ *ANONYMOUS* ❱
-┃⬤${prefix}start
-┃⬤${prefix}next
-┃⬤${prefix}keluar
-┃⬤${prefix}sendkontak
-┃⬤${prefix}anonymous
+┃⬤${prefix}start🕊
+┃⬤${prefix}next🕊
+┃⬤${prefix}keluar🕊
+┃⬤${prefix}sendkontak🕊
+┃⬤${prefix}anonymous🕊
 ┗━━━━━━━━━━━⦿
 
-
+┏━❰ *⚡️فان‌فایتور⚡️* ❱
 ┏━❰ *FUN FAITURE* ❱
-┃⬤${prefix}family100
-┃⬤${prefix}hilih
-┃⬤${prefix}slot 
-┃⬤${prefix}simi
-┃⬤ ${prefix}holoh
-┃⬤${prefix}delttt
-┃⬤${prefix}halah
-┃⬤${prefix}huluh
-┃⬤${prefix}heleh
-┃⬤${prefix}suitpvp
-┃⬤${prefix}jadian
-┃⬤${prefix}math
-┃⬤${prefix}jodohku
-┃⬤${prefix}tictactoe
-┃⬤${prefix}tebak
+┃⬤${prefix}family100🕊
+┃⬤${prefix}hilih🕊
+┃⬤${prefix}slot 🕊
+┃⬤${prefix}simi🕊
+┃⬤ ${prefix}holoh🕊
+┃⬤${prefix}delttt🕊
+┃⬤${prefix}halah🕊
+┃⬤${prefix}huluh🕊
+┃⬤${prefix}heleh🕊
+┃⬤${prefix}suitpvp🕊
+┃⬤${prefix}jadian🕊
+┃⬤${prefix}math🕊
+┃⬤${prefix}jodohku🕊
+┃⬤${prefix}tictactoe🕊
+┃⬤${prefix}tebak🕊
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *⚡️عکس‌اوکسی⚡️* ❱
 ┏━❰ *PHOTO-OXY* ❱
-┃⬤${prefix}broken-glass
-┃⬤${prefix}neon-light 
-┃⬤${prefix}black-pink
-┃⬤ ${prefix}hallowen 
-┃⬤${prefix}art-papper
-┃⬤${prefix}magma 
-┃⬤${prefix}glossy
-┃⬤${prefix}grafity-text
-┃⬤${prefix}watercolor
-┃⬤${prefix}multi-color
-┃⬤${prefix}neon-devil
-┃⬤${prefix}sky-text
+┃⬤${prefix}broken-glass🕊
+┃⬤${prefix}neon-light 🕊
+┃⬤${prefix}black-pink🕊
+┃⬤ ${prefix}hallowen 🕊
+┃⬤${prefix}art-papper🕊
+┃⬤${prefix}magma 🕊
+┃⬤${prefix}glossy🕊
+┃⬤${prefix}grafity-text🕊
+┃⬤${prefix}watercolor🕊
+┃⬤${prefix}multi-color🕊
+┃⬤${prefix}neon-devil🕊
+┃⬤${prefix}sky-text🕊
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *⚡ادیت‌عکس️⚡️* ❱
 ┏━❰ *EPHOTO-363* ❱
-┃⬤${prefix}3d-wood
-┃⬤${prefix}angels-wings
-┃⬤${prefix}snake-text
-┃⬤${prefix}redhot-metal2
-┃⬤${prefix}sandsummer-beach
-┃⬤${prefix}snow-text
-┃⬤${prefix}water-3d
-┃⬤${prefix}water-effect
+┃⬤${prefix}3d-wood🕊
+┃⬤${prefix}angels-wings🕊
+┃⬤${prefix}snake-text🕊
+┃⬤${prefix}redhot-metal2🕊
+┃⬤${prefix}sandsummer-beach🕊
+┃⬤${prefix}snow-text🕊
+┃⬤${prefix}water-3d🕊
+┃⬤${prefix}water-effect🕊
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *⚡️منوی‌سازنده⚡️* ❱
 ┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}tfxp
-┃⬤ ${prefix}join
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}autoblock
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤ ${prefix}bcimage
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
+┃⬤${prefix}leave🕊
+┃⬤${prefix}tfxp🕊
+┃⬤ ${prefix}join🕊
+┃⬤${prefix}promoteowner/powner🕊
+┃⬤${prefix}bctext🕊
+┃⬤${prefix}bcall🕊
+┃⬤${prefix}bcloc🕊
+┃⬤${prefix}tflimit🕊
+┃⬤${prefix}block🕊
+┃⬤${prefix}react🕊
+┃⬤${prefix}bctext🕊
+┃⬤${prefix}setexif🕊
+┃⬤${prefix}chat🕊
+┃⬤${prefix}autoblock🕊
+┃⬤${prefix}bcvideo🕊
+┃⬤${prefix}bcgroup🕊
+┃⬤ ${prefix}bcimage🕊
+┃⬤${prefix}unblock🕊
+┃⬤${prefix}setppbot🕊
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *⚡متن‌ساز️⚡️* ❱
 ┏━❰ *TEXT MAKER* ❱
-┃⬤${prefix}vintage
-┃⬤${prefix}writing
-┃⬤${prefix}engraved
-┃⬤${prefix}glue-text
-┃⬤${prefix}holograpic
-┃⬤${prefix}deluxe-silver
-┃⬤${prefix}fabric
-┃⬤${prefix}wicker
-┃⬤${prefix}larva
-┃⬤${prefix}toxic
-┃⬤${prefix}koi
-┃⬤${prefix}bread
-┃⬤${prefix}horor-blood
-┃⬤${prefix}honey
-┃⬤${prefix}ice
-┃⬤${prefix}rusty
-┃⬤${prefix}christmas
-┃⬤${prefix}gradien
-┃⬤${prefix}1917
-┃⬤${prefix}harry-potter
-┃⬤${prefix}3dstone
-┃⬤${prefix}thunder2
-┃⬤${prefix}sroberi
-┃⬤${prefix}blood
-┃⬤${prefix}joker-logo
-┃⬤${prefix}marvel-logo2
-┃⬤${prefix}lion-logo
-┃⬤${prefix}pornhub
-┃⬤${prefix}avengers-logo
-┃⬤${prefix}ninja-logo
-┃⬤${prefix}grafity-text2
-┃⬤${prefix}astone
-┃⬤${prefix}space
-┃⬤${prefix}captain
-┃⬤${prefix}logo-wolf2
-┃⬤${prefix}logo-wolf
-┃⬤${prefix}silk
-┃⬤${prefix}3dnature
-┃⬤${prefix}bevel
-┃⬤${prefix}birthdaycake
-┃⬤${prefix}burnpaper
-┃⬤${prefix}coffee
-┃⬤${prefix}coffee-heartcup
-┃⬤${prefix}embroiderytext
-┃⬤${prefix}flaming
-┃⬤${prefix}flowertypo
-┃⬤${prefix}funnycup
-┃⬤${prefix}fur
-┃⬤${prefix}gerbang
-┃⬤${prefix}glowrainbow
-┃⬤${prefix}gradientavatar
-┃⬤${prefix}graffititext
-┃⬤${prefix}harrypotter
-┃⬤${prefix}lovemessage
-┃⬤${prefix}luxuryroyal
-┃⬤${prefix}neonlight
-┃⬤${prefix}sweetcandy
-┃⬤${prefix}summertext
-┃⬤${prefix}woodenheart
-┃⬤${prefix}woodblock
-┃⬤${prefix}yellowroses
-┃⬤${prefix}wolfmetal
-┃⬤${prefix}underwaterocean
-┃⬤${prefix}graffiti
-┃⬤${prefix}angel
-┃⬤${prefix}queen
-┃⬤${prefix}wet-glass
-┃⬤${prefix}status-mood2
-┃⬤${prefix}summerysand
+┃⬤${prefix}vintage🕊
+┃⬤${prefix}writing🕊
+┃⬤${prefix}engraved🕊
+┃⬤${prefix}glue-text🕊
+┃⬤${prefix}holograpic🕊
+┃⬤${prefix}deluxe-silver🕊
+┃⬤${prefix}fabric🕊
+┃⬤${prefix}wicker🕊
+┃⬤${prefix}larva🕊
+┃⬤${prefix}toxic🕊
+┃⬤${prefix}koi🕊
+┃⬤${prefix}bread🕊
+┃⬤${prefix}horor-blood🕊
+┃⬤${prefix}honey🕊
+┃⬤${prefix}ice🕊
+┃⬤${prefix}rusty🕊
+┃⬤${prefix}christmas🕊
+┃⬤${prefix}gradien🕊
+┃⬤${prefix}1917🕊
+┃⬤${prefix}harry-potter🕊
+┃⬤${prefix}3dstone🕊
+┃⬤${prefix}thunder2🕊
+┃⬤${prefix}sroberi🕊
+┃⬤${prefix}blood🕊
+┃⬤${prefix}joker-logo🕊
+┃⬤${prefix}marvel-logo2🕊
+┃⬤${prefix}lion-logo🕊
+┃⬤${prefix}pornhub🕊
+┃⬤${prefix}avengers-logo🕊
+┃⬤${prefix}ninja-logo🕊
+┃⬤${prefix}grafity-text2🕊
+┃⬤${prefix}astone🕊
+┃⬤${prefix}space🕊
+┃⬤${prefix}captain🕊
+┃⬤${prefix}logo-wolf2🕊
+┃⬤${prefix}logo-wolf🕊
+┃⬤${prefix}silk🕊
+┃⬤${prefix}3dnature🕊
+┃⬤${prefix}bevel🕊
+┃⬤${prefix}birthdaycake🕊
+┃⬤${prefix}burnpaper🕊
+┃⬤${prefix}coffee🕊
+┃⬤${prefix}coffee-heartcup🕊
+┃⬤${prefix}embroiderytext🕊
+┃⬤${prefix}flaming🕊
+┃⬤${prefix}flowertypo🕊
+┃⬤${prefix}funnycup🕊
+┃⬤${prefix}fur🕊
+┃⬤${prefix}gerbang🕊
+┃⬤${prefix}glowrainbow🕊
+┃⬤${prefix}gradientavatar🕊
+┃⬤${prefix}graffititext🕊
+┃⬤${prefix}harrypotter🕊
+┃⬤${prefix}lovemessage🕊
+┃⬤${prefix}luxuryroyal🕊
+┃⬤${prefix}neonlight🕊
+┃⬤${prefix}sweetcandy🕊
+┃⬤${prefix}summertext🕊
+┃⬤${prefix}woodenheart🕊
+┃⬤${prefix}woodblock🕊
+┃⬤${prefix}yellowroses🕊
+┃⬤${prefix}wolfmetal🕊
+┃⬤${prefix}underwaterocean🕊
+┃⬤${prefix}graffiti🕊
+┃⬤${prefix}angel🕊
+┃⬤${prefix}queen🕊
+┃⬤${prefix}wet-glass🕊
+┃⬤${prefix}status-mood2🕊
+┃⬤${prefix}summerysand🕊
 ┗━━━━━━━━━⦿
 
+┏━❰ *⚡منوی‌نصفو️⚡️* ❱
 ┏━❰ *NSFW MENU* ❱
-┃⬤${prefix}cum
-┃⬤ ${prefix}ass
-┃⬤ ${prefix}culo
-┃⬤ ${prefix}hentai
-┃⬤ ${prefix}blowjob
-┃⬤ ${prefix}bdsm
-┃⬤ ${prefix}gangbang
-┃⬤ ${prefix}pussy
-┃⬤ ${prefix}yuri
-┃⬤ ${prefix}ero
-┃⬤ ${prefix}thighs
-┃⬤ ${prefix}panties
-┃⬤ ${prefix}masturbation
-┃⬤ ${prefix}neko
-┃⬤ ${prefix}orgy
-┃⬤ ${prefix}foot
-┃⬤ ${prefix}glasses
-┃⬤ ${prefix}fendom
-┃⬤ ${prefix}cuckold
-┃⬤ ${prefix}ahegao
+┃⬤${prefix}cum🕊
+┃⬤ ${prefix}ass🕊
+┃⬤ ${prefix}culo🕊
+┃⬤ ${prefix}hentai🕊
+┃⬤ ${prefix}blowjob🕊
+┃⬤ ${prefix}bdsm🕊
+┃⬤ ${prefix}gangbang🕊
+┃⬤ ${prefix}pussy🕊
+┃⬤ ${prefix}yuri🕊
+┃⬤ ${prefix}ero🕊
+┃⬤ ${prefix}thighs🕊
+┃⬤ ${prefix}panties🕊
+┃⬤ ${prefix}masturbation🕊
+┃⬤ ${prefix}neko🕊
+┃⬤ ${prefix}orgy🕊
+┃⬤ ${prefix}foot🕊
+┃⬤ ${prefix}glasses🕊
+┃⬤ ${prefix}fendom🕊
+┃⬤ ${prefix}cuckold🕊
+┃⬤ ${prefix}ahegao🕊
 ┗━━━━━━━━━⦿
 
-
+┏━❰ *⚡️کرتیفکت‌مکر⚡️* ❱
 ┏━❰ *CERTIFICATEMAKER* ❱
-┃⬤${prefix}tololserti
-┃⬤${prefix}blackpink
-┃⬤${prefix}badgirlserti
-┃⬤${prefix}badgirlserti
-┃⬤${prefix}igcertificate
-┃⬤${prefix}fuckgirlserti
-┃⬤${prefix}ytcertificate
-┃⬤${prefix}badboyserti
-┃⬤${prefix}fuckboyserti
-┃⬤${prefix}goodboyserti
-┃⬤${prefix}goodgirlserti
+┃⬤${prefix}tololserti🕊
+┃⬤${prefix}blackpink🕊
+┃⬤${prefix}badgirlserti🕊
+┃⬤${prefix}badgirlserti🕊
+┃⬤${prefix}igcertificate🕊
+┃⬤${prefix}fuckgirlserti🕊
+┃⬤${prefix}ytcertificate🕊
+┃⬤${prefix}badboyserti🕊
+┃⬤${prefix}fuckboyserti🕊
+┃⬤${prefix}goodboyserti🕊
+┃⬤${prefix}goodgirlserti🕊
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *⚡️منوی‌گروه⚡️* ❱
 ┏━❰ *GROUP MENU* ❱
-┃⬤${prefix}devote 
-┃⬤${prefix}upvote
-┃⬤${prefix}cekvote 
-┃⬤${prefix}linkgroup
-┃⬤${prefix}hapusvote
-┃⬤${prefix}kick
-┃⬤${prefix}vote
-┃⬤${prefix}tagall
-┃⬤${prefix}setdesc
-┃⬤${prefix}group
-┃⬤${prefix}hidetag
-┃⬤${prefix}mute
-┃⬤${prefix}antibadword
-┃⬤${prefix}setname
-┃⬤${prefix}promote
-┃⬤${prefix}demote
-┃⬤${prefix}antilink
-┃⬤${prefix}antibule
-┃⬤${prefix}setppgc
-┃⬤${prefix}antifb
-┃⬤${prefix}antiinsta
-┃⬤${prefix}antilinkall
-┃⬤${prefix}antitiktok
-┃⬤${prefix}antitelegram
-┃⬤${prefix}antiytchannel
-┃⬤${prefix}antivirtex
-┃⬤${prefix}editinfo
-┃⬤${prefix}antiviewonce
-┃⬤${prefix}antionce
-┃⬤${prefix}dare
-┃⬤${prefix}truth
-┃⬤${prefix}slot
-┃⬤${prefix}toonce / once
-┃⬤${prefix}antilinkyt
-┃⬤${prefix}antiwame
-┃⬤${prefix}ephemeral
+┃⬤${prefix}devote 🕊
+┃⬤${prefix}upvote🕊
+┃⬤${prefix}cekvote 🕊
+┃⬤${prefix}linkgroup🕊
+┃⬤${prefix}hapusvote🕊
+┃⬤${prefix}kick🕊
+┃⬤${prefix}vote🕊
+┃⬤${prefix}tagall🕊
+┃⬤${prefix}setdesc🕊
+┃⬤${prefix}group🕊
+┃⬤${prefix}hidetag🕊
+┃⬤${prefix}mute🕊
+┃⬤${prefix}antibadword🕊
+┃⬤${prefix}setname🕊
+┃⬤${prefix}promote🕊
+┃⬤${prefix}demote🕊
+┃⬤${prefix}antilink🕊
+┃⬤${prefix}antibule🕊
+┃⬤${prefix}setppgc🕊
+┃⬤${prefix}antifb🕊
+┃⬤${prefix}antiinsta🕊
+┃⬤${prefix}antilinkall🕊
+┃⬤${prefix}antitiktok🕊
+┃⬤${prefix}antitelegram🕊
+┃⬤${prefix}antiytchannel🕊
+┃⬤${prefix}antivirtex🕊
+┃⬤${prefix}editinfo🕊
+┃⬤${prefix}antiviewonce🕊
+┃⬤${prefix}antionce🕊
+┃⬤${prefix}dare🕊
+┃⬤${prefix}truth🕊
+┃⬤${prefix}slot🕊
+┃⬤${prefix}toonce / once🕊
+┃⬤${prefix}antilinkyt🕊
+┃⬤${prefix}antiwame🕊
+┃⬤${prefix}ephemeral🕊
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *⚡منوی‌اینترنت️⚡️* ❱
 ┏━❰ *INTERNET MENU* ❱
 ┃⬤${prefix}detik
 ┃⬤${prefix}news
@@ -7180,7 +7180,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}resepmasakan
 ┗━━━━━━━━━━━⦿
 
-
+┏━❰ *⚡️منوی‌تولس⚡️* ❱
 ┏━❰ *TOOLS MENU* ❱
 ┃⬤${prefix}git
 ┃⬤${prefix}nulis
@@ -7197,7 +7197,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}magernulis6
 ┗━━━━━━━━━━━━⦿
 
-
+┏━❰ *⚡️منوی‌اسلامی⚡️* ❱
 ┏━❰ *ISLAMIC MENU* ❱
 ┃⬤${prefix}listsurah
 ┃⬤${prefix}tafsirsurah
@@ -7211,7 +7211,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}alquranaudio
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *⚡️ویس‌چنجر⚡️* ❱
 ┏━❰ *VOICE-CHANGER* ❱
 ┃⬤${prefix}fat 
 ┃⬤${prefix}deep 
@@ -7226,7 +7226,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}nightcore 
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *⚡️منوی‌سرچ⚡️* ❱
 ┏━❰ *SEARCH MENU* ❱
 ┃⬤${prefix}yts
 ┃⬤${prefix}lirik
@@ -7262,7 +7262,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}twitterstalk
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *⚡️استیکر‌ساز⚡️* ❱
 ┏━❰ *CONVERT-STICKER* ❱
 ┃⬤${prefix}sticker
 ┃⬤${prefix}ttp
@@ -7289,7 +7289,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}imagetopdf 
 ┗━━━━━━━━━━━⦿
 
-
+┏━❰ *⚡️منوی‌دیتابیس⚡️* ❱
 ┏━❰ *DATABASE-MENU* ❱
 ┃⬤${prefix}setcmd 
 ┃⬤${prefix}listcmd
@@ -7301,7 +7301,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}lockcmd 
 ┗━━━━━━━━⦿
 
-
+┏━❰ *⚡️دانلودر⚡️* ❱
 ┏━❰ *DOWNLOADER* ❱
 ┃⬤${prefix}apk
 ┃⬤${prefix}joox
@@ -7349,7 +7349,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}instagramreal
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *⚡عکس‌افکت️⚡️* ❱
 ┏━❰ *IMAGE-EFFECT* ❱
 ┃⬤${prefix}jail
 ┃⬤${prefix}shit
@@ -7367,7 +7367,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}triggeredwebp
 ┗━━━━━━━━━━━⦿
 
-
+┏━❰ *⚡️عکس‌فایلتر⚡️* ❱
 ┏━❰ *PHOTO-FILTER* ❱
 ┃⬤${prefix}aria 
 ┃⬤${prefix}attic
@@ -7410,7 +7410,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}constrastbandw  
 ┗━━━━━━━━━━⦿
 
-
+┏━❰ *⚡منوی‌فریمبون️⚡️* ❱
 ┏━❰ *PRIMBON-MENU* ❱
 ┃⬤${prefix}shio 
 ┃⬤${prefix}tarot
@@ -7443,7 +7443,7 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}cocoknama
 ┃⬤${prefix}ramaljodohbali
 ┗━━━━━━━━━━━━━⦿
-
+تشکر‌ از تیم بزرگ
 ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 `
 let btn = [{
@@ -7826,22 +7826,37 @@ function _0x3217(_0x37715e,_0x2f6592){const _0xa94637=_0xa946();return _0x3217=f
                 let hao = randomNomor(200)  
                 
           anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
-                ╭━━━━━━━━━━━━━━━━━━╮ ┃         BALOCH EDIT ┃━━━━━━━━━━━━━━━━━━┃ ┃ ┃ *﷽بنام ان بزرگی ک همتا ندارد ﷽* ┃ ┃ *مشخصات ربات ⸾⸾ ربات ام دی بلوچ ادیت*┃ *کارایی ربات ⸾⸾ مانند بقیه ربات ها عمل میکند* ┃ *شماره سازنده ربات ⸾⸾ 989339658384* ┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI*  ┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما* ┃  ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢  ┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ ┃ ┃━━━━━━━━━━━━━━━━━━┃ ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓 ╰━━━━━━━━━━━━━━━━━━╯
-                
+ ╭━━━━━━━━━━━━━━━━━━╮
+┃         BALOCH EDIT
+┃━━━━━━━━━━━━━━━━━━┃
+┃
+┃ *﷽بنام ان بزرگی ک همتا ندارد ﷽*
+┃
+┃ *مشخصات ربات ⸾⸾ ربات ام دی بلوچ ادیت*
+┃ *کارایی ربات ⸾⸾ مانند بقیه ربات ها عمل میکند*
+┃ *شماره سازنده ربات ⸾⸾ 989339658384*
+┃ *نام سازنده ربات ⸾⸾  HOSEIN SARBAZI* 
+┃ *این ربات با تلاش فراوان ساخته شده لطفا حماید کنید از ما*
+┃ 
+┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ
+┃
+┃━━━━━━━━━━━━━━━━━━┃
+┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
+╰━━━━━━━━━━━━━━━━━━╯
                      
-                ┏━❰ *EXP & LIMIT* ❱
-                ┃⬤${prefix}sel
-                ┃⬤${prefix}buy
-                ┃⬤${prefix}limit 
-                ┃⬤${prefix}heal
-                ┃⬤${prefix}limit
-                ┃⬤${prefix}profile
-                ┃⬤${prefix}mining
-                ┃⬤${prefix}limituser
-                ┃⬤${prefix}leaderboard
-                ┗━━━━━━━━━━⦿
-                
-                ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
+┏━❰ *EXP & LIMIT* ❱
+┃⬤${prefix}sel
+┃⬤${prefix}buy
+┃⬤${prefix}limit 
+┃⬤${prefix}heal
+┃⬤${prefix}limit
+┃⬤${prefix}profile
+┃⬤${prefix}mining
+┃⬤${prefix}limituser
+┃⬤${prefix}leaderboard
+┗━━━━━━━━━━⦿
+  ©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
                 `
                 function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','🥀گیت‌هاب😈','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','😈ساب‌چنل🥀'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/BalochEdit'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
           }
