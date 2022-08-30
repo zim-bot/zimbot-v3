@@ -5394,7 +5394,7 @@ case 'savefrom': {
 
        title: "**▊▊▊SAVEFROM DL▊▊▊**",
 
-       buttonText: "CLICK HERE",
+       buttonText: "🥀کلیک بر روی لیست‌ها😈",
 
        sections
 
@@ -5853,7 +5853,7 @@ case 'resep': case 'resepmasakan': {
        text: `*Results of*  ${text}`,
        footer: botname,
        title: "[ Recipes ]",
-       buttonText: "CLICK HERE",
+       buttonText: "🥀کلیک بر روی لیست‌ها😈",
        sections
       }, { quoted : m })
 }
@@ -5908,7 +5908,7 @@ case 'apk': case 'apkmod': case 'apkdl': {
        text: `${ucapannya2} ${pushname} *Search Results From ${text} Click the button below to choose*`,
        footer: `© BALOCH EDIT`,
        title: "*▊▊▊APK DOWNLOAD▊▊▊*",
-       buttonText: "CLICK HERE",
+       buttonText: "🥀کلیک بر روی لیست‌ها😈",
        sections
       }, { quoted : m })                 
                 }).catch((err) => {
@@ -6607,7 +6607,7 @@ ZimBotInc.sendMessage(m.chat, {image: {url: anu},viewOnce : true},{quoted: m })
         m.reply(res)
         });
         break
-        case 'tes': case 'test': case 'alive': case 'bot': case 'robot': case 'zimbot': case 'drips':const _0x12fbc6=_0xa830;function _0x5a3e(){const _0x1d2e27=['\x0a┃┃\x0a┃🏮𝗣𝗟𝗔𝗧𝗙𝗢𝗥𝗠\x20:\x20','ownername','Message','\x0a▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋\x0a▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋\x0a\x20+\x202\x207\x206\x20\x203\x20\x204\x20\x200\x20\x209\x20\x200\x202\x20\x200\x20\x203\x0a\x20','botname','\x0a\x0a╭▬▬❪\x20*BALOCH\x20EDIT❫▬▬▬\x0a┃🏮\x20*LIBRARY:*\x20Baileys-md\x0a┃┃\x0a┃🏮𝗕𝗢𝗧𝗡𝗔𝗠𝗘:\x20','1195460RyNtVa','\x0a┃┃\x0a┃🏮𝗢𝗪𝗡𝗘𝗥𝗡𝗔𝗠𝗘:\x20','list','key','6523785MZSaHJ','ZIM\x20BOT\x20IS\x20ALIVE','5878536uJnrmT','\x0a⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯\x0a\x0a*ZIMBOT\x20V3\x20WELCOMES\x20YOU*\x20','imageMessage','😈سازنده🥀','owner','waUploadToServer','467946xkzyQz','uptime','2369958VHTLog','377875gbZphs','platform','ping','listmenu','chat','184vBAXES','😈سرعت🥀','https://github.com/BalochEdit','\x0a┃┃\x0a┃🏮𝗡𝗨𝗠𝗕𝗘𝗥:\x20','😈ساب‌چنل🥀','3595404noXmcO','🥀گیت‌هاب😈','relayMessage'];_0x5a3e=function(){return _0x1d2e27;};return _0x5a3e();}(function(_0x2241bd,_0x3fade8){const _0x5e1c6a=_0xa830,_0x587e66=_0x2241bd();while(!![]){try{const _0x19d1c9=parseInt(_0x5e1c6a(0x1aa))/0x1+parseInt(_0x5e1c6a(0x1a9))/0x2+-parseInt(_0x5e1c6a(0x1a7))/0x3+parseInt(_0x5e1c6a(0x1b4))/0x4+parseInt(_0x5e1c6a(0x19f))/0x5+parseInt(_0x5e1c6a(0x1a1))/0x6+parseInt(_0x5e1c6a(0x1bd))/0x7*(-parseInt(_0x5e1c6a(0x1af))/0x8);if(_0x19d1c9===_0x3fade8)break;else _0x587e66['push'](_0x587e66['shift']());}catch(_0x5934cf){_0x587e66['push'](_0x587e66['shift']());}}}(_0x5a3e,0xa1b18));function _0xa830(_0x4b8bc2,_0x133f6d){const _0x5a3e80=_0x5a3e();return _0xa830=function(_0xa83019,_0x49a73f){_0xa83019=_0xa83019-0x19f;let _0x58eca5=_0x5a3e80[_0xa83019];return _0x58eca5;},_0xa830(_0x4b8bc2,_0x133f6d);}{anu=_0x12fbc6(0x1a2)+pushname+_0x12fbc6(0x1bc)+global[_0x12fbc6(0x1bb)]+_0x12fbc6(0x1be)+global[_0x12fbc6(0x1b8)]+_0x12fbc6(0x1b2)+global[_0x12fbc6(0x1a5)]+_0x12fbc6(0x1b7)+os[_0x12fbc6(0x1ab)]()+'\x0a▙▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a🏮\x20*UPTIME:*\x20'+runtime(process[_0x12fbc6(0x1a8)]())+_0x12fbc6(0x1ba),drips=await getBuffer(picak+_0x12fbc6(0x1a0));let message=await prepareWAMessageMedia({'image':drips,'jpegThumbnail':drips},{'upload':ZimBotInc[_0x12fbc6(0x1a6)]});const template=generateWAMessageFromContent(m[_0x12fbc6(0x1ae)],proto[_0x12fbc6(0x1b9)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message[_0x12fbc6(0x1a3)],'hydratedContentText':anu,'hydratedFooterText':''+global['botname'],'hydratedButtons':[{'urlButton':{'displayText':_0x12fbc6(0x1b3),'url':'https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ'}},{'urlButton':{'displayText':_0x12fbc6(0x1b5),'url':_0x12fbc6(0x1b1)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1b0),'id':_0x12fbc6(0x1ac)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1a4),'id':_0x12fbc6(0x1a5)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1bf),'id':_0x12fbc6(0x1ad)}}]}}}),{'userJid':m['chat'],'quoted':m});ZimBotInc[_0x12fbc6(0x1b6)](m[_0x12fbc6(0x1ae)],template['message'],{'messageId':template[_0x12fbc6(0x1c0)]['id']});}
+        case 'tes': case 'test': case 'alive': case 'bot': case 'robot': case 'balochedit':const _0x12fbc6=_0xa830;function _0x5a3e(){const _0x1d2e27=['\x0a┃┃\x0a┃🏮𝗣𝗟𝗔𝗧𝗙𝗢𝗥𝗠\x20:\x20','ownername','Message','\x0a▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋\x0a▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋\x0a\x20+\x202\x207\x206\x20\x203\x20\x204\x20\x200\x20\x209\x20\x200\x202\x20\x200\x20\x203\x0a\x20','botname','\x0a\x0a╭▬▬❪\x20*BALOCH\x20EDIT❫▬▬▬\x0a┃🏮\x20*LIBRARY:*\x20Baileys-md\x0a┃┃\x0a┃🏮𝗕𝗢𝗧𝗡𝗔𝗠𝗘:\x20','1195460RyNtVa','\x0a┃┃\x0a┃🏮𝗢𝗪𝗡𝗘𝗥𝗡𝗔𝗠𝗘:\x20','😈لیست🥀','key','6523785MZSaHJ','BALOCH\x20EDIT\x20IS\x20ALIVE','5878536uJnrmT','\x0a⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯\x0a\x0a*BALOCHEDIT\x20V1\x20WELCOMES\x20YOU*\x20','imageMessage','😈سازنده🥀','owner','waUploadToServer','467946xkzyQz','uptime','2369958VHTLog','377875gbZphs','platform','ping','listmenu','chat','184vBAXES','😈سرعت🥀','https://github.com/BalochEdit','\x0a┃┃\x0a┃🏮𝗡𝗨𝗠𝗕𝗘𝗥:\x20','😈ساب‌چنل🥀','3595404noXmcO','🥀گیت‌هاب😈','relayMessage'];_0x5a3e=function(){return _0x1d2e27;};return _0x5a3e();}(function(_0x2241bd,_0x3fade8){const _0x5e1c6a=_0xa830,_0x587e66=_0x2241bd();while(!![]){try{const _0x19d1c9=parseInt(_0x5e1c6a(0x1aa))/0x1+parseInt(_0x5e1c6a(0x1a9))/0x2+-parseInt(_0x5e1c6a(0x1a7))/0x3+parseInt(_0x5e1c6a(0x1b4))/0x4+parseInt(_0x5e1c6a(0x19f))/0x5+parseInt(_0x5e1c6a(0x1a1))/0x6+parseInt(_0x5e1c6a(0x1bd))/0x7*(-parseInt(_0x5e1c6a(0x1af))/0x8);if(_0x19d1c9===_0x3fade8)break;else _0x587e66['push'](_0x587e66['shift']());}catch(_0x5934cf){_0x587e66['push'](_0x587e66['shift']());}}}(_0x5a3e,0xa1b18));function _0xa830(_0x4b8bc2,_0x133f6d){const _0x5a3e80=_0x5a3e();return _0xa830=function(_0xa83019,_0x49a73f){_0xa83019=_0xa83019-0x19f;let _0x58eca5=_0x5a3e80[_0xa83019];return _0x58eca5;},_0xa830(_0x4b8bc2,_0x133f6d);}{anu=_0x12fbc6(0x1a2)+pushname+_0x12fbc6(0x1bc)+global[_0x12fbc6(0x1bb)]+_0x12fbc6(0x1be)+global[_0x12fbc6(0x1b8)]+_0x12fbc6(0x1b2)+global[_0x12fbc6(0x1a5)]+_0x12fbc6(0x1b7)+os[_0x12fbc6(0x1ab)]()+'\x0a▙▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a🏮\x20*UPTIME:*\x20'+runtime(process[_0x12fbc6(0x1a8)]())+_0x12fbc6(0x1ba),drips=await getBuffer(picak+_0x12fbc6(0x1a0));let message=await prepareWAMessageMedia({'image':drips,'jpegThumbnail':drips},{'upload':ZimBotInc[_0x12fbc6(0x1a6)]});const template=generateWAMessageFromContent(m[_0x12fbc6(0x1ae)],proto[_0x12fbc6(0x1b9)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message[_0x12fbc6(0x1a3)],'hydratedContentText':anu,'hydratedFooterText':''+global['botname'],'hydratedButtons':[{'urlButton':{'displayText':_0x12fbc6(0x1b3),'url':'https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ'}},{'urlButton':{'displayText':_0x12fbc6(0x1b5),'url':_0x12fbc6(0x1b1)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1b0),'id':_0x12fbc6(0x1ac)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1a4),'id':_0x12fbc6(0x1a5)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1bf),'id':_0x12fbc6(0x1ad)}}]}}}),{'userJid':m['chat'],'quoted':m});ZimBotInc[_0x12fbc6(0x1b6)](m[_0x12fbc6(0x1ae)],template['message'],{'messageId':template[_0x12fbc6(0x1c0)]['id']});}
         
         break
         
@@ -6783,7 +6783,7 @@ let sections = []
 
        title: "*▊▊▊ANIME▊▊▊*",
 
-       buttonText: "CLICK HERE",
+       buttonText: "🥀کلیک بر روی لیست‌ها😈",
 
        sections
 
@@ -6852,15 +6852,12 @@ case 'listmenu': case 'list': {
 ╰━━━━━━━━━━━━━━━━━━╯`,
        footer: ZimBotInc.user.name,
        title: `${ucapannya2} ${pushname}`,
-       buttonText: "CLICK HERE",
+       buttonText: "🥀کلیک بر روی لیست‌ها😈",
        sections
       }, { quoted : m })
       }
       
      break
-
-case 'setmenu': const _0x82f741=_0x10db;function _0x10db(_0x237750,_0x385d3f){const _0x511702=_0x5117();return _0x10db=function(_0x10db44,_0x596302){_0x10db44=_0x10db44-0x7d;let _0x44663a=_0x511702[_0x10db44];return _0x44663a;},_0x10db(_0x237750,_0x385d3f);}function _0x5117(){const _0x55f57b=['4569NOCauN','3976QKgpog','𝗧𝗘𝗠𝗣𝗟𝗔𝗧𝗘\x20𝗟𝗢𝗖𝗔𝗧𝗜𝗢𝗡','success','templateGif','templatelist','Change\x20menu\x20bot\x20to\x20Template\x20Image','templateLocation','setmenu\x20templateDoc','𝗧𝗘𝗠𝗣𝗟𝗔𝗧𝗘\x20𝗟𝗜𝗦𝗧','setmenu\x20templatelist','414132SgZwnp','𝗧𝗘𝗠𝗣𝗟𝗔𝗧𝗘\x20𝗜𝗠𝗔𝗚𝗘','34413QPRLmc','setmenu\x20templateImage','settings','templateImage','117gNPFAM','*Hello\x20Owner\x20Cheers\x20to\x20that!*','templateMsg','Change\x20menu\x20bot\x20to\x20Template\x20Gif','916745ZKMUHO','𝗧𝗘𝗠𝗣𝗟𝗔𝗧𝗘\x20𝗠𝗘𝗦𝗦𝗔𝗚𝗘','408710BbeqRt','setmenu\x20templateMessage','templateDoc','reply','162Qmmgsv','name','owner','*Please\x20choose\x20the\x20menu\x20you\x20want\x20to\x20change!\x20I\x20hope\x20you\x20will\x20enjoy🔥*','575736LhEXlv','T𝗘𝗠𝗣𝗟𝗔𝗧𝗘\x20𝗚𝗜𝗙','©️𝗭𝗜𝗠\x20𝗕𝗢𝗧\x20𝗜𝗡𝗖','sendlistMsg','setmenu\x20templateLocation','CLICK\x20HERE','data','setmenu\x20templateGif','𝗧𝗘𝗠𝗣𝗟𝗔𝗧𝗘\x20𝗗𝗢𝗖𝗨𝗠𝗘𝗡𝗧','Change\x20menu\x20bot\x20to\x20Template\x20list','3504dkmSbr'];_0x5117=function(){return _0x55f57b;};return _0x5117();}(function(_0x1c5d29,_0x2a099d){const _0x52c262=_0x10db,_0x4d87c1=_0x1c5d29();while(!![]){try{const _0x4ea884=parseInt(_0x52c262(0x91))/0x1+-parseInt(_0x52c262(0x9f))/0x2*(-parseInt(_0x52c262(0x84))/0x3)+parseInt(_0x52c262(0xa3))/0x4+parseInt(_0x52c262(0x99))/0x5+-parseInt(_0x52c262(0x8f))/0x6+-parseInt(_0x52c262(0x85))/0x7*(-parseInt(_0x52c262(0x83))/0x8)+parseInt(_0x52c262(0x95))/0x9*(-parseInt(_0x52c262(0x9b))/0xa);if(_0x4ea884===_0x2a099d)break;else _0x4d87c1['push'](_0x4d87c1['shift']());}catch(_0x4f1045){_0x4d87c1['push'](_0x4d87c1['shift']());}}}(_0x5117,0x2097a));{if(!isCreator)throw mess[_0x82f741(0xa1)];let setbot=db[_0x82f741(0x7f)][_0x82f741(0x93)][botNumber];if(args[0x0]==='templateImage')setbot[_0x82f741(0x94)]=!![],setbot[_0x82f741(0x8b)]=![],setbot['templateGif']=![],setbot[_0x82f741(0x97)]=![],setbot[_0x82f741(0x89)]=![],setbot[_0x82f741(0x9d)]=![],m[_0x82f741(0x9e)](mess['success']);else{if(args[0x0]==='templateLocation')setbot['templateImage']=![],setbot[_0x82f741(0x8b)]=!![],setbot[_0x82f741(0x88)]=![],setbot[_0x82f741(0x97)]=![],setbot[_0x82f741(0x89)]=![],setbot['templateDoc']=![],m[_0x82f741(0x9e)](mess['success']);else{if(args[0x0]==='templateGif')setbot[_0x82f741(0x94)]=![],setbot[_0x82f741(0x8b)]=![],setbot[_0x82f741(0x88)]=!![],setbot[_0x82f741(0x97)]=![],setbot[_0x82f741(0x89)]=![],setbot['templateDoc']=![],m[_0x82f741(0x9e)](mess[_0x82f741(0x87)]);else{if(args[0x0]==='templateMessage')setbot[_0x82f741(0x94)]=![],setbot[_0x82f741(0x8b)]=![],setbot[_0x82f741(0x88)]=![],setbot[_0x82f741(0x97)]=!![],setbot[_0x82f741(0x89)]=![],setbot['templateDoc']=![],m[_0x82f741(0x9e)](mess[_0x82f741(0x87)]);else{if(args[0x0]===_0x82f741(0x89))setbot['templateImage']=![],setbot['templateLocation']=![],setbot[_0x82f741(0x88)]=![],setbot['templateMsg']=![],setbot[_0x82f741(0x89)]=!![],setbot['templateDoc']=![],m[_0x82f741(0x9e)](mess[_0x82f741(0x87)]);else{if(args[0x0]===_0x82f741(0x9d))setbot[_0x82f741(0x94)]=![],setbot[_0x82f741(0x8b)]=![],setbot[_0x82f741(0x88)]=![],setbot[_0x82f741(0x97)]=![],setbot['templatelist']=![],setbot[_0x82f741(0x9d)]=!![],m['reply'](mess['success']);else{let sections=[{'title':_0x82f741(0xa5),'rows':[{'title':_0x82f741(0x90),'rowId':_0x82f741(0x92),'description':_0x82f741(0x8a)},{'title':_0x82f741(0x86),'rowId':_0x82f741(0x7d),'description':'Change\x20menu\x20bot\x20to\x20Template\x20Location'},{'title':_0x82f741(0xa4),'rowId':_0x82f741(0x80),'description':_0x82f741(0x98)},{'title':_0x82f741(0x9a),'rowId':_0x82f741(0x9c),'description':'Change\x20menu\x20bot\x20to\x20Template\x20Message'},{'title':_0x82f741(0x8d),'rowId':_0x82f741(0x8e),'description':_0x82f741(0x82)},{'title':_0x82f741(0x81),'rowId':_0x82f741(0x8c),'description':'Change\x20menu\x20bot\x20to\x20Template\x20Document'}]}];ZimBotInc[_0x82f741(0xa6)](m['chat'],_0x82f741(0xa2),ZimBotInc['user'][_0x82f741(0xa0)],_0x82f741(0x96),_0x82f741(0x7e),sections,m);}}}}}}}
-            break
 
             case 'allmenu': case 'menu': case 'help': {
 ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
@@ -7638,7 +7635,7 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
        footer: `BALOCH EDIT`,
        title: `*list MENU*`,
        jpegThumbnail: buffer,
-       buttonText: "CLICK HERE",
+       buttonText: "🥀کلیک بر روی لیست‌ها😈",
        sections
       }, { quoted : m })
       } else if (setbot.templateDoc) {
