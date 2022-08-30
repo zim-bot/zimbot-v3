@@ -1863,15 +1863,15 @@ break
                 m.reply(mess.success)
                 }
                 break
-                case 'tagall': case 'tag': {
+                case 'tagall': case 'تگ': case 'tag':{
                     if (!m.isGroup) throw mess.group
                     if (!isBotAdmins) throw mess.botAdmin
                     if (!isAdmins) throw mess.admin
     let teks = ` 
      ┏━━━━━━━━━━━┑
-     ┃🌟𝗧𝗔𝗚𝗔𝗟𝗟🌟
+     ┃🌟تگ همه🌟
      ┃┄┄┄┄┄┄┄┄┄┄┄┊
-     ┃*𝐌𝐄𝐒𝐒𝐀𝐆𝐄 : ${q ? q : 'blank'}*\n\n
+     ┃*پیام🕊 : ${q ? q : 'blank'}*\n\n
      ┗━━━━━━━━ 
     `
      for (let mem of participants) {

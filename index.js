@@ -153,7 +153,7 @@ ZimBotInc.sendMessage(anu.id, buttonMessage, {quoted:fgclink})
                     he = `🥀کسی لایق بودن در گپ یا کانال رو نداره همین میشه😈 ${metadata.subject} @${num.split("@")[0]}\n\n${metadata.desc}`
                     let link = `https://youtu.be/ww4z2m3uORU`
 let buttons = [
-{buttonId: `halo`, buttonText: {displayText: 'BYE'}, type: 1}
+{buttonId: `halo`, buttonText: {displayText: '🥀خدافس😈'}, type: 1}
 ]
 let buttonMessage = {
 document: fs.readFileSync('./lib/tes.xlsx'),
