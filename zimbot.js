@@ -6871,7 +6871,7 @@ let Levele2 = level.getLevelingLevel(m.sender, _level)
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-anu = `
+anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -6890,6 +6890,32 @@ anu = `
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
 ┏━❰ *⚡️اکس‌پی‌و‌لیمیت⚡️* ❱    
 ┏━❰ *EXP & LIMIT* ❱
@@ -7720,7 +7746,7 @@ let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
 
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7739,6 +7765,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *MAIN MENU* ❱
@@ -7768,7 +7820,7 @@ let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
 
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7787,6 +7839,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *NSFW MENU* ❱
@@ -7868,7 +7946,7 @@ case 'groupmenu': case 'grupmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7887,6 +7965,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *GROUP MENU* ❱
@@ -7941,7 +8045,7 @@ case 'downloadmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -7960,6 +8064,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *DOWNLOADER* ❱
@@ -8020,7 +8150,7 @@ case 'searchingmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8039,6 +8169,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *SEARCH MENU* ❱
@@ -8089,7 +8245,7 @@ case 'randommenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8108,6 +8264,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰*RANDOM* ❱
@@ -8166,7 +8348,7 @@ case 'textpromenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8185,6 +8367,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *TEXT MAKER* ❱
@@ -8272,7 +8480,7 @@ case 'photooxymenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8291,6 +8499,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *PHOTO-OXY* ❱
@@ -8321,7 +8555,7 @@ case 'ephotomenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8340,6 +8574,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *EPHOTO-363* ❱
@@ -8366,7 +8626,7 @@ case 'sertimenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8385,6 +8645,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *CERTIFICATEMAKER* ❱
@@ -8414,7 +8700,7 @@ case 'imageeffectmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8433,6 +8719,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *IMAGE-EFFECT* ❱
@@ -8465,7 +8777,7 @@ case 'funmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8484,6 +8796,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *FUN FEATURE* ❱
@@ -8518,7 +8856,7 @@ case 'primbonmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8537,6 +8875,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *PRIMBON-MENU* ❱
@@ -8585,7 +8949,7 @@ case 'convertmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8604,6 +8968,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *CONVERT-STICKER* ❱
@@ -8645,7 +9035,7 @@ case 'databasemenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8664,6 +9054,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *DATABASE-MENU* ❱
@@ -8690,7 +9106,7 @@ case 'photofiltermenu': case 'photofilter': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8709,6 +9125,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *PHOTO-FILTER* ❱
@@ -8768,7 +9210,7 @@ case 'anonymousmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8787,6 +9229,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *ANONYMOUS* ❱
@@ -8810,7 +9278,7 @@ case 'islammenu': case 'islamicmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8829,6 +9297,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *ISLAMIC MENU* ❱
@@ -8856,7 +9350,7 @@ case 'voicemenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8875,6 +9369,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *VOICE-CHANGER* ❱
@@ -8926,7 +9446,7 @@ case 'toolsmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8945,6 +9465,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *TOOLS MENU* ❱
@@ -8975,7 +9521,7 @@ case 'internetmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -8994,6 +9540,32 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
      
 ┏━❰ *INTERNET MENU* ❱
@@ -9029,7 +9601,7 @@ case 'shortmenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
@@ -9050,6 +9622,32 @@ let hao = randomNomor(200)
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
+┏━❰ *OWNER MENU* ❱
+┃⬤${prefix}leave
+┃⬤${prefix}autoblock
+┃⬤${prefix}tfxp
+┃⬤${prefix}promoteowner/powner
+┃⬤${prefix}join
+┃⬤${prefix}bctext
+┃⬤${prefix}bcall
+┃⬤${prefix}bcloc
+┃⬤${prefix}tflimit
+┃⬤${prefix}block
+┃⬤${prefix}react
+┃⬤${prefix}bctext
+┃⬤${prefix}setexif
+┃⬤${prefix}chat
+┃⬤${prefix}bcvideo
+┃⬤${prefix}bcgroup
+┃⬤${prefix}bcimage
+┃⬤${prefix}setmenu
+┃⬤${prefix}unblock
+┃⬤${prefix}setppbot
+┗━━━━━━━━━━⦿
+
+©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
+
+     
 ┏━❰ *SHORTLINK* ❱
 ┃⬤${prefix}shortlink
 ┃⬤${prefix}tinyurl
@@ -9068,7 +9666,7 @@ case 'ownermenu': {
 let Xp1 = level.getLevelingXp(m.sender, _level)
 let Xp2 = randomNomor(2000)       
 let hao = randomNomor(200)  
-                anu = `
+                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╭━━━━━━━━━━━━━━━━━━╮
 ┃         BALOCH EDIT
 ┃━━━━━━━━━━━━━━━━━━┃
