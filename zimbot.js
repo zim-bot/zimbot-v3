@@ -99,7 +99,7 @@ module.exports = ZimBotInc = async (ZimBotInc, m, chatUpdate, store) => {
         const zimbotincv3 = body.slice(0).trim().split(/ +/).shift().toLowerCase()
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
         const isAntinsfw = m.isGroup ?  dripsno.includes(m.chat) : false
-        const isWelcome = m.isGroup ? dripswelcome.includes(m.chat) : false
+        const isWelcome = m.isGroup ? dripswelcome.includes(m.chat) : null
 //zim bot inc
 
 const timuu = moment.tz('Africa/Harare').format('HH:mm:ss')
@@ -357,7 +357,7 @@ randek = jsonDrips[randIndex];
                 if (!('antilink' in chats)) chats.antilink = false
                 if (!('antilinkyt' in chats)) chats.antilinkyt = false
                 if (!('autoblock' in chats)) chats.autoblock = false
-                if (!('isWecome' in chats)) chats.isWelcome = true
+                if (!('isWecome' in chats)) chats.isWelcome = null
                 if (!('antilinkall' in chats)) chats.antilinkall = false
                 if (!('antiytchannel' in chats)) chats.antiytchannel = false
                 if (!('antitiktok' in chats)) chats.antitiktok = false
@@ -373,7 +373,7 @@ randek = jsonDrips[randIndex];
                 wame: false,
                 antilink: false,
                 antilinkyt: false,
-                isWelcome: true,
+                isWelcome: null,
                 antilinkall: false,
                 antiytchannel: false,
                 antitiktok: false,
@@ -1362,29 +1362,29 @@ if (isBan) throw mess.ban
  break 
 case 'limituser':
 {      
-   let txt = `「 *ALL LIMIT USER* 」\n\n`
+   let txt = `「 *تمام کاربر های لیمیت* 」\n\n`
      for (let i of _limit){
-     txt += `⬤ *ID :* @${i.id.split("@")[0]}\n⬤ *Limit* : ${i.limit}\n`
+     txt += `⬤ *آیدی :* @${i.id.split("@")[0]}\n⬤ *لیمیت* : ${i.limit}\n`
      }
     ZimBotInc.sendTextWithMentions(m.chat, txt, m)      
   }
  break
-case 'leaderboard':
+case 'leaderboard': case 'لیدربورد':
 {      
-   let txt = `「 *LEADERBOARD* 」\n\n`
+   let txt = `「 *لیدر بورد* 」\n\n`
      for (let i of _buruan){
-     txt += `*ID :* @${i.id.split("@")[0]}\n`
-     txt += `*FISH* : ${i.ikan}\n`
-     txt += `*CHICKEN* : ${i.ayam}\n`
-     txt += `*RABBIT* : ${i.kelinci}\n`
-     txt += `*SHEEP* : ${i.domba}\n`
-     txt += `*COW* : ${i.sapi}\n`
-     txt += `*ELEPHANT* : ${i.gajah}\n\n`
+     txt += `*ایدی :* @${i.id.split("@")[0]}\n`
+     txt += `*فیش* : ${i.ikan}\n`
+     txt += `*مرغ* : ${i.ayam}\n`
+     txt += `*ربیت* : ${i.kelinci}\n`
+     txt += `*شیپ* : ${i.domba}\n`
+     txt += `*کوی* : ${i.sapi}\n`
+     txt += `*الپانت* : ${i.gajah}\n\n`
      }
     ZimBotInc.sendTextWithMentions(m.chat, txt, m)       
   }
  break
-case 'mining': case 'mine':{
+case 'mining': case 'ماین':{
 if (isBan) throw mess.ban
 if (q.includes('--help')) return m.reply(examkosong) 
   if (!isInventory){ addInventori(m.sender) }
@@ -1396,12 +1396,12 @@ if (q.includes('--help')) return m.reply(examkosong)
   var emasnya = emas[Math.floor(Math.random() * emas.length)]  
   var emeraldnya = emerald[Math.floor(Math.random() * emerald.length)]  
   setTimeout( () => {
-  let caption = `[ MINING RESULT ]\n*IRON* : ${besinya}\n*EMAS* : ${emasnya}\n*EMERALD* : ${emeraldnya}`
+  let caption = `[ مشخصات ماین ]\n*اهن* : ${besinya}\n*مس* : ${emasnya}\n*کریستال* : ${emeraldnya}`
   let buttons = [
       {
        buttonId: `${prefix + command}`, 
        buttonText: {
-        displayText: 'MINE'
+        displayText: 'ماین دوباره'
       }, type: 1},
     ]
     let buttonMessage = {
@@ -1415,7 +1415,7 @@ if (q.includes('--help')) return m.reply(examkosong)
    
    }, 7000)  
   setTimeout( () => {
-  lah = `@${m.sender.split("@")[0]} *Start mining🎣*`
+  lah = `@${m.sender.split("@")[0]} *شروع ماین🎣*`
   kic = m.sender 
   ZimBotInc.sendMessage(m.chat, {text:`${lah}`, contextInfo:{mentionedJid:[kic]}}, {quoted:m})
   }, 1500)
@@ -1436,31 +1436,31 @@ if (q.includes('--help')) return m.reply(examkosong)
  m.reply('*Succeed, your blood is full*')
  }
  break
-case 'reset': case 'resetlimit': {
+case 'ریست-لیمیت': case 'resetlimit': {
 if (!isCreator) throw mess.owner
 const reset = []
      _limit = reset
-     console.log('LIMIT RESET')
+     console.log('ریست لیمیت')
      fs.writeFileSync('./storage/user/limit.json', JSON.stringify(_limit))
      fs.writeFileSync('./storage/user/_registered.json', JSON.stringify(_limit))     
-     exec('pm2 restart all') 
-     m.reply('Success!')
+     exec('ریست تمام لیمیت ها') 
+     m.reply('ریست شد!')
      }
 break  
-case 'restart': {
+case 'restart': case 'ریست-ربات': {
              if (!isCreator) throw mess.owner              
              exec(`npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs`)
-             m.reply('*Restarting zimbot....*')
+             m.reply('*ریستارت شدن ربات بلوچ ادیت....*')
              }
 break
-	    case 'donasi': case 'sewabot': case 'sewa': case 'buypremium': case 'donate': {
+	    case 'حمایت': {
 	    if (isBan) throw mess.ban
-                ZimBotInc.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/4e12bdfc0fbcbe7d14930.jpg' }, caption: `*Hi Chomie ${m.pushName}*\n\n *Thanks for your support we appreciate you we dont need your money, support us by subscribing to our youtube channel* *DRIPS OFC:* https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ ` }, { quoted: m })
+                ZimBotInc.sendMessage(m.chat, { image: { url: 'https://i.ibb.co/DR1Fk9N/IMG-20220820-WA0001.jpg' }, caption: `*سلام کاربر ${m.pushName}*\n\n *مرسی که تیم من را دنبال میکنی لطفا چنل یوتیوبی مارو سابسکرایب کن تا برای من حمایتی باشد:* https://youtube.com/channel/UCIdvdgFwdssFC0Nxx9Xk1dQ ` }, { quoted: m })
             }
             break            
-            case 'chat': {
+            case 'chat': case 'چت': {
                 if (!isCreator) throw mess.owner
-                if (!q) throw 'Option : 1. mute\n2. unmute\n3. archive\n4. unarchive\n5. read\n6. unread\n7. delete'
+                if (!q) throw 'کامند های چت : 1. mute\n2. unmute\n3. archive\n4. unarchive\n5. read\n6. unread\n7. delete'
                 if (args[0] === 'mute') {
                     ZimBotInc.chatModify({ mute: 'Infinity' }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
                 } else if (args[0] === 'unmute') {
@@ -1496,9 +1496,9 @@ break
                 }
             }
             break
-            case 'lol': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
+            case 'دوباره': 
             if (isBan) throw mess.ban
-            if (!m.quoted && !text) throw `Send/reply text with caption ${prefix + command}`
+            if (!m.quoted && !text) throw `لطفا روی پیام مورد نظر ریپ بزنید ${prefix + command}`
             ter = command[1].toLowerCase()
             tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
             m.reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
@@ -2210,7 +2210,7 @@ let drips = [
                }
                }
                break
-             /*  case 'welcome': {
+               case 'welcome': {
                 if (isBan) return m.reply(mess.ban)	 			
              if (!m.isGroup) return m.reply(mess.group)
              if (!isAdmins && !isCreator) return m.reply(mess.admin)
@@ -2232,8 +2232,8 @@ let drips = [
              m.reply('*Success in turning off antirude in this group happy now*')
              } else {
                let buttons = [
-               { buttonId: `${command} on`, buttonText: { displayText: 'ON' }, type: 1 },
-               { buttonId: `${command} off`, buttonText: { displayText: 'OFF' }, type: 1 }
+               { buttonId: `${command} on`, buttonText: { displayText: 'روشن' }, type: 1 },
+               { buttonId: `${command} off`, buttonText: { displayText: 'خاموش' }, type: 1 }
                ]
                await ZimBotInc.sendButtonText(m.chat, buttons, `*▊▊▊▊▊▊*\n\n.`, `BALOCH EDIT`, m)
                }
@@ -2265,7 +2265,7 @@ if (isBan) throw mess.ban
                             }
              break
              
-             case 'antilink': {
+            case 'انتی-لینک': case 'antilink': {
              if (isBan) throw mess.ban
             //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 if (!m.isGroup) throw mess.group
@@ -2281,10 +2281,10 @@ if (isBan) throw mess.ban
                 m.reply(`*Antilink disabled*`)
                 } else {
                  let drips = [
-                        { buttonId: 'antilink on', buttonText: { displayText: 'ON' }, type: 1 },
-                        { buttonId: 'antilink off', buttonText: { displayText: 'OFF' }, type: 1 }
+                        { buttonId: 'antilink on', buttonText: { displayText: 'روشن' }, type: 1 },
+                        { buttonId: 'antilink off', buttonText: { displayText: 'خاموش' }, type: 1 }
                     ]
-                    await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊ANTILINK MODE▊▊▊*`, ZimBotInc.user.name, m)
+                    await ZimBotInc.sendButtonText(m.chat, drips, `*▊▊▊انتی لینک مود▊▊▊*`, ZimBotInc.user.name, m)
                 }
              }
              break
@@ -3637,9 +3637,9 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 }
 break
-case 'song': function _0x2619(_0xa712bd,_0x3cc493){const _0x2f0691=_0x2f06();return _0x2619=function(_0x261933,_0x59f241){_0x261933=_0x261933-0x1a2;let _0x917ca7=_0x2f0691[_0x261933];return _0x917ca7;},_0x2619(_0xa712bd,_0x3cc493);}function _0x2f06(){const _0x55f35b=['5882437fKRgcs','🥀کلیک‌بر‌روی‌آهنگ😈','SONG\x20MP3⬤:\x20','4hJSzkU','12pZvqNm','814707ccVmTU','\x20story\x20wa\x20anime','all','ytmp3\x20','4372FqRNJf','10410rOdoIb','9jVLgZE','221753YSKLus','description','228MgPUWT','1606370nMGtMJ','yt-search','ytmp4\x20','push','chat','title','875MAamOM','🥀ویدیو😈\x20MP4⬤:\x20','3693992HrmsNO','url','sendMessage','آهنگ\x20سرچ\x20شده\x20پیدا\x20شد\x20روی\x20آهنگ\x20بزنید*'*','Example\x20:\x20'];_0x2f06=function(){return _0x55f35b;};return _0x2f06();}const _0x494681=_0x2619;(function(_0x2f990d,_0x3dab42){const _0x5d3d5d=_0x2619,_0x91ff83=_0x2f990d();while(!![]){try{const _0x5d2979=-parseInt(_0x5d3d5d(0x1bc))/0x1*(parseInt(_0x5d3d5d(0x1a5))/0x2)+-parseInt(_0x5d3d5d(0x1b8))/0x3*(parseInt(_0x5d3d5d(0x1b6))/0x4)+parseInt(_0x5d3d5d(0x1ac))/0x5*(parseInt(_0x5d3d5d(0x1bd))/0x6)+-parseInt(_0x5d3d5d(0x1a3))/0x7+parseInt(_0x5d3d5d(0x1ae))/0x8*(parseInt(_0x5d3d5d(0x1a2))/0x9)+-parseInt(_0x5d3d5d(0x1a6))/0xa+parseInt(_0x5d3d5d(0x1b3))/0xb*(parseInt(_0x5d3d5d(0x1b7))/0xc);if(_0x5d2979===_0x3dab42)break;else _0x91ff83['push'](_0x91ff83['shift']());}catch(_0xd3cf2c){_0x91ff83['push'](_0x91ff83['shift']());}}}(_0x2f06,0x527b8));{if(!text)throw _0x494681(0x1b2)+(prefix+command)+_0x494681(0x1b9);let yts=require(_0x494681(0x1a7)),search=await yts(text),sections=[],listmenu=[_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x0][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x2]['url'],'ytmp3\x20'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1af)],'ytmp4\x20'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x7][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x8]['url'],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x9][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xa][_0x494681(0x1af)],'ytmp3\x20'+search[_0x494681(0x1ba)][0xb]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xc]['url'],_0x494681(0x1bb)+search['all'][0xd][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1af)],'ytmp3\x20'+search['all'][0xf]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x11]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x13][_0x494681(0x1af)]],listmenuu=[_0x494681(0x1ad)+search['all'][0x0][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x2][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x3][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1ab)],_0x494681(0x1ad)+search['all'][0x6][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x7]['title'],'VIDEO\x20MP4⬤:\x20'+search[_0x494681(0x1ba)][0x8][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xa]['title'],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0xb][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xc][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search['all'][0xd][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0xf][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x11]['title'],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1ab)]],listmenuuu=['\x0a'+search[_0x494681(0x1ba)][0x0][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x1]['description'],'\x0a'+search[_0x494681(0x1ba)][0x2][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1a4)],'\x0a'+search['all'][0x4]['description'],'\x0a'+search['all'][0x5][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x7]['description'],'\x0a'+search[_0x494681(0x1ba)][0x8]['description'],'\x0a'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1a4)],'\x0a'+search['all'][0xa][_0x494681(0x1a4)],'\x0a'+search['all'][0xb][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xc][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xd][_0x494681(0x1a4)],'\x0a'+search['all'][0xe][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xf]['description'],'\x0a'+search[_0x494681(0x1ba)][0x10]['description'],'\x0a'+search['all'][0x11]['description'],'\x0a'+search[_0x494681(0x1ba)][0x12][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1a4)]],nombor=0x1,startnum=0x0,startnumm=0x0;for(let x of listmenu){const list={'title':'RESULT\x20NUMBER\x20'+nombor++,'rows':[{'title':''+listmenuu[startnum++],'description':''+listmenuuu[startnumm++],'rowId':''+prefix+x}]};sections[_0x494681(0x1a9)](list);}const sendm=ZimBotInc[_0x494681(0x1b0)](m[_0x494681(0x1aa)],{'text':'\x0a\x0a*CHEERS\x20TO\x20THAT*','footer':botname,'title':_0x494681(0x1b1)+text+'*\x20_select\x20song\x20or\x20video\x20below_','buttonText':_0x494681(0x1b4),'sections':sections},{'quoted':m});}
+case 'song': function _0x2619(_0xa712bd,_0x3cc493){const _0x2f0691=_0x2f06();return _0x2619=function(_0x261933,_0x59f241){_0x261933=_0x261933-0x1a2;let _0x917ca7=_0x2f0691[_0x261933];return _0x917ca7;},_0x2619(_0xa712bd,_0x3cc493);}function _0x2f06(){const _0x55f35b=['5882437fKRgcs','کلیک بر روی گزینه بیشتر','SONG\x20MP3⬤:\x20','4hJSzkU','12pZvqNm','814707ccVmTU','\x20story\x20wa\x20anime','all','ytmp3\x20','4372FqRNJf','10410rOdoIb','9jVLgZE','221753YSKLus','description','228MgPUWT','1606370nMGtMJ','yt-search','ytmp4\x20','push','chat','title','875MAamOM','VIDEO\x20MP4⬤:\x20','3693992HrmsNO','url','sendMessage','HERE\x20IS\x20YOUR\x20RESULTS\x20CHOMIE\x20FROM\x20*','Example\x20:\x20'];_0x2f06=function(){return _0x55f35b;};return _0x2f06();}const _0x494681=_0x2619;(function(_0x2f990d,_0x3dab42){const _0x5d3d5d=_0x2619,_0x91ff83=_0x2f990d();while(!![]){try{const _0x5d2979=-parseInt(_0x5d3d5d(0x1bc))/0x1*(parseInt(_0x5d3d5d(0x1a5))/0x2)+-parseInt(_0x5d3d5d(0x1b8))/0x3*(parseInt(_0x5d3d5d(0x1b6))/0x4)+parseInt(_0x5d3d5d(0x1ac))/0x5*(parseInt(_0x5d3d5d(0x1bd))/0x6)+-parseInt(_0x5d3d5d(0x1a3))/0x7+parseInt(_0x5d3d5d(0x1ae))/0x8*(parseInt(_0x5d3d5d(0x1a2))/0x9)+-parseInt(_0x5d3d5d(0x1a6))/0xa+parseInt(_0x5d3d5d(0x1b3))/0xb*(parseInt(_0x5d3d5d(0x1b7))/0xc);if(_0x5d2979===_0x3dab42)break;else _0x91ff83['push'](_0x91ff83['shift']());}catch(_0xd3cf2c){_0x91ff83['push'](_0x91ff83['shift']());}}}(_0x2f06,0x527b8));{if(!text)throw _0x494681(0x1b2)+(prefix+command)+_0x494681(0x1b9);let yts=require(_0x494681(0x1a7)),search=await yts(text),sections=[],listmenu=[_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x0][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x2]['url'],'ytmp3\x20'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1af)],'ytmp4\x20'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x7][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x8]['url'],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x9][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xa][_0x494681(0x1af)],'ytmp3\x20'+search[_0x494681(0x1ba)][0xb]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xc]['url'],_0x494681(0x1bb)+search['all'][0xd][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1af)],'ytmp3\x20'+search['all'][0xf]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x11]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x13][_0x494681(0x1af)]],listmenuu=[_0x494681(0x1ad)+search['all'][0x0][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x2][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x3][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1ab)],_0x494681(0x1ad)+search['all'][0x6][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x7]['title'],'VIDEO\x20MP4⬤:\x20'+search[_0x494681(0x1ba)][0x8][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xa]['title'],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0xb][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xc][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search['all'][0xd][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0xf][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x11]['title'],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1ab)]],listmenuuu=['\x0a'+search[_0x494681(0x1ba)][0x0][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x1]['description'],'\x0a'+search[_0x494681(0x1ba)][0x2][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1a4)],'\x0a'+search['all'][0x4]['description'],'\x0a'+search['all'][0x5][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x7]['description'],'\x0a'+search[_0x494681(0x1ba)][0x8]['description'],'\x0a'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1a4)],'\x0a'+search['all'][0xa][_0x494681(0x1a4)],'\x0a'+search['all'][0xb][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xc][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xd][_0x494681(0x1a4)],'\x0a'+search['all'][0xe][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xf]['description'],'\x0a'+search[_0x494681(0x1ba)][0x10]['description'],'\x0a'+search['all'][0x11]['description'],'\x0a'+search[_0x494681(0x1ba)][0x12][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1a4)]],nombor=0x1,startnum=0x0,startnumm=0x0;for(let x of listmenu){const list={'title':'RESULT\x20NUMBER\x20'+nombor++,'rows':[{'title':''+listmenuu[startnum++],'description':''+listmenuuu[startnumm++],'rowId':''+prefix+x}]};sections[_0x494681(0x1a9)](list);}const sendm=ZimBotInc[_0x494681(0x1b0)](m[_0x494681(0x1aa)],{'text':'\x0a\x0a*CHEERS\x20TO\x20THAT*','footer':botname,'title':_0x494681(0x1b1)+text+'*\x20_select\x20song\x20or\x20video\x20below_','buttonText':_0x494681(0x1b4),'sections':sections},{'quoted':m});}
      break
-case 'ytsaudio': case 'ytsmusic': case 'ytsearchmusic': function _0x46a1(){const _0x3cb4a8=['44fHOPfg','chat','ago','ban','4252496icAfHA','yt-search','description','\x20guspy\x20warior\x20ita\x20seunononga','34092pFHiyl','\x0a*لینک:*\x20','12epfryU','views','74qcPxDS','title','list\x20OF\x20آهنگش','133001HPuagx','url','2461554eExvyT','push','677018pTstMj','42513SkDmLN','\x0a*ویو:*\x20','name','author','ytmp3\x20','546sLAwAk','\x0a*دورتیون:*\x20','\x0a*آپلود:*\x20','timestamp','38900mFwmYh','20kEdwTq'];_0x46a1=function(){return _0x3cb4a8;};return _0x46a1();}function _0x35ef(_0x1538a1,_0x2458a4){const _0x46a1f5=_0x46a1();return _0x35ef=function(_0x35ef79,_0x36917d){_0x35ef79=_0x35ef79-0xf2;let _0x553e0e=_0x46a1f5[_0x35ef79];return _0x553e0e;},_0x35ef(_0x1538a1,_0x2458a4);}const _0x49fc3c=_0x35ef;(function(_0x180268,_0x1db291){const _0x90f637=_0x35ef,_0x1f645e=_0x180268();while(!![]){try{const _0xfa5e79=parseInt(_0x90f637(0x103))/0x1+-parseInt(_0x90f637(0xfc))/0x2*(parseInt(_0x90f637(0x104))/0x3)+parseInt(_0x90f637(0x10f))/0x4*(-parseInt(_0x90f637(0x10d))/0x5)+parseInt(_0x90f637(0xf8))/0x6*(parseInt(_0x90f637(0x109))/0x7)+-parseInt(_0x90f637(0xf4))/0x8+-parseInt(_0x90f637(0x101))/0x9*(-parseInt(_0x90f637(0x10e))/0xa)+parseInt(_0x90f637(0xff))/0xb*(-parseInt(_0x90f637(0xfa))/0xc);if(_0xfa5e79===_0x1db291)break;else _0x1f645e['push'](_0x1f645e['shift']());}catch(_0x54be1f){_0x1f645e['push'](_0x1f645e['shift']());}}}(_0x46a1,0x7d682));{if(isBan)throw mess[_0x49fc3c(0xf3)];if(!text)throw'Example\x20:\x20'+(prefix+command)+_0x49fc3c(0xf7);let yts=require(_0x49fc3c(0xf5)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i['title'],'rows':[{'title':i[_0x49fc3c(0xfd)]+'\x0a','rowId':prefix+_0x49fc3c(0x108)+i[_0x49fc3c(0x100)],'description':i[_0x49fc3c(0xf6)]+_0x49fc3c(0x10b)+i[_0x49fc3c(0xf2)]+'\x0a*چنل:*\x20'+i[_0x49fc3c(0x107)][_0x49fc3c(0x106)]+_0x49fc3c(0x105)+i[_0x49fc3c(0xfb)]+_0x49fc3c(0x10a)+i[_0x49fc3c(0x10c)]+_0x49fc3c(0xf9)+i[_0x49fc3c(0x100)]}]};sections[_0x49fc3c(0x102)](list);}const sendm=ZimBotInc['sendMessage'](m[_0x49fc3c(0x110)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'ویدیو\x20سرچ\x20شده\x20پیدا\x20شد\x20روی\x20ویدیو\x20بزنید*'','buttonText':_0x49fc3c(0xfe),'sections':sections},{'quoted':m});}
+case 'ytsaudio': case 'ytsmusic': case 'ytsearchmusic': function _0x46a1(){const _0x3cb4a8=['44fHOPfg','chat','ago','ban','4252496icAfHA','yt-search','description','\x20guspy\x20warior\x20ita\x20seunononga','34092pFHiyl','\x0a*LINK:*\x20','12epfryU','views','74qcPxDS','title','LIST\x20OF\x20AUDIOS','133001HPuagx','url','2461554eExvyT','push','677018pTstMj','42513SkDmLN','\x0a*VIEWS:*\x20','name','author','ytmp3\x20','546sLAwAk','\x0a*DURATION:*\x20','\x0a*UPLOAD:*\x20','timestamp','38900mFwmYh','20kEdwTq'];_0x46a1=function(){return _0x3cb4a8;};return _0x46a1();}function _0x35ef(_0x1538a1,_0x2458a4){const _0x46a1f5=_0x46a1();return _0x35ef=function(_0x35ef79,_0x36917d){_0x35ef79=_0x35ef79-0xf2;let _0x553e0e=_0x46a1f5[_0x35ef79];return _0x553e0e;},_0x35ef(_0x1538a1,_0x2458a4);}const _0x49fc3c=_0x35ef;(function(_0x180268,_0x1db291){const _0x90f637=_0x35ef,_0x1f645e=_0x180268();while(!![]){try{const _0xfa5e79=parseInt(_0x90f637(0x103))/0x1+-parseInt(_0x90f637(0xfc))/0x2*(parseInt(_0x90f637(0x104))/0x3)+parseInt(_0x90f637(0x10f))/0x4*(-parseInt(_0x90f637(0x10d))/0x5)+parseInt(_0x90f637(0xf8))/0x6*(parseInt(_0x90f637(0x109))/0x7)+-parseInt(_0x90f637(0xf4))/0x8+-parseInt(_0x90f637(0x101))/0x9*(-parseInt(_0x90f637(0x10e))/0xa)+parseInt(_0x90f637(0xff))/0xb*(-parseInt(_0x90f637(0xfa))/0xc);if(_0xfa5e79===_0x1db291)break;else _0x1f645e['push'](_0x1f645e['shift']());}catch(_0x54be1f){_0x1f645e['push'](_0x1f645e['shift']());}}}(_0x46a1,0x7d682));{if(isBan)throw mess[_0x49fc3c(0xf3)];if(!text)throw'Example\x20:\x20'+(prefix+command)+_0x49fc3c(0xf7);let yts=require(_0x49fc3c(0xf5)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i['title'],'rows':[{'title':i[_0x49fc3c(0xfd)]+'\x0a','rowId':prefix+_0x49fc3c(0x108)+i[_0x49fc3c(0x100)],'description':i[_0x49fc3c(0xf6)]+_0x49fc3c(0x10b)+i[_0x49fc3c(0xf2)]+'\x0a*CHANNEL:*\x20'+i[_0x49fc3c(0x107)][_0x49fc3c(0x106)]+_0x49fc3c(0x105)+i[_0x49fc3c(0xfb)]+_0x49fc3c(0x10a)+i[_0x49fc3c(0x10c)]+_0x49fc3c(0xf9)+i[_0x49fc3c(0x100)]}]};sections[_0x49fc3c(0x102)](list);}const sendm=ZimBotInc['sendMessage'](m[_0x49fc3c(0x110)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20Here\x20are\x20the\x20search\x20results\x20from\x20ytsaudio','buttonText':_0x49fc3c(0xfe),'sections':sections},{'quoted':m});}
                   break
 case 'ytsvideo': case 'ytsearchvideo': function _0x4c3b(_0x54ae6d,_0x1bd257){const _0x3b9c98=_0x3b9c();return _0x4c3b=function(_0x4c3b5c,_0x283661){_0x4c3b5c=_0x4c3b5c-0xde;let _0x293112=_0x3b9c98[_0x4c3b5c];return _0x293112;},_0x4c3b(_0x54ae6d,_0x1bd257);}const _0x309941=_0x4c3b;(function(_0x39a082,_0x29c94e){const _0x31d9ff=_0x4c3b,_0x475bdc=_0x39a082();while(!![]){try{const _0x413430=parseInt(_0x31d9ff(0xde))/0x1+-parseInt(_0x31d9ff(0xf6))/0x2+-parseInt(_0x31d9ff(0xef))/0x3*(-parseInt(_0x31d9ff(0xe7))/0x4)+-parseInt(_0x31d9ff(0xf5))/0x5+parseInt(_0x31d9ff(0xec))/0x6+parseInt(_0x31d9ff(0xf2))/0x7*(-parseInt(_0x31d9ff(0xe2))/0x8)+-parseInt(_0x31d9ff(0xf3))/0x9;if(_0x413430===_0x29c94e)break;else _0x475bdc['push'](_0x475bdc['shift']());}catch(_0x42b36d){_0x475bdc['push'](_0x475bdc['shift']());}}}(_0x3b9c,0x95b3f));function _0x3b9c(){const _0x638643=['3DDoYge','description','views','21pCPFvn','6141285sksXBX','\x0a*DURATION*\x20','1562925wRUdVF','624600RRcHIn','yt-search','url','1208674kLzYwF','sendMessage','chat','name','2313448kMulLs','ago','\x0a*😈لینک🥀:*\x20','ytmp4\x20','title','1890928GCYvLv','Example\x20:\x20','🥀لیست\x20ویدیوها😈','\x20seh\x20calaz\x20takambo\x20tamba\x20munyika','\x0a*🥀آپلود😈:*\x20','6639420uOEBHC','timestamp','\x0a*🥀ویو😈:*\x20'];_0x3b9c=function(){return _0x638643;};return _0x3b9c();}{if(isBan)throw mess['ban'];if(!text)throw _0x309941(0xe8)+(prefix+command)+_0x309941(0xea);let yts=require(_0x309941(0xf7)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i[_0x309941(0xe6)],'rows':[{'title':i['title']+'\x0a','rowId':prefix+_0x309941(0xe5)+i['url'],'description':i[_0x309941(0xf0)]+_0x309941(0xeb)+i[_0x309941(0xe3)]+'\x0a*😈چنل🥀:*\x20'+i['author'][_0x309941(0xe1)]+_0x309941(0xee)+i[_0x309941(0xf1)]+_0x309941(0xf4)+i[_0x309941(0xed)]+_0x309941(0xe4)+i[_0x309941(0xf8)]}]};sections['push'](list);}const sendm=ZimBotInc[_0x309941(0xdf)](m[_0x309941(0xe0)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20*ویدیو\x20سرچ\x20شده\x20پیدا\x20شد\x20روی\x20ویدیو\x20بزنید*','buttonText':_0x309941(0xe9),'sections':sections},{'quoted':m});}
                   break
@@ -5005,7 +5005,7 @@ hydratedContentText: caption,
 hydratedFooterText: `${botname}`,
 hydratedButtons: [{
 urlButton: {
-displayText: 'SOURCE',
+displayText: '🕊لینک😈',
 url: `${text}`
 }
 }, {
@@ -5316,7 +5316,7 @@ case 'igs3': case 'igstory3': case 'instagramstory3': {
                     txt += `*⬤Quality :* ${data.medias[0].quality}\n`
                     txt += `*⬤Type :* ${data.medias[0].extension}\n`
                     txt += `*⬤Size :* ${data.medias[0].formattedSize}\n`
-                    txt += `*⬤Url 🥀ویدیو😈 :* ${data.url}\n\n`
+                    txt += `*⬤Url source :* ${data.url}\n\n`
                     txt += `*BALOCH EDIT*`
                 buf = await getBuffer(data.thumbnail)   
                 ZimBotInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m }).catch((err) => m.reply('link error'))    
@@ -6211,7 +6211,7 @@ break
                 ZimBotInc.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })
                 fs.unlinkSync(ran)
                 })
-                } else m.reply(`Reply to the audio you want to change with a caption *${prefix + command}*`)
+                } else m.reply(`ویس خود را ریپ بزنید وکامند را بزنید *${prefix + command}*`)
                 } catch (e) {
                 m.reply(e)
                 }
@@ -6798,7 +6798,7 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
 res = await fetchJson(`https://api.jikan.moe/v4/anime/${q}`)
-let txt = `𝗔𝗻𝗶𝗺𝗲 𝗜𝗻𝗳𝗼\n\n*TITLE:* *${res.data.title}*\n*ENGLISH:* *${res.data.title_english}*\n*JAPANESE:* *${res.data.title_japanese}*\n*TYPE ANIME:* *${res.data.type}*\n*ADAPTER:* *${res.data.🥀ویدیو😈}*\n*TOTAL EPISODE:* *${res.data.episodes}*\n*STATUS:* *${res.data.status}*\n*ONGOING:* *${res.data.airing ? 'Ya' : 'DRIS'}*\n*AIRED:* *${res.data.aired.string}*\n*DURATION:* *${res.data.duration}*\n*RATING:* *${res.data.rating}*\n*SCORE:* *${res.data.score}*\n*RANK:* *${res.data.rank}*\n*STUDIO:* *${res.data.studios[0].name}* `
+let txt = `𝗔𝗻𝗶𝗺𝗲 𝗜𝗻𝗳𝗼\n\n*TITLE:* *${res.data.title}*\n*ENGLISH:* *${res.data.title_english}*\n*JAPANESE:* *${res.data.title_japanese}*\n*TYPE ANIME:* *${res.data.type}*\n*ADAPTER:* *${res.data.source}*\n*TOTAL EPISODE:* *${res.data.episodes}*\n*STATUS:* *${res.data.status}*\n*ONGOING:* *${res.data.airing ? 'Ya' : 'DRIS'}*\n*AIRED:* *${res.data.aired.string}*\n*DURATION:* *${res.data.duration}*\n*RATING:* *${res.data.rating}*\n*SCORE:* *${res.data.score}*\n*RANK:* *${res.data.rank}*\n*STUDIO:* *${res.data.studios[0].name}* `
 ZimBotInc.sendMessage(m.chat, { image : { url : res.data.images.jpg.image_url}, caption : txt}, {quoted :m }).catch((err) => m.reply('sorry error'))
 }
 break
@@ -6892,30 +6892,7 @@ anu = anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
 
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
 
 ┏━❰ *⚡️اکس‌پی‌و‌لیمیت⚡️* ❱    
 ┏━❰ *EXP & LIMIT* ❱
@@ -7766,33 +7743,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *MAIN MENU* ❱
 ┃⬤${prefix}ping
 ┃⬤${prefix}listpc
@@ -7840,33 +7790,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *NSFW MENU* ❱
 ┃⬤${prefix}cum
 ┃⬤ ${prefix}ass
@@ -7966,33 +7889,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *GROUP MENU* ❱
 ┃⬤${prefix}devote 
 ┃⬤${prefix}upvote
@@ -8065,33 +7961,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *DOWNLOADER* ❱
 ┃⬤${prefix}apk
 ┃⬤${prefix}joox
@@ -8170,33 +8039,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *SEARCH MENU* ❱
 ┃⬤${prefix}yts
 ┃⬤${prefix}lirik
@@ -8265,33 +8107,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰*RANDOM* ❱
 ┃ ${prefix}bts
 ┃ ${prefix}exo
@@ -8368,33 +8183,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *TEXT MAKER* ❱
 ┃⬤${prefix}vintage
 ┃⬤${prefix}writing
@@ -8500,33 +8288,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *PHOTO-OXY* ❱
 ┃⬤${prefix}broken-glass
 ┃⬤${prefix}neon-light 
@@ -8575,33 +8336,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *EPHOTO-363* ❱
 ┃⬤${prefix}3d-wood
 ┃⬤${prefix}angels-wings
@@ -8646,33 +8380,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *CERTIFICATEMAKER* ❱
 ┃⬤${prefix}tololserti
 ┃⬤${prefix}blackpink
@@ -8720,33 +8427,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *IMAGE-EFFECT* ❱
 ┃⬤${prefix}jail
 ┃⬤${prefix}shit
@@ -8797,33 +8477,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *FUN FEATURE* ❱
 ┃⬤${prefix}family100
 ┃⬤${prefix}slot
@@ -8876,33 +8529,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *PRIMBON-MENU* ❱
 ┃⬤${prefix}shio 
 ┃⬤${prefix}tarot
@@ -8969,33 +8595,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *CONVERT-STICKER* ❱
 ┃⬤${prefix}sticker
 ┃⬤${prefix}ttp
@@ -9055,33 +8654,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *DATABASE-MENU* ❱
 ┃⬤${prefix}setcmd 
 ┃⬤${prefix}listcmd
@@ -9126,33 +8698,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *PHOTO-FILTER* ❱
 ┃⬤${prefix}aria 
 ┃⬤${prefix}attic
@@ -9230,33 +8775,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *ANONYMOUS* ❱
 ┃⬤${prefix}start
 ┃⬤${prefix}next
@@ -9298,33 +8816,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *ISLAMIC MENU* ❱
 ┃⬤${prefix}LISTsurah
 ┃⬤${prefix}tafsirsurah
@@ -9370,33 +8861,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *VOICE-CHANGER* ❱
 ┃⬤${prefix}fat 
 ┃⬤${prefix}deep 
@@ -9466,33 +8930,6 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
 ┏━❰ *TOOLS MENU* ❱
 ┃⬤${prefix}git
 ┃⬤${prefix}nulis
@@ -9540,33 +8977,6 @@ let hao = randomNomor(200)
 ┃━━━━━━━━━━━━━━━━━━┃
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
-
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
      
 ┏━❰ *INTERNET MENU* ❱
 ┃⬤${prefix}detik
@@ -9621,33 +9031,7 @@ let hao = randomNomor(200)
 ┃            𝐁𝐀𝐋𝐎𝐂𝐇 𝐄𝐃𝐈𝐓
 ╰━━━━━━━━━━━━━━━━━━╯
 
-     
-┏━❰ *OWNER MENU* ❱
-┃⬤${prefix}leave
-┃⬤${prefix}autoblock
-┃⬤${prefix}tfxp
-┃⬤${prefix}promoteowner/powner
-┃⬤${prefix}join
-┃⬤${prefix}bctext
-┃⬤${prefix}bcall
-┃⬤${prefix}bcloc
-┃⬤${prefix}tflimit
-┃⬤${prefix}block
-┃⬤${prefix}react
-┃⬤${prefix}bctext
-┃⬤${prefix}setexif
-┃⬤${prefix}chat
-┃⬤${prefix}bcvideo
-┃⬤${prefix}bcgroup
-┃⬤${prefix}bcimage
-┃⬤${prefix}setmenu
-┃⬤${prefix}unblock
-┃⬤${prefix}setppbot
-┗━━━━━━━━━━⦿
-
-©️𝗕𝗔𝗟𝗢𝗖𝗛 𝗘𝗗𝗜𝗧
-
-     
+    
 ┏━❰ *SHORTLINK* ❱
 ┃⬤${prefix}shortlink
 ┃⬤${prefix}tinyurl
