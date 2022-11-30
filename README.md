@@ -45,7 +45,14 @@ https://github.com/DuckyTeam/heroku-buildpack-imagemagick
 
 
 ``` 
-apt install nodejs
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+source ~/.bashrc
+
+nvm install v14.16.1
+
+nvm use v14.16.1
 
 apt install git
 
