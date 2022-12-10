@@ -74,7 +74,7 @@ echo scan the qr code and enjoy bot
 
 ## MY PERSONAL CHAT
 
-# [![WhatsApp Group](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/27634090203)
+# [![WhatsApp Group](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/447441437150)
 
 
 # > THANKS FOR CHOOSING ZIM BOT WE APPRECIATE YOU FOR YOUR SUPPORT
