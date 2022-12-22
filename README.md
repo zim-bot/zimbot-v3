@@ -3,7 +3,7 @@
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
 <a href="https://youtu.be/ww4z2m3uORU"><img src="https://img.shields.io/badge/Tutorial-Video-ff0000?style=for-the-badge&logo=youtube&logoColor=ff000000&link=https://youtu.be/ww4z2m3uORU" /><br>
-# ZIM BOT INC
+# 𝗘𝗔𝗭𝗬 𝗕𝗢𝗧 𝗠𝗗2  INC
  WhatsApp with so Many features using multi device  [BAILEYS](https://github.com/adiwajshing/baileys)
  
  ## ```Donate Me```
@@ -17,7 +17,7 @@
 
 ## [![WhatsApp Group](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/EFsb8RCXV4jLEFk4eAcA1A) [![NodeJs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
 
-> A Fully PRECIOUS COOL BOT BY DRIPS MEMES <br>
+> A Fully PRECIOUS COOL BOT BY 𝗘𝗔𝗭𝗬 <br>
 > 
 ## DONT FORGET TO GIVE A STAR🌟 AND FORK
 
@@ -36,7 +36,7 @@ https://github.com/DuckyTeam/heroku-buildpack-imagemagick
 [![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@ReinhardTuna/Zimbot-v3-QR?v=1)
 <img src="https://fontmeme.com/permalink/220116/0c42dc0b64931810388ba399da55e927.png" alt="backwoods-logo-font" border="0"></a>  
 
- ##  > THIS BOT CODED BY DRIPS MEMES ZIM BOT INC 
+ ##  > THIS BOT CODED BY EAZY 𝗘𝗔𝗭𝗬 𝗕𝗢𝗧2 INC 
 
 
 ## >  FOLLOW STEPS BELOW FOR INSTALLATION
@@ -70,12 +70,12 @@ echo scan the qr code and enjoy bot
 
 ## JOIN MY WHATSAPP GROUP
 
-# [![WhatsApp Group](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/EFsb8RCXV4jLEFk4eAcA1A)
+# [![WhatsApp Group](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/CVjfqwm5cdx35Q6spE3BAr)
 
 ## MY PERSONAL CHAT
 
-# [![WhatsApp Group](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/447441437150)
+# [![WhatsApp Group](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/263715882540)
 
 
-# > THANKS FOR CHOOSING ZIM BOT WE APPRECIATE YOU FOR YOUR SUPPORT
+# > THANKS FOR CHOOSING 𝗘𝗔𝗭𝗬 𝗕𝗢𝗧 𝗠𝗗 WE APPRECIATE YOU FOR YOUR SUPPORT
  
