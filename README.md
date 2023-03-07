@@ -6,6 +6,7 @@
 # ZIM BOT INC
  WhatsApp with so Many features using multi device  [BAILEYS](https://github.com/adiwajshing/baileys)
  
+# NOTE: THIS REPO IS NOLONGER MAINTAINED CHECK OUT [`ZIMBOT-V4`](https://github.com/zim-bot/zimbot-v4)
  ## ```Donate Me```
 
 - [`Paypal`](https://www.paypal.me/zimbotinc)
