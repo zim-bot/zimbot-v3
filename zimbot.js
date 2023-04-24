@@ -1,6 +1,6 @@
 
 // ⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈⧈
-//▮ZIM BOT INC 2022 ®️ALL RIGHTS RESERVED
+//▮CGH-BOT•ING 2022 ®️ALL RIGHTS RESERVED
 //▮
 //▮FORK AND DON'T FORGET TO GIVE A STAR
 //▮
@@ -69,8 +69,8 @@ const setting = JSON.parse(fs.readFileSync('./apikey.json'))
 
 //buat info zvibhorani zivi
 limitawal = '100'
-botname = 'ZIM BOT INC'
-wm = 'ZIM BOT INC'
+botname = 'CGH-BOT•ING'
+wm = 'CGH-BOT•ING'
 global.reactmoji = '🇿🇼'
 limitCount = setting.limit
 
@@ -90,7 +90,7 @@ const dripsno = JSON.parse(fs.readFileSync('./database/autoblock.json'))
 const dripswelcome = JSON.parse(fs.readFileSync('./database/welcome.json'))
 
 
-//////created by zim-bot-inc
+//////created by CGH-BOT•ING
 
 module.exports = ZimBotInc = async (ZimBotInc, m, chatUpdate, store) => {
     try {
@@ -130,9 +130,9 @@ module.exports = ZimBotInc = async (ZimBotInc, m, chatUpdate, store) => {
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
         const isAntinsfw = m.isGroup ?  dripsno.includes(m.chat) : false
         const isWelcome = m.isGroup ? dripswelcome.includes(m.chat) : false
-//zim bot inc
+//CGH-BOT•ING
 
-const timuu = moment.tz('Africa/Harare').format('HH:mm:ss')
+const timuu = moment.tz('America/Guayaquil').format('HH:mm:ss')
 const hariRaya = new Date('Apr 02, 2022 01:45:00')
 const sekarang = new Date().getTime();
 const Selisih = hariRaya - sekarang;
@@ -237,7 +237,7 @@ switch(hari) {
     if (isCmd) msgFilter.addFilter(from)
     
 // TIME 
-const time2 = moment().tz('Africa/Harare').format('HH:mm:ss')
+const time2 = moment().tz('America/Guayaquil').format('HH:mm:ss')
 if(time2 < "23:59:00"){
 var ucapannya2 = `Good Night 🌒`
 }
@@ -485,7 +485,7 @@ randek = jsonDrips[randIndex];
     }, 
     {
       scheduled: true,
-      timezone: 'Africa/Harare'
+      timezone: 'America/Guayaquil'
      }
     )
 //thum
@@ -632,13 +632,13 @@ ZimBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4' , ptt: true
 }
 }   
 
-//BY DRIPS ZIM BOT INC   
+//BY DRIPS CGH-BOT•ING   
 	// auto set bio
 	if (db.data.settings[botNumber].autobio) {
 	    let setting = global.db.data.settings[botNumber]
 	    if (new Date() * 1 - setting.status > 1000) {
 		let uptime = await runtime(process.uptime())
-		await ZimBotInc.setStatus(`ZIM-BOT-INC| BOT ONLINE: ${runtime(uptime)}`)
+		await ZimBotInc.setStatus(`CGH-BOT•ING| BOT ONLINE: ${runtime(uptime)}`)
 		setting.status = new Date() * 1
 	    }
 	}
@@ -1189,7 +1189,7 @@ Type *give up* to give up and admit defeat`
             let timeout = 60000
             if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.sender))) m.reply(`*Complete your previous suit*`)
 	    if (m.mentionedJid[0] === m.sender) return m.reply(`*Can not play with yourself !*`)
-            if (!m.mentionedJid[0]) return m.reply(`*_Who do you want to challenge?_\nTag the person..*\n\nEXAMPLE : ${prefix}suit @${owner[1]}`, m.chat, { mentions: [owner[1] + '@s.whatsapp.net'] })
+            if (!m.mentionedJid[0]) return m.reply(`*_Who do you want to challenge?_\nTag the person..*\n\nEjemplo : ${prefix}suit @${owner[1]}`, m.chat, { mentions: [owner[1] + '@s.whatsapp.net'] })
             if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.mentionedJid[0]))) throw `*The person you are challenging is playing suit with someone else* :(`
             let id = 'suit_' + new Date() * 1
             let caption = `_*SUIT PVP*_
@@ -1292,14 +1292,14 @@ Please @${m.mentionedJid[0].split`@`[0]}  *type accept/reject*`
  break
 case 'sel': case 'sell':{
 if (isBan) throw mess.ban
- if (!q) return  m.reply(`*What do you want to sell?*\nExample : ${prefix + command} fish 2`)
+ if (!q) return  m.reply(`*What do you want to sell?*\nEjemplo : ${prefix + command} fish 2`)
  if (!isInventoriBuruan){ addInventoriBuruan(m.sender) } 
  if (!isInventoryMonay){ addInventoriMonay(m.sender) }
  if (!isInventory){ addInventori(m.sender) }
  var anu = args[1]
  if (args[0] === 'fish'){
  if (isIkan < anu) return m.reply('*Your fish is not enough for this transaction*')
- if (!args[1]) return m.reply(`Example : ${prefix + command} fish 2\n 1 fish = 1500 monay`)
+ if (!args[1]) return m.reply(`Ejemplo : ${prefix + command} fish 2\n 1 fish = 1500 monay`)
  kurangIkan(m.sender, anu)
  let monaynya = 1500 * anu
  addMonay(m.sender, monaynya)
@@ -1309,7 +1309,7 @@ if (isBan) throw mess.ban
  } else
  if (args[0] === 'chicken'){
  if (isAyam < anu) return m.reply('*Your chicken is not enough for this transaction*')
- if (!args[1]) return m.reply(`Example : ${prefix + command} chicken 2\n 1 chicken = 2500 monay`)
+ if (!args[1]) return m.reply(`Ejemplo : ${prefix + command} chicken 2\n 1 chicken = 2500 monay`)
  kurangAyam(m.sender, anu)
  let monaynya = 2500 * anu
  addMonay(m.sender, monaynya)
@@ -1319,7 +1319,7 @@ if (isBan) throw mess.ban
  } else
  if (args[0] === 'rabbit'){
  if (isKelinci < anu) return m.reply('*Your rabbit is not enough for this transaction*')
- if (!args[1]) return m.reply(`Example : ${prefix + command} rabbit 2\n 1 rabbit = 3000 monay`)
+ if (!args[1]) return m.reply(`Ejemplo : ${prefix + command} rabbit 2\n 1 rabbit = 3000 monay`)
  kurangKelinci(m.sender, anu)
  let monaynya = 3000 * anu
  addMonay(m.sender, monaynya)
@@ -1329,7 +1329,7 @@ if (isBan) throw mess.ban
  } else
  if (args[0] === 'sheep'){
  if (isDomba < anu) return m.reply('*You dont have enough sheep for this transaction*')
- if (!args[1]) return m.reply(`Example : ${prefix + command} sheep 2\n 1 sheep = 5000 monay`)
+ if (!args[1]) return m.reply(`Ejemplo : ${prefix + command} sheep 2\n 1 sheep = 5000 monay`)
  kurangDomba(m.sender, anu)
  let monaynya = 5000 * anu
  addMonay(m.sender, monaynya)
@@ -1339,7 +1339,7 @@ if (isBan) throw mess.ban
  } else
  if (args[0] === 'cow'){
  if (isSapi < anu) return m.reply('*Your cow is not enough for this transaction*')
- if (!args[1]) return m.reply(`Example : ${prefix + command} cow 2\n 1 cow = 10000 monay`)
+ if (!args[1]) return m.reply(`Ejemplo : ${prefix + command} cow 2\n 1 cow = 10000 monay`)
  kurangSapi(m.sender, anu)
  let monaynya = 10000 * anu
  addMonay(m.sender, monaynya)
@@ -1349,7 +1349,7 @@ if (isBan) throw mess.ban
  } else
  if (args[0] === 'elephant'){
  if (isGajah < anu) return m.reply('*Your elephant is not enough for this transaction*')
- if (!args[1]) return m.reply(`Example : ${prefix + command} elephant 2\n 1 elephant = 15000 monay`)
+ if (!args[1]) return m.reply(`Ejemplo : ${prefix + command} elephant 2\n 1 elephant = 15000 monay`)
  kurangGajah(m.sender, anu)
  let monaynya = 15000 * anu
  addMonay(m.sender, monaynya)
@@ -1359,7 +1359,7 @@ if (isBan) throw mess.ban
  } else
  if (args[0] === 'iron'){
  if (isBesi < anu) return m.reply('*Your iron is not enough for this transaction*')
- if (!args[1]) return m.reply(`Example : ${prefix + command} iron 2\n 1 iron = 15000 monay`)
+ if (!args[1]) return m.reply(`Ejemplo : ${prefix + command} iron 2\n 1 iron = 15000 monay`)
  kurangBesi(m.sender, anu)
  let monaynya = 16000 * anu
  addMonay(m.sender, monaynya)
@@ -1369,7 +1369,7 @@ if (isBan) throw mess.ban
  } else
  if (args[0] === 'emas'){
  if (isEmas < anu) return m.reply('*Your iron is not enough for this transaction*')
- if (!args[1]) return m.reply(`Example : ${prefix + command} gold 2\n 1 gold = 50000 monay`)
+ if (!args[1]) return m.reply(`Ejemplo : ${prefix + command} gold 2\n 1 gold = 50000 monay`)
  kurangEmas(m.sender, anu)
  let monaynya = 50000 * anu
  addMonay(m.sender, monaynya)
@@ -1379,7 +1379,7 @@ if (isBan) throw mess.ban
  } else
  if (args[0] === 'emerald'){
  if (isEmerald < anu) return m.reply('*Your iron is not enough for this transaction*')
- if (!args[1]) return m.reply(`Example : ${prefix + command} emerald 2\n 1 emerald = 100000 monay`)
+ if (!args[1]) return m.reply(`Ejemplo : ${prefix + command} emerald 2\n 1 emerald = 100000 monay`)
  kurangEmerald(m.sender, anu)
  let monaynya = 100000 * anu
  addMonay(m.sender, monaynya)
@@ -1485,7 +1485,7 @@ case 'restart': {
 break
 	    case 'donasi': case 'sewabot': case 'sewa': case 'buypremium': case 'donate': {
 	    if (isBan) throw mess.ban
-                ZimBotInc.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/4e12bdfc0fbcbe7d14930.jpg' }, caption: `*Hi Chomie ${m.pushName}*\n\n *Thanks for your support we appreciate you we dont need your money, support us by subscribing to our youtube channel* *DRIPS OFC:* https://www.youtube.com/c/DRIPSOFC ` }, { quoted: m })
+                ZimBotInc.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/4e12bdfc0fbcbe7d14930.jpg' }, caption: `*Hi Chomie ${m.pushName}*\n\n *Thanks for your support we appreciate you we dont need your money, support us by subscribing to our youtube channel* *DRIPS OFC:* https://www.youtube.com/@henrypablochumogarces8279 ` }, { quoted: m })
             }
             break            
             case 'chat': {
@@ -1540,7 +1540,7 @@ break
             break
             case 'tebak': {
             if (isBan) throw mess.ban
-                if (!text) throw `Example : ${prefix + command} lagu\n\nOption : \n1. lagu\n2. gambar\n3. kata\n4. kalimat\n5. lirik\n6.lontong`
+                if (!text) throw `Ejemplo : ${prefix + command} lagu\n\nOption : \n1. lagu\n2. gambar\n3. kata\n4. kalimat\n5. lirik\n6.lontong`
                 if (args[0] === "lagu") {
                     if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) throw "*There Are Still Unfinished Sessions!*"
                     let anu = await fetchJson('https://fatiharridho.github.io/tebaklagu.json')
@@ -1649,7 +1649,7 @@ break
                     await sleep(60000)
                     if (caklontong.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `Time Out\nAnswer:  ${caklontong[m.sender.split('@')[0]]}\nDescription : ${caklontong_desk[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, ZimBotInc.user.name, m)
+                    ZimBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `Tiempo Agotado\nRespuesta:  ${caklontong[m.sender.split('@')[0]]}\nDescription : ${caklontong_desk[m.sender.split('@')[0]]}\n\n*Want to play? press the button below*`, ZimBotInc.user.name, m)
                     delete caklontong[m.sender.split('@')[0]]
 		    delete caklontong_desk[m.sender.split('@')[0]]
                     }
@@ -1661,15 +1661,15 @@ break
             //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) throw "*There Are Still Unfinished Sessions!*"
                 let { genMath, modes } = require('./src/math')
-                if (!text) throw `Mode: ${Object.keys(modes).join(' | ')}\nUsage examples: ${prefix}math medium`
+                if (!text) throw `Mode: ${Object.keys(modes).join(' | ')}\nUsage Ejemplos: ${prefix}math medium`
                 let result = await genMath(text.toLowerCase())
-                ZimBotInc.sendText(m.chat, `*What is the result of: ${result.soal.toLowerCase()}*?\n\nTime: ${(result.waktu / 1000).toFixed(2)} second`, m).then(() => {
+                ZimBotInc.sendText(m.chat, `*Cual es el resultado de : ${result.soal.toLowerCase()}*?\n\nTime: ${(result.waktu / 1000).toFixed(2)} second`, m).then(() => {
                     kuismath[m.sender.split('@')[0]] = result.jawaban
                 })
                 await sleep(result.waktu)
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    m.reply("Time Out\nAnswer: " + kuismath[m.sender.split('@')[0]])
+                    m.reply("Tiempo agotado\nRespuesta: " + kuismath[m.sender.split('@')[0]])
                     delete kuismath[m.sender.split('@')[0]]
                 }
             }
@@ -1735,7 +1735,7 @@ break
             break
             case 'setexif': {
                if (!isCreator) throw mess.owner
-               if (!text) throw `*Example : ${prefix + command} zimbot|drips*`
+               if (!text) throw `*Ejemplo : ${prefix + command} zimbot|drips*`
           global.packname = text.split("|")[0]
           global.author = text.split("|")[1]
           m.reply(`*Exif successfully changed to\n\n> Packname : ${global.packname}\n> Author : ${global.author}*`)
@@ -1759,7 +1759,7 @@ break
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await ZimBotInc.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
@@ -1773,7 +1773,7 @@ break
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await ZimBotInc.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
@@ -1787,7 +1787,7 @@ break
                     if (!isInventoryLimit){ addInventoriLimit(m.sender) }
                 if (isLimit < 1) return m.reply(mess.endLimit)
                 kurangLimit(m.sender, 1)
-                m.reply(`*1 limit used*`)
+                m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let users =   m.sender[0] ? m.sender : text.replace(/[^global.owner]/g, '')+'@s.whatsapp.net'
             await ZimBotInc.groupParticipantsUpdate(m.chat,  [users], 'promote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
         }
@@ -1802,7 +1802,7 @@ break
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await ZimBotInc.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
@@ -1852,7 +1852,7 @@ break
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 await ZimBotInc.groupUpdateSubject(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
             }
             break
@@ -1869,9 +1869,9 @@ break
           case 'setppbot': {
           if (isBan) throw mess.ban
                 if (!isCreator) throw mess.owner
-                if (!quoted) throw `*Send/Reply Image With Caption* ${prefix + command}`
-                if (!/image/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
-                if (/webp/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
+                if (!quoted) throw `*Enviar/Responder imagen con título* ${prefix + command}`
+                if (!/image/.test(mime)) throw `*Enviar/Responder imagen con título* ${prefix + command}`
+                if (/webp/.test(mime)) throw `*Enviar/Responder imagen con título* ${prefix + command}`
                 let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
                 await ZimBotInc.updateProfilePicture(botNumber, { url: media }).catch((err) => fs.unlinkSync(media))
                 m.reply(mess.success)
@@ -1881,13 +1881,13 @@ break
            if (isBan) throw mess.ban
                 if (!m.isGroup) throw mess.group
                 if (!isAdmins) throw mess.admin
-                if (!quoted) throw `*Send/Reply Image With Caption* ${prefix + command}`
-                if (!/image/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
-                if (/webp/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
+                if (!quoted) throw `*Enviar/Responder imagen con título* ${prefix + command}`
+                if (!/image/.test(mime)) throw `*Enviar/Responder imagen con título* ${prefix + command}`
+                if (/webp/.test(mime)) throw `*Enviar/Responder imagen con título* ${prefix + command}`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
                 await ZimBotInc.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media))
                 m.reply(mess.success)
@@ -1924,7 +1924,7 @@ break
 		    if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let anu = await styletext(text)
                 let teks = `*Srtle Text From* ${text}\n\n`
                 for (let i of anu) {
@@ -1938,7 +1938,7 @@ break
                //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
             if (!m.isGroup) throw mess.group
             if (m.chat in vote) throw `_There are still votes in this chat!_\n\n*${prefix}deletevote* - to delete votes`
-            if (!text) throw `Enter Reason for Vote, Example: *${prefix + command} Handsome Owner*`
+            if (!text) throw `Enter Reason for Vote, Ejemplo: *${prefix + command} Handsome Owner*`
             m.reply(`*Voting begins!*\n\n*${prefix}upvote* - for yes\n*${prefix}devote* - for no\n*${prefix}cekvote* - to check the vote\n*${prefix}deletevote* - to delete vote`)
             vote[m.chat] = [q, [], []]
             await sleep(1000)
@@ -2579,7 +2579,7 @@ let drips = [
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 if (args[0] === "on") {
                 if (db.data.chats[m.chat].mute) return m.reply(`*Already on okay*`)
                 db.data.chats[m.chat].mute = true
@@ -2630,36 +2630,36 @@ let drips = [
             break
             case 'bcgc': case 'bcgroup': {
                 if (!isCreator) throw mess.owner
-                if (!text) throw `*Type some text*\n\nExample : ${prefix + command} ZIM-BOT-INC`
+                if (!text) throw `*Escriba un texto*\n\nEjemplo : ${prefix + command} CGH-BOT•ING`
                 let getGroups = await ZimBotInc.groupFetchAllParticipating()
                 let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
                 let anu = groups.map(v => v.id)
-                m.reply(`*Send Broadcast To* ${anu.length} *Group Chat, Time ${anu.length * 1.5} second*`)
+                m.reply(`*Enviar difusión a* ${anu.length} *Group Chat, Time ${anu.length * 1.5} second*`)
                 for (let i of anu) {
                     await sleep(1500)
 		            let btn = [{
           urlButton: {
                   displayText: 'GITHUB',
-                  url: 'https://github.com/zim-bot/zimbot-v3'
+                  url: 'https://github.com/ChumoGH/ChumoGH-Script'
           }
                             }]
                       let txt = `「 *ZIMBOT BROADCAST* 」\n\n${text}`
                       ZimBotInc.send5ButImg(i, txt, botname, global.bc, btn)
                     }
-                m.reply(` *Send Broadcast To* ${anu.length} *Group*`)
+                m.reply(` *Enviar difusión a* ${anu.length} *Group*`)
             }
             break
             case 'bc': case 'broadcast': case 'bcall': {
                 if (!isCreator) throw mess.owner
-                if (!text) throw `*Type some text*\n\nExample : ${prefix + command} ZIM-BOT-INC`
+                if (!text) throw `*Escriba un texto*\n\nEjemplo : ${prefix + command} CGH-BOT•ING`
                 let anu = await store.chats.all().map(v => v.id)
-                m.reply(`*Send Broadcast To* ${anu.length} Chat\nTime ${anu.length * 1.5} second`)
+                m.reply(`*Enviar difusión a* ${anu.length} Chat\nTime ${anu.length * 1.5} second`)
 		for (let yoi of anu) {
 		    await sleep(1500)
 		    let btn = [{
           urlButton: {
                   displayText: 'GITHUB',
-                  url: 'https://github.com/zim-bot/zimbot-v3'
+                  url: 'https://github.com/ChumoGH/ChumoGH-Script'
           }
                             }]
                       let txt = `「 *ZIMBOT BROADCAST* 」\n\n${text}`
@@ -2670,10 +2670,10 @@ let drips = [
             break
 case 'bc2': case 'bcloc': {
                 if (!isCreator) throw mess.owner
-                if (!text) throw `*Type some text*\n\nExample : ${prefix + command} drips|hi5`
+                if (!text) throw `*Escriba un texto*\n\nEjemplo : ${prefix + command} drips|hi5`
                 let anu = await store.chats.all().map(v => v.id)
                 let [melo, melo2] = text.split`|`
-                m.reply(`*Send Broadcast To* ${anu.length} Chat\nTime ${anu.length * 1.5} minutes`)
+                m.reply(`*Enviar difusión a* ${anu.length} Chat\nTime ${anu.length * 1.5} minutes`)
 	     	for (let yoi of anu) {
 	     	await sleep(1500)
 		    var button = [{ buttonId: `${prefix}ho`, buttonText: { displayText: `${melo2}` }, type: 1 }]              
@@ -2685,14 +2685,14 @@ case 'bcimage': case 'bcvideo': case 'bcaudio': {
                 if (!isCreator) throw mess.owner
                 if (!/video/.test(mime) && !/image/.test(mime) && !/audio/.test(mime)) throw `*Send/Reply Video/Audio/Image You Want to Broadcast With Caption* ${prefix + command}`
                 let anu = await store.chats.all().map(v => v.id)
-                let ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 2022,status: 200, thumbnail: fs.readFileSync('./lib/hisoka.jpg'), surface: 200, message: `ZIM-BOT-INC`, orderTitle: 'ZIM-BOT-INC', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
-                m.reply(`*Send Broadcast To* ${anu.length} *Group Chat, Time ${anu.length * 1.5} minutes*`)
+                let ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 2022,status: 200, thumbnail: fs.readFileSync('./lib/hisoka.jpg'), surface: 200, message: `CGH-BOT•ING`, orderTitle: 'CGH-BOT•ING', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
+                m.reply(`*Enviar difusión a* ${anu.length} *Group Chat, Time ${anu.length * 1.5} minutes*`)
                 for (let i of anu) {
                     await sleep(1500)
                     let butoon = [{
           urlButton: {
                   displayText: `GITHUB`,
-                  url: 'https://github.com/zim-bot/zimbot-v3'
+                  url: 'https://github.com/ChumoGH/ChumoGH-Script'
           }
                             },
                             {
@@ -2718,16 +2718,16 @@ case 'bcimage': case 'bcvideo': case 'bcaudio': {
                     }
                     await fs.unlinkSync(media)
                     }
-                m.reply(` *Send Broadcast To* ${anu.length} *Chats*`)
+                m.reply(` *Enviar difusión a* ${anu.length} *Chats*`)
             }
             break
 case 'bctext': {
                 if (!isCreator) throw mess.owner
-                if (!text) throw `*Type some text*\n\nExample : ${prefix + command} zim-ot`
+                if (!text) throw `*Escriba un texto*\n\nEjemplo : ${prefix + command} zim-ot`
                 //let ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 666666666,status: 200, thumbnail: await getBuffer(picak+'Brodcast'), surface: 200, message: `© ${botname}`, orderTitle: 'memek', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
                 let ftroli = {key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `6283136505591-1614953337@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `© ${botname}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ZimBotInc.user.name},;;;\nFN:${botname},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': await getBuffer(picak+'Brodcast'), thumbnail: await getBuffer(picak+'Brodcast'),sendEphemeral: true}}}
                 let anu = await store.chats.all().map(v => v.id)
-                m.reply(`*Send Broadcast To* ${anu.length} Chat\n*Time ${anu.length * 1.5} seconds*`)
+                m.reply(`*Enviar difusión a* ${anu.length} Chat\n*Time ${anu.length * 1.5} seconds*`)
 		for (let yoi of anu) {
 		    await sleep(1500)
 		    ZimBotInc.sendMessage(yoi, {text:`${text}`}, {quoted:ftroli})
@@ -2741,7 +2741,7 @@ case 'bcvid': case 'bcvideo': {
                 let buf = `https://telegra.ph/file/f8b17ce3b28bb5f25f5e1.mp4`
                 let ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 999999999999,status: 200, thumbnail: await getBuffer(picak+'Brodcast'), surface: 200, message: `© ${botname}`, orderTitle: 'memek', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}                
                 let anu = await store.chats.all().map(v => v.id)
-                m.reply(`*Send Broadcast To* ${anu.length} Chat\n*Time ${anu.length * 1.5} minute*`)
+                m.reply(`*Enviar difusión a* ${anu.length} Chat\n*Time ${anu.length * 1.5} minute*`)
 		    for (let yoi of anu) {
 		    await sleep(1500)		    
 		    ZimBotInc.sendMessage(yoi, { video: await getBuffer(buf), jpegThumbnail: await getBuffer(picak+'Brodcast'), caption: `${text}` }, { quoted: ftroli}).catch ((err) => m.reply('*Sorry, failed to send the video*'))
@@ -2752,7 +2752,7 @@ case 'bcvid': case 'bcvideo': {
             case 'infochat': case 'sider': {
             if (isBan) throw mess.ban
             //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!m.quoted) m.reply('*Reply message*')
+                if (!m.quoted) m.reply('*Responder Mensaje*')
                 let msg = await m.getQuotedObj()
                 if (!m.quoted.isBaileys) throw '*The message was not sent by a bot!*'
                 let teks = ''
@@ -2769,11 +2769,11 @@ case 'bcvid': case 'bcvideo': {
             case 'q': case 'quoted': {
             if (isBan) throw mess.ban
            // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-		if (!m.quoted) return m.reply('*Reply Messagenya!!*')
+		if (!m.quoted) return m.reply('*Responder Mensajenya!!*')
 		if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		let wokwol = await ZimBotInc.serializeM(await m.getQuotedObj())
 		if (!wokwol.quoted) return m.reply('*The message you replied to does not contain a reply*')
 		await wokwol.quoted.copyNForward(m.chat, true)
@@ -2798,7 +2798,7 @@ case 'bcvid': case 'bcvideo': {
                  let teks = `⬣ *LIST GROUP CHAT*\n\nTotal Group : ${anu.length} Group\n\n`
                  for (let i of anu) {
                      let metadata = await ZimBotInc.groupMetadata(i)
-                     teks += `⬡ *NAME :* ${metadata.subject}\n⬡ *OWNER :* @${metadata.owner.split('@')[0]}\n⬡ *ID :* ${metadata.id}\n⬡ *CREATED :* ${moment(metadata.creation * 1000).tz('Africa/Harare').format('DD/MM/YYYY HH:mm:ss')}\n⬡ *MEMBER :* ${metadata.participants.length}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\n`
+                     teks += `⬡ *NAME :* ${metadata.subject}\n⬡ *OWNER :* @${metadata.owner.split('@')[0]}\n⬡ *ID :* ${metadata.id}\n⬡ *CREATED :* ${moment(metadata.creation * 1000).tz('America/Guayaquil').format('DD/MM/YYYY HH:mm:ss')}\n⬡ *MEMBER :* ${metadata.participants.length}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\n`
                  }
                  ZimBotInc.sendTextWithMentions(m.chat, teks, m)
              }
@@ -2814,7 +2814,7 @@ case 'bcvid': case 'bcvideo': {
             case 'stickerly': {
             if (isBan) throw mess.ban
             //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-	        if (!text) throw `Example : ${prefix + command} patrick`		
+	        if (!text) throw `Ejemplo : ${prefix + command} patrick`		
 		    anu = await fetchJson(`https://xteam.xyz/sticker/stickerly?q=${text}&APIKEY=${setting.riy}`)
 		    m.reply(`${util.format(anu)}`)
             }		
@@ -2822,7 +2822,7 @@ case 'bcvid': case 'bcvideo': {
             case 'stickerline': {
 if (isBan) throw mess.ban
             //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-	        if (!text) throw `Example : ${prefix + command} https://store.line.me/stickershop/product/9409/id`		
+	        if (!text) throw `Ejemplo : ${prefix + command} https://store.line.me/stickershop/product/9409/id`		
 		    anu = await fetchJson(`https://xteam.xyz/sticker/stickerline?url=${text}&APIKEY=${setting.riy}`)
 		    m.reply(`${util.format(anu)}`)
             }		
@@ -2848,11 +2848,11 @@ if (isBan) throw mess.ban
 
 case 'swm': case 'stickerwm': case 'wm': {
 if (isBan) throw mess.ban
-if (!args.join(" ")) return m.reply(`Example :\n${prefix}swm drips love | tuna`)
+if (!args.join(" ")) return m.reply(`Ejemplo :\n${prefix}swm drips love | tuna`)
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 const swn = args.join(" ")
 const pcknm = swn.split("|")[0];
 const atnm = swn.split("|")[1];
@@ -2876,21 +2876,21 @@ m.reply(`*Send Image/Video With Caption* ${prefix + command}\n*Duration Video 1-
 break
 case 'attp': {
 if (isBan) throw mess.ban
-           if (!text) throw `*Example : ${prefix + command} drips hi*`
+           if (!text) throw `*Ejemplo : ${prefix + command} drips hi*`
            if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
            await ZimBotInc.sendMedia(m.chat, `https://cililitan.herokuapp.com/api/attp?teks=${text}`, 'ZIM', 'BOT M D', m, {asSticker: true}).catch((err) => m.reply('*error while sending sticker*'))
          }
          break
 case 'attp4': {
 if (isBan) throw mess.ban
-           if (!text) throw `*Example : ${prefix + command} drips hi*`
+           if (!text) throw `*Ejemplo : ${prefix + command} drips hi*`
            if (!isInventoryLimit){ addInventoriLimit(m.sender) }
            if (isLimit < 1) return m.reply(mess.endLimit)
            kurangLimit(m.sender, 1)
-           m.reply(`*1 limit used*`)
+           m.reply(`*Se aplico 1 Limite en esta peticion*`)
            await ZimBotInc.sendMedia(m.chat, `https://api.xteam.xyz/attp?file&teks=${text}`, 'ZIM', 'BOT M D', m, {asSticker: true}).catch((err) => m.reply('*error while sending sticker*'))
                      }
                      break
@@ -2900,13 +2900,13 @@ if (!text) return m.reply(`*NEED TEXT*`)
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 ZimBotInc.sendMessage(m.chat, { sticker : { url : `https://cililitan.herokuapp.com/api/texttopng?teks=${text}`}, quoted: m }).catch((err) => m.reply('*error while sending sticker*'))
 } 
 break
 case 'ttp2': {
 if (isBan) throw mess.ban
-           if (!text) throw `Example : ${prefix + command} text`
+           if (!text) throw `Ejemplo : ${prefix + command} text`
            await ZimBotInc.sendMedia(m.chat, `https://cililitan.herokuapp.com/api/texttopng2?teks=${text}`, 'A L Y A', 'B O T M D', m, {asSticker: true})
          }
 break
@@ -2933,11 +2933,11 @@ break
             case 'emojimix': {
             if (isBan) throw mess.ban
            // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-	        if (!text) throw `Example : ${prefix + command} 😅+🤔`
+	        if (!text) throw `Ejemplo : ${prefix + command} 😅+🤔`
 	        if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		let [emoji1, emoji2] = text.split`+`
 		let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
 		for (let res of anu.results) {
@@ -2948,7 +2948,7 @@ break
 	    break
 	    case 'emojimix2': {
 	    if (isBan) throw mess.ban
-	    if (!text) throw `Example : ${prefix + command} 😅`
+	    if (!text) throw `Ejemplo : ${prefix + command} 😅`
 		let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(text)}`)
 		for (let res of anu.results) {
 		    let encmedia = await ZimBotInc.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })
@@ -2959,11 +2959,11 @@ break
 case 'semoji': case 'emoji': case 'emoticon': {
 if (isBan) throw mess.ban
 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 😱`              
+                if (!text) throw `Ejemplo : ${prefix + command} 😱`              
                if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)   
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)   
                 anu = await fetchJson(`https://api.lolhuman.xyz/api/smoji3/${encodeURIComponent(text)}?apikey=${setting.lolkey}`)                
                 ZimBotInc.sendImageAsSticker(m.chat, anu.result.emoji.whatsapp, m, { packname: global.packname, author: global.author }).catch((err) => m.reply(jsonformat('*Sorry there was an error*')))               
                       }
@@ -2974,7 +2974,7 @@ if (isBan) throw mess.ban
 	        if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 	        if (!/image/.test(mime)) throw respond
             if (!text) throw respond
 	        m.reply(mess.wait)
@@ -3008,11 +3008,11 @@ if (isBan) throw mess.ban
             case 'ss': case 'ssweb': {
             if (isBan) throw mess.ban
 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-            if (!text) throw `Example : ${prefix + command} Url`          
+            if (!text) throw `Ejemplo : ${prefix + command} Url`          
             if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)  
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)  
             anu = await fetchJson(`https://shot.screenshotapi.net/screenshot?&url=${text}`)                 
             buf = await getBuffer(anu.screenshot)   
                 ZimBotInc.sendMessage(m.chat, { image: { url: anu.screenshot }, jpegThumbnail:buf, caption: `*${command} From ${text}*` }, { quoted: m }).catch((err) => m.reply(jsonformat('*error*')))
@@ -3021,7 +3021,7 @@ if (isBan) throw mess.ban
 case 'simisimi': case 'simi': {
 if (isBan) throw mess.ban
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-            if (!text) throw `*Example : ${prefix + command} halo simi*`       
+            if (!text) throw `*Ejemplo : ${prefix + command} halo simi*`       
             x = await fetchJson(`https://xteam.xyz/simsimi?kata=${text}&APIKEY=${setting.riy}`)                       
             m.reply(`${x.jawaban}`)
             }
@@ -3034,7 +3034,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)               
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)               
 		let { webp2mp4File } = require('./lib/uploader')
                 let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
                 let webpToMp4 = await webp2mp4File(media)
@@ -3050,7 +3050,7 @@ if (isBan) throw mess.ban
             if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
             let audio = await toAudio(media, 'mp4')
@@ -3066,7 +3066,7 @@ if (isBan) throw mess.ban
             if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
             let audio = await toAudio(media, 'mp4')
@@ -3093,7 +3093,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		   let { webp2mp4File } = require('./lib/uploader')
                 let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)
                 let webpToMp4 = await webp2mp4File(media)
@@ -3121,13 +3121,13 @@ if (isBan) throw mess.ban
             case 'imagenobg': case 'removebg': case 'remove-bg': {
             if (isBan) throw mess.ban
        // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)    
-	    if (!quoted) throw `*Send/Reply Image With Caption* ${prefix + command}`
-	    if (!/image/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
-	    if (/webp/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
+	    if (!quoted) throw `*Enviar/Responder imagen con título* ${prefix + command}`
+	    if (!/image/.test(mime)) throw `*Enviar/Responder imagen con título* ${prefix + command}`
+	    if (/webp/.test(mime)) throw `*Enviar/Responder imagen con título* ${prefix + command}`
 	    if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 	    let remobg = require('remove.bg')
 	    let apirnobg = ['q61faXzzR5zNU6cvcrwtUkRU','S258diZhcuFJooAtHTaPEn4T','5LjfCVAp4vVNYiTjq9mXJWHF','aT7ibfUsGSwFyjaPZ9eoJc61','BY63t7Vx2tS68YZFY6AJ4HHF','5Gdq1sSWSeyZzPMHqz7ENfi8','86h6d6u4AXrst4BVMD9dzdGZ','xp8pSDavAgfE5XScqXo9UKHF','dWbCoCb3TacCP93imNEcPxcL']
 	    let apinobg = apirnobg[Math.floor(Math.random() * apirnobg.length)]
@@ -3155,94 +3155,94 @@ if (isBan) throw mess.ban
 case 'nulis': case 'nuliskanan': case 'nuliskiri': {
 if (isBan) throw mess.ban
 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-if (!text) throw `Example : ${prefix + command} apa itu javascrip`	    
+if (!text) throw `Ejemplo : ${prefix + command} apa itu javascrip`	    
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 yah = await getBuffer(`https://xteam.xyz/magernulis3?text=${text}&APIKEY=${setting.riy}`)
 ZimBotInc.sendMessage(m.chat, { image: yah }, { quoted: m }).catch((err) => m.reply('*Failed in writing*'))
 }
 break
 case 'magernulis': {            
 if (isBan) throw mess.ban
-	        if (!text) throw `*Example : ${prefix + command} name|drips|class1|the most beautiful*`
+	        if (!text) throw `*Ejemplo : ${prefix + command} name|drips|class1|the most beautiful*`
 		    let [tes1, tes2, tes3] = text.split`|`
 		if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		buf = await getBuffer(`https://xteam.xyz/magernulis?nama=${tes1}&kelas=${tes2}&text=${text}&APIKEY=${setting.riy}`)
-		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `ZIM BOT INC` }, { quoted: m }).catch((err) => m.reply('*Sorry Failed In Writing*')) 
+		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `CGH-BOT•ING` }, { quoted: m }).catch((err) => m.reply('*Sorry Failed In Writing*')) 
 	    }
 	    break
 case 'magernulis2': {            
 if (isBan) throw mess.ban
-	        if (!text) throw `*Example : ${prefix + command} honey have you eaten yet*`
+	        if (!text) throw `*Ejemplo : ${prefix + command} honey have you eaten yet*`
 		    //let [tes1, tes2, tes3] = text.split`|`
 		if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		buf = await getBuffer(`https://xteam.xyz/magernulis2?text=${text}&APIKEY=${setting.riy}`)
-		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `ZIM BOT INC` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
+		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `CGH-BOT•ING` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
 	    }
 	    break
 case 'magernulis3': {            
 if (isBan) throw mess.ban
-	        if (!text) throw `Example : ${prefix + command} honey have you eaten yet*`
+	        if (!text) throw `Ejemplo : ${prefix + command} honey have you eaten yet*`
 		    //let [tes1, tes2, tes3] = text.split`|`
 		if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		buf = await getBuffer(`https://xteam.xyz/magernulis3?text=${text}&APIKEY=${setting.riy}`)
-		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `ZIM BOT INC` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
+		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `CGH-BOT•ING` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
 	    }
 	    break
 case 'magernulis4': {            
 if (isBan) throw mess.ban
-	        if (!text) throw `*Example : ${prefix + command} honey have you eaten yet*`
+	        if (!text) throw `*Ejemplo : ${prefix + command} honey have you eaten yet*`
 		    //let [tes1, tes2, tes3] = text.split`|`
 		if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		buf = await getBuffer(`https://xteam.xyz/magernulis4?text=${text}&APIKEY=${setting.riy}`)
-		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `ZIM BOT INC` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
+		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `CGH-BOT•ING` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
 	    }
 	    break
 case 'magernulis5': {            
 if (isBan) throw mess.ban
-	        if (!text) throw `8Example : ${prefix + command} honey have you eaten yet*`
+	        if (!text) throw `8Ejemplo : ${prefix + command} honey have you eaten yet*`
 		    //let [tes1, tes2, tes3] = text.split`|`
 		if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		buf = await getBuffer(`https://xteam.xyz/magernulis5?text=${text}&APIKEY=${setting.riy}`)
-		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `ZIM BOT INC` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
+		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `CGH-BOT•ING` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
 	    }
 	    break
 case 'magernulis6': {            
 if (isBan) throw mess.ban
-	        if (!text) throw `*Example : ${prefix + command} honey have you eaten yet*`
+	        if (!text) throw `*Ejemplo : ${prefix + command} honey have you eaten yet*`
 		    //let [tes1, tes2, tes3] = text.split`|`
 		if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		buf = await getBuffer(`https://xteam.xyz/magernulis6?text=${text}&APIKEY=${setting.riy}`)
-		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `ZIM BOT INC` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
+		ZimBotInc.sendMessage(m.chat, { image: buf, jpegThumbnail:buf, caption: `CGH-BOT•ING` }, { quoted: m }).catch((err) => m.reply('Sorry Failed In Writing*')) 
 	    }
 	    break
 
 //search cmds by zimbot
 
-case 'yts': case 'ytsearch': case 'youtubesearch': const _0x244632=_0x2493;(function(_0x42e7e3,_0x26c668){const _0x3abfea=_0x2493,_0x4da3ee=_0x42e7e3();while(!![]){try{const _0xec78a2=-parseInt(_0x3abfea(0x17b))/0x1+-parseInt(_0x3abfea(0x180))/0x2*(-parseInt(_0x3abfea(0x17f))/0x3)+-parseInt(_0x3abfea(0x18b))/0x4*(-parseInt(_0x3abfea(0x165))/0x5)+parseInt(_0x3abfea(0x173))/0x6+-parseInt(_0x3abfea(0x171))/0x7+parseInt(_0x3abfea(0x166))/0x8*(-parseInt(_0x3abfea(0x16f))/0x9)+parseInt(_0x3abfea(0x17d))/0xa*(-parseInt(_0x3abfea(0x178))/0xb);if(_0xec78a2===_0x26c668)break;else _0x4da3ee['push'](_0x4da3ee['shift']());}catch(_0x4ab77b){_0x4da3ee['push'](_0x4da3ee['shift']());}}}(_0x56cc,0x7bb74));function _0x56cc(){const _0x124eb9=['description','36Wlgwfz','122788qdRqlm','\x0a*UPLOAD:*\x20','timestamp','\x20The\x20title\x20of\x20the\x20song\x20you\x20are\x20looking\x20for*','ytmp4\x20','yt-search','▊▊▊YT\x20SEARCH▊▊▊','result:\x20url\x20','\x0a*LINK:*\x20','\x0a*DURATION*\x20','ban','4436uTnxYb','*Example\x20:\x20','mimetype:\x20video/mp4\x20','title','push','3850jVGKsb','8OlfmOa','linkok\x20','sendMessage','VIDEO\x20MP4⬤:','mimetype:\x20audio/mp3\x20','url','\x0a*CHANNEL:*\x20','ytmp3\x20','ago','3680244YcUhko','author','961709ryZPhz','chat','553926TdzmkP','SONG\x20MP3⬤:','all','\x20You\x20can\x20select\x20audio\x20and\x20video\x20media\x20below*','YOUTUBE\x20SEARCH\x20RESULTS','5834103hwgrIN','\x0a*VIEWS:*\x20','views','99563UadJLi','name','10LXMluy'];_0x56cc=function(){return _0x124eb9;};return _0x56cc();}function _0x2493(_0x75d29c,_0x82bebc){const _0x56cc0e=_0x56cc();return _0x2493=function(_0x2493d3,_0xf39622){_0x2493d3=_0x2493d3-0x165;let _0x1347bc=_0x56cc0e[_0x2493d3];return _0x1347bc;},_0x2493(_0x75d29c,_0x82bebc);}{if(isBan)throw mess[_0x244632(0x18a)];if(!text)throw _0x244632(0x18c)+(prefix+command)+_0x244632(0x183);let yts=require(_0x244632(0x185)),search=await yts(text),no=0x1,sections=[];for(let i of search[_0x244632(0x175)]){const list={'title':''+i[_0x244632(0x18e)],'rows':[{'title':_0x244632(0x174),'rowId':prefix+_0x244632(0x16d)+i[_0x244632(0x16b)],'description':_0x244632(0x16a)+i[_0x244632(0x17e)]+_0x244632(0x181)+i['ago']+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+_0x244632(0x188)+i['url']},{'title':_0x244632(0x169),'rowId':prefix+_0x244632(0x184)+i[_0x244632(0x16b)],'description':_0x244632(0x18d)+i[_0x244632(0x17e)]+'\x0a*UPLOAD:*\x20'+i[_0x244632(0x16e)]+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+_0x244632(0x188)+i[_0x244632(0x16b)]},{'title':'SOURCE\x20LINK','rowId':prefix+_0x244632(0x167)+i[_0x244632(0x16b)],'description':_0x244632(0x187)+i[_0x244632(0x17e)]+_0x244632(0x181)+i[_0x244632(0x16e)]+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+'\x0a*LINK:*\x20'+i[_0x244632(0x16b)]}]};sections[_0x244632(0x18f)](list);}const sendm=ZimBotInc[_0x244632(0x168)](m[_0x244632(0x172)],{'text':'*Here\x20are\x20the\x20youtube\x20search\x20results\x20from\x20'+text+_0x244632(0x176),'footer':'©\x20ZIM\x20BOT\x20INC\x202022','title':_0x244632(0x186),'buttonText':_0x244632(0x177),'sections':sections},{'quoted':m});}
+case 'yts': case 'ytsearch': case 'youtubesearch': const _0x244632=_0x2493;(function(_0x42e7e3,_0x26c668){const _0x3abfea=_0x2493,_0x4da3ee=_0x42e7e3();while(!![]){try{const _0xec78a2=-parseInt(_0x3abfea(0x17b))/0x1+-parseInt(_0x3abfea(0x180))/0x2*(-parseInt(_0x3abfea(0x17f))/0x3)+-parseInt(_0x3abfea(0x18b))/0x4*(-parseInt(_0x3abfea(0x165))/0x5)+parseInt(_0x3abfea(0x173))/0x6+-parseInt(_0x3abfea(0x171))/0x7+parseInt(_0x3abfea(0x166))/0x8*(-parseInt(_0x3abfea(0x16f))/0x9)+parseInt(_0x3abfea(0x17d))/0xa*(-parseInt(_0x3abfea(0x178))/0xb);if(_0xec78a2===_0x26c668)break;else _0x4da3ee['push'](_0x4da3ee['shift']());}catch(_0x4ab77b){_0x4da3ee['push'](_0x4da3ee['shift']());}}}(_0x56cc,0x7bb74));function _0x56cc(){const _0x124eb9=['description','36Wlgwfz','122788qdRqlm','\x0a*UPLOAD:*\x20','timestamp','\x20The\x20title\x20of\x20the\x20song\x20you\x20are\x20looking\x20for*','ytmp4\x20','yt-search','▊▊▊YT\x20SEARCH▊▊▊','result:\x20url\x20','\x0a*LINK:*\x20','\x0a*DURATION*\x20','ban','4436uTnxYb','*Ejemplo\x20:\x20','mimetype:\x20video/mp4\x20','title','push','3850jVGKsb','8OlfmOa','linkok\x20','sendMessage','VIDEO\x20MP4⬤:','mimetype:\x20audio/mp3\x20','url','\x0a*CHANNEL:*\x20','ytmp3\x20','ago','3680244YcUhko','author','961709ryZPhz','chat','553926TdzmkP','SONG\x20MP3⬤:','all','\x20You\x20can\x20select\x20audio\x20and\x20video\x20media\x20below*','YOUTUBE\x20SEARCH\x20RESULTS','5834103hwgrIN','\x0a*VIEWS:*\x20','views','99563UadJLi','name','10LXMluy'];_0x56cc=function(){return _0x124eb9;};return _0x56cc();}function _0x2493(_0x75d29c,_0x82bebc){const _0x56cc0e=_0x56cc();return _0x2493=function(_0x2493d3,_0xf39622){_0x2493d3=_0x2493d3-0x165;let _0x1347bc=_0x56cc0e[_0x2493d3];return _0x1347bc;},_0x2493(_0x75d29c,_0x82bebc);}{if(isBan)throw mess[_0x244632(0x18a)];if(!text)throw _0x244632(0x18c)+(prefix+command)+_0x244632(0x183);let yts=require(_0x244632(0x185)),search=await yts(text),no=0x1,sections=[];for(let i of search[_0x244632(0x175)]){const list={'title':''+i[_0x244632(0x18e)],'rows':[{'title':_0x244632(0x174),'rowId':prefix+_0x244632(0x16d)+i[_0x244632(0x16b)],'description':_0x244632(0x16a)+i[_0x244632(0x17e)]+_0x244632(0x181)+i['ago']+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+_0x244632(0x188)+i['url']},{'title':_0x244632(0x169),'rowId':prefix+_0x244632(0x184)+i[_0x244632(0x16b)],'description':_0x244632(0x18d)+i[_0x244632(0x17e)]+'\x0a*UPLOAD:*\x20'+i[_0x244632(0x16e)]+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+_0x244632(0x188)+i[_0x244632(0x16b)]},{'title':'SOURCE\x20LINK','rowId':prefix+_0x244632(0x167)+i[_0x244632(0x16b)],'description':_0x244632(0x187)+i[_0x244632(0x17e)]+_0x244632(0x181)+i[_0x244632(0x16e)]+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+'\x0a*LINK:*\x20'+i[_0x244632(0x16b)]}]};sections[_0x244632(0x18f)](list);}const sendm=ZimBotInc[_0x244632(0x168)](m[_0x244632(0x172)],{'text':'*Here\x20are\x20the\x20youtube\x20search\x20results\x20from\x20'+text+_0x244632(0x176),'footer':'©\x20ZIM\x20BOT\x20INC\x202022','title':_0x244632(0x186),'buttonText':_0x244632(0x177),'sections':sections},{'quoted':m});}
                   break
                   case 'dare':
-                   function _0x8c50(_0x211d87,_0x2042b1){const _0x6e865d=_0x6e86();return _0x8c50=function(_0x8c500d,_0x14601b){_0x8c500d=_0x8c500d-0x159;let _0x3d59de=_0x6e865d[_0x8c500d];return _0x3d59de;},_0x8c50(_0x211d87,_0x2042b1);}const _0x3656de=_0x8c50;function _0x6e86(){const _0x2e05fa=['pop\x20to\x20a\x20group\x20member,\x20and\x20say\x20fuck\x20you','Bang\x20on\x20the\x20table\x20(which\x20is\x20at\x20home)\x20until\x20you\x20get\x20scolded\x20for\x20being\x20noisy','Let\x20the\x20group\x20choose\x20a\x20word\x20and\x20a\x20well\x20known\x20song.\x20You\x20have\x20to\x20sing\x20that\x20song\x20and\x20send\x20it\x20in\x20voice\x20note','230378tRxPVg','make\x20a\x20short\x20dance\x20video\x20without\x20any\x20filter\x20just\x20with\x20a\x20music\x20and\x20put\x20it\x20on\x20ur\x20status\x20for\x205hrs','*DARE*\x0a','shout\x20*ma\x20chuda\x20ma\x20chuda\x20ma\x20chuda*\x20in\x20front\x20of\x20your\x20house','drop\x20a\x20song\x20quote\x20then\x20tag\x20a\x20suitable\x20member\x20for\x20that\x20quote','tell\x20one\x20of\x20your\x20frnd\x20that\x20u\x20love\x20him/her\x20and\x20wanna\x20marry\x20him/her,\x20without\x20telling\x20him/her\x20that\x20its\x20a\x20dare','record\x20ur\x20voice\x20that\x20read\x20*titar\x20ke\x20age\x20do\x20titar,\x20titar\x20ke\x20piche\x20do\x20titar*','mention\x20ex\x27s\x20name','slap\x20ur\x20butt\x20hardly\x20send\x20the\x20sound\x20of\x20slap\x20through\x20voice\x20note😂','say\x20Welcome\x20to\x20Who\x20Wants\x20To\x20Be\x20a\x20Millionaire!\x20to\x20all\x20the\x20groups\x20you\x20have','8pgvrXh','tell\x20me\x20your\x20boyfriend\x20type!','shout\x20using\x20harsh\x20words\x20and\x20send\x20it\x20here\x20through\x20vn','chat\x20to\x20any\x20contact\x20in\x20whatsapp\x20and\x20say\x20i\x20will\x20be\x20ur\x20bf/gf\x20for\x205hours','Send\x20a\x20message\x20to\x20your\x20ex\x20and\x20say\x20I\x20still\x20like\x20you','change\x20the\x20name\x20to\x20*I\x20am\x20a\x20child\x20of\x20randi*\x20for\x205\x20hours','length','send\x20your\x20gf/bf\x20pic\x20here','1826408keWpoB','snap\x20your\x20face\x20then\x20send\x20it\x20here','Take\x20an\x20embarrassing\x20selfie\x20and\x20paste\x20it\x20on\x20your\x20profile\x20picture','Walk\x20on\x20your\x20elbows\x20and\x20knees\x20for\x20as\x20long\x20as\x20you\x20can','slap\x20urself\x20firmly\x20and\x20send\x20the\x20sound\x20of\x20slap\x20through\x20voice\x20note😂','write\x20i\x20am\x20lesbian\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20only\x20after\x205hrs','104hTcbZN','change\x20name\x20to\x20*I\x20AM\x20DONKEY*\x20for\x2024\x20hours','20fkKCEG','ss\x20recent\x20call\x20whatsapp','say\x20*i\x20hv\x20crush\x20on\x20you,\x20do\x20you\x20want\x20to\x20be\x20my\x20girlfriend?*\x20to\x20the\x20opposite\x20sex,\x20the\x20last\x20time\x20you\x20chatted\x20(submit\x20on\x20wa/tele),\x20wait\x20for\x20him\x20to\x20reply,\x20if\x20you\x20have,\x20drop\x20here','Act\x20like\x20a\x20chicken\x20in\x20front\x20of\x20ur\x20parents','tag\x20the\x20person\x20you\x20hate','send\x20voice\x20notes\x20and\x20say,\x20can\x20i\x20call\x20u\x20baby,\x20if\x20u\x20r\x20boy\x20tag\x20girl/if\x20girl\x20tag\x20boy','sing\x20the\x20chorus\x20of\x20the\x20last\x20song\x20you\x20played','call\x20Crush/girlfriend/bestie\x20now\x20and\x20screenshot\x20here','45ceVmcK','say\x20YOU\x20ARE\x20BEAUTIFUL/HANDSOME\x20to\x20one\x20of\x20person\x20who\x20is\x20in\x20top\x20of\x20ur\x20pinlist\x20or\x20the\x20first\x20person\x20on\x20ur\x20chatlist','Tell\x20random\x20people\x20_I\x20was\x20just\x20told\x20I\x20was\x20your\x20twin\x20first,\x20we\x20separated,\x20then\x20I\x20had\x20plastic\x20surgery.\x20And\x20this\x20is\x20the\x20most\x20ciyusss_\x20thing','say\x20i\x20love\x20oli\x20london\x20in\x20voice\x20note🤣🤣','say\x20i\x20love\x20the\x20bot\x20owner\x20drips\x20through\x20voice\x20note','1277247yeisPz','make\x20any\x20tiktok\x20dance\x20challenge\x20video\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20it\x20after\x205hrs','call\x20ex\x20saying\x20miss','Show\x20the\x20last\x20five\x20people\x20you\x20texted\x20and\x20what\x20the\x20messages\x20said','change\x20the\x20name\x20to\x20i\x20am\x20idiot\x20for\x2024\x20hours','send\x20abusive\x20words\x20in\x20any\x20grup,\x20excepting\x20this\x20grup,\x20and\x20send\x20screenshot\x20proof\x20here','Open\x20your\x20front\x20door\x20and\x20howl\x20like\x20a\x20wolf\x20for\x2010\x20seconds','call\x20crush/pickle\x20now\x20and\x20send\x20ss','2099328trppgY','Pretending\x20to\x20be\x20possessed,\x20for\x20example:\x20possessed\x20by\x20dog,\x20possessed\x20by\x20grasshoppers,\x20possessed\x20by\x20refrigerator,\x20etc.','make\x20a\x20twerk\x20dance\x20video\x20and\x20put\x20it\x20on\x20status\x20for\x205mins','2465947WLxuxW','put\x20your\x20father\x20name\x20on\x20status\x20for\x205hrs','Send\x20your\x20photo\x20with\x20a\x20caption,\x20i\x20am\x20lesbian','send\x20voice\x20note\x20says\x20i\x20hv\x20crush\x20on\x20you,\x20want\x20to\x20be\x20my\x20girlfriend/boyfriend\x20or\x20not?\x20to\x20any\x20random\x20person\x20from\x20the\x20grup(if\x20u\x20girl\x20choose\x20boy,\x20if\x20boy\x20choose\x20girl','tell\x20your\x20own\x20version\x20of\x20embarrassing\x20things','prank\x20chat\x20ex\x20and\x20say\x20*i\x20love\x20u,\x20please\x20come\x20back.*\x20without\x20saying\x20dare!','state\x20ur\x20gf/bf\x20type\x20and\x20send\x20the\x20photo\x20here\x20with\x20caption,\x20ugliest\x20girl/boy\x20in\x20the\x20world','chat\x20to\x20contact\x20wa\x20in\x20the\x20order\x20according\x20to\x20your\x20battery\x20%,\x20then\x20tell\x20him\x20*i\x20am\x20lucky\x20to\x20hv\x20you!*','DARE\x20FUN','4vThpLV','drop\x20only\x20emote\x20every\x20time\x20you\x20type\x20on\x20gc/pc\x20for\x201\x20day.','260gxUoJt','22344WFKKXV','write\x20i\x20am\x20feeling\x20horny\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20it\x20only\x20after\x205hrs','change\x20name\x20to\x20I\x20AM\x20GAY\x20for\x205\x20hours','send\x20ur\x20whatsapp\x20chat\x20list','put\x20your\x20full\x20name\x20on\x20status\x20for\x205hrs','697776KibxKA','Say\x20*YOU\x20ARE\x20SO\x20BEAUTIFUL\x20DON\x27T\x20LIE*\x20to\x20guys!','make\x201\x20rhyme\x20for\x20the\x20members!','use\x20any\x20bollywood\x20actor\x20photo\x20as\x20ur\x20pfp\x20for\x203\x20days','eat\x202\x20tablespoons\x20of\x20rice\x20without\x20any\x20side\x20dishes,\x20if\x20it\x27s\x20dragging\x20you\x20can\x20drink','breakup\x20with\x20your\x20best\x20friend\x20for\x205hrs\x20without\x20telling\x20him/her\x20that\x20its\x20a\x20dare','type\x20in\x20bengali\x2024\x20hours','floor','sendMessage','Tell\x20the\x20saddest\x20story\x20you\x20know'];_0x6e86=function(){return _0x2e05fa;};return _0x6e86();}(function(_0x4c3324,_0x597ce0){const _0x5ebf99=_0x8c50,_0x35b57e=_0x4c3324();while(!![]){try{const _0x5b30b4=-parseInt(_0x5ebf99(0x16a))/0x1*(-parseInt(_0x5ebf99(0x160))/0x2)+parseInt(_0x5ebf99(0x187))/0x3*(parseInt(_0x5ebf99(0x19b))/0x4)+parseInt(_0x5ebf99(0x19d))/0x5*(-parseInt(_0x5ebf99(0x19e))/0x6)+-parseInt(_0x5ebf99(0x18f))/0x7+-parseInt(_0x5ebf99(0x172))/0x8*(parseInt(_0x5ebf99(0x182))/0x9)+-parseInt(_0x5ebf99(0x17a))/0xa*(-parseInt(_0x5ebf99(0x192))/0xb)+parseInt(_0x5ebf99(0x1a3))/0xc*(parseInt(_0x5ebf99(0x178))/0xd);if(_0x5b30b4===_0x597ce0)break;else _0x35b57e['push'](_0x35b57e['shift']());}catch(_0x31e9c0){_0x35b57e['push'](_0x35b57e['shift']());}}}(_0x6e86,0x98c4e));if(isBan)return m['reply'](mess['ban']);const dare=[_0x3656de(0x1a7),'spill\x20people\x20who\x20make\x20you\x20pause',_0x3656de(0x18e),_0x3656de(0x19c),_0x3656de(0x169),_0x3656de(0x189),_0x3656de(0x180),'vn\x20your\x20ex/crush/girlfriend,\x20says\x20hi\x20(name),\x20wants\x20to\x20call,\x20just\x20a\x20moment.\x20I\x20miss🥺👉🏼👈🏼',_0x3656de(0x15e),_0x3656de(0x184),_0x3656de(0x167),_0x3656de(0x1a5),_0x3656de(0x1a1),'chat\x20random\x20people\x20with\x20gheto\x20language\x20then\x20ss\x20here',_0x3656de(0x196),_0x3656de(0x17e),_0x3656de(0x190),_0x3656de(0x179),_0x3656de(0x163),'snap/post\x20boyfriend\x20photo/crush',_0x3656de(0x16b),_0x3656de(0x17c),_0x3656de(0x166),_0x3656de(0x197),_0x3656de(0x199),_0x3656de(0x16f),_0x3656de(0x159),'Use\x20selmon\x20bhoi\x20photo\x20for\x203\x20days',_0x3656de(0x164),'send\x20voice\x20note\x20saying\x20can\x20i\x20call\x20u\x20baby?',_0x3656de(0x17b),_0x3656de(0x1a4),_0x3656de(0x15d),_0x3656de(0x17d),'Pick\x20up\x20a\x20random\x20book\x20and\x20read\x20one\x20page\x20out\x20loud\x20in\x20vn\x20n\x20send\x20it\x20here',_0x3656de(0x18d),_0x3656de(0x174),_0x3656de(0x15f),_0x3656de(0x175),'sing\x20national\x20anthem\x20in\x20voice\x20note','Breakdance\x20for\x2030\x20seconds\x20in\x20the\x20sitting\x20room😂',_0x3656de(0x15c),_0x3656de(0x191),'Eat\x20a\x20raw\x20piece\x20of\x20garlic',_0x3656de(0x18a),_0x3656de(0x1a2),_0x3656de(0x161),'call\x20ur\x20bestie,\x20bitch','put\x20your\x20photo\x20without\x20filter\x20on\x20ur\x20status\x20for\x2010mins',_0x3656de(0x185),_0x3656de(0x16e),_0x3656de(0x181),'pop\x20to\x20one\x20of\x20the\x20group\x20member\x20personal\x20chat\x20and\x20Say\x20you\x20ugly\x20bustard',_0x3656de(0x183),_0x3656de(0x17f),'write\x20i\x20love\x20you\x20(random\x20grup\x20member\x20name,\x20who\x20is\x20online)\x20in\x20personal\x20chat,\x20(if\x20u\x20r\x20boy\x20write\x20girl\x20name/if\x20girl\x20write\x20boy\x20name)\x20take\x20a\x20snap\x20of\x20the\x20pic\x20and\x20send\x20it\x20here',_0x3656de(0x1a6),'put\x20your\x20crush\x20photo\x20on\x20status\x20with\x20caption,\x20this\x20is\x20my\x20crush',_0x3656de(0x1a0),_0x3656de(0x16d),_0x3656de(0x195),_0x3656de(0x168),_0x3656de(0x198),'shout\x20bravooooooooo\x20and\x20send\x20here\x20through\x20voice\x20note',_0x3656de(0x173),_0x3656de(0x194),_0x3656de(0x16c),'shout\x20you\x20bastard\x20in\x20front\x20of\x20your\x20mom/papa',_0x3656de(0x18b),_0x3656de(0x176),_0x3656de(0x186),_0x3656de(0x171),_0x3656de(0x188),_0x3656de(0x1a8),_0x3656de(0x165),'say\x20i\x20love\x20depak\x20kalal\x20through\x20voice\x20note',_0x3656de(0x19f),_0x3656de(0x177),'kiss\x20your\x20mommy\x20or\x20papa\x20and\x20say\x20i\x20love\x20you😌',_0x3656de(0x193),_0x3656de(0x18c)],dripsdare=dare[Math[_0x3656de(0x15a)](Math['random']()*dare[_0x3656de(0x170)])];buffer=await getBuffer(picak+_0x3656de(0x19a)),ZimBotInc[_0x3656de(0x15b)](from,{'image':buffer,'caption':_0x3656de(0x162)+dripsdare},{'quoted':m});
+                   function _0x8c50(_0x211d87,_0x2042b1){const _0x6e865d=_0x6e86();return _0x8c50=function(_0x8c500d,_0x14601b){_0x8c500d=_0x8c500d-0x159;let _0x3d59de=_0x6e865d[_0x8c500d];return _0x3d59de;},_0x8c50(_0x211d87,_0x2042b1);}const _0x3656de=_0x8c50;function _0x6e86(){const _0x2e05fa=['pop\x20to\x20a\x20group\x20member,\x20and\x20say\x20fuck\x20you','Bang\x20on\x20the\x20table\x20(which\x20is\x20at\x20home)\x20until\x20you\x20get\x20scolded\x20for\x20being\x20noisy','Let\x20the\x20group\x20choose\x20a\x20word\x20and\x20a\x20well\x20known\x20song.\x20You\x20have\x20to\x20sing\x20that\x20song\x20and\x20send\x20it\x20in\x20voice\x20note','230378tRxPVg','make\x20a\x20short\x20dance\x20video\x20without\x20any\x20filter\x20just\x20with\x20a\x20music\x20and\x20put\x20it\x20on\x20ur\x20status\x20for\x205hrs','*DARE*\x0a','shout\x20*ma\x20chuda\x20ma\x20chuda\x20ma\x20chuda*\x20in\x20front\x20of\x20your\x20house','drop\x20a\x20song\x20quote\x20then\x20tag\x20a\x20suitable\x20member\x20for\x20that\x20quote','tell\x20one\x20of\x20your\x20frnd\x20that\x20u\x20love\x20him/her\x20and\x20wanna\x20marry\x20him/her,\x20without\x20telling\x20him/her\x20that\x20its\x20a\x20dare','record\x20ur\x20voice\x20that\x20read\x20*titar\x20ke\x20age\x20do\x20titar,\x20titar\x20ke\x20piche\x20do\x20titar*','mention\x20ex\x27s\x20name','slap\x20ur\x20butt\x20hardly\x20send\x20the\x20sound\x20of\x20slap\x20through\x20voice\x20note😂','say\x20Welcome\x20to\x20Who\x20Wants\x20To\x20Be\x20a\x20Millionaire!\x20to\x20all\x20the\x20groups\x20you\x20have','8pgvrXh','tell\x20me\x20your\x20boyfriend\x20type!','shout\x20using\x20harsh\x20words\x20and\x20send\x20it\x20here\x20through\x20vn','chat\x20to\x20any\x20contact\x20in\x20whatsapp\x20and\x20say\x20i\x20will\x20be\x20ur\x20bf/gf\x20for\x205hours','Send\x20a\x20message\x20to\x20your\x20ex\x20and\x20say\x20I\x20still\x20like\x20you','change\x20the\x20name\x20to\x20*I\x20am\x20a\x20child\x20of\x20randi*\x20for\x205\x20hours','length','send\x20your\x20gf/bf\x20pic\x20here','1826408keWpoB','snap\x20your\x20face\x20then\x20send\x20it\x20here','Take\x20an\x20embarrassing\x20selfie\x20and\x20paste\x20it\x20on\x20your\x20profile\x20picture','Walk\x20on\x20your\x20elbows\x20and\x20knees\x20for\x20as\x20long\x20as\x20you\x20can','slap\x20urself\x20firmly\x20and\x20send\x20the\x20sound\x20of\x20slap\x20through\x20voice\x20note😂','write\x20i\x20am\x20lesbian\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20only\x20after\x205hrs','104hTcbZN','change\x20name\x20to\x20*I\x20AM\x20DONKEY*\x20for\x2024\x20hours','20fkKCEG','ss\x20recent\x20call\x20whatsapp','say\x20*i\x20hv\x20crush\x20on\x20you,\x20do\x20you\x20want\x20to\x20be\x20my\x20girlfriend?*\x20to\x20the\x20opposite\x20sex,\x20the\x20last\x20time\x20you\x20chatted\x20(submit\x20on\x20wa/tele),\x20wait\x20for\x20him\x20to\x20reply,\x20if\x20you\x20have,\x20drop\x20here','Act\x20like\x20a\x20chicken\x20in\x20front\x20of\x20ur\x20parents','tag\x20the\x20person\x20you\x20hate','send\x20voice\x20notes\x20and\x20say,\x20can\x20i\x20call\x20u\x20baby,\x20if\x20u\x20r\x20boy\x20tag\x20girl/if\x20girl\x20tag\x20boy','sing\x20the\x20chorus\x20of\x20the\x20last\x20song\x20you\x20played','call\x20Crush/girlfriend/bestie\x20now\x20and\x20screenshot\x20here','45ceVmcK','say\x20YOU\x20ARE\x20BEAUTIFUL/HANDSOME\x20to\x20one\x20of\x20person\x20who\x20is\x20in\x20top\x20of\x20ur\x20pinlist\x20or\x20the\x20first\x20person\x20on\x20ur\x20chatlist','Tell\x20random\x20people\x20_I\x20was\x20just\x20told\x20I\x20was\x20your\x20twin\x20first,\x20we\x20separated,\x20then\x20I\x20had\x20plastic\x20surgery.\x20And\x20this\x20is\x20the\x20most\x20ciyusss_\x20thing','say\x20i\x20love\x20oli\x20london\x20in\x20voice\x20note🤣🤣','say\x20i\x20love\x20the\x20bot\x20owner\x20drips\x20through\x20voice\x20note','1277247yeisPz','make\x20any\x20tiktok\x20dance\x20challenge\x20video\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20it\x20after\x205hrs','call\x20ex\x20saying\x20miss','Show\x20the\x20last\x20five\x20people\x20you\x20texted\x20and\x20what\x20the\x20messages\x20said','change\x20the\x20name\x20to\x20i\x20am\x20idiot\x20for\x2024\x20hours','send\x20abusive\x20words\x20in\x20any\x20grup,\x20excepting\x20this\x20grup,\x20and\x20send\x20screenshot\x20proof\x20here','Open\x20your\x20front\x20door\x20and\x20howl\x20like\x20a\x20wolf\x20for\x2010\x20seconds','call\x20crush/pickle\x20now\x20and\x20send\x20ss','2099328trppgY','Pretending\x20to\x20be\x20possessed,\x20for\x20Ejemplo:\x20possessed\x20by\x20dog,\x20possessed\x20by\x20grasshoppers,\x20possessed\x20by\x20refrigerator,\x20etc.','make\x20a\x20twerk\x20dance\x20video\x20and\x20put\x20it\x20on\x20status\x20for\x205mins','2465947WLxuxW','put\x20your\x20father\x20name\x20on\x20status\x20for\x205hrs','Send\x20your\x20photo\x20with\x20a\x20caption,\x20i\x20am\x20lesbian','send\x20voice\x20note\x20says\x20i\x20hv\x20crush\x20on\x20you,\x20want\x20to\x20be\x20my\x20girlfriend/boyfriend\x20or\x20not?\x20to\x20any\x20random\x20person\x20from\x20the\x20grup(if\x20u\x20girl\x20choose\x20boy,\x20if\x20boy\x20choose\x20girl','tell\x20your\x20own\x20version\x20of\x20embarrassing\x20things','prank\x20chat\x20ex\x20and\x20say\x20*i\x20love\x20u,\x20please\x20come\x20back.*\x20without\x20saying\x20dare!','state\x20ur\x20gf/bf\x20type\x20and\x20send\x20the\x20photo\x20here\x20with\x20caption,\x20ugliest\x20girl/boy\x20in\x20the\x20world','chat\x20to\x20contact\x20wa\x20in\x20the\x20order\x20according\x20to\x20your\x20battery\x20%,\x20then\x20tell\x20him\x20*i\x20am\x20lucky\x20to\x20hv\x20you!*','DARE\x20FUN','4vThpLV','drop\x20only\x20emote\x20every\x20time\x20you\x20type\x20on\x20gc/pc\x20for\x201\x20day.','260gxUoJt','22344WFKKXV','write\x20i\x20am\x20feeling\x20horny\x20and\x20put\x20it\x20on\x20status,\x20u\x20can\x20delete\x20it\x20only\x20after\x205hrs','change\x20name\x20to\x20I\x20AM\x20GAY\x20for\x205\x20hours','send\x20ur\x20whatsapp\x20chat\x20list','put\x20your\x20full\x20name\x20on\x20status\x20for\x205hrs','697776KibxKA','Say\x20*YOU\x20ARE\x20SO\x20BEAUTIFUL\x20DON\x27T\x20LIE*\x20to\x20guys!','make\x201\x20rhyme\x20for\x20the\x20members!','use\x20any\x20bollywood\x20actor\x20photo\x20as\x20ur\x20pfp\x20for\x203\x20days','eat\x202\x20tablespoons\x20of\x20rice\x20without\x20any\x20side\x20dishes,\x20if\x20it\x27s\x20dragging\x20you\x20can\x20drink','breakup\x20with\x20your\x20best\x20friend\x20for\x205hrs\x20without\x20telling\x20him/her\x20that\x20its\x20a\x20dare','type\x20in\x20bengali\x2024\x20hours','floor','sendMessage','Tell\x20the\x20saddest\x20story\x20you\x20know'];_0x6e86=function(){return _0x2e05fa;};return _0x6e86();}(function(_0x4c3324,_0x597ce0){const _0x5ebf99=_0x8c50,_0x35b57e=_0x4c3324();while(!![]){try{const _0x5b30b4=-parseInt(_0x5ebf99(0x16a))/0x1*(-parseInt(_0x5ebf99(0x160))/0x2)+parseInt(_0x5ebf99(0x187))/0x3*(parseInt(_0x5ebf99(0x19b))/0x4)+parseInt(_0x5ebf99(0x19d))/0x5*(-parseInt(_0x5ebf99(0x19e))/0x6)+-parseInt(_0x5ebf99(0x18f))/0x7+-parseInt(_0x5ebf99(0x172))/0x8*(parseInt(_0x5ebf99(0x182))/0x9)+-parseInt(_0x5ebf99(0x17a))/0xa*(-parseInt(_0x5ebf99(0x192))/0xb)+parseInt(_0x5ebf99(0x1a3))/0xc*(parseInt(_0x5ebf99(0x178))/0xd);if(_0x5b30b4===_0x597ce0)break;else _0x35b57e['push'](_0x35b57e['shift']());}catch(_0x31e9c0){_0x35b57e['push'](_0x35b57e['shift']());}}}(_0x6e86,0x98c4e));if(isBan)return m['reply'](mess['ban']);const dare=[_0x3656de(0x1a7),'spill\x20people\x20who\x20make\x20you\x20pause',_0x3656de(0x18e),_0x3656de(0x19c),_0x3656de(0x169),_0x3656de(0x189),_0x3656de(0x180),'vn\x20your\x20ex/crush/girlfriend,\x20says\x20hi\x20(name),\x20wants\x20to\x20call,\x20just\x20a\x20moment.\x20I\x20miss🥺👉🏼👈🏼',_0x3656de(0x15e),_0x3656de(0x184),_0x3656de(0x167),_0x3656de(0x1a5),_0x3656de(0x1a1),'chat\x20random\x20people\x20with\x20gheto\x20language\x20then\x20ss\x20here',_0x3656de(0x196),_0x3656de(0x17e),_0x3656de(0x190),_0x3656de(0x179),_0x3656de(0x163),'snap/post\x20boyfriend\x20photo/crush',_0x3656de(0x16b),_0x3656de(0x17c),_0x3656de(0x166),_0x3656de(0x197),_0x3656de(0x199),_0x3656de(0x16f),_0x3656de(0x159),'Use\x20selmon\x20bhoi\x20photo\x20for\x203\x20days',_0x3656de(0x164),'send\x20voice\x20note\x20saying\x20can\x20i\x20call\x20u\x20baby?',_0x3656de(0x17b),_0x3656de(0x1a4),_0x3656de(0x15d),_0x3656de(0x17d),'Pick\x20up\x20a\x20random\x20book\x20and\x20read\x20one\x20page\x20out\x20loud\x20in\x20vn\x20n\x20send\x20it\x20here',_0x3656de(0x18d),_0x3656de(0x174),_0x3656de(0x15f),_0x3656de(0x175),'sing\x20national\x20anthem\x20in\x20voice\x20note','Breakdance\x20for\x2030\x20seconds\x20in\x20the\x20sitting\x20room😂',_0x3656de(0x15c),_0x3656de(0x191),'Eat\x20a\x20raw\x20piece\x20of\x20garlic',_0x3656de(0x18a),_0x3656de(0x1a2),_0x3656de(0x161),'call\x20ur\x20bestie,\x20bitch','put\x20your\x20photo\x20without\x20filter\x20on\x20ur\x20status\x20for\x2010mins',_0x3656de(0x185),_0x3656de(0x16e),_0x3656de(0x181),'pop\x20to\x20one\x20of\x20the\x20group\x20member\x20personal\x20chat\x20and\x20Say\x20you\x20ugly\x20bustard',_0x3656de(0x183),_0x3656de(0x17f),'write\x20i\x20love\x20you\x20(random\x20grup\x20member\x20name,\x20who\x20is\x20online)\x20in\x20personal\x20chat,\x20(if\x20u\x20r\x20boy\x20write\x20girl\x20name/if\x20girl\x20write\x20boy\x20name)\x20take\x20a\x20snap\x20of\x20the\x20pic\x20and\x20send\x20it\x20here',_0x3656de(0x1a6),'put\x20your\x20crush\x20photo\x20on\x20status\x20with\x20caption,\x20this\x20is\x20my\x20crush',_0x3656de(0x1a0),_0x3656de(0x16d),_0x3656de(0x195),_0x3656de(0x168),_0x3656de(0x198),'shout\x20bravooooooooo\x20and\x20send\x20here\x20through\x20voice\x20note',_0x3656de(0x173),_0x3656de(0x194),_0x3656de(0x16c),'shout\x20you\x20bastard\x20in\x20front\x20of\x20your\x20mom/papa',_0x3656de(0x18b),_0x3656de(0x176),_0x3656de(0x186),_0x3656de(0x171),_0x3656de(0x188),_0x3656de(0x1a8),_0x3656de(0x165),'say\x20i\x20love\x20depak\x20kalal\x20through\x20voice\x20note',_0x3656de(0x19f),_0x3656de(0x177),'kiss\x20your\x20mommy\x20or\x20papa\x20and\x20say\x20i\x20love\x20you😌',_0x3656de(0x193),_0x3656de(0x18c)],dripsdare=dare[Math[_0x3656de(0x15a)](Math['random']()*dare[_0x3656de(0x170)])];buffer=await getBuffer(picak+_0x3656de(0x19a)),ZimBotInc[_0x3656de(0x15b)](from,{'image':buffer,'caption':_0x3656de(0x162)+dripsdare},{'quoted':m});
               break
                             
        case 'truth':
@@ -3251,7 +3251,7 @@ case 'yts': case 'ytsearch': case 'youtubesearch': const _0x244632=_0x2493;(func
                   case 'lyrics': {
                     if (isBan) return m.rely(mess.ban)
 
-    if (!text) return reply(`Use example ${prefix}lyrics sorry`)
+    if (!text) return reply(`Use Ejemplo ${prefix}lyrics sorry`)
 m.reply(mess.wait)
 const { lyrics, lyricsv2 } = require('@bochilteam/scraper')
 const result = await lyricsv2(text).catch(async _ => await lyrics(text))
@@ -3275,7 +3275,7 @@ case 'stickersearch': {
   if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
   let noh = require('./lib/lol.js')                
   noh.stickersearch(`${text}`).then(async (res) => {   
   for (let x of res.sticker_url) {
@@ -3289,11 +3289,11 @@ case 'stickersearch': {
 case 'igstalk': case 'instagramstalk': {
 if (isBan) throw mess.ban
 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-if (!text) throw `*where is the Username ? example : ${prefix + command} moonsuten*`	    
+if (!text) throw `*where is the Username ? Ejemplo : ${prefix + command} moonsuten*`	    
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 tod = await fetchJson(`https://api.lolhuman.xyz/api/stalkig/${text}?apikey=${setting.lolkey}`)
 gaber = tod.result.photo_profile
 teks = `
@@ -3314,7 +3314,7 @@ break
 case 'stalkgithub': case 'githubstalk': {
 if (isBan) throw mess.ban
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-              if (!text) throw `*Example : ${prefix + command} zim-bot*`
+              if (!text) throw `*Ejemplo : ${prefix + command} zim-bot*`
               ini_result = await fetchJson(`https://api-riychdwayne.herokuapp.com/api/githubstalk?username=${text}&apikey=${setting.riy}`)
               ini_result = ini_result.result             
               ini_txt = `
@@ -3341,7 +3341,7 @@ break
 case 'stalktwitter': case 'twitterstalk': {
 if (isBan) throw mess.ban
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-            if (!text) throw `Example : ${prefix + command} wibu.xyz`
+            if (!text) throw `Ejemplo : ${prefix + command} wibu.xyz`
              get_result = await fetchJson(`https://api.lolhuman.xyz/api/twitter/${text}?apikey=${setting.lolkey}`)
              get_result = get_result.result            
              pp_tt = await getBuffer(get_result.profile_picture)
@@ -3363,7 +3363,7 @@ break
 case 'tiktokstalk': {
 if (isBan) throw mess.ban
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-      if (!text) throw `Example : ${prefix + command} wibu.xyz`
+      if (!text) throw `Ejemplo : ${prefix + command} wibu.xyz`
              get_result = await fetchJson(`http://api.lolhuman.xyz/api/stalktiktok/${text}?apikey=${setting.lolkey}`)
              get_result = get_result.result             
              ini_txt = `
@@ -3384,7 +3384,7 @@ break
 case 'linkwa': case 'carigc': {
 if (isBan) throw mess.ban
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-            if (!text) throw `Example : ${prefix + command} botwa`            
+            if (!text) throw `Ejemplo : ${prefix + command} botwa`            
             anu = await fetchJson(`https://cililitan.herokuapp.com/api/searchgrupwa?nama=${text}`)                       
             //res = `*GROUP SEARCH*\n\n*Nama*: _${anu.result[0].subject}_\n*Link*: ${anu.result[0].link}\n\n*Nama*: _${anu.result[1].subject}_\n*Link*: ${anu.result[1].link}\n\n*Nama*: _${anu.result[2].subject}_\n*Link*: ${anu.result[2].link}\n\n*Nama*: _${anu.result[3].subject}_\n*Link*: ${anu.result[3].link}\n\n*Nama*: _${anu.result[4].subject}_\n*Link*: ${anu.result[4].link}\n\n*Nama*: _${anu.result[5].subject}_\n*Link*: ${anu.result[5].link}`
             ini_txt = '*Search Group*\n\n'
@@ -3398,7 +3398,7 @@ if (isBan) throw mess.ban
 case 'searchgroup': {
 if (isBan) throw mess.ban
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-           if (!text) throw `Example : ${prefix + command} cinta`            
+           if (!text) throw `Ejemplo : ${prefix + command} cinta`            
             anu = await fetchJson(`https://api.akuari.my.id/search/carigc?query=${text}`)                       
             ini_txt = '*Search Group*\n\n'
             for (let i of anu.result) {      
@@ -3411,7 +3411,7 @@ if (isBan) throw mess.ban
 case 'playstore': case 'playstoresearch': {
 if (isBan) throw mess.ban
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-            if (!text) throw `Example : ${prefix + command} baju`            
+            if (!text) throw `Ejemplo : ${prefix + command} baju`            
             x = await fetchJson(`https://api.violetics.pw/api/apk/playstore?apikey=${setting.violkey}&apps=${text}`)                       
             ini_txt = '*PLAYSTORE SEARCH*\n\n'
             for (let i of x.result) {       
@@ -3427,11 +3427,11 @@ if (isBan) throw mess.ban
 case 'brainly': {
 if (isBan) throw mess.ban
             ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-            if (!text) throw `Example : ${prefix + command} apa itu wibu`           
+            if (!text) throw `Ejemplo : ${prefix + command} apa itu wibu`           
             if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
             x = await fetchJson(`https://api.violetics.pw/api/media/brainly?apikey=${setting.violkey}&query=${text}`)                       
             ini_txt = '*BRAINLY SEARCH*\n\n'
             for (let i of x.result) {       
@@ -3443,55 +3443,55 @@ if (isBan) throw mess.ban
             break
 case 'television': {
 if (isBan) throw mess.ban
-                if (!text) throw `what are you looking for!, example : ${prefix + command} cars` 
+                if (!text) throw `what are you looking for!, Ejemplo : ${prefix + command} cars` 
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let anu = await fetchJson(`https://violetics.pw/api/search/layarkaca?apikey=${setting.violkey}&query=${text}`)
                 m.reply(`${util.format(anu)}`)
                 }
             break
 case 'pixivsearch': {
 if (isBan) throw mess.ban
-                if (!text) throw `what are you looking for!, example : ${prefix + command} cars`
+                if (!text) throw `what are you looking for!, Ejemplo : ${prefix + command} cars`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let anu = await fetchJson(`https://api.akuari.my.id/search/pixiv?query=${text}`)
                 m.reply(`${util.format(anu)}`)
                 }
             break
 case 'mangatoon': {
 if (isBan) throw mess.ban
-                if (!text) throw `what are you looking for!, example : ${prefix + command} config_internet`
+                if (!text) throw `what are you looking for!, Ejemplo : ${prefix + command} config_internet`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let anu = await fetchJson(`https://violetics.pw/api/search/mangatoon?apikey=${setting.violkey}&query=${text}`)
                 m.reply(`${util.format(anu)}`)
                 }
             break
 case 'palingmurah': {
 if (isBan) throw mess.ban
-                if (!text) throw `what are you looking for!, example : ${prefix + command} vps`
+                if (!text) throw `what are you looking for!, Ejemplo : ${prefix + command} vps`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let anu = await fetchJson(`https://violetics.pw/api/search/palingmurah?apikey=${setting.violkey}&query=${text}`)
                 m.reply(`${util.format(anu)}`)
                 }
             break
 case 'gsmarena': {
 if (isBan) throw mess.ban
-                if (!text) throw '*What brand are you looking for, for example? \n .gsmarena xiaomi*'
+                if (!text) throw '*What brand are you looking for, for Ejemplo? \n .gsmarena xiaomi*'
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await fetchJson(`https://yx-api.herokuapp.com/api/search/gsmarena?query=${text}`)				
 				reply212 = `*▊▊▊ SEARCH GMSARENA ▊▊▊*\n\n
 *Name* : ${anu.judul}
@@ -3530,7 +3530,7 @@ if (isBan) throw mess.ban
 case 'news': case 'detik': {
 if (isBan) throw mess.ban
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-          //  if (!text) throw `Example : ${prefix + command} baju`            
+          //  if (!text) throw `Ejemplo : ${prefix + command} baju`            
             i = await fetchJson(`https://xteam.xyz/news/detik?APIKEY=${setting.riy}`)            
             ini_txt = '*NEWS INFO*\n\n'                
             ini_txt += `*JUDUL* : ${i.judul}\n`
@@ -3542,11 +3542,11 @@ if (isBan) throw mess.ban
             break
 case 'searchanime': {
 if (isBan) throw mess.ban
-                if (!text) throw `Example : ${prefix + command} nama anime`
+                if (!text) throw `Ejemplo : ${prefix + command} nama anime`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api.akuari.my.id/search/konachan?query=${text}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
@@ -3554,7 +3554,7 @@ if (isBan) throw mess.ban
            case 'lyrics': case 'lirik': case 'liriklagu': {
            if (isBan) throw mess.ban
            //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} Kemarin`
+                if (!text) throw `Ejemplo : ${prefix + command} Kemarin`
                 anu = await fetchJson(`https://api.lolhuman.xyz/api/lirik?apikey=${setting.lolkey}&query=${text}`)
                m.reply(`${anu.result}`)
             }
@@ -3562,11 +3562,11 @@ if (isBan) throw mess.ban
             case 'readmore': {
             if (isBan) throw mess.ban
             ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} halo gaes`
+                if (!text) throw `Ejemplo : ${prefix + command} halo gaes`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await fetchJson(`https://cililitan.herokuapp.com/api/readmore?teks=${text}`)
                m.reply(`${anu.result}`)
             }
@@ -3588,7 +3588,7 @@ if (isBan) throw mess.ban
         case 'gimage': {
         if (isBan) throw mess.ban
         //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-        if (!text) throw `Example : ${prefix + command} John Cena`
+        if (!text) throw `Ejemplo : ${prefix + command} John Cena`
         let gis = require('g-i-s')
         gis(text, async (error, result) => {
         n = result
@@ -3613,7 +3613,7 @@ if (isBan) throw mess.ban
         break
 case 'play': {
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} story wa anime`
+                if (!text) throw `Ejemplo : ${prefix + command} story wa anime`
                 let yts = require("yt-search")
                 let search = await yts(text)
                 let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
@@ -3642,7 +3642,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             }, {
                             	urlButton: {
           displayText: `GITHUB`, 
-                  url: `https://github.com/zim-bot/zimbot-v3`
+                  url: `https://github.com/ChumoGH/ChumoGH-Script`
           }
                             }, {
           quickReplyButton: {
@@ -3667,18 +3667,18 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 }
 break
-case 'song': function _0x2619(_0xa712bd,_0x3cc493){const _0x2f0691=_0x2f06();return _0x2619=function(_0x261933,_0x59f241){_0x261933=_0x261933-0x1a2;let _0x917ca7=_0x2f0691[_0x261933];return _0x917ca7;},_0x2619(_0xa712bd,_0x3cc493);}function _0x2f06(){const _0x55f35b=['5882437fKRgcs','CLICK\x20HERE','SONG\x20MP3⬤:\x20','4hJSzkU','12pZvqNm','814707ccVmTU','\x20story\x20wa\x20anime','all','ytmp3\x20','4372FqRNJf','10410rOdoIb','9jVLgZE','221753YSKLus','description','228MgPUWT','1606370nMGtMJ','yt-search','ytmp4\x20','push','chat','title','875MAamOM','VIDEO\x20MP4⬤:\x20','3693992HrmsNO','url','sendMessage','HERE\x20IS\x20YOUR\x20RESULTS\x20CHOMIE\x20FROM\x20*','Example\x20:\x20'];_0x2f06=function(){return _0x55f35b;};return _0x2f06();}const _0x494681=_0x2619;(function(_0x2f990d,_0x3dab42){const _0x5d3d5d=_0x2619,_0x91ff83=_0x2f990d();while(!![]){try{const _0x5d2979=-parseInt(_0x5d3d5d(0x1bc))/0x1*(parseInt(_0x5d3d5d(0x1a5))/0x2)+-parseInt(_0x5d3d5d(0x1b8))/0x3*(parseInt(_0x5d3d5d(0x1b6))/0x4)+parseInt(_0x5d3d5d(0x1ac))/0x5*(parseInt(_0x5d3d5d(0x1bd))/0x6)+-parseInt(_0x5d3d5d(0x1a3))/0x7+parseInt(_0x5d3d5d(0x1ae))/0x8*(parseInt(_0x5d3d5d(0x1a2))/0x9)+-parseInt(_0x5d3d5d(0x1a6))/0xa+parseInt(_0x5d3d5d(0x1b3))/0xb*(parseInt(_0x5d3d5d(0x1b7))/0xc);if(_0x5d2979===_0x3dab42)break;else _0x91ff83['push'](_0x91ff83['shift']());}catch(_0xd3cf2c){_0x91ff83['push'](_0x91ff83['shift']());}}}(_0x2f06,0x527b8));{if(!text)throw _0x494681(0x1b2)+(prefix+command)+_0x494681(0x1b9);let yts=require(_0x494681(0x1a7)),search=await yts(text),sections=[],listmenu=[_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x0][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x2]['url'],'ytmp3\x20'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1af)],'ytmp4\x20'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x7][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x8]['url'],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x9][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xa][_0x494681(0x1af)],'ytmp3\x20'+search[_0x494681(0x1ba)][0xb]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xc]['url'],_0x494681(0x1bb)+search['all'][0xd][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1af)],'ytmp3\x20'+search['all'][0xf]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x11]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x13][_0x494681(0x1af)]],listmenuu=[_0x494681(0x1ad)+search['all'][0x0][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x2][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x3][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1ab)],_0x494681(0x1ad)+search['all'][0x6][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x7]['title'],'VIDEO\x20MP4⬤:\x20'+search[_0x494681(0x1ba)][0x8][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xa]['title'],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0xb][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xc][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search['all'][0xd][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0xf][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x11]['title'],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1ab)]],listmenuuu=['\x0a'+search[_0x494681(0x1ba)][0x0][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x1]['description'],'\x0a'+search[_0x494681(0x1ba)][0x2][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1a4)],'\x0a'+search['all'][0x4]['description'],'\x0a'+search['all'][0x5][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x7]['description'],'\x0a'+search[_0x494681(0x1ba)][0x8]['description'],'\x0a'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1a4)],'\x0a'+search['all'][0xa][_0x494681(0x1a4)],'\x0a'+search['all'][0xb][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xc][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xd][_0x494681(0x1a4)],'\x0a'+search['all'][0xe][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xf]['description'],'\x0a'+search[_0x494681(0x1ba)][0x10]['description'],'\x0a'+search['all'][0x11]['description'],'\x0a'+search[_0x494681(0x1ba)][0x12][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1a4)]],nombor=0x1,startnum=0x0,startnumm=0x0;for(let x of listmenu){const list={'title':'RESULT\x20NUMBER\x20'+nombor++,'rows':[{'title':''+listmenuu[startnum++],'description':''+listmenuuu[startnumm++],'rowId':''+prefix+x}]};sections[_0x494681(0x1a9)](list);}const sendm=ZimBotInc[_0x494681(0x1b0)](m[_0x494681(0x1aa)],{'text':'\x0a\x0a*CHEERS\x20TO\x20THAT*','footer':botname,'title':_0x494681(0x1b1)+text+'*\x20_select\x20song\x20or\x20video\x20below_','buttonText':_0x494681(0x1b4),'sections':sections},{'quoted':m});}
+case 'song': function _0x2619(_0xa712bd,_0x3cc493){const _0x2f0691=_0x2f06();return _0x2619=function(_0x261933,_0x59f241){_0x261933=_0x261933-0x1a2;let _0x917ca7=_0x2f0691[_0x261933];return _0x917ca7;},_0x2619(_0xa712bd,_0x3cc493);}function _0x2f06(){const _0x55f35b=['5882437fKRgcs','CLICK\x20HERE','SONG\x20MP3⬤:\x20','4hJSzkU','12pZvqNm','814707ccVmTU','\x20story\x20wa\x20anime','all','ytmp3\x20','4372FqRNJf','10410rOdoIb','9jVLgZE','221753YSKLus','description','228MgPUWT','1606370nMGtMJ','yt-search','ytmp4\x20','push','chat','title','875MAamOM','VIDEO\x20MP4⬤:\x20','3693992HrmsNO','url','sendMessage','HERE\x20IS\x20YOUR\x20RESULTS\x20CHOMIE\x20FROM\x20*','Ejemplo\x20:\x20'];_0x2f06=function(){return _0x55f35b;};return _0x2f06();}const _0x494681=_0x2619;(function(_0x2f990d,_0x3dab42){const _0x5d3d5d=_0x2619,_0x91ff83=_0x2f990d();while(!![]){try{const _0x5d2979=-parseInt(_0x5d3d5d(0x1bc))/0x1*(parseInt(_0x5d3d5d(0x1a5))/0x2)+-parseInt(_0x5d3d5d(0x1b8))/0x3*(parseInt(_0x5d3d5d(0x1b6))/0x4)+parseInt(_0x5d3d5d(0x1ac))/0x5*(parseInt(_0x5d3d5d(0x1bd))/0x6)+-parseInt(_0x5d3d5d(0x1a3))/0x7+parseInt(_0x5d3d5d(0x1ae))/0x8*(parseInt(_0x5d3d5d(0x1a2))/0x9)+-parseInt(_0x5d3d5d(0x1a6))/0xa+parseInt(_0x5d3d5d(0x1b3))/0xb*(parseInt(_0x5d3d5d(0x1b7))/0xc);if(_0x5d2979===_0x3dab42)break;else _0x91ff83['push'](_0x91ff83['shift']());}catch(_0xd3cf2c){_0x91ff83['push'](_0x91ff83['shift']());}}}(_0x2f06,0x527b8));{if(!text)throw _0x494681(0x1b2)+(prefix+command)+_0x494681(0x1b9);let yts=require(_0x494681(0x1a7)),search=await yts(text),sections=[],listmenu=[_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x0][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x2]['url'],'ytmp3\x20'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1af)],'ytmp4\x20'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x7][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x8]['url'],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x9][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xa][_0x494681(0x1af)],'ytmp3\x20'+search[_0x494681(0x1ba)][0xb]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xc]['url'],_0x494681(0x1bb)+search['all'][0xd][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1af)],'ytmp3\x20'+search['all'][0xf]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x11]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x13][_0x494681(0x1af)]],listmenuu=[_0x494681(0x1ad)+search['all'][0x0][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x2][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x3][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1ab)],_0x494681(0x1ad)+search['all'][0x6][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x7]['title'],'VIDEO\x20MP4⬤:\x20'+search[_0x494681(0x1ba)][0x8][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xa]['title'],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0xb][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xc][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search['all'][0xd][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0xf][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x11]['title'],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1ab)]],listmenuuu=['\x0a'+search[_0x494681(0x1ba)][0x0][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x1]['description'],'\x0a'+search[_0x494681(0x1ba)][0x2][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1a4)],'\x0a'+search['all'][0x4]['description'],'\x0a'+search['all'][0x5][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x7]['description'],'\x0a'+search[_0x494681(0x1ba)][0x8]['description'],'\x0a'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1a4)],'\x0a'+search['all'][0xa][_0x494681(0x1a4)],'\x0a'+search['all'][0xb][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xc][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xd][_0x494681(0x1a4)],'\x0a'+search['all'][0xe][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xf]['description'],'\x0a'+search[_0x494681(0x1ba)][0x10]['description'],'\x0a'+search['all'][0x11]['description'],'\x0a'+search[_0x494681(0x1ba)][0x12][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1a4)]],nombor=0x1,startnum=0x0,startnumm=0x0;for(let x of listmenu){const list={'title':'RESULT\x20NUMBER\x20'+nombor++,'rows':[{'title':''+listmenuu[startnum++],'description':''+listmenuuu[startnumm++],'rowId':''+prefix+x}]};sections[_0x494681(0x1a9)](list);}const sendm=ZimBotInc[_0x494681(0x1b0)](m[_0x494681(0x1aa)],{'text':'\x0a\x0a*CHEERS\x20TO\x20THAT*','footer':botname,'title':_0x494681(0x1b1)+text+'*\x20_select\x20song\x20or\x20video\x20below_','buttonText':_0x494681(0x1b4),'sections':sections},{'quoted':m});}
      break
-case 'ytsaudio': case 'ytsmusic': case 'ytsearchmusic': function _0x46a1(){const _0x3cb4a8=['44fHOPfg','chat','ago','ban','4252496icAfHA','yt-search','description','\x20guspy\x20warior\x20ita\x20seunononga','34092pFHiyl','\x0a*LINK:*\x20','12epfryU','views','74qcPxDS','title','LIST\x20OF\x20AUDIOS','133001HPuagx','url','2461554eExvyT','push','677018pTstMj','42513SkDmLN','\x0a*VIEWS:*\x20','name','author','ytmp3\x20','546sLAwAk','\x0a*DURATION:*\x20','\x0a*UPLOAD:*\x20','timestamp','38900mFwmYh','20kEdwTq'];_0x46a1=function(){return _0x3cb4a8;};return _0x46a1();}function _0x35ef(_0x1538a1,_0x2458a4){const _0x46a1f5=_0x46a1();return _0x35ef=function(_0x35ef79,_0x36917d){_0x35ef79=_0x35ef79-0xf2;let _0x553e0e=_0x46a1f5[_0x35ef79];return _0x553e0e;},_0x35ef(_0x1538a1,_0x2458a4);}const _0x49fc3c=_0x35ef;(function(_0x180268,_0x1db291){const _0x90f637=_0x35ef,_0x1f645e=_0x180268();while(!![]){try{const _0xfa5e79=parseInt(_0x90f637(0x103))/0x1+-parseInt(_0x90f637(0xfc))/0x2*(parseInt(_0x90f637(0x104))/0x3)+parseInt(_0x90f637(0x10f))/0x4*(-parseInt(_0x90f637(0x10d))/0x5)+parseInt(_0x90f637(0xf8))/0x6*(parseInt(_0x90f637(0x109))/0x7)+-parseInt(_0x90f637(0xf4))/0x8+-parseInt(_0x90f637(0x101))/0x9*(-parseInt(_0x90f637(0x10e))/0xa)+parseInt(_0x90f637(0xff))/0xb*(-parseInt(_0x90f637(0xfa))/0xc);if(_0xfa5e79===_0x1db291)break;else _0x1f645e['push'](_0x1f645e['shift']());}catch(_0x54be1f){_0x1f645e['push'](_0x1f645e['shift']());}}}(_0x46a1,0x7d682));{if(isBan)throw mess[_0x49fc3c(0xf3)];if(!text)throw'Example\x20:\x20'+(prefix+command)+_0x49fc3c(0xf7);let yts=require(_0x49fc3c(0xf5)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i['title'],'rows':[{'title':i[_0x49fc3c(0xfd)]+'\x0a','rowId':prefix+_0x49fc3c(0x108)+i[_0x49fc3c(0x100)],'description':i[_0x49fc3c(0xf6)]+_0x49fc3c(0x10b)+i[_0x49fc3c(0xf2)]+'\x0a*CHANNEL:*\x20'+i[_0x49fc3c(0x107)][_0x49fc3c(0x106)]+_0x49fc3c(0x105)+i[_0x49fc3c(0xfb)]+_0x49fc3c(0x10a)+i[_0x49fc3c(0x10c)]+_0x49fc3c(0xf9)+i[_0x49fc3c(0x100)]}]};sections[_0x49fc3c(0x102)](list);}const sendm=ZimBotInc['sendMessage'](m[_0x49fc3c(0x110)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20Here\x20are\x20the\x20search\x20results\x20from\x20ytsaudio','buttonText':_0x49fc3c(0xfe),'sections':sections},{'quoted':m});}
+case 'ytsaudio': case 'ytsmusic': case 'ytsearchmusic': function _0x46a1(){const _0x3cb4a8=['44fHOPfg','chat','ago','ban','4252496icAfHA','yt-search','description','\x20guspy\x20warior\x20ita\x20seunononga','34092pFHiyl','\x0a*LINK:*\x20','12epfryU','views','74qcPxDS','title','LIST\x20OF\x20AUDIOS','133001HPuagx','url','2461554eExvyT','push','677018pTstMj','42513SkDmLN','\x0a*VIEWS:*\x20','name','author','ytmp3\x20','546sLAwAk','\x0a*DURATION:*\x20','\x0a*UPLOAD:*\x20','timestamp','38900mFwmYh','20kEdwTq'];_0x46a1=function(){return _0x3cb4a8;};return _0x46a1();}function _0x35ef(_0x1538a1,_0x2458a4){const _0x46a1f5=_0x46a1();return _0x35ef=function(_0x35ef79,_0x36917d){_0x35ef79=_0x35ef79-0xf2;let _0x553e0e=_0x46a1f5[_0x35ef79];return _0x553e0e;},_0x35ef(_0x1538a1,_0x2458a4);}const _0x49fc3c=_0x35ef;(function(_0x180268,_0x1db291){const _0x90f637=_0x35ef,_0x1f645e=_0x180268();while(!![]){try{const _0xfa5e79=parseInt(_0x90f637(0x103))/0x1+-parseInt(_0x90f637(0xfc))/0x2*(parseInt(_0x90f637(0x104))/0x3)+parseInt(_0x90f637(0x10f))/0x4*(-parseInt(_0x90f637(0x10d))/0x5)+parseInt(_0x90f637(0xf8))/0x6*(parseInt(_0x90f637(0x109))/0x7)+-parseInt(_0x90f637(0xf4))/0x8+-parseInt(_0x90f637(0x101))/0x9*(-parseInt(_0x90f637(0x10e))/0xa)+parseInt(_0x90f637(0xff))/0xb*(-parseInt(_0x90f637(0xfa))/0xc);if(_0xfa5e79===_0x1db291)break;else _0x1f645e['push'](_0x1f645e['shift']());}catch(_0x54be1f){_0x1f645e['push'](_0x1f645e['shift']());}}}(_0x46a1,0x7d682));{if(isBan)throw mess[_0x49fc3c(0xf3)];if(!text)throw'Ejemplo\x20:\x20'+(prefix+command)+_0x49fc3c(0xf7);let yts=require(_0x49fc3c(0xf5)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i['title'],'rows':[{'title':i[_0x49fc3c(0xfd)]+'\x0a','rowId':prefix+_0x49fc3c(0x108)+i[_0x49fc3c(0x100)],'description':i[_0x49fc3c(0xf6)]+_0x49fc3c(0x10b)+i[_0x49fc3c(0xf2)]+'\x0a*CHANNEL:*\x20'+i[_0x49fc3c(0x107)][_0x49fc3c(0x106)]+_0x49fc3c(0x105)+i[_0x49fc3c(0xfb)]+_0x49fc3c(0x10a)+i[_0x49fc3c(0x10c)]+_0x49fc3c(0xf9)+i[_0x49fc3c(0x100)]}]};sections[_0x49fc3c(0x102)](list);}const sendm=ZimBotInc['sendMessage'](m[_0x49fc3c(0x110)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20Here\x20are\x20the\x20search\x20results\x20from\x20ytsaudio','buttonText':_0x49fc3c(0xfe),'sections':sections},{'quoted':m});}
                   break
-case 'ytsvideo': case 'ytsearchvideo': function _0x4c3b(_0x54ae6d,_0x1bd257){const _0x3b9c98=_0x3b9c();return _0x4c3b=function(_0x4c3b5c,_0x283661){_0x4c3b5c=_0x4c3b5c-0xde;let _0x293112=_0x3b9c98[_0x4c3b5c];return _0x293112;},_0x4c3b(_0x54ae6d,_0x1bd257);}const _0x309941=_0x4c3b;(function(_0x39a082,_0x29c94e){const _0x31d9ff=_0x4c3b,_0x475bdc=_0x39a082();while(!![]){try{const _0x413430=parseInt(_0x31d9ff(0xde))/0x1+-parseInt(_0x31d9ff(0xf6))/0x2+-parseInt(_0x31d9ff(0xef))/0x3*(-parseInt(_0x31d9ff(0xe7))/0x4)+-parseInt(_0x31d9ff(0xf5))/0x5+parseInt(_0x31d9ff(0xec))/0x6+parseInt(_0x31d9ff(0xf2))/0x7*(-parseInt(_0x31d9ff(0xe2))/0x8)+-parseInt(_0x31d9ff(0xf3))/0x9;if(_0x413430===_0x29c94e)break;else _0x475bdc['push'](_0x475bdc['shift']());}catch(_0x42b36d){_0x475bdc['push'](_0x475bdc['shift']());}}}(_0x3b9c,0x95b3f));function _0x3b9c(){const _0x638643=['3DDoYge','description','views','21pCPFvn','6141285sksXBX','\x0a*DURATION*\x20','1562925wRUdVF','624600RRcHIn','yt-search','url','1208674kLzYwF','sendMessage','chat','name','2313448kMulLs','ago','\x0a*LINK:*\x20','ytmp4\x20','title','1890928GCYvLv','Example\x20:\x20','LIST\x20OF\x20VIDEOS','\x20seh\x20calaz\x20takambo\x20tamba\x20munyika','\x0a*UPLOAD:*\x20','6639420uOEBHC','timestamp','\x0a*VIEWS:*\x20'];_0x3b9c=function(){return _0x638643;};return _0x3b9c();}{if(isBan)throw mess['ban'];if(!text)throw _0x309941(0xe8)+(prefix+command)+_0x309941(0xea);let yts=require(_0x309941(0xf7)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i[_0x309941(0xe6)],'rows':[{'title':i['title']+'\x0a','rowId':prefix+_0x309941(0xe5)+i['url'],'description':i[_0x309941(0xf0)]+_0x309941(0xeb)+i[_0x309941(0xe3)]+'\x0a*CHANNEL:*\x20'+i['author'][_0x309941(0xe1)]+_0x309941(0xee)+i[_0x309941(0xf1)]+_0x309941(0xf4)+i[_0x309941(0xed)]+_0x309941(0xe4)+i[_0x309941(0xf8)]}]};sections['push'](list);}const sendm=ZimBotInc[_0x309941(0xdf)](m[_0x309941(0xe0)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20*Here\x20are\x20the\x20search\x20results\x20from\x20ytsvideo*','buttonText':_0x309941(0xe9),'sections':sections},{'quoted':m});}
+case 'ytsvideo': case 'ytsearchvideo': function _0x4c3b(_0x54ae6d,_0x1bd257){const _0x3b9c98=_0x3b9c();return _0x4c3b=function(_0x4c3b5c,_0x283661){_0x4c3b5c=_0x4c3b5c-0xde;let _0x293112=_0x3b9c98[_0x4c3b5c];return _0x293112;},_0x4c3b(_0x54ae6d,_0x1bd257);}const _0x309941=_0x4c3b;(function(_0x39a082,_0x29c94e){const _0x31d9ff=_0x4c3b,_0x475bdc=_0x39a082();while(!![]){try{const _0x413430=parseInt(_0x31d9ff(0xde))/0x1+-parseInt(_0x31d9ff(0xf6))/0x2+-parseInt(_0x31d9ff(0xef))/0x3*(-parseInt(_0x31d9ff(0xe7))/0x4)+-parseInt(_0x31d9ff(0xf5))/0x5+parseInt(_0x31d9ff(0xec))/0x6+parseInt(_0x31d9ff(0xf2))/0x7*(-parseInt(_0x31d9ff(0xe2))/0x8)+-parseInt(_0x31d9ff(0xf3))/0x9;if(_0x413430===_0x29c94e)break;else _0x475bdc['push'](_0x475bdc['shift']());}catch(_0x42b36d){_0x475bdc['push'](_0x475bdc['shift']());}}}(_0x3b9c,0x95b3f));function _0x3b9c(){const _0x638643=['3DDoYge','description','views','21pCPFvn','6141285sksXBX','\x0a*DURATION*\x20','1562925wRUdVF','624600RRcHIn','yt-search','url','1208674kLzYwF','sendMessage','chat','name','2313448kMulLs','ago','\x0a*LINK:*\x20','ytmp4\x20','title','1890928GCYvLv','Ejemplo\x20:\x20','LIST\x20OF\x20VIDEOS','\x20seh\x20calaz\x20takambo\x20tamba\x20munyika','\x0a*UPLOAD:*\x20','6639420uOEBHC','timestamp','\x0a*VIEWS:*\x20'];_0x3b9c=function(){return _0x638643;};return _0x3b9c();}{if(isBan)throw mess['ban'];if(!text)throw _0x309941(0xe8)+(prefix+command)+_0x309941(0xea);let yts=require(_0x309941(0xf7)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i[_0x309941(0xe6)],'rows':[{'title':i['title']+'\x0a','rowId':prefix+_0x309941(0xe5)+i['url'],'description':i[_0x309941(0xf0)]+_0x309941(0xeb)+i[_0x309941(0xe3)]+'\x0a*CHANNEL:*\x20'+i['author'][_0x309941(0xe1)]+_0x309941(0xee)+i[_0x309941(0xf1)]+_0x309941(0xf4)+i[_0x309941(0xed)]+_0x309941(0xe4)+i[_0x309941(0xf8)]}]};sections['push'](list);}const sendm=ZimBotInc[_0x309941(0xdf)](m[_0x309941(0xe0)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20*Here\x20are\x20the\x20search\x20results\x20from\x20ytsvideo*','buttonText':_0x309941(0xe9),'sections':sections},{'quoted':m});}
                   break
-case 'yts2': case 'youtubesearch2': case 'ytsearch2': const _0x367230=_0x7a1b;(function(_0x26fbd0,_0x29b735){const _0x3fbe28=_0x7a1b,_0x275c0e=_0x26fbd0();while(!![]){try{const _0x2ee184=-parseInt(_0x3fbe28(0x70))/0x1+parseInt(_0x3fbe28(0x68))/0x2*(parseInt(_0x3fbe28(0x6c))/0x3)+parseInt(_0x3fbe28(0x73))/0x4+parseInt(_0x3fbe28(0x74))/0x5+parseInt(_0x3fbe28(0x77))/0x6+-parseInt(_0x3fbe28(0x6e))/0x7+-parseInt(_0x3fbe28(0x6a))/0x8;if(_0x2ee184===_0x29b735)break;else _0x275c0e['push'](_0x275c0e['shift']());}catch(_0x4987dd){_0x275c0e['push'](_0x275c0e['shift']());}}}(_0x3a3e,0x7e8f6));function _0x7a1b(_0x2bbe12,_0x2db74a){const _0x3a3eb8=_0x3a3e();return _0x7a1b=function(_0x7a1b5f,_0xb700fa){_0x7a1b5f=_0x7a1b5f-0x68;let _0x4e426f=_0x3a3eb8[_0x7a1b5f];return _0x4e426f;},_0x7a1b(_0x2bbe12,_0x2db74a);}function _0x3a3e(){const _0xe7d720=['3SOVAdT','\x20story\x20wa\x20anime','2848391hZOnOV','yt-search','523865hTPSLj','CLICK\x20HERE','all','2700252wdBUpq','4085610EqrFLz','description','chat','4241982zoUaHp','title','ytmp3\x20','1855474dcfikL','sendMessage','13422008SKxjtp','push'];_0x3a3e=function(){return _0xe7d720;};return _0x3a3e();}{if(!text)throw'Example\x20:\x20'+(prefix+command)+_0x367230(0x6d);let yts=require(_0x367230(0x6f)),search=await yts(text),no=0x1,sections=[];for(let i of search[_0x367230(0x72)]){const list={'title':''+i[_0x367230(0x78)],'rows':[{'title':i['title']+'\x0a\x0a','rowId':prefix+_0x367230(0x79)+i['url'],'description':''+i[_0x367230(0x75)]}]};sections[_0x367230(0x6b)](list);}const sendm=ZimBotInc[_0x367230(0x69)](m[_0x367230(0x76)],{'text':'\x20'+text,'footer':botname,'title':'*Here\x20are\x20the\x20search\x20results\x20from\x20yts2*','buttonText':_0x367230(0x71),'sections':sections},{'quoted':m});}
+case 'yts2': case 'youtubesearch2': case 'ytsearch2': const _0x367230=_0x7a1b;(function(_0x26fbd0,_0x29b735){const _0x3fbe28=_0x7a1b,_0x275c0e=_0x26fbd0();while(!![]){try{const _0x2ee184=-parseInt(_0x3fbe28(0x70))/0x1+parseInt(_0x3fbe28(0x68))/0x2*(parseInt(_0x3fbe28(0x6c))/0x3)+parseInt(_0x3fbe28(0x73))/0x4+parseInt(_0x3fbe28(0x74))/0x5+parseInt(_0x3fbe28(0x77))/0x6+-parseInt(_0x3fbe28(0x6e))/0x7+-parseInt(_0x3fbe28(0x6a))/0x8;if(_0x2ee184===_0x29b735)break;else _0x275c0e['push'](_0x275c0e['shift']());}catch(_0x4987dd){_0x275c0e['push'](_0x275c0e['shift']());}}}(_0x3a3e,0x7e8f6));function _0x7a1b(_0x2bbe12,_0x2db74a){const _0x3a3eb8=_0x3a3e();return _0x7a1b=function(_0x7a1b5f,_0xb700fa){_0x7a1b5f=_0x7a1b5f-0x68;let _0x4e426f=_0x3a3eb8[_0x7a1b5f];return _0x4e426f;},_0x7a1b(_0x2bbe12,_0x2db74a);}function _0x3a3e(){const _0xe7d720=['3SOVAdT','\x20story\x20wa\x20anime','2848391hZOnOV','yt-search','523865hTPSLj','CLICK\x20HERE','all','2700252wdBUpq','4085610EqrFLz','description','chat','4241982zoUaHp','title','ytmp3\x20','1855474dcfikL','sendMessage','13422008SKxjtp','push'];_0x3a3e=function(){return _0xe7d720;};return _0x3a3e();}{if(!text)throw'Ejemplo\x20:\x20'+(prefix+command)+_0x367230(0x6d);let yts=require(_0x367230(0x6f)),search=await yts(text),no=0x1,sections=[];for(let i of search[_0x367230(0x72)]){const list={'title':''+i[_0x367230(0x78)],'rows':[{'title':i['title']+'\x0a\x0a','rowId':prefix+_0x367230(0x79)+i['url'],'description':''+i[_0x367230(0x75)]}]};sections[_0x367230(0x6b)](list);}const sendm=ZimBotInc[_0x367230(0x69)](m[_0x367230(0x76)],{'text':'\x20'+text,'footer':botname,'title':'*Here\x20are\x20the\x20search\x20results\x20from\x20yts2*','buttonText':_0x367230(0x71),'sections':sections},{'quoted':m});}
                   break
 case 'play2':  {  
 if (isBan) throw mess.ban            
 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-           if (!text) throw `Example : ${prefix + command} story wa anime`           
+           if (!text) throw `Ejemplo : ${prefix + command} story wa anime`           
            let yts = require("yt-search")
            aramas = await yts(text)
 			aramat = aramas.all 
@@ -3707,7 +3707,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             }, {
                             	urlButton: {
           displayText: `GITHUB`, 
-                  url: `https://github.com/zim-bot/zimbot-v3`
+                  url: `https://github.com/ChumoGH/ChumoGH-Script`
           }
                             }, {
           quickReplyButton: {
@@ -3738,7 +3738,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 	    case 'ytmp3':  case 'ytmusic': {	    
 	            if (isBan) throw mess.ban
                 let { yta } = require('./lib/y2mate')
-                if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`
+                if (!text) throw `Ejemplo : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`
                 if (!isUrl(args[0]) && !args[0].includes('youtube.com')) throw '*The link you provided is not valid*'
                 
                 let quality = args[1] ? args[1] : '128kbps'
@@ -3747,7 +3747,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 let caption = `
 *▊▊▊BEST MUSIC▊▊▊*
 
-*⬤▶━━━━━━━━━2:30*\n\n*⬤TITLE :* ${media.title}\n*⬤FILESIZE :* ${media.filesizeF}\n*⬤URL :* ${isUrl(text)}\n*⬤EXT :* MP3\n*⬤RESOLUTION :* ${args[1] || '128kbps'}\n\n*ZIM BOT INC*`
+*⬤▶━━━━━━━━━2:30*\n\n*⬤TITLE :* ${media.title}\n*⬤FILESIZE :* ${media.filesizeF}\n*⬤URL :* ${isUrl(text)}\n*⬤EXT :* MP3\n*⬤RESOLUTION :* ${args[1] || '128kbps'}\n\n*CGH-BOT•ING*`
                 buf = await getBuffer(media.thumb)
                 ZimBotInc.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m }).catch((err) => m.reply('*Sorry, the link you provided is not valid*'))                
                 ZimBotInc.sendMessage(m.chat, {document:{url:media.dl_link}, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
@@ -3763,19 +3763,19 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
            if (isBan) throw mess.ban
                 // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)            
                 let { ytv } = require('./lib/y2mate')
-                if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`
+                if (!text) throw `Ejemplo : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`
                 if (!isUrl(args[0]) && !args[0].includes('youtube.com')) throw '*The link you provided is not valid*'
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let quality = args[1] ? args[1] : '360p'
                 let media = await ytv(text, quality)
                 if (media.filesize >= 100000) return m.reply('*File Over Limit* '+util.format(media))
                 var capti = `
 *▊▊▊BEST VIDEO▊▊▊*
 
-*⬤▶━━━━━━━━━2:30*\n\n*⬤Title* : ${media.title}\n*⬤FILESIZE* : ${media.filesizeF}\n*⬤URL* : ${isUrl(text)}\n*⬤EXT* : MP3\n*⬤RESOLUTION* : ${args[1] || '360p'}\n\n*ZIM BOT INC*`
+*⬤▶━━━━━━━━━2:30*\n\n*⬤Title* : ${media.title}\n*⬤FILESIZE* : ${media.filesizeF}\n*⬤URL* : ${isUrl(text)}\n*⬤EXT* : MP3\n*⬤RESOLUTION* : ${args[1] || '360p'}\n\n*CGH-BOT•ING*`
                 var buf = await getBuffer(media.thumb)
                 ZimBotInc.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${capti}` }, { quoted: m })
                 ZimBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `*Downloading From ${text}*` }, { quoted: m }).catch((err) => m.reply('*error while sending the video*'))
@@ -3788,13 +3788,13 @@ case 'ytshorts': case 'shorts': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)       
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)       
   xa.Youtube(`${text}`).then(async (data) => {
   if (data.medias[0].formattedSize.split('MB')[0] >= 100) return m.reply('*File Over Limit* '+util.format(data)) 
   cap = `
 *▊▊▊YOUTUBE SHORTS▊▊▊*
 
-*⬤▶━━━━━━━━━2:30*\n\n\n\n*⬤TITLE:* ${data.title}\n*⬤QUALITY:* ${data.medias[0].quality}\n*⬤SIZE:* ${data.medias[0].formattedSize}\n*⬤DURATION* ${data.duration}\n*⬤ID:* ${data.medias[0].cached}\n*⬤LINK:* ${data.url}\n\n*ZIM BOT INC*`
+*⬤▶━━━━━━━━━2:30*\n\n\n\n*⬤TITLE:* ${data.title}\n*⬤QUALITY:* ${data.medias[0].quality}\n*⬤SIZE:* ${data.medias[0].formattedSize}\n*⬤DURATION* ${data.duration}\n*⬤ID:* ${data.medias[0].cached}\n*⬤LINK:* ${data.url}\n\n*CGH-BOT•ING*`
   buf = await getBuffer(data.thumbnail)
   ZimBotInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${cap}` }, { quoted: m })
   ZimBotInc.sendMessage(m.chat, { video: { url: data.medias[0].url }, jpegThumbnail:buf, caption: `*⬤TITLE:* ${data.title}\n*⬤QUALITY:* ${data.medias[0].quality}\n*⬤SIZE:* ${data.medias[0].formattedSize}` }, { quoted: m })  
@@ -3807,15 +3807,15 @@ case 'ytshorts': case 'shorts': {
 	    if (isBan) throw mess.ban
 	   // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 let { yta } = require('./lib/y2mate')                
-                if (!text) throw `Example : ${prefix + command} 1`
-                if (!m.quoted) return m.reply('*Reply message*')
+                if (!text) throw `Ejemplo : ${prefix + command} 1`
+                if (!m.quoted) return m.reply('*Responder Mensaje*')
                 if (!m.quoted.isBaileys) throw `*Can only reply to messages from bots*`
 		let urls = quoted.text.match(new RegExp(/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed|shorts)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\_-]+)/, 'gi'))
                 if (!urls) throw `*Maybe the message you replied does not contain the ytsearch result*`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let quality = args[1] ? args[1] : '128kbps'
                 let media = await yta(urls[text - 1], quality)
                 if (media.filesize >= 100000) return m.reply('*File Over Limit* '+util.format(media))
@@ -3827,15 +3827,15 @@ case 'ytshorts': case 'shorts': {
             if (isBan) throw mess.ban
             ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 let { ytv } = require('./lib/y2mate')               
-                if (!text) throw `Example : ${prefix + command} 1`
-                if (!m.quoted) return m.reply('Reply Message')
+                if (!text) throw `Ejemplo : ${prefix + command} 1`
+                if (!m.quoted) return m.reply('Responder Mensaje')
                 if (!m.quoted.isBaileys) throw `*Can only reply to messages from bots8`
                 let urls = quoted.text.match(new RegExp(/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed|shorts)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\_-]+)/, 'gi'))
                 if (!urls) throw `*Maybe the message you replied does not contain the ytsearch result*`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let quality = args[1] ? args[1] : '360p'
                 let media = await ytv(urls[text - 1], quality)
                 if (media.filesize >= 100000) return m.reply('*File Over Limit* '+util.format(media))
@@ -3848,11 +3848,11 @@ case 'ytshorts': case 'shorts': {
 case 'pinterest': case 'pin': {
 if (isBan) throw mess.ban
                 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command}`
+                if (!text) throw `Ejemplo : ${prefix + command}`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		        let { pinterest } = require('./lib/liyascrape.js')
                 anu = await pinterest(text)
                 result = anu[Math.floor(Math.random() * anu.length)]      
@@ -3878,11 +3878,11 @@ if (isBan) throw mess.ban
           case 'retrolga': case 'ruby': case 'sand': case 'sapphire': case 'sepia': case 'softsepia': case 'solarize': case 'sphinx':
           case 'venus': case 'viewfinder': case 'warmsunset': {
                 if (isBan) throw mess.ban
-	            if (!/image/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
+	            if (!/image/.test(mime)) throw `*Enviar/Responder imagen con título* ${prefix + command}`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 	        	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                 let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)                
                 let anu = await TelegraPh(media)
@@ -3893,11 +3893,11 @@ if (isBan) throw mess.ban
            case 'quotemaker': {
 if (isBan) throw mess.ban
                 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)        
-                if (!text) throw 'should use text example: .quotemaker I just love you'        
+                if (!text) throw 'should use text Ejemplo: .quotemaker I just love you'        
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://xteam.xyz/quotemaker?text=${text}&wm=stars&APIKEY=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -3907,7 +3907,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/gaming?apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -3917,7 +3917,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/pentol?apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -3926,7 +3926,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/cogan2?apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -3935,7 +3935,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/cecan2?apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -3944,7 +3944,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/islami?apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -3955,7 +3955,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/aesthetic?apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -3973,7 +3973,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://xteam.xyz/randomimage/drak?APIKEY=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -3983,7 +3983,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/megumin?apikey=${setting.riy}`)
                 ZimBotInc.sendMessag0 (m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -3992,7 +3992,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/yotsuba?apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -4001,7 +4001,7 @@ if (isBan) throw mess.ban
                if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/shinomiya?apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -4011,7 +4011,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/yumeko?apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -4020,7 +4020,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/tejina?apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -4029,7 +4029,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/cyberspace?apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -4038,7 +4038,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/wallpaper/chiho?apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, jpegThumbnail:anu, caption: `*${command}*` }, { quoted: m }).catch ((err) => m.reply('*Sorry for the feature error*'))
                 }
@@ -4049,7 +4049,7 @@ if (isBan) throw mess.ban
            if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
            let wipu = await fetchJson(`https://raw.githubusercontent.com/Arya-was/endak-tau/main/waifu.json`)
            let wipi = wipu[Math.floor(Math.random() * (wipu.length))]
            let buttons = [
@@ -4100,7 +4100,7 @@ m.reply(`\`\`\`*Success , Activating the antivirtex feature in the group*\`\`\` 
 	           if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
                 let random = anu[Math.floor(Math.random() * anu.length)]
                 ZimBotInc.sendMessage(m.chat, { image: { url: random.male }, caption: `Couple Male` }, { quoted: m })
@@ -4113,7 +4113,7 @@ m.reply(`\`\`\`*Success , Activating the antivirtex feature in the group*\`\`\` 
             if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
             let buttons = [
                     {buttonId: `coffe`, buttonText: {displayText: 'NEXT PIC'}, type: 1}
                 ]
@@ -4135,7 +4135,7 @@ m.reply(`\`\`\`*Success , Activating the antivirtex feature in the group*\`\`\` 
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		let { wallpaper } = require('./lib/scraper3')
                 anu = await wallpaper(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
@@ -4195,7 +4195,7 @@ m.reply(`\`\`\`*Success , Activating the antivirtex feature in the group*\`\`\` 
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		let { wikimedia } = require('./lib/scraper3')
                 anu = await wikimedia(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
@@ -4214,24 +4214,24 @@ m.reply(`\`\`\`*Success , Activating the antivirtex feature in the group*\`\`\` 
             break
             case 'kbbi': {            
 if (isBan) throw mess.ban
-            if (!text) throw `Example : ${prefix + command} kerbau`           
+            if (!text) throw `Ejemplo : ${prefix + command} kerbau`           
             if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
             anu = await fetchJson(`https://hardianto.xyz/api/info/kbbi?kata=${text}&apikey=hardianto`)             
             m.reply(`${anu.result.lema}\n${anu.result.arti[0]}`)
             }
             break
             case 'kodepos': {            
-            if (!text) throw `Nama Kotanya Mana contoh : Example : ${prefix + command} kediri`           
+            if (!text) throw `Nama Kotanya Mana contoh : Ejemplo : ${prefix + command} kediri`           
             if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
             anu = await fetchJson(`https://cililitan.herokuapp.com/api/kodepos?kota=${text}`)       
             for (let g of anu.result.data) {            
-            let helo = `*----「 KODEPOS 」----*\n\n*province* : ${g.province}\n*City* : ${g.city}\n*subdistrict* : ${g.subdistrict}\n*Urban* : ${g.urban}\n*postalcode* : ${g.postalcode}\n\n*ZIM BOT INC*`
+            let helo = `*----「 KODEPOS 」----*\n\n*province* : ${g.province}\n*City* : ${g.city}\n*subdistrict* : ${g.subdistrict}\n*Urban* : ${g.urban}\n*postalcode* : ${g.postalcode}\n\n*CGH-BOT•ING*`
             m.reply(`${helo}`)
             }
             }
@@ -4241,7 +4241,7 @@ if (isBan) throw mess.ban
             if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 		let { quotesAnime } = require('./lib/scraper3')
                 let anu = await quotesAnime()
                 result = anu[Math.floor(Math.random() * anu.length)]
@@ -4267,7 +4267,7 @@ if (!text) throw 'Masukkan query'
 
             kurangLimit(m.sender, 1)
 
-            m.reply(`*1 limit used*`)                
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)                
 
                 let urlnya = text
 
@@ -4285,7 +4285,7 @@ if (!text) throw 'Masukkan query'
 
 			break
 
-//BY ZIM BOT INC
+//BY CGH-BOT•ING
      
      case 'tahta': case 'hartatahta': {
      if (isBan) throw mess.ban
@@ -4296,7 +4296,7 @@ if (!text) throw 'Masukkan Textnya Contoh : .hartatahta drips'
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 peh = `https://xteam.xyz/tahta?text=${text}&APIKEY=${setting.riy}`
 ZimBotInc.sendMessage(m.chat, {image: await getBuffer(peh)}, {quoted:m}).catch ((err) => m.reply('error'))     
 }
@@ -4305,11 +4305,11 @@ break
      case 'broken-glass': case 'neon-light': case 'black-pink': case 'hallowen': case 'art-papper': case 'magma': case 'glossy':  case 'grafity-text': case 'watercolor': case 'multi-color': case 'neon-devil': case 'sky-text': case 'vintage': case 'writing': case 'engraved': case 'glue-text': case 'holograpic': case 'deluxe-silver': case 'fabric': case 'wicker': case 'larva': case 'toxic': case 'koi': case 'bread': case 'horor-blood': case 'honey': case 'ice': case 'rusty': case 'christmas': case 'gradien': case 'drop-water': case 'harry-potter': case '3dstone': case '1917': case 'thunder2': case 'stroberi': case 'blood': case 'joker-logo': {
      if (isBan) throw mess.ban
                 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} text`
+                if (!text) throw `Ejemplo : ${prefix + command} text`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/textpro/${command}?text=${text}&apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `Text Pro ${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
@@ -4362,11 +4362,11 @@ break
      case 'marvel-logo2': case 'lion-logo': case 'pornhub': case 'avengers-logo': case 'ninja-logo': case 'grafity-text2' : case 'astone': case 'space': case 'logo-wolf2': case 'logo-wolf': case 'captain': {
      if (isBan) throw mess.ban
                 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} text`
+                if (!text) throw `Ejemplo : ${prefix + command} text`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api-riychdwayne.herokuapp.com/api/textpro/${command}?text=${text}&text2=.&apikey=${setting.riy}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `Text Pro ${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
@@ -4374,11 +4374,11 @@ break
                 case 'silk':  case '3dnature': case 'bevel': case 'birthdaycake': case  'burnpaper':  case 'coffee': case 'coffee-heartcup': case 'embroiderytext': case 'flaming': case 'flowertypo': case 'funnycup': case 'fur': case 'gerbang': case 'glowrainbow': case 'gradientavatar': case 'graffititext': case 'harrypotter': case 'lovemessage': case 'luxuryroyal': case 'neonlight': case 'sweetcandy': case 'summertext': case 'woodheart': case 'woodblock': case 'yellowroses': case 'wolfmetal': case 'underwaterocean': {
                 if (isBan) throw mess.ban
                 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} text`
+                if (!text) throw `Ejemplo : ${prefix + command} text`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
             anu = await getBuffer(`https://violetics.pw/api/photooxy/${command}?apikey=${setting.violkey}&text=${text}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `*PHOTO OXY ${command}*` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
@@ -4386,11 +4386,11 @@ break
      case 'wanted': case 'ytcomment': case 'beautiful': case 'jail': case 'fotojatoh': case 'pixelate': case 'blur': case 'imagesketch': case 'triggeredwebp': case 'shit': case 'burn': case 'invert': case 'gay': case 'wanted': case 'rip': case 'delete': {
      if (isBan) throw mess.ban
                 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-	            if (!/image/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
+	            if (!/image/.test(mime)) throw `*Enviar/Responder imagen con título* ${prefix + command}`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 	        	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                 let media = await ZimBotInc.downloadAndSaveMediaMessage(quoted)                
                 let anu = await TelegraPh(media)
@@ -4405,106 +4405,106 @@ break
                 //COOL BOT
 case 'graffiti': case 'angel': case 'queen':  {
 if (isBan) throw mess.ban
-                if (!text) throw `Example : ${prefix + command} nama anime`
+                if (!text) throw `Ejemplo : ${prefix + command} nama anime`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api.akuari.my.id/ephoto/${command}?text=${text}&text_2=${text}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `*EPHOTO ${command}*` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
 case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': case 'sandsummer-beach': case 'snow-text': case 'water-3d': case 'water-effect': case 'wet-glass': case 'status-mood2': case 'summerysand': {
     if (isBan) throw mess.ban
-                if (!text) throw `Example : ${prefix + command} nama anime`
+                if (!text) throw `Ejemplo : ${prefix + command} nama anime`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
                 if (isLimit < 1) return m.reply(mess.endLimit)
                     kurangLimit(m.sender, 1)
-                     m.reply(`*1 limit used*`)
+                     m.reply(`*Se aplico 1 Limite en esta peticion*`)
                     anu = await getBuffer(`https://violetics.pw/api/ephoto360/${command}?apikey=${setting.violkey}&text=${text}`)
                     ZimBotInc.sendMessage(m.chat, { image: anu, caption: `*EPHOTO ${command}*` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
                     }
                     break
                 break
                 case 'fuckboyserti': {
-                if (!text) throw `Example : ${prefix + command} text`
+                if (!text) throw `Ejemplo : ${prefix + command} text`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/fuckboy?apikey=${setting.lolkey}&name=${text}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                 case 'fuckgirlserti': {
-                if (!text) throw `Example : ${prefix + command} text`
+                if (!text) throw `Ejemplo : ${prefix + command} text`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/fuckgirl?apikey=${setting.lolkey}&name=${text}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                 case 'bucinserti': {
-                if (!text) throw `Example : ${prefix + command} text`
+                if (!text) throw `Ejemplo : ${prefix + command} text`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/bucinserti?apikey=${setting.lolkey}&name=${text}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                 case 'goodboyserti': {
-                if (!text) throw `Example : ${prefix + command} text`
+                if (!text) throw `Ejemplo : ${prefix + command} text`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/goodboy?apikey=${setting.lolkey}&name=${text}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                 case 'goodgirlserti': {
-                if (!text) throw `Example : ${prefix + command} text`
+                if (!text) throw `Ejemplo : ${prefix + command} text`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/goodgirl?apikey=${setting.lolkey}&name=${text}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                 case 'badboyserti': {
-                if (!text) throw `Example : ${prefix + command} text`
+                if (!text) throw `Ejemplo : ${prefix + command} text`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/badboy?apikey=${setting.lolkey}&name=${text}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
                case 'badgirlserti': {
-                if (!text) throw `Example : ${prefix + command} text`
+                if (!text) throw `Ejemplo : ${prefix + command} text`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await getBuffer(`https://api.lolhuman.xyz/api/badgirl?apikey=${setting.lolkey}&name=${text}`)
                 ZimBotInc.sendMessage(m.chat, { image: anu, caption: `${command}` }, { quoted: m}).catch((err) => m.reply('*Sorry Xteam server is down*'))
 	            }
                 break
-//ZIM BOT INC
+//CGH-BOT•ING
 
 	    case 'nomerhoki': case 'nomorhoki': {
 	    ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!Number(text)) throw `Example : ${prefix + command} 6288292024190`
+                if (!Number(text)) throw `Ejemplo : ${prefix + command} 6288292024190`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let anu = await primbon.nomer_hoki(Number(text))
                 if (anu.status == false) return m.reply(anu.message)
                 ZimBotInc.sendText(m.chat, `> *NAME HP :* ${anu.message.nomer_hp}\n> *CHECK POINT :* ${anu.message.angka_shuzi}\n> *ENERGY POSITION :*\n- Riches : ${anu.message.energi_positif.kekayaan}\n- Health : ${anu.message.energi_positif.kesehatan}\n- Love : ${anu.message.energi_positif.cinta}\n- Stability : ${anu.message.energi_positif.kestabilan}\n- Percentage : ${anu.message.energi_positif.persentase}\n> *Negative Energy :*\n- Dispute : ${anu.message.energi_negatif.perselisihan}\n- Loss : ${anu.message.energi_negatif.kehilangan}\n- Disaster: ${anu.message.energi_negatif.malapetaka}\n- destruction : ${anu.message.energi_negatif.kehancuran}\n- Percentage : ${anu.message.energi_negatif.persentase}`, m)
@@ -4512,11 +4512,11 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'artimimpi': case 'tafsirmimpi': {
             ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} belanja`
+                if (!text) throw `Ejemplo : ${prefix + command} belanja`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let anu = await primbon.tafsir_mimpi(text)
                 if (anu.status == false) return m.reply(anu.message)
                 ZimBotInc.sendText(m.chat, `> *Dream :* ${anu.message.mimpi}\n> *ARTI :* ${anu.message.arti}\n> *SOLUTION :* ${anu.message.solusi}`, m)
@@ -4524,11 +4524,11 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'ramalanjodoh': case 'ramaljodoh': {
              ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} Such as, 7, 7, 2005, Girlfriend, 16, 11, 2004`
+                if (!text) throw `Ejemplo : ${prefix + command} Such as, 7, 7, 2005, Girlfriend, 16, 11, 2004`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4537,11 +4537,11 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'ramalanjodohbali': case 'ramaljodohbali': {
             // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`
+                if (!text) throw `Ejemplo : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh_bali(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4550,11 +4550,11 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'suamiistri': {
             // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`
+                if (!text) throw `Ejemplo : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.suami_istri(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4564,11 +4564,11 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'ramalancinta': case 'ramalcinta': {
             ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`
+                if (!text) throw `Ejemplo : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_cinta(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4576,11 +4576,11 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             }
             break
             case 'artinama': {            
-                if (!text) throw `Example : ${prefix + command} Dika Ardianta`
+                if (!text) throw `Ejemplo : ${prefix + command} Dika Ardianta`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let anu = await primbon.arti_nama(text)
                 if (anu.status == false) return m.reply(anu.message)
                 ZimBotInc.sendText(m.chat, `> *NAME :* ${anu.message.nama}\n> *ARTI :* ${anu.message.arti}\n> *NOTES :* ${anu.message.catatan}`, m)
@@ -4588,11 +4588,11 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'kecocokannama': case 'cocoknama': {
             ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} Dika, 7, 7, 2005`
+                if (!text) throw `Ejemplo : ${prefix + command} Dika, 7, 7, 2005`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.kecocokan_nama(nama, tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4601,11 +4601,11 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'kecocokanpasangan': case 'cocokpasangan': case 'pasangan': {
             // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} Dika|Novia`
+                if (!text) throw `Ejemplo : ${prefix + command} Dika|Novia`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let [nama1, nama2] = text.split`|`
                 let anu = await primbon.kecocokan_nama_pasangan(nama1, nama2)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4614,7 +4614,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'jadianpernikahan': case 'jadiannikah': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 6, 12, 2020`
+                if (!text) throw `Ejemplo : ${prefix + command} 6, 12, 2020`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.tanggal_jadian_pernikahan(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4623,7 +4623,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'sifatusaha': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!ext)throw `Example : ${prefix+ command} 28, 12, 2021`
+                if (!ext)throw `Ejemplo : ${prefix+ command} 28, 12, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_usaha_bisnis(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4632,7 +4632,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'rejeki': case 'rezeki': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
+                if (!text) throw `Ejemplo : ${prefix + command} 7, 7, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rejeki_hoki_weton(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4641,7 +4641,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'pekerjaan': case 'kerja': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
+                if (!text) throw `Ejemplo : ${prefix + command} 7, 7, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.pekerjaan_weton_lahir(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4650,7 +4650,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'ramalannasib': case 'ramalnasib': case 'nasib': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : 7, 7, 2005`
+                if (!text) throw `Ejemplo : 7, 7, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.ramalan_nasib(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4659,7 +4659,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'potensipenyakit': case 'penyakit': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
+                if (!text) throw `Ejemplo : ${prefix + command} 7, 7, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.cek_potensi_penyakit(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4668,7 +4668,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'artitarot': case 'tarot': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
+                if (!text) throw `Ejemplo : ${prefix + command} 7, 7, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.arti_kartu_tarot(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4677,7 +4677,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'fengshui': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} Dika, 1, 2005\n\nNote : ${prefix + command} Name, gender, year of birth\nGender : 1 for boys & 2 for girlsn`
+                if (!text) throw `Ejemplo : ${prefix + command} Dika, 1, 2005\n\nNote : ${prefix + command} Name, gender, year of birth\nGender : 1 for boys & 2 for girlsn`
                 let [nama, gender, tahun] = text.split`,`
                 let anu = await primbon.perhitungan_feng_shui(nama, gender, tahun)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4686,7 +4686,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'haribaik': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
+                if (!text) throw `Ejemplo : ${prefix + command} 7, 7, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.petung_hari_baik(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4695,7 +4695,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'harisangar': case 'taliwangke': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
+                if (!text) throw `Ejemplo : ${prefix + command} 7, 7, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.hari_sangar_taliwangke(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4704,7 +4704,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'harinaas': case 'harisial': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
+                if (!text) throw `Ejemplo : ${prefix + command} 7, 7, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_hari_naas(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4713,7 +4713,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'nagahari': case 'harinaga': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
+                if (!text) throw `Ejemplo : ${prefix + command} 7, 7, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rahasia_naga_hari(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4722,7 +4722,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'arahrejeki': case 'arahrezeki': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
+                if (!text) throw `Ejemplo : ${prefix + command} 7, 7, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_arah_rejeki(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4731,7 +4731,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'peruntungan': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} DIka, 7, 7, 2005, 2022\n\nNote : ${prefix + command} Nama, tanggal lahir, bulan lahir, tahun lahir, untuk tahun`
+                if (!text) throw `Ejemplo : ${prefix + command} DIka, 7, 7, 2005, 2022\n\nNote : ${prefix + command} Nama, tanggal lahir, bulan lahir, tahun lahir, untuk tahun`
                 let [nama, tgl, bln, thn, untuk] = text.split`,`
                 let anu = await primbon.ramalan_peruntungan(nama, tgl, bln, thn, untuk)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4740,7 +4740,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'weton': case 'wetonjawa': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
+                if (!text) throw `Ejemplo : ${prefix + command} 7, 7, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.weton_jawa(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4749,7 +4749,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'sifat': case 'karakter': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} Dika, 7, 7, 2005`
+                if (!text) throw `Ejemplo : ${prefix + command} Dika, 7, 7, 2005`
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_karakter_tanggal_lahir(nama, tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4758,7 +4758,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'keberuntungan': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} Dika, 7, 7, 2005`
+                if (!text) throw `Ejemplo : ${prefix + command} Dika, 7, 7, 2005`
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.potensi_keberuntungan(nama, tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4767,7 +4767,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'memancing': {
             //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 12, 1, 2022`
+                if (!text) throw `Ejemplo : ${prefix + command} 12, 1, 2022`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_memancing_ikan(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4776,7 +4776,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'masasubur': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} 12, 1, 2022, 28\n\nNote : ${prefix + command} hari pertama menstruasi, siklus`
+                if (!text) throw `Ejemplo : ${prefix + command} 12, 1, 2022, 28\n\nNote : ${prefix + command} hari pertama menstruasi, siklus`
                 let [tgl, bln, thn, siklus] = text.split`,`
                 let anu = await primbon.masa_subur(tgl, bln, thn, siklus)
                 if (anu.status == false) return m.reply(anu.message)
@@ -4785,7 +4785,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'zodiak': case 'zodiac': {
             //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix+ command} 7 7 2005`
+                if (!text) throw `Ejemplo : ${prefix+ command} 7 7 2005`
                 let zodiak = [
                     ["capricorn", new Date(1970, 0, 1)],
                     ["aquarius", new Date(1970, 0, 20)],
@@ -4821,7 +4821,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             break
             case 'shio': {
              //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} tikus\n\nNote : For Detail https://primbon.com/shio.htm`
+                if (!text) throw `Ejemplo : ${prefix + command} tikus\n\nNote : For Detail https://primbon.com/shio.htm`
                 let anu = await primbon.shio(text)
                 if (anu.status == false) return m.reply(anu.message)
                 ZimBotInc.sendText(m.chat, `> *Results :* ${anu.message}`, m)
@@ -4831,57 +4831,57 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
 	    if (isBan) throw mess.ban
 	 //   //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
 		//if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply('Limit Harian Anda Telah Habis')
-                if (!text) return m.reply(`Example : ${prefix +command} type id\n\nList Type :\n1. ff (Free Fire)\n2. ml (Mobile Legends)\n3. aov (Arena Of Valor)\n4. cod (Call Of Duty)\n5. pb (point Blank)\n6. ig (Instagram)\n7. npm (https://npmjs.com)`)
+                if (!text) return m.reply(`Ejemplo : ${prefix +command} type id\n\nList Type :\n1. ff (Free Fire)\n2. ml (Mobile Legends)\n3. aov (Arena Of Valor)\n4. cod (Call Of Duty)\n5. pb (point Blank)\n6. ig (Instagram)\n7. npm (https://npmjs.com)`)
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let [type, id, zone] = args
                 if (type.toLowerCase() == 'ff') {
-                    if (!id) throw `No Query id, Example ${prefix + command} ff 552992060`
+                    if (!id) throw `No Query id, Ejemplo ${prefix + command} ff 552992060`
                     let anu = await fetchJson(api('zenz', '/api/nickff', { apikey: global.APIKeys[global.APIs['zenz']], query: id }))
                     if (anu.status == false) return m.reply(anu.result.message)
                     m.reply(`ID : ${anu.result.gameId}\nUsername : ${anu.result.userName}`)
 		    db.data.users[m.sender].limit -= 1
                 } else if (type.toLowerCase() == 'ml') {
-                    if (!id) throw `No Query id, Example : ${prefix + command} ml 214885010 2253`
-                    if (!zone) throw `No Query id, Example : ${prefix + command} ml 214885010 2253`
+                    if (!id) throw `No Query id, Ejemplo : ${prefix + command} ml 214885010 2253`
+                    if (!zone) throw `No Query id, Ejemplo : ${prefix + command} ml 214885010 2253`
                     let anu = await fetchJson(api('zenz', '/api/nickml', { apikey: global.APIKeys[global.APIs['zenz']], query: id, query2: zone }))
                     if (anu.status == false) return m.reply(anu.result.message)
                     m.reply(`ID : ${anu.result.gameId}\nZone : ${anu.result.zoneId}\nUsername : ${anu.result.userName}`)
 		    db.data.users[m.sender].limit -= 1
                 } else if (type.toLowerCase() == 'aov') {
-                    if (!id) throw `No Query id, Example ${prefix + command} aov 293306941441181`
+                    if (!id) throw `No Query id, Ejemplo ${prefix + command} aov 293306941441181`
                     let anu = await fetchJson(api('zenz', '/api/nickaov', { apikey: global.APIKeys[global.APIs['zenz']], query: id }))
                     if (anu.status == false) return m.reply(anu.result.message)
                     m.reply(`ID : ${anu.result.gameId}\nUsername : ${anu.result.userName}`)
 		    db.data.users[m.sender].limit -= 1
                 } else if (type.toLowerCase() == 'cod') {
-                    if (!id) throw `No Query id, Example ${prefix + command} cod 6290150021186841472`
+                    if (!id) throw `No Query id, Ejemplo ${prefix + command} cod 6290150021186841472`
                     let anu = await fetchJson(api('zenz', '/api/nickcod', { apikey: global.APIKeys[global.APIs['zenz']], query: id }))
                     if (anu.status == false) return m.reply(anu.result.message)
                     m.reply(`ID : ${anu.result.gameId}\nUsername : ${anu.result.userName}`)
 		    db.data.users[m.sender].limit -= 1
                 } else if (type.toLowerCase() == 'pb') {
-                    if (!id) throw `No Query id, Example ${prefix + command} pb riio46`
+                    if (!id) throw `No Query id, Ejemplo ${prefix + command} pb riio46`
                     let anu = await fetchJson(api('zenz', '/api/nickpb', { apikey: global.APIKeys[global.APIs['zenz']], query: id }))
                     if (anu.status == false) return m.reply(anu.result.message)
                     m.reply(`ID : ${anu.result.gameId}\nUsername : ${anu.result.userName}`)
 		    db.data.users[m.sender].limit -= 1
                 } else if (type.toLowerCase() == 'ig') {
-                    if (!id) throw `No Query username, Example : ${prefix + command} ig cak_haho`
+                    if (!id) throw `No Query username, Ejemplo : ${prefix + command} ig cak_haho`
                     let { result: anu } = await fetchJson(api('zenz', '/api/stalker/ig', { username: id }, 'apikey'))
                     if (anu.status == false) return m.reply(anu.result.message)
                     ZimBotInc.sendMedia(m.chat, anu.caption.profile_hd, '', `> Full Name : ${anu.caption.full_name}\n> User Name : ${anu.caption.user_name}\n> ID ${anu.caption.user_id}\n> Followers : ${anu.caption.followers}\n> Following : ${anu.caption.following}\n> Bussines : ${anu.caption.bussines}\n> Profesional : ${anu.caption.profesional}\n> Verified : ${anu.caption.verified}\n> Private : ${anu.caption.private}\n> Bio : ${anu.caption.biography}\n> Bio Url : ${anu.caption.bio_url}`, m)
 		    db.data.users[m.sender].limit -= 1
                 } else if (type.toLowerCase() == 'npm') {
-                    if (!id) throw `No Query username, Example : ${prefix + command} npm scrape-primbon`
+                    if (!id) throw `No Query username, Ejemplo : ${prefix + command} npm scrape-primbon`
                     let { result: anu } = await fetchJson(api('zenz', '/api/stalker/npm', { query: id }, 'apikey'))
                     if (anu.status == false) return m.reply(anu.result.message)
                     m.reply(`> Name : ${anu.name}\n> Version : ${Object.keys(anu.versions)}\n> Created : ${tanggal(anu.time.created)}\n> Modified : ${tanggal(anu.time.modified)}\n> Maintainers :\n ${anu.maintainers.map(v => `- ${v.name} : ${v.email}`).join('\n')}\n\n> Description : ${anu.description}\n> Homepage : ${anu.homepage}\n> Keywords : ${anu.keywords}\n> Author : ${anu.author.name}\n> License : ${anu.license}\n> Readme : ${anu.readme}`)
 		    db.data.users[m.sender].limit -= 1
                 } else {
-                    m.reply(`Example : ${prefix +command} type id\n\nList Type :\n1. ff (Free Fire)\n2. ml (Mobile Legends)\n3. aov (Arena Of Valor)\n4. cod (Call Of Duty)\n5. pb (point Blank)\n6. ig (Instagram)\n7. npm (https://npmjs.com)`)
+                    m.reply(`Ejemplo : ${prefix +command} type id\n\nList Type :\n1. ff (Free Fire)\n2. ml (Mobile Legends)\n3. aov (Arena Of Valor)\n4. cod (Call Of Duty)\n5. pb (point Blank)\n6. ig (Instagram)\n7. npm (https://npmjs.com)`)
                 }
             }
             break
@@ -4893,7 +4893,7 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 //m.reply(mess.wait)
                 hx.ttdownloader(`${text}`).then(async (data) => {                      
                     let buttons = [                    
@@ -4913,12 +4913,12 @@ case '3d-wood': case 'angels-wings': case 'snake-text': case 'redhot-metal2': ca
             }
             break
             case 'tiktok2': {
-if (!text) throw `Use example ${prefix + command} https://www.tiktok.com/@omagadsus/video/7025456384175017243`
+if (!text) throw `Use Ejemplo ${prefix + command} https://www.tiktok.com/@omagadsus/video/7025456384175017243`
 if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 anu = await fetchJson(`https://violetics.pw/api/downloader/tiktok?apikey=df7d-425a-3bc8&url=${text}`)
 let listmn = `*▊▊▊TIKTOK DL▊▊▊*\n\n*Title:* ${anu.result.title}\n*Author:* ${anu.result.id}\n*Url:* ${anu.result.url}`
 buf = await getBuffer(anu.result.thumb)
@@ -4933,12 +4933,12 @@ hydratedFooterText: `${botname}`,
 hydratedButtons: [{
 urlButton: {
 displayText: 'SUBSCRIBE',
-url: 'https://www.youtube.com/c/DRIPSOFC'
+url: 'https://www.youtube.com/@henrypablochumogarces8279'
 }
 }, {
 urlButton: {
 displayText: 'GITHUB',
-url: 'https://github.com/zim-bot/zimbot-v3'
+url: 'https://github.com/ChumoGH/ChumoGH-Script'
 }
 }, {
 quickReplyButton: {
@@ -4969,7 +4969,7 @@ if (isBan) throw mess.ban
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let bocil = require('@bochilteam/scraper')    
                 if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
                 bocil.tiktokdlv3(`${text}`).then(async (video) => {           
@@ -4978,7 +4978,7 @@ if (isBan) throw mess.ban
                    var hadir = randomNomor(300)
                     var memek = randomNomor(1000)                      
                   let caption = `
-                  *▊▊▊TIKTOK DL▊▊▊*\n\n*AUTHOR* : DRIPS\n*NICKNAME* : ${video.author.nickname}\n*CAPTION* : ${video.description}\n*QUALITY* : nowatermark\n*COMMENTS* : ${memek}\n*CREATE* ${hadir} Ago\n*LIKES* : ${hadi}\n*DISLIKE* : ${hadie}\n*SOURCE* : ${text}\n\n\n*ZIM BOT INC*`
+                  *▊▊▊TIKTOK DL▊▊▊*\n\n*AUTHOR* : DRIPS\n*NICKNAME* : ${video.author.nickname}\n*CAPTION* : ${video.description}\n*QUALITY* : nowatermark\n*COMMENTS* : ${memek}\n*CREATE* ${hadir} Ago\n*LIKES* : ${hadi}\n*DISLIKE* : ${hadie}\n*SOURCE* : ${text}\n\n\n*CGH-BOT•ING*`
                   buf = await getBuffer(video.author.avatar)                
                   ZimBotInc.sendMessage(m.chat, { image: { url: video.author.avatar }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m })
                   ZimBotInc.sendMessage(m.chat, { video: { url: video.video.no_watermark }, jpegThumbnail:buf, mimetype: 'video/mp4', caption: `*Downloading From ${text}*` }, { quoted: m })               
@@ -4993,7 +4993,7 @@ case 'tiktokk': case 'ttk': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let bocil = require('@bochilteam/scraper')    
                 if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
                 bocil.tiktokdlv3(`${text}`).then(async (video) => {           
@@ -5001,7 +5001,7 @@ case 'tiktokk': case 'ttk': {
                    var hadie = randomNomor(200)     
                    var hadir = randomNomor(300)
                     var memek = randomNomor(1000)                      
-                  let caption = `*▊▊▊TIKTOK DL▊▊▊*\n\n*AUTHOR* : DRIPS\n*NICKNAME* : ${video.author.nickname}\n*CAPTION* : ${video.description}\n*COMMENTS* : ${memek}\n*CREATE* ${hadir} Ago\n*LIKES* : ${hadi}\n*DISLIKES* : ${hadie}\n*SOURCE* : ${text}\n\n\n*ZIM BOT INC*`
+                  let caption = `*▊▊▊TIKTOK DL▊▊▊*\n\n*AUTHOR* : DRIPS\n*NICKNAME* : ${video.author.nickname}\n*CAPTION* : ${video.description}\n*COMMENTS* : ${memek}\n*CREATE* ${hadir} Ago\n*LIKES* : ${hadi}\n*DISLIKES* : ${hadie}\n*SOURCE* : ${text}\n\n\n*CGH-BOT•ING*`
                   buf = await getBuffer(video.author.avatar)                
                   ZimBotInc.sendMessage(m.chat, { image: { url: video.author.avatar }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m })
                   ZimBotInc.sendMessage(m.chat, { video: { url: video.video.no_watermark }, jpegThumbnail:buf, mimetype: 'video/mp4', caption: `*Downloading From ${text}*` }, { quoted: m })               
@@ -5016,7 +5016,7 @@ case 'tt3': case 'tiktok3': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let bocil = require('@bochilteam/scraper')    
                 if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'                
                 bocil.tiktokdlv3(`${text}`).then(async (video) => {           
@@ -5024,7 +5024,7 @@ case 'tt3': case 'tiktok3': {
                    var hadie = randomNomor(200)     
                    var hadir = randomNomor(300)
                     var memek = randomNomor(1000)                      
-                  let caption = `**▊▊▊TIKTOK DL▊▊▊**\n\n*⬤AUTHOR* : DRIPS\n*⬤NICKNAME* : ${video.author.nickname}\n*⬤CAPTION* : ${video.description}\n*⬤COMMENTS* : ${memek}\n*⬤CREATE* ${hadir} Ago\n*⬤LIKES* : ${hadi}\n*⬤DISLIKES* : ${hadie}\n*⬤ SOURCE* : ${text}`
+                  let caption = `**▊▊▊TIKTOK DL▊▊▊**\n\n*⬤AUTHOR* : ChumoGH\n*⬤NICKNAME* : ${video.author.nickname}\n*⬤CAPTION* : ${video.description}\n*⬤COMMENTS* : ${memek}\n*⬤CREATE* ${hadir} Ago\n*⬤LIKES* : ${hadi}\n*⬤DISLIKES* : ${hadie}\n*⬤ SOURCE* : ${text}`
                   buf = await getBuffer(video.author.avatar)                
                   let message = await prepareWAMessageMedia({ image: buf, jpegThumbnail: buf }, { upload: ZimBotInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
@@ -5041,7 +5041,7 @@ url: `${text}`
 }, {
 urlButton: {
 displayText: 'GITHUB',
-url: 'https://github.com/zim-bot/zimbot-v3'
+url: 'https://github.com/ChumoGH/ChumoGH-Script'
 }
 }, {
 quickReplyButton: {
@@ -5076,7 +5076,7 @@ case 'tiktokmp3': case 'tiktokaudio': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 got.tiktokDown(`${text}`).then(async (data) => {
                 ZimBotInc.sendMessage(m.chat, { audio: { url: data.result.nowatermark }, mimetype: 'audio/mp4'}, { quoted: m })
                 }).catch((err) => {
@@ -5085,13 +5085,13 @@ case 'tiktokmp3': case 'tiktokaudio': {
             }
             break
 case 'ttmp3': {
-if (!text) throw `*Enter link tiktok example ${prefix + command} https://vt.tiktok.com/zgjbtcsdq/`  
+if (!text) throw `*Enter link tiktok Ejemplo ${prefix + command} https://vt.tiktok.com/zgjbtcsdq/`  
                 if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) throw '*The link you provided is not valid*'
                 let get = require('./lib/scraper.js')
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)           
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)           
                 get.aiovideodl(`${text}`).then(async (res) => {        
                 var anu = await getBuffer(res.medias[2].url)         
                 ZimBotInc.sendMessage(m.chat, { audio: anu, mimetype: 'audio/mpeg'}, { quoted: m })
@@ -5114,7 +5114,7 @@ case 'ig': case 'igdl': case 'instagram': {
 
             kurangLimit(m.sender, 1)
 
-            m.reply(`*1 limit used*`)                
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)                
 
                 let urlnya = text
 
@@ -5126,7 +5126,7 @@ case 'ig': case 'igdl': case 'instagram': {
 	            var halo = 0		
 
 
-	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM DOWNLOADER 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Filetype :* ${result.medias[0].fileType}\n*⬤ Type :* ${result.medias[0].type}\n*⬤ Jumlah Media :* ${result.medias.length}\n*⬤ Url :* ${text}\n\n*ZIM BOT INC*` }, { quoted: m })	             	                      	            
+	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM DOWNLOADER 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Filetype :* ${result.medias[0].fileType}\n*⬤ Type :* ${result.medias[0].type}\n*⬤ Jumlah Media :* ${result.medias.length}\n*⬤ Url :* ${text}\n\n*CGH-BOT•ING*` }, { quoted: m })	             	                      	            
 
 
 		        for(let i of result.medias) {		
@@ -5165,7 +5165,7 @@ case 'ig': case 'igdl': case 'instagram': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let bicil = require('@bochilteam/scraper')
                 let urlnya = text
 	            bicil.instagramdlv4(urlnya)
@@ -5188,11 +5188,11 @@ case 'ig2': case 'igdl2': case 'instagram2': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
             anu = await fetchJson(`https://api.akuari.my.id/downloader/igdl?link=${text}`)
             var oi = 1
             for(let i of anu.medias){                
-                var txt = `*▊▊▊INSTA DL▊▊▊*\n\n*Username:* ${anu.user.username}\n*Fullname:* ${anu.user.fullName}\n*Followers:* ${anu.user.followers}\n*Type:* ${anu.medias[0].type}\n*Tipe:* ${anu.medias[0].fileType}\n*ID:* ${anu.user.id}\n*Jumlah Media:* ${oi++}\n*Url:* ${text}\n\n*ZIM BOT INC*`
+                var txt = `*▊▊▊INSTA DL▊▊▊*\n\n*Username:* ${anu.user.username}\n*Fullname:* ${anu.user.fullName}\n*Followers:* ${anu.user.followers}\n*Type:* ${anu.medias[0].type}\n*Tipe:* ${anu.medias[0].fileType}\n*ID:* ${anu.user.id}\n*Jumlah Media:* ${oi++}\n*Url:* ${text}\n\n*CGH-BOT•ING*`
                 var buf = await getBuffer(anu.user.profilePicUrl)        
                 ZimBotInc.sendMessage(m.chat, { image: { url: anu.user.profilePicUrl }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m }).catch((err) => m.reply('error'))
                 ZimBotInc.sendMessage(m.chat, { video: { url: i.url }, jpegThumbnail:buf, caption: `${botname}`}, { quoted: m }).catch((err) => m.reply('error'))
@@ -5206,7 +5206,7 @@ case 'ig2': case 'igdl2': case 'instagram2': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 instagramdlv3(`${text}`).then(async (data) => {
                 for (let f of data) {                    
                 ZimBotInc.sendMedia(m.chat, f.url, '', `Download Url Instagram From ${text}`, m)
@@ -5228,7 +5228,7 @@ case 'ig2': case 'igdl2': case 'instagram2': {
 
             kurangLimit(m.sender, 1)
 
-            m.reply(`*1 limit used*`)              
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)              
 
                 let urlnya = text
 
@@ -5238,7 +5238,7 @@ case 'ig2': case 'igdl2': case 'instagram2': {
 
 		        var halo = 0		
 
-	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM STORY 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Filetype :* ${result.medias[0].fileType}\n*⬤ Type :* ${result.medias[0].type}\n*⬤ Media :* ${result.medias.length}\n*⬤ Bio :* ${result.user.biography}\n\n*ZIM BOT INC*` }, { quoted: m })	             	                      	            
+	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM STORY 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Filetype :* ${result.medias[0].fileType}\n*⬤ Type :* ${result.medias[0].type}\n*⬤ Media :* ${result.medias.length}\n*⬤ Bio :* ${result.user.biography}\n\n*CGH-BOT•ING*` }, { quoted: m })	             	                      	            
 
 		        for(let i of result.medias) {
 
@@ -5270,7 +5270,7 @@ case 'igs2': case 'igstory2': case 'instagramstory2':{
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await fetchJson(`https://api.akuari.my.id/downloader/igStory?username=${text}`)        
                 for (let i of anu) {
                 tummb = await getBuffer(i.preview)         
@@ -5284,13 +5284,13 @@ case 'igs3': case 'igstory3': case 'instagramstory3': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let bicil = require('@bochilteam/scraper')
                 let urlnya = text
 	            bicil.instagramStoryv2(urlnya)
 	            .then(async(result) => {	  
 	            var halo = 1		
-	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTA DOWNLOADER 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Jumlah Media :* ${halo++}\n*⬤ Bio :* ${result.user.biography}\n\n*ZIM BOT INC*` }, { quoted: m })	             	                      	            
+	            ZimBotInc.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTA DOWNLOADER 」----*\n\n*⬤ Username :* ${result.user.username}\n*⬤ Fullname :* ${result.user.fullName}\n*⬤ Followers :* ${result.user.followers}\n*⬤ Following :* ${result.user.following}\n*⬤ ID :* ${result.user.id}\n*⬤ Jumlah Media :* ${halo++}\n*⬤ Bio :* ${result.user.biography}\n\n*CGH-BOT•ING*` }, { quoted: m })	             	                      	            
 		        for(let i of result.results) {		
 		        if(i.url.includes('mp4')){		           			    				
 				let link = await getBuffer(i.sourceUrl)
@@ -5310,7 +5310,7 @@ case 'igs3': case 'igstory3': case 'instagramstory3': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 instagramdlv3(`${text}`).then(async (data) => {            
                 var buf = await getBuffer(data[0].thumbnail)        
                 ZimBotInc.sendMessage(m.chat, { video: { url: data[0].url }, jpegThumbnail:buf, caption: `${botname}`}, { quoted: m })
@@ -5325,9 +5325,9 @@ case 'igs3': case 'igstory3': case 'instagramstory3': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let anu = await fetchJson(`https://api.lolhuman.xyz/api/jooxplay?apikey=${setting.lolkey}&query=${text}`)
-                let msg = `*▊▊▊JOOX DL▊▊▊*\n\n*Title :* ${anu.result.info.song}\n*Album :* ${anu.result.info.album}\n*Singer :* ${anu.result.info.song}\n*Publish :* ${anu.result.info.date}\n*Link :* ${anu.result.audio[0].link}\n\n*ZIM BOT INC*`
+                let msg = `*▊▊▊JOOX DL▊▊▊*\n\n*Title :* ${anu.result.info.song}\n*Album :* ${anu.result.info.album}\n*Singer :* ${anu.result.info.song}\n*Publish :* ${anu.result.info.date}\n*Link :* ${anu.result.audio[0].link}\n\n*CGH-BOT•ING*`
                 buf = await getBuffer(anu.result.image)
                 ZimBotInc.sendMessage(m.chat, { image: { url: anu.result.image }, jpegThumbnail:buf, caption: `${msg}` }, { quoted: m }).catch((err) => m.reply('*Sorry An error occurred*'))
                 ZimBotInc.sendMessage(m.chat, { audio: { url: anu.result.audio[0].link }, mimetype: 'audio/mpeg' }, { quoted: m }).catch((err) => m.reply('*Sorry An error occurred*'))
@@ -5339,7 +5339,7 @@ case 'igs3': case 'igstory3': case 'instagramstory3': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 xa.SoundCloud(`${text}`).then(async (data) => {
                     let txt = `*▊▊▊SOUNDCLOUD DL▊▊▊*\n\n`
                     txt += `*⬤Title :* ${data.title}\n`
@@ -5347,7 +5347,7 @@ case 'igs3': case 'igstory3': case 'instagramstory3': {
                     txt += `*⬤Type :* ${data.medias[0].extension}\n`
                     txt += `*⬤Size :* ${data.medias[0].formattedSize}\n`
                     txt += `*⬤Url Source :* ${data.url}\n\n`
-                    txt += `*ZIM BOT INC*`
+                    txt += `*CGH-BOT•ING*`
                 buf = await getBuffer(data.thumbnail)   
                 ZimBotInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m }).catch((err) => m.reply('link error'))    
                 ZimBotInc.sendMessage(m.chat, { audio: { url: data.medias[0].url }, mimetype: 'audio/mpeg', fileName: data.title+'.m4a' }, { quoted: m })
@@ -5370,7 +5370,7 @@ const result4 = `*▊▊▊MEDIAFIRE DL▊▊▊*
 *Link* : ${baby1[0].link}\n
 _whoa wait zimbot processing..._
 
-*ZIM BOT INC*`
+*CGH-BOT•ING*`
 m.reply(`${result4}`)
 ZimBotInc.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => m.reply('*Failed to download File*'))
 }
@@ -5420,7 +5420,7 @@ case 'savefrom': {
 
        text: `${data.meta.title} *Here is the list of videos, click the button below to choose, here is the list of videos, click the button below to choose*`,
 
-       footer: `©ZIM BOT INC 2022`,
+       footer: `©CGH-BOT•ING 2022`,
 
        title: "**▊▊▊SAVEFROM DL▊▊▊**",
 
@@ -5452,7 +5452,7 @@ case 'savefrom': {
 
             kurangLimit(m.sender, 1)
 
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 
                 let bicil = require('@bochilteam/scraper')
 
@@ -5481,12 +5481,12 @@ case 'savefrom': {
 			break
 case 'linkedin': {
 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-if (!text) throw 'Enter the link!\nExample : .linkedin https://www.linkedin.com/posts/franklintempletonindia_reachforbetter-activity-6575703402104348672-SBuX'
+if (!text) throw 'Enter the link!\nEjemplo : .linkedin https://www.linkedin.com/posts/franklintempletonindia_reachforbetter-activity-6575703402104348672-SBuX'
 if (!isUrl(args[0]) && !args[0].includes('https://www.linkedin.com')) throw '*The link you provided is not valid*'
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 anu = await fetchJson(`https://xteam.xyz/dl/linkedin?url=${text}&APIKEY=${setting.riy}`)
 ZimBotInc.sendMessage(m.chat, {video: await getBuffer(anu.result.resurl), mimetype: 'video/mp4'}, {quoted:m}).catch ((err) => m.reply('Failed to download File'))     
 }
@@ -5495,7 +5495,7 @@ case 'smule': {
 
 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
 
-if (!text) throw 'Enter the link!\nExample : .smule https://www.smule.com/p/1998769355_3504039030'
+if (!text) throw 'Enter the link!\nEjemplo : .smule https://www.smule.com/p/1998769355_3504039030'
 
 if (!isUrl(args[0]) && !args[0].includes('https://www.smule.com')) throw '*The link you provided is not valid*'
 
@@ -5505,7 +5505,7 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
 
             kurangLimit(m.sender, 1)
 
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 
 anu = await fetchJson(`https://xteam.xyz/dl/smule?url=${text}&APIKEY=${setting.riy}`)
 
@@ -5516,12 +5516,12 @@ ZimBotInc.sendMessage(m.chat, {video: await getBuffer(anu.result[0]), mimetype: 
 break
 case 'vimeo': {
 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-if (!text) throw 'Enter link Example : .vimeo https://vimeo.com/384611645'
+if (!text) throw 'Enter link Ejemplo : .vimeo https://vimeo.com/384611645'
 if (!isUrl(args[0]) && !args[0].includes('vimeo.com')) throw '*The link you provided is not valid*'
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 anu = await fetchJson(`https://xteam.xyz/dl/vimeo?url=${text}&APIKEY=${setting.riy}`)
 ZimBotInc.sendMessage(m.chat, {video: await getBuffer(anu.result.hd.url), mimetype: 'video/mp4'}, {quoted:m}).catch ((err) => m.reply('*Failed to download File*'))     
 }
@@ -5533,7 +5533,7 @@ if (!isUrl(args[0]) && !args[0].includes('zippyshare.com')) throw '*The link you
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 anu = await fetchJson(`https://violetics.pw/api/downloader/zippyshare?apikey=df7d-425a-3bc8&url=${text}`)
 m.reply(`*${util.format(anu)}*`)
 linkyke = await getBuffer(anu.result.dlink)
@@ -5547,7 +5547,7 @@ if (!isUrl(args[0]) && !args[0].includes('googledrive.com')) throw '*The link yo
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 anu = await fetchJson(`https://xteam.xyz/dl/drive?url=${text}&APIKEY=${setting.riy}`)
 m.reply(`${util.format(anu)}`)
 ZimBotInc.sendMessage(m.chat, {document: await getBuffer(anu.result.server2), mimetype: 'application/zip', fileName: `${anu.result.title}`}, {quoted:m}).catch ((err) => m.reply('*Failed to download File*'))     
@@ -5555,11 +5555,11 @@ ZimBotInc.sendMessage(m.chat, {document: await getBuffer(anu.result.server2), mi
 break
 case 'imagetopdf': {
 ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
- if (!/image/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
+ if (!/image/.test(mime)) throw `*Enviar/Responder imagen con título* ${prefix + command}`
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                 let medi = await ZimBotInc.downloadAndSaveMediaMessage(quoted)                
                 let anu = await TelegraPh(medi)            
@@ -5573,7 +5573,7 @@ case 'twitter': case 'td': case 'twitterdl': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 xa.Twitter(`${text}`).then(async (data) => {                    
                     let txt = `*▊▊▊TWITTER DL▊▊▊*\n\n`
                     txt += `*⬤TITLE :* ${data.title}\n`
@@ -5582,7 +5582,7 @@ case 'twitter': case 'td': case 'twitterdl': {
                     txt += `*⬤SIZE :* ${data.medias[1].formattedSize}\n`
                     txt += `*⬤DURATION :* ${data.medias.length}\n`
                     txt += `*⬤URL :* ${data.url}\n\n`
-                    txt += `*ZIM BOT INC*`
+                    txt += `*CGH-BOT•ING*`
                 buf = await getBuffer(data.thumbnail)    
                 ZimBotInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m })
                 for (let i of data.medias) {
@@ -5599,7 +5599,7 @@ case 'twitter2': case 'td2': case 'twitterdl2': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 xa.Twitter(`${text}`).then(async (data) => {
                 for (let x of data.medias) {
                     let txt = `*▊▊▊TWITTER DL▊▊▊*n\n`
@@ -5622,7 +5622,7 @@ case 'twittermp3': case 'twitteraudio': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 xa.Twitter(`${text}`).then(async (data) => {
                 ZimBotInc.sendMessage(m.chat, { audio: { url: data.medias[1].url }, mimetype: 'audio/mp4'}, { quoted: m })
                 }).catch((err) => {
@@ -5637,7 +5637,7 @@ case 'fbdl': case 'fb': case 'facebook': case 'pesbuk': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)         
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)         
             let bocil = require('@bochilteam/scraper')  
                 bocil.facebookdlv2(`${text}`).then(async (data) => {                   
 
@@ -5649,11 +5649,11 @@ case 'fbdl': case 'fb': case 'facebook': case 'pesbuk': {
 
                     txt += `*⬤DESCRIPTION :* ${data.description}\n`
 
-                    txt += `*⬤ID :* ZIM BOT INC\n`
+                    txt += `*⬤ID :* CGH-BOT•ING\n`
 
                     txt += `*⬤URL :* ${text}\n\n`
 
-                    txt += `*ZIM BOT INC*`                
+                    txt += `*CGH-BOT•ING*`                
 
                 buf = await getBuffer(data.thumbnail)    
 
@@ -5681,7 +5681,7 @@ case 'fbmp3': case 'facebookmp3': case 'facebookaudio': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
   let noh = require('@bochilteam/scraper')                
   noh.savefrom(`${text}`).then(async (anu) => {  
   ZimBotInc.sendMessage(m.chat, { audio: { url: anu.url[0].url }, mimetype: 'audio/mp4' }, { quoted: m })      
@@ -5697,7 +5697,7 @@ case 'fb6': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)            
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)            
                 xa.Facebook(`${text}`).then(async (data) => {                   
                     let txt = `*▊▊▊FB6 DOWNLOAD▊▊▊*\n\n`
                     txt += `*⬤TITLE :* ${data.title}\n`
@@ -5705,7 +5705,7 @@ case 'fb6': {
                     txt += `*:⬤TYPE* ${data.medias[1].extension}\n`
                     txt += `*⬤SIZE :* ${data.medias[1].formattedSize}\n`
                     txt += `*⬤URL :* ${data.url}\n\n`
-                    txt += `*ZIM BOT INC*`
+                    txt += `*CGH-BOT•ING*`
                 buf = await getBuffer(data.thumbnail)    
                 ZimBotInc.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m })              
                 ZimBotInc.sendMessage(m.chat, { video: { url: data.medias[1].url }, jpegThumbnail:buf, caption: `*⬤ Quality :* ${data.medias[1].quality}`}, { quoted: m })                
@@ -5737,7 +5737,7 @@ case 'fb6': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await fetchJson(`https://api.akuari.my.id/downloader/igdl?link=${text}`)        
                 tummb = await getBuffer(anu.medias[0].preview)         
                 ZimBotInc.sendMessage(m.chat, { video: { url: anu.medias[0].url }, jpegThumbnail:tummb, caption: `${util.format(anu)}`}, { quoted: m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
@@ -5750,7 +5750,7 @@ case 'fb6': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await fetchJson(`https://api-riychdwayne.herokuapp.com/api/downloader/facebook?url=${text}&apikey=${setting.riy}`)        
                 tummb = await getBuffer(anu.thumbnail)         
                 ZimBotInc.sendMessage(m.chat, { video: { url: anu.medias }, jpegThumbnail:tummb, caption: `*📽️ FACEBOOK DOWNLOADER*\n\n*Name* : ${anu.title}\n*Filesize* : ${anu.medias[1].formattedSize}\n*Quality* : ${anu.medias[1].quality}\n*Ext* : ${anu.medias[1].extension}\n`}, { quoted: m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
@@ -5763,7 +5763,7 @@ case 'fb2': case 'facebook2': {
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await fetchJson(`https://violetics.pw/api/downloader/facebook?apikey=${setting.violkey}&url=${text}`)
                 tummb = await getBuffer('https://telegra.ph/file/9789a09c964cee5597a05.jpg')    
                 ZimBotInc.sendMessage(m.chat, { video: { url: anu.result.url[0].url }, jpegThumbnail:tummb, caption: `*📽️ FACEBOOK DOWNLOADER*\n\n*Name* : ${anu.result.meta.title}\n*Quality* : ${anu.result.url[0].subname}\n*Ext* : ${anu.result.url[0].ext}\n`}, { quoted: m }).catch((err) => m.reply('*Sorry, the feature is in error*'))
@@ -5776,12 +5776,12 @@ case 'fb2': case 'facebook2': {
                if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
   let noh = require('./lib/lol.js')                
   noh.pin(`${text}`).then(async (data) => {    
   ZimBotInc.sendMessage(m.chat, { video: { url: data.data.url }, caption: `${data.data.file}` }, { quoted: m })  
                 }).catch((err) => {
-                    m.reply(`*${text}  ZIM BOT INC*`)
+                    m.reply(`*${text}  CGH-BOT•ING*`)
                 })
             }
             break
@@ -5790,7 +5790,7 @@ if (!args.join(" ")) return m.reply("Text?")
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 tes = await fetchJson (`https://megayaa.herokuapp.com/api/translate?to=en&kata=${args.join(" ")}`)
 Infoo = tes.info
 Detek = tes.translate
@@ -5800,12 +5800,12 @@ break
            case 'git': case 'gitclone':
            // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)                       
             let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
-            if (!args[0]) throw 'link github  EXAMPLE: https://github.com/zim-bot/zim-bot-md'
+            if (!args[0]) throw 'link github  Ejemplo: https://github.com/zim-bot/zim-bot-md'
     if (!regex1.test(args[0])) throw 'link!'
     if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
     let [, user, repo] = args[0].match(regex1) || []
     repo = repo.replace(/.git$/, '')
     let url = `https://api.github.com/repos/${user}/${repo}/zipball`
@@ -5816,11 +5816,11 @@ break
 			break    
             case 'umma': case 'ummadl': {
                // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-     	        if (!text) throw `Example : ${prefix + command} https://umma.id/channel/video/post/gus-arafat-sumber-kecewa-84464612933698`
+     	        if (!text) throw `Ejemplo : ${prefix + command} https://umma.id/channel/video/post/gus-arafat-sumber-kecewa-84464612933698`
      	        if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let { umma } = require('./lib/scraper2')
          		let anu = await umma(isUrl(text)[0])
         		if (anu.type == 'video') {
@@ -5855,7 +5855,7 @@ break
 
         case 'resepmasakan2': {
                 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-				if (!text) throw `Example : ${prefix + command} Nasi padang`
+				if (!text) throw `Ejemplo : ${prefix + command} Nasi padang`
 				    anu = await fetchJson(`https://bx-hunter.herokuapp.com/api/resepmakanan?query=${text}&apikey=${setting.HunterApi}`)
 					hasilresep = `❏ *${anu.results.title}*\n\n❏ Porsi : ${anu.results.servings}\n❏ Waktu : ${anu.results.times}\n❏ Kesulitan : ${anu.results.dificulty}\n❏ Pengguna : ${anu.results.author.user}\n❏ Tanggal Diterbitkan : ${anu.results.author.datePublished}\n❏ Deskripsi : ${anu.results.desc}\n\n━━━━━━━━━━━━━━━━━━━━\n❏ *Tutorial*\n\n❏ Bahan : ${anu.results.ingredient}\n❏ Langkah : ${anu.results.step}`										
 					ZimBotInc.sendImage(m.chat, anu.results.thumb, `${hasilresep}`, m).catch((err) => m.reply('*Sorry, the feature is in error*'))
@@ -5893,7 +5893,7 @@ case 'makanan': {
                  if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await fetchJson(`https://mnazria.herokuapp.com/api/resep-search?text=${text}`)       
                 buf = await getBuffer(anu.results[1].thumb)  
                 ZimBotInc.sendMessage(m.chat, { image: { url: anu.results[3].thumb }, jpegThumbnail:buf, caption: `${util.format(anu)}` }, { quoted: m }).catch((err) => m.reply('error'))
@@ -5902,7 +5902,7 @@ break
 
 case 'cariquotes': {
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-           if (!text) throw `Example : ${prefix + command} cinta`            
+           if (!text) throw `Ejemplo : ${prefix + command} cinta`            
             anu = await fetchJson(`https://api.akuari.my.id/search/quotes?query=${text}`)                       
             ini_txt = '*Cari Quotes*\n\n'
             for (let i of anu.result.data) {       
@@ -5936,7 +5936,7 @@ case 'apk': case 'apkmod': case 'apkdl': {
       m.chat, 
       {
        text: `${ucapannya2} ${pushname} *Search Results From ${text} Click the button below to choose*`,
-       footer: `© ZIM BOT INC`,
+       footer: `© CGH-BOT•ING`,
        title: "*▊▊▊APK DOWNLOAD▊▊▊*",
        buttonText: "CLICK HERE",
        sections
@@ -5958,7 +5958,7 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
            rex.ApkDown(`${text}`).then(async (anu) => {        
            if (anu[0].size.split('MB')[0] >= 150) return m.reply('*File Over Limit* '+util.format(anu))
            for (let i of anu) {    
-           linkye = `*▊▊▊APK DOWNLOAD▊▊▊*\n\n*TITLE:* ${i.title}\n*UPDATE:* ${i.up}\n*VERSION:* ${i.vers}\n*FILESIZE:* ${i.size}\n*URL:* \n*DESCRIPTION:* ${i.desc}\n\n*ZIM BOT INC*`         
+           linkye = `*▊▊▊APK DOWNLOAD▊▊▊*\n\n*TITLE:* ${i.title}\n*UPDATE:* ${i.up}\n*VERSION:* ${i.vers}\n*FILESIZE:* ${i.size}\n*URL:* \n*DESCRIPTION:* ${i.desc}\n\n*CGH-BOT•ING*`         
                 ZimBotInc.sendMessage(m.chat, { image: await getBuffer(i.thumb), jpegThumbnail: await getBuffer(i.thumb), caption: `${linkye}` }, { quoted: m })
                 ZimBotInc.sendMessage(m.chat, {document: await getBuffer(i.link), mimetype: `application/vnd.android.package-archive`, fileName: `${i.title}`}, {quoted:m})  
                 }  
@@ -5974,11 +5974,11 @@ ZimBotInc.sendMessage(m.chat, {text:`@${m.sender.split("@")[0]}`, contextInfo:{m
 break
         case 'wiki': case 'wikipedia': {
        // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} zim bot zimbot-v3`
+                if (!text) throw `Ejemplo : ${prefix + command} zim bot zimbot-v3`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await fetchJson(`https://api.lolhuman.xyz/api/wiki?apikey=${setting.lolkey}&query=${text}`)
                 m.reply(`*Wikipedia*\n\n${anu.result}`)
             }
@@ -6003,18 +6003,18 @@ break
 	    break
         case 'cuaca': {
                // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-				if (!text) throw `Example : ${prefix + command} Jawatimur`
+				if (!text) throw `Ejemplo : ${prefix + command} Jawatimur`
 				if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 					anu = await fetchJson(`https://api.lolhuman.xyz/api/cuaca/${text}?apikey=${setting.lolkey}`)
 					m.reply(`*Tempat* : ${anu.result.tempat}\n*Cuaca* : ${anu.result.cuaca}\n*Angin* ${anu.result.angin}\n*Kelembapan* : ${anu.result.kelembapan}\n*Suhu* ${anu.result.suhu}\n*Permukaan_Laut* : ${anu.result.permukaan_laut}\n*Latitude* : ${anu.result.latitude}\n*Longitude* : ${anu.result.longitude}`)
 					}
         break
         case 'ringtone': {
         //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-		if (!text) throw `Example : ${prefix + command} black rover`
+		if (!text) throw `Ejemplo : ${prefix + command} black rover`
         let { ringtone } = require('./lib/scraper3')
 		let anu = await ringtone(text)
 		let result = anu[Math.floor(Math.random() * anu.length)]
@@ -6023,7 +6023,7 @@ break
 	    break
 		case 'iqra': {
 		//if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-		oh = `Example : ${prefix + command} 3\n\nIQRA Yang tersedia : 1,2,3,4,5,6`
+		oh = `Ejemplo : ${prefix + command} 3\n\nIQRA Yang tersedia : 1,2,3,4,5,6`
 		if (!text) throw oh
 		yy = await getBuffer(`https://islamic-api-indonesia.herokuapp.com/api/data/pdf/iqra${text}`)
 		ZimBotInc.sendMessage(m.chat, {document: yy, mimetype: 'application/pdf', fileName: `iqra${text}.pdf`}, {quoted:m}).catch ((err) => m.reply(oh))
@@ -6044,7 +6044,7 @@ break
 		m.reply(mess.wait)
 		ZimBotInc.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.xlsx'}, mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', fileName: 'juz-amma-arab-latin-indonesia.xlsx'}, {quoted:m})
 		} else {
-		m.reply(`Mau format apa ? Example : ${prefix + command} pdf
+		m.reply(`Mau format apa ? Ejemplo : ${prefix + command} pdf
 
 Format yang tersedia : pdf, docx, pptx, xlsx`)
 		}
@@ -6073,7 +6073,7 @@ malik
 1 - 1594
 muslim
 1 - 5362`
-		if (!args[1]) throw `How many hadiths? \ N \ nexample:\n${prefix + command} muslim 1`
+		if (!args[1]) throw `How many hadiths? \ N \ nEjemplo:\n${prefix + command} muslim 1`
 		try {
 		let res = await fetchJson(`https://islamic-api-indonesia.herokuapp.com/api/data/json/hadith/${args[0]}`)
 		let { number, arab, id } = res.find(v => v.number == args[1])
@@ -6102,7 +6102,7 @@ break
 
 case 'alquran2': {
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-if (!text) throw `Which Surah Number You Want To Find\nExample : ${prefix + command} 18 or ${prefix + command} 18/10 or ${prefix + command} 18/1-10`
+if (!text) throw `Which Surah Number You Want To Find\nEjemplo : ${prefix + command} 18 or ${prefix + command} 18/10 or ${prefix + command} 18/1-10`
 urls = `https://api.lolhuman.xyz/api/quran/${text}?apikey=${setting.lolkey}`
 quran = await fetchJson(urls)
 result = quran.result
@@ -6124,7 +6124,7 @@ break
 
 case 'alquranaudio': {
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-if (!text) throw `Which Surah Number You Want To Find\nExample : ${prefix + command} 18 or ${prefix + command} 18/10`
+if (!text) throw `Which Surah Number You Want To Find\nEjemplo : ${prefix + command} 18 or ${prefix + command} 18/10`
 m.reply('Sabar Sedang Proses...')
 ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/quran/audio/${text}?apikey=${setting.lolkey}`)
 ZimBotInc.sendMessage(m.chat, { audio: ini_buffer, mimetype: 'audio/mpeg', fileName: `mp3` }, { quoted: m }).catch ((err) => m.reply('*error while sending the audio*'))
@@ -6161,7 +6161,7 @@ break
 
 case 'jadwalsholat': {
 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-if (!text) throw `Which City Name\nExample : ${prefix + command} Yogyakarta`
+if (!text) throw `Which City Name\nEjemplo : ${prefix + command} Yogyakarta`
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/sholat/${text}?apikey=${setting.lolkey}`)
 get_result = get_result.result
 txt_nya = `🌏 Wilayah : ${get_result.wilayah}\n`
@@ -6180,8 +6180,8 @@ m.reply(txt_nya)
 break
 		case 'alquran': {
 		//if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-		if (!args[0]) throw `Use Example:\n${prefix + command} 1 2\n\nmaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
-		if (!args[1]) throw `Use Example:\n${prefix + command} 1 2\n\nmaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
+		if (!args[0]) throw `Use Ejemplo:\n${prefix + command} 1 2\n\nmaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
+		if (!args[1]) throw `Use Ejemplo:\n${prefix + command} 1 2\n\nmaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
 		let res = await fetchJson(`https://islamic-api-indonesia.herokuapp.com/api/data/quran?surah=${args[0]}&ayat=${args[1]}`)
 		let txt = `*Arab* : ${res.result.data.text.arab}
 *English* : ${res.result.data.translation.en}
@@ -6194,8 +6194,8 @@ break
 		break
 		case 'tafsirsurah': {
 		//if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-		if (!args[0]) throw `Use Example:\n${prefix + command} 1 2\n\nmaka hasilnya adalah tafsir surah Al-Fatihah ayat 2`
-		if (!args[1]) throw `Use Example:\n${prefix + command} 1 2\n\nmaka hasilnya adalah tafsir surah Al-Fatihah ayat 2`
+		if (!args[0]) throw `Use Ejemplo:\n${prefix + command} 1 2\n\nmaka hasilnya adalah tafsir surah Al-Fatihah ayat 2`
+		if (!args[1]) throw `Use Ejemplo:\n${prefix + command} 1 2\n\nmaka hasilnya adalah tafsir surah Al-Fatihah ayat 2`
 		let res = await fetchJson(`https://islamic-api-indonesia.herokuapp.com/api/data/quran?surah=${args[0]}&ayat=${args[1]}`)
 		let txt = `「 *Tafsir Surah*  」
 
@@ -6215,7 +6215,7 @@ break
 		  if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 try {
                 let set
                 if (/bass/.test(command)) set = '-af equalizer=f=54:width_type=o:width=2:g=20'
@@ -6253,17 +6253,17 @@ break
                 }
 
                 break
-//BY ZIM BOT INC
+//BY CGH-BOT•ING
 
             case 'setcmd': {
            // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!m.quoted) throw 'Reply Message!'
+                if (!m.quoted) throw 'Responder Mensaje!'
                 if (!m.quoted.fileSha256) throw 'SHA256 Hash Missing'
                 if (!text) throw `*For What Commands?*`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let hash = m.quoted.fileSha256.toString('base64')
                 if (global.db.data.sticker[hash] && global.db.data.sticker[hash].locked) throw 'You have no permission to change this sticker command'
                 global.db.data.sticker[hash] = {
@@ -6296,7 +6296,7 @@ ${Object.entries(global.db.data.sticker).map(([key, value], index) => `${index +
             break
             case 'lockcmd': {            
                 if (!isCreator) throw mess.owner
-                if (!m.quoted) throw 'Reply Message!'
+                if (!m.quoted) throw 'Responder Mensaje!'
                 if (!m.quoted.fileSha256) throw 'SHA256 Hash Missing'
                 let hash = m.quoted.fileSha256.toString('base64')
                 if (!(hash in global.db.data.sticker)) throw 'Hash not found in database'
@@ -6306,12 +6306,12 @@ ${Object.entries(global.db.data.sticker).map(([key, value], index) => `${index +
             break
             case 'addmsg': {
              ////if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!m.quoted) throw 'Reply Message u want to save to Database'
-                if (!text) throw `Example : ${prefix + command} name file`
+                if (!m.quoted) throw 'Responder Mensaje u want to save to Database'
+                if (!text) throw `Ejemplo : ${prefix + command} name file`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let msgs = global.db.data.database
                 if (text.toLowerCase() in msgs) throw `'${text}' *has been registered in the message list*`
                 msgs[text.toLowerCase()] = quoted.fakeObj
@@ -6324,11 +6324,11 @@ Access with ${prefix}getmsg ${text}
             break
             case 'getmsg': {
           //  //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} file name\n\nView message list with ${prefix}listmsg`
+                if (!text) throw `Ejemplo : ${prefix + command} file name\n\nView message list with ${prefix}listmsg`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let msgs = global.db.data.database
                 if (!(text.toLowerCase() in msgs)) throw `'${text}' not registered in the message list`
                 ZimBotInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)
@@ -6353,11 +6353,11 @@ Access with ${prefix}getmsg ${text}
 		m.reply(`Successfully deleted'${text}' from the message list`)
             }
 	    break
-//BY ZIM BOT INC
+//BY CGH-BOT•ING
            
             case 'bitly': {
                 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} https://github.com`
+                if (!text) throw `Ejemplo : ${prefix + command} https://github.com`
                // if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
                 anu = await fetchJson(`https://xteam.xyz/shorturl/bitly?url=${text}&APIKEY=${setting.riy}`)
                 m.reply(`${anu.result.link}`)
@@ -6365,21 +6365,21 @@ Access with ${prefix}getmsg ${text}
             break
             case 'gg': {
                 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} https://github.com`
+                if (!text) throw `Ejemplo : ${prefix + command} https://github.com`
                 anu = await fetchJson(`https://xteam.xyz/shorturl/gg?url=${text}&nama=drips&APIKEY=${setting.riy}`)
                 m.reply(`${anu.result}`)
             }
             break
             case 'sid': {
                 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} https://github.com`
+                if (!text) throw `Ejemplo : ${prefix + command} https://github.com`
                 anu = await fetchJson(`https://xteam.xyz/shorturl/sid?url=${text}&nama=drips&APIKEY=${setting.riy}`)
                 m.reply(`${anu.result}`)
             }
             break
             case 'cuttly': {
                 //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
-                if (!text) throw `Example : ${prefix + command} https://github.com`
+                if (!text) throw `Ejemplo : ${prefix + command} https://github.com`
                 anu = await fetchJson(`https://xteam.xyz/shorturl/cuttly?url=${text}&nama=drips&APIKEY=${setting.riy}`)
                 m.reply(`${anu.result}`)
             }
@@ -6627,7 +6627,7 @@ ZimBotInc.sendMessage(m.chat, {image: {url: anu},viewOnce : true},{quoted: m })
         }
         break
         case 'searchgroups':
-        if (!q) return m.reply(`Example: ${prefix}searchgroups hacker`)
+        if (!q) return m.reply(`Ejemplo: ${prefix}searchgroups hacker`)
         mel.linkwa(q)
         .then(result => {
         let res = '❰ *WHATSAPP GROUP LINKS* ❱\n\n'
@@ -6637,7 +6637,7 @@ ZimBotInc.sendMessage(m.chat, {image: {url: anu},viewOnce : true},{quoted: m })
         m.reply(res)
         });
         break
-        case 'tes': case 'test': case 'alive': case 'bot': case 'robot': case 'zimbot': case 'drips':const _0x12fbc6=_0xa830;function _0x5a3e(){const _0x1d2e27=['\x0a┃┃\x0a┃🏮𝗣𝗟𝗔𝗧𝗙𝗢𝗥𝗠\x20:\x20','ownername','Message','\x0a▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋\x0a▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋\x0a\x20+\x202\x207\x206\x20\x203\x20\x204\x20\x200\x20\x209\x20\x200\x202\x20\x200\x20\x203\x0a\x20','botname','\x0a\x0a╭▬▬❪\x20*ZIM\x20BOT\x20INC*❫▬▬▬\x0a┃🏮\x20*LIBRARY:*\x20Baileys-md\x0a┃┃\x0a┃🏮𝗕𝗢𝗧𝗡𝗔𝗠𝗘:\x20','1195460RyNtVa','\x0a┃┃\x0a┃🏮𝗢𝗪𝗡𝗘𝗥𝗡𝗔𝗠𝗘:\x20','LIST','key','6523785MZSaHJ','ZIM\x20BOT\x20IS\x20ALIVE','5878536uJnrmT','\x0a⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯\x0a\x0a*ZIMBOT\x20V3\x20WELCOMES\x20YOU*\x20','imageMessage','OWNER','owner','waUploadToServer','467946xkzyQz','uptime','2369958VHTLog','377875gbZphs','platform','ping','listmenu','chat','184vBAXES','SPEED','https://github.com/zim-bot/zimbot-v3','\x0a┃┃\x0a┃🏮𝗡𝗨𝗠𝗕𝗘𝗥:\x20','SUBSCRIBE','3595404noXmcO','GITHUB','relayMessage'];_0x5a3e=function(){return _0x1d2e27;};return _0x5a3e();}(function(_0x2241bd,_0x3fade8){const _0x5e1c6a=_0xa830,_0x587e66=_0x2241bd();while(!![]){try{const _0x19d1c9=parseInt(_0x5e1c6a(0x1aa))/0x1+parseInt(_0x5e1c6a(0x1a9))/0x2+-parseInt(_0x5e1c6a(0x1a7))/0x3+parseInt(_0x5e1c6a(0x1b4))/0x4+parseInt(_0x5e1c6a(0x19f))/0x5+parseInt(_0x5e1c6a(0x1a1))/0x6+parseInt(_0x5e1c6a(0x1bd))/0x7*(-parseInt(_0x5e1c6a(0x1af))/0x8);if(_0x19d1c9===_0x3fade8)break;else _0x587e66['push'](_0x587e66['shift']());}catch(_0x5934cf){_0x587e66['push'](_0x587e66['shift']());}}}(_0x5a3e,0xa1b18));function _0xa830(_0x4b8bc2,_0x133f6d){const _0x5a3e80=_0x5a3e();return _0xa830=function(_0xa83019,_0x49a73f){_0xa83019=_0xa83019-0x19f;let _0x58eca5=_0x5a3e80[_0xa83019];return _0x58eca5;},_0xa830(_0x4b8bc2,_0x133f6d);}{anu=_0x12fbc6(0x1a2)+pushname+_0x12fbc6(0x1bc)+global[_0x12fbc6(0x1bb)]+_0x12fbc6(0x1be)+global[_0x12fbc6(0x1b8)]+_0x12fbc6(0x1b2)+global[_0x12fbc6(0x1a5)]+_0x12fbc6(0x1b7)+os[_0x12fbc6(0x1ab)]()+'\x0a▙▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a🏮\x20*UPTIME:*\x20'+runtime(process[_0x12fbc6(0x1a8)]())+_0x12fbc6(0x1ba),drips=await getBuffer(picak+_0x12fbc6(0x1a0));let message=await prepareWAMessageMedia({'image':drips,'jpegThumbnail':drips},{'upload':ZimBotInc[_0x12fbc6(0x1a6)]});const template=generateWAMessageFromContent(m[_0x12fbc6(0x1ae)],proto[_0x12fbc6(0x1b9)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message[_0x12fbc6(0x1a3)],'hydratedContentText':anu,'hydratedFooterText':''+global['botname'],'hydratedButtons':[{'urlButton':{'displayText':_0x12fbc6(0x1b3),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x12fbc6(0x1b5),'url':_0x12fbc6(0x1b1)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1b0),'id':_0x12fbc6(0x1ac)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1a4),'id':_0x12fbc6(0x1a5)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1bf),'id':_0x12fbc6(0x1ad)}}]}}}),{'userJid':m['chat'],'quoted':m});ZimBotInc[_0x12fbc6(0x1b6)](m[_0x12fbc6(0x1ae)],template['message'],{'messageId':template[_0x12fbc6(0x1c0)]['id']});}
+        case 'tes': case 'test': case 'alive': case 'bot': case 'robot': case 'zimbot': case 'drips':const _0x12fbc6=_0xa830;function _0x5a3e(){const _0x1d2e27=['\x0a┃┃\x0a┃🏮𝗣𝗟𝗔𝗧𝗙𝗢𝗥𝗠\x20:\x20','ownername','Message','\x0a▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋\x0a▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋▋\x0a\x20+\x202\x207\x206\x20\x203\x20\x204\x20\x200\x20\x209\x20\x200\x202\x20\x200\x20\x203\x0a\x20','botname','\x0a\x0a╭▬▬❪\x20*ZIM\x20BOT\x20INC*❫▬▬▬\x0a┃🏮\x20*LIBRARY:*\x20Baileys-md\x0a┃┃\x0a┃🏮𝗕𝗢𝗧𝗡𝗔𝗠𝗘:\x20','1195460RyNtVa','\x0a┃┃\x0a┃🏮𝗢𝗪𝗡𝗘𝗥𝗡𝗔𝗠𝗘:\x20','LIST','key','6523785MZSaHJ','ZIM\x20BOT\x20IS\x20ALIVE','5878536uJnrmT','\x0a⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯⧯\x0a\x0a*ZIMBOT\x20V3\x20WELCOMES\x20YOU*\x20','imageMessage','OWNER','owner','waUploadToServer','467946xkzyQz','uptime','2369958VHTLog','377875gbZphs','platform','ping','listmenu','chat','184vBAXES','SPEED','https://github.com/ChumoGH/ChumoGH-Script','\x0a┃┃\x0a┃🏮𝗡𝗨𝗠𝗕𝗘𝗥:\x20','SUBSCRIBE','3595404noXmcO','GITHUB','relayMessage'];_0x5a3e=function(){return _0x1d2e27;};return _0x5a3e();}(function(_0x2241bd,_0x3fade8){const _0x5e1c6a=_0xa830,_0x587e66=_0x2241bd();while(!![]){try{const _0x19d1c9=parseInt(_0x5e1c6a(0x1aa))/0x1+parseInt(_0x5e1c6a(0x1a9))/0x2+-parseInt(_0x5e1c6a(0x1a7))/0x3+parseInt(_0x5e1c6a(0x1b4))/0x4+parseInt(_0x5e1c6a(0x19f))/0x5+parseInt(_0x5e1c6a(0x1a1))/0x6+parseInt(_0x5e1c6a(0x1bd))/0x7*(-parseInt(_0x5e1c6a(0x1af))/0x8);if(_0x19d1c9===_0x3fade8)break;else _0x587e66['push'](_0x587e66['shift']());}catch(_0x5934cf){_0x587e66['push'](_0x587e66['shift']());}}}(_0x5a3e,0xa1b18));function _0xa830(_0x4b8bc2,_0x133f6d){const _0x5a3e80=_0x5a3e();return _0xa830=function(_0xa83019,_0x49a73f){_0xa83019=_0xa83019-0x19f;let _0x58eca5=_0x5a3e80[_0xa83019];return _0x58eca5;},_0xa830(_0x4b8bc2,_0x133f6d);}{anu=_0x12fbc6(0x1a2)+pushname+_0x12fbc6(0x1bc)+global[_0x12fbc6(0x1bb)]+_0x12fbc6(0x1be)+global[_0x12fbc6(0x1b8)]+_0x12fbc6(0x1b2)+global[_0x12fbc6(0x1a5)]+_0x12fbc6(0x1b7)+os[_0x12fbc6(0x1ab)]()+'\x0a▙▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a🏮\x20*UPTIME:*\x20'+runtime(process[_0x12fbc6(0x1a8)]())+_0x12fbc6(0x1ba),drips=await getBuffer(picak+_0x12fbc6(0x1a0));let message=await prepareWAMessageMedia({'image':drips,'jpegThumbnail':drips},{'upload':ZimBotInc[_0x12fbc6(0x1a6)]});const template=generateWAMessageFromContent(m[_0x12fbc6(0x1ae)],proto[_0x12fbc6(0x1b9)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message[_0x12fbc6(0x1a3)],'hydratedContentText':anu,'hydratedFooterText':''+global['botname'],'hydratedButtons':[{'urlButton':{'displayText':_0x12fbc6(0x1b3),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x12fbc6(0x1b5),'url':_0x12fbc6(0x1b1)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1b0),'id':_0x12fbc6(0x1ac)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1a4),'id':_0x12fbc6(0x1a5)}},{'quickReplyButton':{'displayText':_0x12fbc6(0x1bf),'id':_0x12fbc6(0x1ad)}}]}}}),{'userJid':m['chat'],'quoted':m});ZimBotInc[_0x12fbc6(0x1b6)](m[_0x12fbc6(0x1ae)],template['message'],{'messageId':template[_0x12fbc6(0x1c0)]['id']});}
         
         break
         
@@ -6674,7 +6674,7 @@ if (q.includes('--help')) return m.reply(examkosong)
        let Levele = level.getLevelingLevel(m.sender, _level)
               let Xp = level.getLevelingXp(m.sender, _level)
               let Xplu = 10 * Math.pow(Levele, 2) + 50 * Levele + 100         
-     var profile = `*▊▊▊USER PROFILE ▊▊▊*\n\n⬤ *USERNAME:* ${pushname}\n⬤ *PREMIUM*: \n⬤ *ADMIN*: \n\n=_=_=_=_=_=_=_=_=_=_=_=_=\n\n*YOUR PROGRESS:*\n⬤ *YOUR LEVEL*: ${Levele}\n⬤ *YOUR XP*: (${Xp} / ${Xplu})\n*⬤ YOUR BLOOD* : ${getDarah(m.sender)}\n⬤ *YOUR IRON:* ${getBesi(m.sender)}\n⬤ *YOUR EMAS:* ${getEmas(m.sender)}\n⬤ *YOUR EMERALD* : ${getEmerald(m.sender)}\n⬤ *YOUR POTION* : ${getPotion(m.sender)}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=\n\nHurry up:\n⬤ *YOUR FISH* : ${getIkan(m.sender)}\n⬤ *YOUR CHICKEN* : ${getAyam(m.sender)}\n⬤ *YOUR RABBIT* : ${getKelinci(m.sender)}\n⬤ *SHEEP* : ${getDomba(m.sender)}\n⬤ *YOUR COW* : ${getSapi(m.sender)}\n⬤ *YOUR ELEPHANTS* : ${getGajah(m.sender)}\n\n*ZIM BOT INC*`
+     var profile = `*▊▊▊USER PROFILE ▊▊▊*\n\n⬤ *USERNAME:* ${pushname}\n⬤ *PREMIUM*: \n⬤ *ADMIN*: \n\n=_=_=_=_=_=_=_=_=_=_=_=_=\n\n*YOUR PROGRESS:*\n⬤ *YOUR LEVEL*: ${Levele}\n⬤ *YOUR XP*: (${Xp} / ${Xplu})\n*⬤ YOUR BLOOD* : ${getDarah(m.sender)}\n⬤ *YOUR IRON:* ${getBesi(m.sender)}\n⬤ *YOUR EMAS:* ${getEmas(m.sender)}\n⬤ *YOUR EMERALD* : ${getEmerald(m.sender)}\n⬤ *YOUR POTION* : ${getPotion(m.sender)}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=\n\nHurry up:\n⬤ *YOUR FISH* : ${getIkan(m.sender)}\n⬤ *YOUR CHICKEN* : ${getAyam(m.sender)}\n⬤ *YOUR RABBIT* : ${getKelinci(m.sender)}\n⬤ *SHEEP* : ${getDomba(m.sender)}\n⬤ *YOUR COW* : ${getSapi(m.sender)}\n⬤ *YOUR ELEPHANTS* : ${getGajah(m.sender)}\n\n*CGH-BOT•ING*`
      ZimBotInc.sendMessage(m.chat, { image: { url: ppuser }, jpegThumbnail: await getBuffer(ppuser), caption: `${profile}` }, { quoted: m }).catch((err) => m.reply('link error'))    
   }
   break
@@ -6711,7 +6711,7 @@ m.reply('Succes')
             break
 
 case 'report': {
-if (!args.join(" ")) return m.reply(`Example : \n- ${prefix + command} feature ig error min\n- ${prefix + command} this user is spamming min`)
+if (!args.join(" ")) return m.reply(`Ejemplo : \n- ${prefix + command} feature ig error min\n- ${prefix + command} this user is spamming min`)
 teks = `*▊▊▊REPORT FEATURE▊▊▊*`
 teks1 = `\n\nNUMBER : @${m.sender.split("@")[0]}\n*REPORT :* ${args.join(" ")}`
 teks2 = `\n\nSucces send to owner`
@@ -6722,7 +6722,7 @@ ZimBotInc.sendMessage(m.chat, {text: teks + teks2 + teks1, mentions:[m.sender]},
 }
 break
 case 'request': {
-if (!args.join(" ")) return m.reply(`Example : ${prefix + command} min add a downloader feature`)
+if (!args.join(" ")) return m.reply(`Ejemplo : ${prefix + command} min add a downloader feature`)
 teks = `*▊▊▊REQUEST FEATURE▊▊▊*`
 teks1 = `\n\n*NUMBER :* @${m.sender.split("@")[0]}\n*REQUEST :* ${args.join(" ")}`
 teks2 = `\n\nSucces send to owner`
@@ -6736,11 +6736,11 @@ case 'domain': {
 
            // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)
 
-                if (!text) throw `Example : ${prefix + command} nurutomo`
+                if (!text) throw `Ejemplo : ${prefix + command} nurutomo`
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 anu = await fetchJson(`https://xteam.xyz/search/domainesia?q=${text}&APIKEY=${setting.riy}`)
 
                 m.reply(`${util.format(anu)}`)
@@ -6750,11 +6750,11 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             break
 //━━━━━━━━━━━━━━━━━━━━[ MENU MENU MENU ]━━━━━━━━━━━━━━━━━━━━
 case 'amino': {
-                if (!text) throw `what are you looking for!, example : ${prefix + command} naruto`
+                if (!text) throw `what are you looking for!, Ejemplo : ${prefix + command} naruto`
                 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
                 let anu = await fetchJson(`https://violetics.pw/api/search/amino?apikey=${setting.violkey}&query=${text}`)
                 m.reply(`${util.format(anu)}`)
                 }
@@ -6763,7 +6763,7 @@ case 'anime': {
 
             if (isBan) throw mess.ban 
 
-if (!text) return m.reply(`you are looking for what anime apa?\n\nEXAMPLE ${prefix}anime naruto`)
+if (!text) return m.reply(`you are looking for what anime apa?\n\nEjemplo ${prefix}anime naruto`)
 
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
 
@@ -6771,7 +6771,7 @@ if (!isInventoryLimit){ addInventoriLimit(m.sender) }
 
             kurangLimit(m.sender, 1)
 
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 
 anu = await fetchJson(`https://api.jikan.moe/v4/anime?q=${text}`)
 
@@ -6826,14 +6826,14 @@ case 'animee': {
 if (!isInventoryLimit){ addInventoriLimit(m.sender) }
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+            m.reply(`*Se aplico 1 Limite en esta peticion*`)
 res = await fetchJson(`https://api.jikan.moe/v4/anime/${q}`)
 let txt = `𝗔𝗻𝗶𝗺𝗲 𝗜𝗻𝗳𝗼\n\n*TITLE:* *${res.data.title}*\n*ENGLISH:* *${res.data.title_english}*\n*JAPANESE:* *${res.data.title_japanese}*\n*TYPE ANIME:* *${res.data.type}*\n*ADAPTER:* *${res.data.source}*\n*TOTAL EPISODE:* *${res.data.episodes}*\n*STATUS:* *${res.data.status}*\n*ONGOING:* *${res.data.airing ? 'Ya' : 'DRIS'}*\n*AIRED:* *${res.data.aired.string}*\n*DURATION:* *${res.data.duration}*\n*RATING:* *${res.data.rating}*\n*SCORE:* *${res.data.score}*\n*RANK:* *${res.data.rank}*\n*STUDIO:* *${res.data.studios[0].name}* `
 ZimBotInc.sendMessage(m.chat, { image : { url : res.data.images.jpg.image_url}, caption : txt}, {quoted :m }).catch((err) => m.reply('sorry error'))
 }
 break
 
-//by zim bot inc
+//by CGH-BOT•ING
 
 case 'listmenu': case 'list': {
     
@@ -6872,13 +6872,13 @@ case 'listmenu': case 'list': {
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯`,
        footer: ZimBotInc.user.name,
        title: `${ucapannya2} ${pushname}`,
@@ -6915,13 +6915,13 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
     
@@ -7477,17 +7477,17 @@ anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
 ┃⬤${prefix}ramaljodohbali
 ┗━━━━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
 let btn = [{
           urlButton: {
                   displayText: 'SUBSCRIBE',
-                  url: 'https://www.youtube.com/c/DRIPSOFC'
+                  url: 'https://www.youtube.com/@henrypablochumogarces8279'
           }
                             }, {
           urlButton: {
                   displayText: 'GITHUB',
-                  url: 'https://github.com/zim-bot/zimbot-v3'
+                  url: 'https://github.com/ChumoGH/ChumoGH-Script'
           }
                             }, {
           quickReplyButton: {
@@ -7517,12 +7517,12 @@ hydratedFooterText: `${global.botname}`,
 hydratedButtons: [{
 urlButton: {
 displayText: 'SUBSCRIBE',
-url: 'https://www.youtube.com/c/DRIPSOFC'
+url: 'https://www.youtube.com/@henrypablochumogarces8279'
 }
 }, {
 urlButton: {
 displayText: 'GITHUB',
-url: 'https://github.com/zim-bot/zimbot-v3'
+url: 'https://github.com/ChumoGH/ChumoGH-Script'
 }
 }, {
 quickReplyButton: {
@@ -7555,12 +7555,12 @@ hydratedFooterText: `${botname}`,
 hydratedButtons: [{
 urlButton: {
 displayText: 'SUBSCRIBE',
-url: 'https://www.youtube.com/c/DRIPSOFC'
+url: 'https://www.youtube.com/@henrypablochumogarces8279'
 }
 }, {
 urlButton: {
 displayText: 'GITHUB',
-url: 'https://github.com/zim-bot/zimbot-v3'
+url: 'https://github.com/ChumoGH/ChumoGH-Script'
 }
 }, {
 quickReplyButton: {
@@ -7593,12 +7593,12 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 hydratedButtons: [{
 urlButton: {
 displayText: 'SUBSCRIBE',
-url: 'https://www.youtube.com/c/DRIPSOFC'
+url: 'https://www.youtube.com/@henrypablochumogarces8279'
 }
 }, {
 urlButton: {
-displayText: 'GITHUB',
-url: 'https://github.com/zim-bot/zimbot-v3'
+displayText: 'KEYGEN',
+url: 'https://t.me/NewUltimate_bot'
 }
 }, {
 quickReplyButton: {
@@ -7657,22 +7657,22 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯`,
-       footer: `ZIM BOT INC`,
+       footer: `CGH-BOT•ING`,
        title: `*LIST MENU*`,
        jpegThumbnail: buffer,
        buttonText: "CLICK HERE",
        sections
       }, { quoted : m })
       } else if (setbot.templateDoc) {
-      const buttonsDefault = [{ urlButton: { displayText: `SUBSCRIBE`, url : `https://www.youtube.com/c/DRIPSOFC` } }, { urlButton: { displayText: `GITHUB`, url : `https://github.com/zim-bot/zimbot-v3` } },
+      const buttonsDefault = [{ urlButton: { displayText: `SUBSCRIBE`, url : `https://www.youtube.com/@henrypablochumogarces8279` } }, { urlButton: { displayText: `GITHUB`, url : `https://github.com/ChumoGH/ChumoGH-Script` } },
    {					
 					quickReplyButton: {
 						displayText: 'SPEED',
@@ -7697,7 +7697,7 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 	document:fs.readFileSync('./lib/tes.xlsx'), 
 	mimetype: drips,
 	jpegThumbnail: buffer,
-	fileName: `ZIM BOT V4`,
+	fileName: `CGH-BOT•ING V1`,
 	fileLength: 99999999999999,
 	templateButtons: buttonsDefault,footer: `${botname}`, quoted: m })
       }
@@ -7713,12 +7713,12 @@ ZimBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 //hydratedButtons: [{
 //urlButton: {
 //displayText: 'SUBSCRIBE',
-//url: 'https://www.youtube.com/c/DRIPSOFC'
+//url: 'https://www.youtube.com/@henrypablochumogarces8279'
 //}
 //}, {
 //urlButton: {
 //displayText: 'GITHUB',
-//url: 'https://github.com/zim-bot/zimbot-v3'
+//url: 'https://github.com/ChumoGH/ChumoGH-Script'
 //}
 //}, {
 //quickReplyButton: {
@@ -7764,18 +7764,19 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
 ┏━❰ *MAIN MENU* ❱
 ┃⬤${prefix}ping
+┃⬤${prefix}keygen
 ┃⬤${prefix}listpc
 ┃⬤${prefix}listgc
 ┃⬤${prefix}owner
@@ -7788,11 +7789,53 @@ let hao = randomNomor(200)
 ┃⬤${prefix}menu
 ┗━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-const _0x5c8923=_0x3878;(function(_0x4cbfbe,_0xacef25){const _0x8ea93=_0x3878,_0xf7c2ca=_0x4cbfbe();while(!![]){try{const _0x36f3fe=-parseInt(_0x8ea93(0x187))/0x1+parseInt(_0x8ea93(0x186))/0x2+-parseInt(_0x8ea93(0x193))/0x3+-parseInt(_0x8ea93(0x191))/0x4*(-parseInt(_0x8ea93(0x18e))/0x5)+parseInt(_0x8ea93(0x18a))/0x6+parseInt(_0x8ea93(0x190))/0x7*(-parseInt(_0x8ea93(0x18b))/0x8)+parseInt(_0x8ea93(0x189))/0x9*(-parseInt(_0x8ea93(0x192))/0xa);if(_0x36f3fe===_0xacef25)break;else _0xf7c2ca['push'](_0xf7c2ca['shift']());}catch(_0x414c20){_0xf7c2ca['push'](_0xf7c2ca['shift']());}}}(_0x123b,0x2f5d7));function _0x123b(){const _0x2f0f04=['fromObject','Message','key','727336srpvwq','384852AXndYJ','GITHUB','2250gziVnA','1729008psFOlG','16LNJOyb','SUBSCRIBE','imageMessage','10KCnDsr','chat','177163ETUuAR','532052VAkVia','9250iOSaTj','171405WytGWt','message'];_0x123b=function(){return _0x2f0f04;};return _0x123b();}let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc['waUploadToServer']});const template=generateWAMessageFromContent(m[_0x5c8923(0x18f)],proto[_0x5c8923(0x184)][_0x5c8923(0x183)]({'templateMessage':{'hydratedTemplate':{'imageMessage':message[_0x5c8923(0x18d)],'hydratedContentText':anu,'hydratedFooterText':''+global['botname'],'hydratedButtons':[{'urlButton':{'displayText':_0x5c8923(0x18c),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x5c8923(0x188),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x5c8923(0x18f)]});function _0x3878(_0x2496c4,_0xe8d08e){const _0x123b1e=_0x123b();return _0x3878=function(_0x387861,_0x2d31c4){_0x387861=_0x387861-0x183;let _0x8acd87=_0x123b1e[_0x387861];return _0x8acd87;},_0x3878(_0x2496c4,_0xe8d08e);}ZimBotInc['relayMessage'](m[_0x5c8923(0x18f)],template[_0x5c8923(0x194)],{'messageId':template[_0x5c8923(0x185)]['id']});
+const _0x5c8923=_0x3878;(function(_0x4cbfbe,_0xacef25){const _0x8ea93=_0x3878,_0xf7c2ca=_0x4cbfbe();while(!![]){try{const _0x36f3fe=-parseInt(_0x8ea93(0x187))/0x1+parseInt(_0x8ea93(0x186))/0x2+-parseInt(_0x8ea93(0x193))/0x3+-parseInt(_0x8ea93(0x191))/0x4*(-parseInt(_0x8ea93(0x18e))/0x5)+parseInt(_0x8ea93(0x18a))/0x6+parseInt(_0x8ea93(0x190))/0x7*(-parseInt(_0x8ea93(0x18b))/0x8)+parseInt(_0x8ea93(0x189))/0x9*(-parseInt(_0x8ea93(0x192))/0xa);if(_0x36f3fe===_0xacef25)break;else _0xf7c2ca['push'](_0xf7c2ca['shift']());}catch(_0x414c20){_0xf7c2ca['push'](_0xf7c2ca['shift']());}}}(_0x123b,0x2f5d7));function _0x123b(){const _0x2f0f04=['fromObject','Message','key','727336srpvwq','384852AXndYJ','GITHUB','2250gziVnA','1729008psFOlG','16LNJOyb','SUBSCRIBE','imageMessage','10KCnDsr','chat','177163ETUuAR','532052VAkVia','9250iOSaTj','171405WytGWt','message'];_0x123b=function(){return _0x2f0f04;};return _0x123b();}let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc['waUploadToServer']});const template=generateWAMessageFromContent(m[_0x5c8923(0x18f)],proto[_0x5c8923(0x184)][_0x5c8923(0x183)]({'templateMessage':{'hydratedTemplate':{'imageMessage':message[_0x5c8923(0x18d)],'hydratedContentText':anu,'hydratedFooterText':''+global['botname'],'hydratedButtons':[{'urlButton':{'displayText':_0x5c8923(0x18c),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x5c8923(0x188),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x5c8923(0x18f)]});function _0x3878(_0x2496c4,_0xe8d08e){const _0x123b1e=_0x123b();return _0x3878=function(_0x387861,_0x2d31c4){_0x387861=_0x387861-0x183;let _0x8acd87=_0x123b1e[_0x387861];return _0x8acd87;},_0x3878(_0x2496c4,_0xe8d08e);}ZimBotInc['relayMessage'](m[_0x5c8923(0x18f)],template[_0x5c8923(0x194)],{'messageId':template[_0x5c8923(0x185)]['id']});
                 }
             break
+
+case 'keymenu': {
+    ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
+                buffer = await getBuffer(picak+'KEY MENU')
+                let Levele2 = level.getLevelingLevel(m.sender, _level)
+let Xp1 = level.getLevelingXp(m.sender, _level)
+let Xp2 = randomNomor(2000)       
+let hao = randomNomor(200)  
+
+                anu = `*✧ᴜᴘᴛɪᴍᴇ: ${runtime(process.uptime())}*
+╭━━━━━━━━━━━━━━━━━━╮
+┃         ${global.botname}
+┃━━━━━━━━━━━━━━━━━━┃
+┃
+┃ *${ucapannya2}*, *${pushname}*
+┃
+┃ *✧ʟɪᴍɪᴛ: ${getLimit(m.sender)}*
+┃ *✧ʀᴏʟᴇ: ${role}*
+┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
+┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
+┃ 
+┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
+┃festyy.com/eff4il
+┃
+┃━━━━━━━━━━━━━━━━━━┃
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
+╰━━━━━━━━━━━━━━━━━━╯
+
+     
+┏━❰ *MAIN MENU* ❱
+┃.${prefix}ping
+┃.${prefix}keygen
+┃.${prefix}menu
+┗━━━━━━━━━━⦿
+
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
+`
+const _0x5c8923=_0x3878;(function(_0x4cbfbe,_0xacef25){const _0x8ea93=_0x3878,_0xf7c2ca=_0x4cbfbe();while(!![]){try{const _0x36f3fe=-parseInt(_0x8ea93(0x187))/0x1+parseInt(_0x8ea93(0x186))/0x2+-parseInt(_0x8ea93(0x193))/0x3+-parseInt(_0x8ea93(0x191))/0x4*(-parseInt(_0x8ea93(0x18e))/0x5)+parseInt(_0x8ea93(0x18a))/0x6+parseInt(_0x8ea93(0x190))/0x7*(-parseInt(_0x8ea93(0x18b))/0x8)+parseInt(_0x8ea93(0x189))/0x9*(-parseInt(_0x8ea93(0x192))/0xa);if(_0x36f3fe===_0xacef25)break;else _0xf7c2ca['push'](_0xf7c2ca['shift']());}catch(_0x414c20){_0xf7c2ca['push'](_0xf7c2ca['shift']());}}}(_0x123b,0x2f5d7));function _0x123b(){const _0x2f0f04=['fromObject','Message','key','727336srpvwq','384852AXndYJ','GITHUB','2250gziVnA','1729008psFOlG','16LNJOyb','SUBSCRIBE','imageMessage','10KCnDsr','chat','177163ETUuAR','532052VAkVia','9250iOSaTj','171405WytGWt','message'];_0x123b=function(){return _0x2f0f04;};return _0x123b();}let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc['waUploadToServer']});const template=generateWAMessageFromContent(m[_0x5c8923(0x18f)],proto[_0x5c8923(0x184)][_0x5c8923(0x183)]({'templateMessage':{'hydratedTemplate':{'imageMessage':message[_0x5c8923(0x18d)],'hydratedContentText':anu,'hydratedFooterText':''+global['botname'],'hydratedButtons':[{'urlButton':{'displayText':_0x5c8923(0x18c),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x5c8923(0x188),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x5c8923(0x18f)]});function _0x3878(_0x2496c4,_0xe8d08e){const _0x123b1e=_0x123b();return _0x3878=function(_0x387861,_0x2d31c4){_0x387861=_0x387861-0x183;let _0x8acd87=_0x123b1e[_0x387861];return _0x8acd87;},_0x3878(_0x2496c4,_0xe8d08e);}ZimBotInc['relayMessage'](m[_0x5c8923(0x18f)],template[_0x5c8923(0x194)],{'messageId':template[_0x5c8923(0x185)]['id']});
+                }
+            break
+
 case 'nsfwmenu': {
     ZimBotInc.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: m.key }})
                 buffer = await getBuffer(picak+'HORNY MENU')
@@ -7812,13 +7855,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -7845,9 +7888,9 @@ let hao = randomNomor(200)
 ┃⬤ ${prefix}ahegao
 ┗━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x3217(_0x37715e,_0x2f6592){const _0xa94637=_0xa946();return _0x3217=function(_0x32173c,_0x1faa3c){_0x32173c=_0x32173c-0x123;let _0x3b0d30=_0xa94637[_0x32173c];return _0x3b0d30;},_0x3217(_0x37715e,_0x2f6592);}const _0x3ea3f4=_0x3217;(function(_0x329815,_0x3187af){const _0x1742ff=_0x3217,_0x11de18=_0x329815();while(!![]){try{const _0x2af702=parseInt(_0x1742ff(0x12e))/0x1*(-parseInt(_0x1742ff(0x133))/0x2)+-parseInt(_0x1742ff(0x132))/0x3*(parseInt(_0x1742ff(0x138))/0x4)+-parseInt(_0x1742ff(0x134))/0x5*(parseInt(_0x1742ff(0x127))/0x6)+parseInt(_0x1742ff(0x12f))/0x7*(parseInt(_0x1742ff(0x136))/0x8)+-parseInt(_0x1742ff(0x128))/0x9+-parseInt(_0x1742ff(0x129))/0xa+-parseInt(_0x1742ff(0x12b))/0xb*(-parseInt(_0x1742ff(0x131))/0xc);if(_0x2af702===_0x3187af)break;else _0x11de18['push'](_0x11de18['shift']());}catch(_0x573d7e){_0x11de18['push'](_0x11de18['shift']());}}}(_0xa946,0x26ed7));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x3ea3f4(0x130)]});function _0xa946(){const _0x2a0735=['imageMessage','127KwzpDy','7qrwpSX','waUploadToServer','12123564BOwpfZ','784317yPMltC','4158aFgTZO','97980uRbCpG','relayMessage','424624qYNVeq','https://www.youtube.com/c/DRIPSOFC','4SXNURK','chat','SUBSCRIBE','key','Message','84npVzAw','485649YpjWQW','501510MVGWCT','botname','11WGaHFz','https://github.com/zim-bot/zimbot-v3'];_0xa946=function(){return _0x2a0735;};return _0xa946();}const template=generateWAMessageFromContent(m[_0x3ea3f4(0x123)],proto[_0x3ea3f4(0x126)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message[_0x3ea3f4(0x12d)],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x3ea3f4(0x12a)],'hydratedButtons':[{'urlButton':{'displayText':_0x3ea3f4(0x124),'url':_0x3ea3f4(0x137)}},{'urlButton':{'displayText':'GITHUB','url':_0x3ea3f4(0x12c)}}]}}}),{'userJid':m['chat']});ZimBotInc[_0x3ea3f4(0x135)](m['chat'],template['message'],{'messageId':template[_0x3ea3f4(0x125)]['id']});
+function _0x3217(_0x37715e,_0x2f6592){const _0xa94637=_0xa946();return _0x3217=function(_0x32173c,_0x1faa3c){_0x32173c=_0x32173c-0x123;let _0x3b0d30=_0xa94637[_0x32173c];return _0x3b0d30;},_0x3217(_0x37715e,_0x2f6592);}const _0x3ea3f4=_0x3217;(function(_0x329815,_0x3187af){const _0x1742ff=_0x3217,_0x11de18=_0x329815();while(!![]){try{const _0x2af702=parseInt(_0x1742ff(0x12e))/0x1*(-parseInt(_0x1742ff(0x133))/0x2)+-parseInt(_0x1742ff(0x132))/0x3*(parseInt(_0x1742ff(0x138))/0x4)+-parseInt(_0x1742ff(0x134))/0x5*(parseInt(_0x1742ff(0x127))/0x6)+parseInt(_0x1742ff(0x12f))/0x7*(parseInt(_0x1742ff(0x136))/0x8)+-parseInt(_0x1742ff(0x128))/0x9+-parseInt(_0x1742ff(0x129))/0xa+-parseInt(_0x1742ff(0x12b))/0xb*(-parseInt(_0x1742ff(0x131))/0xc);if(_0x2af702===_0x3187af)break;else _0x11de18['push'](_0x11de18['shift']());}catch(_0x573d7e){_0x11de18['push'](_0x11de18['shift']());}}}(_0xa946,0x26ed7));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x3ea3f4(0x130)]});function _0xa946(){const _0x2a0735=['imageMessage','127KwzpDy','7qrwpSX','waUploadToServer','12123564BOwpfZ','784317yPMltC','4158aFgTZO','97980uRbCpG','relayMessage','424624qYNVeq','https://www.youtube.com/@henrypablochumogarces8279','4SXNURK','chat','SUBSCRIBE','key','Message','84npVzAw','485649YpjWQW','501510MVGWCT','botname','11WGaHFz','https://github.com/ChumoGH/ChumoGH-Script'];_0xa946=function(){return _0x2a0735;};return _0xa946();}const template=generateWAMessageFromContent(m[_0x3ea3f4(0x123)],proto[_0x3ea3f4(0x126)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message[_0x3ea3f4(0x12d)],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x3ea3f4(0x12a)],'hydratedButtons':[{'urlButton':{'displayText':_0x3ea3f4(0x124),'url':_0x3ea3f4(0x137)}},{'urlButton':{'displayText':'GITHUB','url':_0x3ea3f4(0x12c)}}]}}}),{'userJid':m['chat']});ZimBotInc[_0x3ea3f4(0x135)](m['chat'],template['message'],{'messageId':template[_0x3ea3f4(0x125)]['id']});
                 }
                 break
                 case 'expmenu': {
@@ -7869,13 +7912,13 @@ function _0x3217(_0x37715e,_0x2f6592){const _0xa94637=_0xa946();return _0x3217=f
                 ┃ *✧ʀᴏʟᴇ: ${role}*
                 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
                 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-                ┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+                ┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
                 ┃ 
                 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-                ┃https://tinyurl.com/2bghgjfx
+                ┃festyy.com/eff4il
                 ┃
                 ┃━━━━━━━━━━━━━━━━━━┃
-                ┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+                ┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
                 ╰━━━━━━━━━━━━━━━━━━╯
                 
                      
@@ -7891,9 +7934,9 @@ function _0x3217(_0x37715e,_0x2f6592){const _0xa94637=_0xa946();return _0x3217=f
                 ┃⬤${prefix}leaderboard
                 ┗━━━━━━━━━━⦿
                 
-                ©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+                ©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
                 `
-                function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+                function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
           }
             break
 case 'groupmenu': case 'grupmenu': {
@@ -7914,13 +7957,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -7963,9 +8006,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}ephemeral
 ┗━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -7987,13 +8030,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8042,9 +8085,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}instagramreal
 ┗━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8066,13 +8109,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8111,9 +8154,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}twitterstalk
 ┗━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8135,13 +8178,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8188,9 +8231,9 @@ let hao = randomNomor(200)
 ┃ ${prefix}quotesanime
 ┗━━━━
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8212,13 +8255,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8294,9 +8337,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}summerysand
 ┗━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8318,13 +8361,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8343,9 +8386,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}sky-text
 ┗━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8367,13 +8410,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8388,9 +8431,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}water-effect
 ┗━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8412,13 +8455,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8436,9 +8479,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}goodgirlserti
 ┗━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8460,13 +8503,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8487,9 +8530,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}triggeredwebp
 ┗━━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8511,13 +8554,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8540,9 +8583,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}tebak
 ┗━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8564,13 +8607,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8607,9 +8650,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}ramaljodohbali
 ┗━━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8631,13 +8674,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8667,9 +8710,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}imagetopdf 
 ┗━━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8691,13 +8734,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8712,9 +8755,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}lockcmd 
 ┗━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8736,13 +8779,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8788,9 +8831,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}constrastbandw  
 ┗━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8814,13 +8857,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8832,9 +8875,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}anonymous
 ┗━━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -8856,13 +8899,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8879,9 +8922,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}alquranaudio
 ┗━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 case 'voicemenu': {
@@ -8902,13 +8945,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8926,7 +8969,7 @@ let hao = randomNomor(200)
 ┃⬤${prefix}nightcore 
 ┗━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
 let message = await prepareWAMessageMedia({ image: buffer, jpegThumbnail:buffer }, { upload: ZimBotInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
@@ -8938,12 +8981,12 @@ hydratedFooterText: `${global.botname}`,
 hydratedButtons: [{        
     "urlButton": {
       "displayText": "SUBSCRIBE",
-      "url": "https://www.youtube.com/c/DRIPSOFC"
+      "url": "https://www.youtube.com/@henrypablochumogarces8279"
     }
 }, {
 urlButton: {
     displayText: 'GITHUB',
-    url: 'https://github.com/zim-bot/zimbot-v3'
+    url: 'https://github.com/ChumoGH/ChumoGH-Script'
 }
 }
 ]
@@ -8972,13 +9015,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -8998,9 +9041,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}magernulis6
 ┗━━━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 case 'internetmenu': {
@@ -9021,13 +9064,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -9051,9 +9094,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}resepmasakan
 ┗━━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -9075,13 +9118,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -9090,9 +9133,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}tinyurl
 ┗━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
@@ -9114,13 +9157,13 @@ let hao = randomNomor(200)
 ┃ *✧ʀᴏʟᴇ: ${role}*
 ┃ *✧ʟᴇᴠᴇʟ:* ${Levele2} 
 ┃ *✧ᴄᴀʟᴇɴᴅᴀʀ:* *${thisDay}*, *${day}* 
-┃ *✧ᴛɪᴍᴇ:* *${moment.tz('Africa/Harare').format('HH:mm:ss')}*
+┃ *✧ᴛɪᴍᴇ:* *${moment.tz('America/Guayaquil').format('HH:mm:ss')}*
 ┃ 
 ┃      ↣𝐘𝐨𝐮𝐭𝐮𝐛𝐞↢ 
-┃https://tinyurl.com/2bghgjfx
+┃festyy.com/eff4il
 ┃
 ┃━━━━━━━━━━━━━━━━━━┃
-┃                  ᴢɪᴍʙᴏᴛɪɴᴄ
+┃                  𝙲𝚑𝚞𝚖𝚘𝙶𝙷•𝙱𝙾𝚃
 ╰━━━━━━━━━━━━━━━━━━╯
 
      
@@ -9147,9 +9190,9 @@ let hao = randomNomor(200)
 ┃⬤${prefix}setppbot
 ┗━━━━━━━━━━⦿
 
-©️𝗭𝗜𝗠 𝗕𝗢𝗧 𝗜𝗡𝗖
+©️ᴄɢʜ-ʙᴏᴛ•ɪɴɢ
 `
-function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/c/DRIPSOFC'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/zim-bot/zimbot-v3'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
+function _0x186b(){const _0x16c1b5=['135080AGrzDU','Message','GITHUB','10mzHMwO','chat','21bZsKRC','552424zUneQH','1429756BqfDSd','key','240mbdKBv','relayMessage','844052JLGZth','146104dkkfWS','1857480tcaVPE','595awiboR','16150698mclKJV','botname','waUploadToServer','SUBSCRIBE'];_0x186b=function(){return _0x16c1b5;};return _0x186b();}const _0x36f452=_0x131e;(function(_0x25c54b,_0x526416){const _0x54eaa5=_0x131e,_0x24b40d=_0x25c54b();while(!![]){try{const _0x437851=-parseInt(_0x54eaa5(0x193))/0x1+-parseInt(_0x54eaa5(0x1a0))/0x2+parseInt(_0x54eaa5(0x19e))/0x3*(-parseInt(_0x54eaa5(0x19f))/0x4)+parseInt(_0x54eaa5(0x199))/0x5*(parseInt(_0x54eaa5(0x1a2))/0x6)+-parseInt(_0x54eaa5(0x194))/0x7*(-parseInt(_0x54eaa5(0x1a5))/0x8)+parseInt(_0x54eaa5(0x195))/0x9*(parseInt(_0x54eaa5(0x19c))/0xa)+parseInt(_0x54eaa5(0x1a4))/0xb;if(_0x437851===_0x526416)break;else _0x24b40d['push'](_0x24b40d['shift']());}catch(_0x459222){_0x24b40d['push'](_0x24b40d['shift']());}}}(_0x186b,0xeba1d));let message=await prepareWAMessageMedia({'image':buffer,'jpegThumbnail':buffer},{'upload':ZimBotInc[_0x36f452(0x197)]});const template=generateWAMessageFromContent(m['chat'],proto[_0x36f452(0x19a)]['fromObject']({'templateMessage':{'hydratedTemplate':{'imageMessage':message['imageMessage'],'hydratedContentText':anu,'hydratedFooterText':''+global[_0x36f452(0x196)],'hydratedButtons':[{'urlButton':{'displayText':_0x36f452(0x198),'url':'https://www.youtube.com/@henrypablochumogarces8279'}},{'urlButton':{'displayText':_0x36f452(0x19b),'url':'https://github.com/ChumoGH/ChumoGH-Script'}}]}}}),{'userJid':m[_0x36f452(0x19d)]});function _0x131e(_0xb57061,_0x1d708f){const _0x186b37=_0x186b();return _0x131e=function(_0x131e55,_0x4245fa){_0x131e55=_0x131e55-0x193;let _0x47b1da=_0x186b37[_0x131e55];return _0x47b1da;},_0x131e(_0xb57061,_0x1d708f);}ZimBotInc[_0x36f452(0x1a3)](m[_0x36f452(0x19d)],template['message'],{'messageId':template[_0x36f452(0x1a1)]['id']});
                 }
             break
 
